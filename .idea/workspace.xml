@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Class Player layout">
+      <change afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/BoardCell.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/BoardCellType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/GoalCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/ItemTile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/ObjectCardType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/PersonalGoalCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/ShelfCell.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/ShelfCellType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,8 +59,18 @@
       <workItem from="1678803801068" duration="24000" />
       <workItem from="1679563807266" duration="41000" />
       <workItem from="1679563859808" duration="7000" />
-      <workItem from="1679752768661" duration="1559000" />
+      <workItem from="1679752768661" duration="3763000" />
+      <workItem from="1679756574646" duration="55000" />
+      <workItem from="1679760410042" duration="920000" />
     </task>
+    <task id="LOCAL-00001" summary="Class Player layout">
+      <created>1679754417366</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1679754417366</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -73,5 +89,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Class Player layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="Class Player layout" />
   </component>
 </project>
