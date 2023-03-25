@@ -1,0 +1,250 @@
+Index: MyShelfie/src/main/java/it/polimi/ingsw/Game.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package it.polimi.ingsw;\r\n\r\npublic class Game{\r\n    private boolean lastLap = false;\r\n\r\n    private int activePlayer;\r\n\r\n    public Game(List<String> nicknames){\r\n\r\n    }\r\n\r\n    public void chooseFirstPlayer(){\r\n\r\n    }\r\n\r\n    public Player getPlayerByNickname(String nickname){\r\n\r\n    }\r\n\r\n    public boolean isNameTaken(String nickname){\r\n\r\n    }\r\n\r\n    public void selectNextPlayer(){\r\n\r\n    }\r\n\r\n    public int refillBoardFromBag(){\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/MyShelfie/src/main/java/it/polimi/ingsw/Game.java b/MyShelfie/src/main/java/it/polimi/ingsw/Game.java
+--- a/MyShelfie/src/main/java/it/polimi/ingsw/Game.java	(revision 0edf6ac64dcccec2aa139095b80569e0bace4672)
++++ b/MyShelfie/src/main/java/it/polimi/ingsw/Game.java	(date 1679763363266)
+@@ -6,7 +6,27 @@
+     private int activePlayer;
+ 
+     public Game(List<String> nicknames){
++        this.nicknames = nicknames;
++    }
++
++    //return true if this lap is the last one
++    public boolean isLastLap() {
++        return lastLap;
++    }
+ 
++    //set lastLap true if this lap is the last
++    public void setLastLap(boolean lastLap) {
++        this.lastLap = lastLap;
++    }
++
++    //return the number of the player who is active in this turn
++    public int getActivePlayer() {
++        return activePlayer;
++    }
++
++    //set who is the active player in this turn
++    public void setActivePlayer(int activePlayer) {
++        this.activePlayer = activePlayer;
+     }
+ 
+     public void chooseFirstPlayer(){
+Index: MyShelfie/src/main/java/it/polimi/ingsw/ScoringToken.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package it.polimi.ingsw;\r\n\r\npublic class ScoringToken{\r\n\r\n    private int score;\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/MyShelfie/src/main/java/it/polimi/ingsw/ScoringToken.java b/MyShelfie/src/main/java/it/polimi/ingsw/ScoringToken.java
+--- a/MyShelfie/src/main/java/it/polimi/ingsw/ScoringToken.java	(revision 0edf6ac64dcccec2aa139095b80569e0bace4672)
++++ b/MyShelfie/src/main/java/it/polimi/ingsw/ScoringToken.java	(date 1679764299436)
+@@ -3,4 +3,14 @@
+ public class ScoringToken{
+ 
+     private int score;
++
++    //return the score
++    public int getScore() {
++        return score;
++    }
++
++    //set the score
++    public void setScore(int score) {
++        this.score = score;
++    }
+ }
+Index: MyShelfie/src/main/java/it/polimi/ingsw/CommonGoalCard.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package it.polimi.ingsw;\r\n\r\npublic enum CommonGoalCard implements GoalCard{\r\n\r\n    SIX_COUPLES(true);\r\n\r\n    FOUR_CORNERS(true);\r\n\r\n    FOUR_LINES_FOUR(true);\r\n\r\n    TWO_SQUARES(true);\r\n\r\n    THREE_COLUMNS(true);\r\n\r\n    EIGHT_EQUALS(true);\r\n\r\n    DIAGONAL_FIVE(true);\r\n\r\n    FOUR_ROWS(true);\r\n\r\n    TWO_COLUMNS(true);\r\n\r\n    TWO_ROWS(true);\r\n\r\n    CROSS(true);\r\n\r\n    TRIANGLE(true);\r\n\r\n    private boolean available;\r\n\r\n    public CommonGoalCard(boolean available, int numPlayers){\r\n\r\n        this.available = available;\r\n    }\r\n\r\n    public int checkPattern(Shelf shelf){\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/MyShelfie/src/main/java/it/polimi/ingsw/CommonGoalCard.java b/MyShelfie/src/main/java/it/polimi/ingsw/CommonGoalCard.java
+--- a/MyShelfie/src/main/java/it/polimi/ingsw/CommonGoalCard.java	(revision 0edf6ac64dcccec2aa139095b80569e0bace4672)
++++ b/MyShelfie/src/main/java/it/polimi/ingsw/CommonGoalCard.java	(date 1679763654666)
+@@ -29,7 +29,17 @@
+     private boolean available;
+ 
+     public CommonGoalCard(boolean available, int numPlayers){
+-
++        this.available = available;
++        this.numPlayers = numPlayers;
++    }
++
++    //return true if the commonGoalCard is available
++    public boolean isAvailable() {
++        return available;
++    }
++
++    //set true if the commonGoalCard is available
++    public void setAvailable(boolean available) {
+         this.available = available;
+     }
+ 
+Index: MyShelfie/src/main/java/it/polimi/ingsw/Board.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package it.polimi.ingsw;\r\n\r\npublic class Board{\r\n\r\n    private BoardCell boardContent[9][9];\r\n\r\n    private int cardsOnBoard;\r\n\r\n    public Board(int numPlayer)(){\r\n\r\n    }\r\n\r\n    public void refillBoard(List<ObjectCard> cards){\r\n\r\n    }\r\n\r\n    public List<ObjectCard> pickUpCards(List<Position> postitions){\r\n\r\n    }\r\n\r\n    public boolean fillingRequired(){\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/MyShelfie/src/main/java/it/polimi/ingsw/Board.java b/MyShelfie/src/main/java/it/polimi/ingsw/Board.java
+--- a/MyShelfie/src/main/java/it/polimi/ingsw/Board.java	(revision 0edf6ac64dcccec2aa139095b80569e0bace4672)
++++ b/MyShelfie/src/main/java/it/polimi/ingsw/Board.java	(date 1679764299436)
+@@ -7,7 +7,28 @@
+     private int cardsOnBoard;
+ 
+     public Board(int numPlayer)(){
++        this.boardContent = boardContent;
++        this.cardsOnBoard = cardsOnBoard;
++    }
++
++    //return the BoardCell content
++    public BoardCell[] getBoardContent() {
++        return boardContent;
++    }
+ 
++    //set the BoardCell content
++    public void setBoardContent(BoardCell[] boardContent) {
++        this.boardContent = boardContent;
++    }
++
++    //return the number of cards on the board
++    public int getCardsOnBoard() {
++        return cardsOnBoard;
++    }
++
++    //set the number of cards on the board
++    public void setCardsOnBoard(int cardsOnBoard) {
++        this.cardsOnBoard = cardsOnBoard;
+     }
+ 
+     public void refillBoard(List<ObjectCard> cards){
+Index: MyShelfie/src/main/java/it/polimi/ingsw/Shelf.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package it.polimi.ingsw;\r\n\r\npublic class Shelf{\r\n\r\n    private ShelfCell shelfContent[6][5];\r\n\r\n    public Shelf(){\r\n\r\n    }\r\n\r\n    public void clearShelf(){\r\n\r\n    }\r\n\r\n    public void insertCards(List<ObjectCard> cards, int columns){\r\n\r\n    }\r\n\r\n    public boolean isFull(){\r\n\r\n    }\r\n\r\n    public int freeCellsOnColumn(int column){\r\n\r\n    }\r\n\r\n    public int pointsFromAdjacency(){\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/MyShelfie/src/main/java/it/polimi/ingsw/Shelf.java b/MyShelfie/src/main/java/it/polimi/ingsw/Shelf.java
+--- a/MyShelfie/src/main/java/it/polimi/ingsw/Shelf.java	(revision 0edf6ac64dcccec2aa139095b80569e0bace4672)
++++ b/MyShelfie/src/main/java/it/polimi/ingsw/Shelf.java	(date 1679764299452)
+@@ -5,7 +5,17 @@
+     private ShelfCell shelfContent[6][5];
+ 
+     public Shelf(){
++        this.shelfContent = shelfContent;
++    }
+ 
++    //return the ShelfCell content
++    public ShelfCell[] getShelfContent() {
++        return shelfContent;
++    }
++
++    //set the ShelfCell content
++    public void setShelfContent(ShelfCell[] shelfContent) {
++        this.shelfContent = shelfContent;
+     }
+ 
+     public void clearShelf(){
+Index: MyShelfie/src/main/java/it/polimi/ingsw/Position.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package it.polimi.ingsw;\r\n\r\npublic class Position{\r\n\r\n    private int x;\r\n\r\n    private int y;\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/MyShelfie/src/main/java/it/polimi/ingsw/Position.java b/MyShelfie/src/main/java/it/polimi/ingsw/Position.java
+--- a/MyShelfie/src/main/java/it/polimi/ingsw/Position.java	(revision 0edf6ac64dcccec2aa139095b80569e0bace4672)
++++ b/MyShelfie/src/main/java/it/polimi/ingsw/Position.java	(date 1679764299467)
+@@ -5,4 +5,20 @@
+     private int x;
+ 
+     private int y;
++
++    public int getX() {
++        return x;
++    }
++
++    public int getY() {
++        return y;
++    }
++
++    public void setX(int x) {
++        this.x = x;
++    }
++
++    public void setY(int y) {
++        this.y = y;
++    }
+ }
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"44ab7de7-5728-4d99-b73e-3b9c99b09f47\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Bag.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Board.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/CommonGoalCard.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Game.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Position.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/ScoringToken.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Shelf.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2N0WsRka8BZgmuN1S8dHjOlp7HD\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"44ab7de7-5728-4d99-b73e-3b9c99b09f47\" name=\"Changes\" comment=\"\" />\r\n      <created>1678801685477</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1678801685477</updated>\r\n      <workItem from=\"1678801686713\" duration=\"506000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 0edf6ac64dcccec2aa139095b80569e0bace4672)
++++ b/.idea/workspace.xml	(date 1679764300025)
+@@ -4,16 +4,15 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Bag.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Board.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/CommonGoalCard.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Game.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Position.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/ScoringToken.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Shelf.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Second project layout">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Bag.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Board.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/CommonGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/CommonGoalCard.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Game.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Position.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/ScoringToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/ScoringToken.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Shelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Shelf.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -54,6 +53,14 @@
+       <updated>1678801685477</updated>
+       <workItem from="1678801686713" duration="506000" />
+     </task>
++    <task id="LOCAL-00001" summary="Second project layout">
++      <created>1679761718004</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1679761718004</updated>
++    </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -72,5 +79,7 @@
+   </component>
+   <component name="VcsManagerConfiguration">
+     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
++    <MESSAGE value="Second project layout" />
++    <option name="LAST_COMMIT_MESSAGE" value="Second project layout" />
+   </component>
+ </project>
+\ No newline at end of file
