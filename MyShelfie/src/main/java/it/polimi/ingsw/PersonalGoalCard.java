@@ -25,11 +25,22 @@ public enum PersonalGoalCard implements GoalCard{
     PERSONAL_11(true),
 
     PERSONAL_12(true),
+    ;
 
     private boolean available;
 
     public PersonalGoalCard(boolean available){
 
+        this.available = available;
+    }
+
+    //return true if the personalGoalCard is true
+    public boolean isAvailable() {
+        return available;
+    }
+
+    //set true if personalCommonCard is available
+    public void setAvailable(boolean available) {
         this.available = available;
     }
 
