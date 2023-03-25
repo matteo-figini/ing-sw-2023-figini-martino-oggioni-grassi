@@ -5,7 +5,15 @@ public class Shelf{
     private ShelfCell shelfContent[6][5];
 
     public Shelf(){
+        this.shelfContent = shelfContent;
+    }
 
+    public void setShelfContent(ShelfCell[] shelfContent) {
+        this.shelfContent = shelfContent;
+    }
+
+    public ShelfCell[] getShelfContent() {
+        return shelfContent;
     }
 
     public void clearShelf(){

@@ -29,7 +29,14 @@ public enum CommonGoalCard implements GoalCard{
     private boolean available;
 
     public CommonGoalCard(boolean available, int numPlayers){
+        this.available = available;
+    }
 
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
         this.available = available;
     }
 

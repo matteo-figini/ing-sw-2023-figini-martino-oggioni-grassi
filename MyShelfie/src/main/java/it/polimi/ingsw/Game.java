@@ -6,7 +6,24 @@ public class Game{
     private int activePlayer;
 
     public Game(List<String> nicknames){
+        this.activePlayer = activePlayer;
+        this.lastLap = lastLap;
+    }
 
+    public int getActivePlayer() {
+        return activePlayer;
+    }
+
+    public void setActivePlayer(int activePlayer) {
+        this.activePlayer = activePlayer;
+    }
+
+    public boolean isLastLap() {
+        return lastLap;
+    }
+
+    public void setLastLap(boolean lastLap) {
+        this.lastLap = lastLap;
     }
 
     public void chooseFirstPlayer(){
