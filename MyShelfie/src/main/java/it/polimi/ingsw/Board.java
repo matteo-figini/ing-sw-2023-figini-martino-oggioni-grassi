@@ -7,10 +7,10 @@ public class Board{
     private Game game;
     private BoardCell boardCell;
 
-    private int cardsOnBoard;
+    private int freeCellOnBoard;
 
     public Board(int numPlayer, Game game, BoardCell boardCell){
-        this.cardsOnBoard = cardsOnBoard;
+        this.freeCellOnBoard = freeCellOnBoard;
         this.boardContent = boardContent;
         this.game = game;
         this.boardCell = boardCell;

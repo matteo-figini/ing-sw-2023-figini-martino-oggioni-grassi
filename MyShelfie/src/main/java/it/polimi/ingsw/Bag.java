@@ -3,6 +3,7 @@ package it.polimi.ingsw;
 public class Bag{
 
     private Game game;
+    private List<ItemTile> itemTileList = new ArrayList<>();
     public Bag(Game game){
         this.game = game;
     }

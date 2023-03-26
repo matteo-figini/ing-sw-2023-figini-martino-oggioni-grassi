@@ -44,4 +44,8 @@ public class Shelf{
     public int pointsFromAdjacency(){
 
     }
+
+    public List<ObjectCard> rearrangeCards(List<ObjectCard> unordered){
+
+    }
 }

@@ -19,6 +19,7 @@ public class Player{
 
     private boolean hasEndGameToken = false;
 
+    private List<Position> positionList = new ArrayList();
 
     public Player(String nickname, Shelf shelf, Game game, PersonalGoalCard personalGoalCard){
 
@@ -38,11 +39,8 @@ public class Player{
         return firstPlayer;
     }
 
-    /**
-     *
-     * @param firstPlayer
-     */
-    public void setFirstPlayer(boolean firstPlayer) {
+
+    public void setFirstPlayer(boolean firstPlayer) throws simonex{
         this.firstPlayer = firstPlayer;
     }
 
@@ -88,9 +86,8 @@ public class Player{
 
     public List<Position> chooseCards(){
 
+        return positionList;
     }
 
-    public List<ObjectCard> rearrangeCards(List<ObjectCard> unordered){
 
-    }
 }

@@ -2,29 +2,29 @@ package it.polimi.ingsw;
 
 public enum CommonGoalCard implements GoalCard{
 
-    SIX_COUPLES(true);
+    SIX_COUPLES(true),
 
-    FOUR_CORNERS(true);
+    FOUR_CORNERS(true),
 
-    FOUR_LINES_FOUR(true);
+    FOUR_LINES_FOUR(true),
 
-    TWO_SQUARES(true);
+    TWO_SQUARES(true),
 
-    THREE_COLUMNS(true);
+    THREE_COLUMNS(true),
 
-    EIGHT_EQUALS(true);
+    EIGHT_EQUALS(true),
 
-    DIAGONAL_FIVE(true);
+    DIAGONAL_FIVE(true),
 
-    FOUR_ROWS(true);
+    FOUR_ROWS(true),
 
-    TWO_COLUMNS(true);
+    TWO_COLUMNS(true),
 
-    TWO_ROWS(true);
+    TWO_ROWS(true),
 
-    CROSS(true);
+    CROSS(true),
 
-    TRIANGLE(true);
+    TRIANGLE(true),
 
     private boolean available;
     private Game game;
