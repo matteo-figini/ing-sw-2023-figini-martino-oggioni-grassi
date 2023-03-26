@@ -3,8 +3,12 @@ package it.polimi.ingsw;
 public class Shelf{
 
     private ShelfCell shelfContent[6][5];
+    private Player player;
+    private ShelfCell shelfCell;
 
-    public Shelf(){
+    public Shelf(Player player, ShelfCell shelfCell){
+        this.player = player;
+        this.shelfCell = shelfCell;
         this.shelfContent = shelfContent;
     }
 
@@ -20,6 +24,11 @@ public class Shelf{
 
     }
 
+    /**
+     *
+     * @param cards
+     * @param columns
+     */
     public void insertCards(List<ObjectCard> cards, int columns){
 
     }

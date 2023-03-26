@@ -28,9 +28,11 @@ public enum PersonalGoalCard implements GoalCard{
     ;
 
     private boolean available;
+    private Player player;
 
-    public PersonalGoalCard(boolean available){
+    public PersonalGoalCard(boolean available, Player player){
 
+        this.player = player;
         this.available = available;
     }
 

@@ -27,8 +27,12 @@ public enum CommonGoalCard implements GoalCard{
     TRIANGLE(true);
 
     private boolean available;
+    private Game game;
+    private ScoringToken scoringToken;
 
-    public CommonGoalCard(boolean available, int numPlayers){
+    public CommonGoalCard(boolean available, int numPlayers, Game game, ScoringToken scoringToken){
+        this.game = game;
+        this.scoringToken = scoringToken;
         this.available = available;
     }
 

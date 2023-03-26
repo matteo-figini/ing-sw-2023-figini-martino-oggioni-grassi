@@ -3,6 +3,10 @@ package it.polimi.ingsw;
 
 public class Player{
 
+    private Shelf shelf;
+    private Game game;
+    private PersonalGoalCard personalGoalCard;
+
     private String nickname;
 
     private int score = 0;
@@ -16,7 +20,7 @@ public class Player{
     private boolean hasEndGameToken = false;
 
 
-    public Player(String nickname){
+    public Player(String nickname, Shelf shelf, Game game, PersonalGoalCard personalGoalCard){
 
         this.nickname=nickname;
         this.score=score;
@@ -24,6 +28,9 @@ public class Player{
         this.firstCommonGoalReached=firstCommonGoalReached;
         this.secondCommonGoalReached=secondCommonGoalReached;
         this.hasEndGameToken=hasEndGameToken;
+        this.shelf=shelf;
+        this.game=game;
+        this.personalGoalCard=personalGoalCard;
 
     }
 
@@ -31,6 +38,10 @@ public class Player{
         return firstPlayer;
     }
 
+    /**
+     *
+     * @param firstPlayer
+     */
     public void setFirstPlayer(boolean firstPlayer) {
         this.firstPlayer = firstPlayer;
     }
