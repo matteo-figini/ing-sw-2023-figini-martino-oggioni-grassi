@@ -5,7 +5,6 @@ public class Board{
     private BoardCell boardContent[9][9];
 
     private Game game;
-    private BoardCell boardCell;
 
     private int freeCellOnBoard;
 
@@ -16,20 +15,21 @@ public class Board{
         this.boardCell = boardCell;
     }
 
-    public int getCardsOnBoard() {
-        return cardsOnBoard;
+    public int getFreeCellOnBoard() {
+        return freeCellOnBoard;
     }
 
-    public void setCardsOnBoard(int cardsOnBoard) {
-        this.cardsOnBoard = cardsOnBoard;
+    public void setFreeCellOnBoard(int freeCellOnBoard) {
+        this.freeCellOnBoard = freeCellOnBoard;
     }
 
-    public void setBoardContent(BoardCell[] boardContent) {
-        this.boardContent = boardContent;
+    public void setBoardContent(BoardCell[] boardContent, int i, int j, ItemTile color) {
+        boardContent[i][j].objectCard = color;
+        boardContent[i][j].setType(BoardCellType.BUSY);
     }
 
-    public BoardCell[] getBoardContent() {
-        return boardContent;
+    public BoardCell[] getBoardContent(int i, int j) {
+        return boardContent[i][j];
     }
 
     public void refillBoard(List<ObjectCard> cards){
