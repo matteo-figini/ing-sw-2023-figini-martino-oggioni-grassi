@@ -30,10 +30,36 @@ public enum CommonGoalCard implements GoalCard{
     private Game game;
     private ScoringToken scoringToken;
 
+    private Stack scoreCards;
+
     public CommonGoalCard(boolean available, int numPlayers, Game game, ScoringToken scoringToken){
         this.game = game;
         this.scoringToken = scoringToken;
         this.available = available;
+        scoreCards = new Stack(numPlayers);
+        scoreCards2 = new Stack(numPlayers);
+        if (numPlayers == 2){
+            scoreCards.push(4);
+            scoreCards.push(8);
+            scoreCards2.push(4);
+            scoreCards2.push(8);
+        } else if (numPlayers == 3) {
+            scoreCards.push(4);
+            scoreCards.push(6);
+            scoreCards.push(8);
+            scoreCards2.push(4);
+            scoreCards2.push(6);
+            scoreCards2.push(8);
+        } else if (numPlayers == 4) {
+            scoreCards.push(2);
+            scoreCards.push(4);
+            scoreCards.push(6);
+            scoreCards.push(8);
+            scoreCards2.push(2);
+            scoreCards2.push(4);
+            scoreCards2.push(6);
+            scoreCards2.push(8);
+        }
     }
 
     public boolean isAvailable() {
