@@ -1,46 +1,50 @@
 package it.polimi.ingsw;
 
+import java.util.List;
+
 public class Board{
+    private BoardCell[][] boardContent;
+    private int freeCellsOnBoard;
 
-    private BoardCell boardContent[9][9];
-
-    private Game game;
-
-    private int freeCellOnBoard;
-
-    public Board(int numPlayer, Game game, BoardCell boardCell){
-        this.freeCellOnBoard = freeCellOnBoard;
-        this.boardContent = boardContent;
-        this.game = game;
-        this.boardCell = boardCell;
+    /**
+     * Completare.
+     * @param numPlayer
+     */
+    public Board (int numPlayer){
+        boardContent = new BoardCell[9][9];
+        // TODO: decidere come impostare il layout della board partendo dal numero di giocatori.
     }
 
-    public int getFreeCellOnBoard() {
-        return freeCellOnBoard;
+    /**
+     * Returns the number of the free cells on board.
+     * It can be useful when a refill is mandatory, to know how many cards put in.
+     * @return the number of the free cells on board.
+     */
+    public int getFreeCellsOnBoard() {
+        return freeCellsOnBoard;
     }
 
-    public void setFreeCellOnBoard(int freeCellOnBoard) {
-        this.freeCellOnBoard = freeCellOnBoard;
+    public BoardCell[][] getBoardContent() {
+        // TODO: restituire NON il riferimento alla matrice, ma una copia di essa.
     }
 
-    public void setBoardContent(BoardCell[] boardContent, int i, int j, ItemTile color) {
-        boardContent[i][j].objectCard = color;
-        boardContent[i][j].setType(BoardCellType.BUSY);
+    public void refillBoard (List<ItemTile> cards){
+        // TODO: decidere se spostare l'implementazione qui o in Game.
     }
 
-    public BoardCell[] getBoardContent(int i, int j) {
-        return boardContent[i][j];
-    }
-
-    //useless (?)
-    public void refillBoard(List<ObjectCard> cards){
-
-    }
-
-    public List<ObjectCard> pickUpCards(List<Position> postitions){
+    /**
+     * It returns the list of the item tile in the positions specified by the parameter.
+     * @param positions Positions in the board where to take the cards.
+     * @return Cards picked up from the board.
+     */
+    public List<ItemTile> pickUpCards(List<Position> positions){
 
     }
 
+    /**
+     * Checks if a complete filling is required.
+     * @return a boolean indicating if filling is required.
+     */
     public boolean fillingRequired(){
 
     }

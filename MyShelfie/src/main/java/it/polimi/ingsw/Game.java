@@ -79,7 +79,7 @@ public class Game{
      */
     public int refillBoardFromBag(){
         bag.shuffle();
-        int x = board.getFreeCellOnBoard();
+        int x = board.getFreeCellsOnBoard();
         int y = bag.availableCards();
         int n = Math.min(x,y);
         for(int i = 0; i<n; i++){

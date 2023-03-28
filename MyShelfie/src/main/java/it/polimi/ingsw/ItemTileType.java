@@ -1,6 +1,6 @@
 package it.polimi.ingsw;
 
-public enum ObjectCardType {
+public enum ItemTileType {
 
     GREEN,
 

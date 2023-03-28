@@ -1,9 +1,9 @@
 package it.polimi.ingsw;
 
 public class ItemTile{
-    private ObjectCardType color;
+    private ItemTileType color;
 
-    public ItemTile(ObjectCardType color){
+    public ItemTile(ItemTileType color){
         this.color = color;
     }
 
@@ -11,7 +11,7 @@ public class ItemTile{
         return color;
     }
 
-    public void setObjectCardType(ObjectCardType color) {
+    public void setObjectCardType(ItemTileType color) {
         this.color = color;
     }
 }

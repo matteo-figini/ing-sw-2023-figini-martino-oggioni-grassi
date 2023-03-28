@@ -1,62 +1,50 @@
 package it.polimi.ingsw;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-public class Shelf{
+/**
+ * This class represents the shelf of any player.
+ */
+public class Shelf {
+    private ShelfCell[][] shelfContent;
+    private final int rows, columns;
 
-    private ShelfCell[6][5] shelfContent;
-    private Player player;
-    private ShelfCell shelfCell;
-
-    public Shelf(Player player, ShelfCell shelfCell){
-        this.player = player;
-        this.shelfCell = shelfCell;
-        this.shelfContent = shelfContent;
+    /**
+     * Initializes the matrix representing the shelf.
+     */
+    public Shelf (){
+        this.rows = 6;
+        this.columns = 5;
+        this.shelfContent = new ShelfCell[rows][columns];
     }
 
-    public Map<ObjectCardType, Integer> colorCount(){
-        Map<ObjectCardType, Integer> colorCounts = new HashMap<>();
-
-        for (int i = 0; i < 6; i++){
-            for(int j = 0; j < 5; j++){
-                ShelfCell currentCell = shelfContent[i][j];
-                if(currentCell.getStatus() == ShelfCellType.BUSY){
-                    ObjectCardType color = currentCell.getColor();
-                    if (colorCounts.containsKey(color)){
-                        colorCounts.put(color, colorCounts.get(value) + 1);
-                    } else {
-                        int value = 1;
-                        colorCounts.put(color, value);
-                    }
-                }
-            }
-        }
-        return colorCounts;
+    /**
+     *
+     * @return
+     */
+    public ShelfCell[][] getShelfContent() {
+        // TODO: ritornare una copia della matrice, non il riferimento.
     }
 
-    public void setShelfContent(ShelfCell[] shelfContent) {
-        this.shelfContent = shelfContent;
-    }
-
-    public ShelfCell[] getShelfContent() {
-        return shelfContent;
-    }
-
-    public void clearShelf(){
-        for(int i = 0; i < 6; i++){
-            for (int j = 0; j < 5; j++){
-                shelfContent[i][j].setColor(null);
-                shelfContent[i][j].setStatus(FREE);
+    /**
+     * Clear the shelf.
+     */
+    public void clearShelf() {
+        for (int i = 0; i < rows; i++){
+            for (int j = 0; j < columns; j++){
+                shelfContent[i][j] = null;
+                shelfContent[i][j].setStatus(ShelfCellType.FREE);
             }
         }
     }
 
     /**
-     *
+     * Inserts the cards in the list inside the specified column.
      * @param cards
      * @param columns
      */
-    public void insertCards(List<ObjectCard> cards, int columns){
+    public void insertCards(List<ItemTile> cards, int columns){
 
     }
 
@@ -65,11 +53,11 @@ public class Shelf{
      *
      * @return
      */
-    public boolean isFull(){
-        private boolean result = true;
-        for(int i = 0; i < 6 && result = true; i++) {
-            for (int j = 0; j < 5 && result = true; j++) {
-                if(shelfContent[i][j].getStatus() == ShelfCellType.FREE){
+    public boolean isFull () {
+        boolean result = true;
+        for(int i = 0; i < rows && result == true; i++) {
+            for (int j = 0; j < columns && result == true; j++) {
+                if (shelfContent[i][j].getStatus().equals(ShelfCellType.FREE)){
                     result = false;
                 }
             }
@@ -77,21 +65,38 @@ public class Shelf{
         return result;
     }
 
-    public int freeCellsOnColumn(int column){
+    /**
+     *
+     * @param column
+     * @return
+     */
+    public int freeCellsOnColumn (int column) {
         int count = 0;
-        for (int i = 0; i < 6; i++) {
-            if (shelfContent[i][column].getState() == ShelfCellType.FREE){
+        for (int i = 0; i < rows; i++) {
+            if (shelfContent[i][column].getStatus().equals(ShelfCellType.FREE)){
                 count++;
             }
         }
         return count;
     }
 
-    public int pointsFromAdjacency(){
-
+    /**
+     *
+     * @return
+     */
+    public int pointsFromAdjacency () {
+        // TODO: implementare il metodo che ritorna quanti punti sono assegnati dalle adiacenze.
+        int points = 0;
+        // ...
+        return points;
     }
 
-    public List<ObjectCard> rearrangeCards(List<ObjectCard> unordered){
+    /**
+     *
+     * @param unordered
+     * @return
+     */
+    public List<ItemTile> rearrangeCards(List<ItemTile> unordered){
 
     }
 }
