@@ -32,6 +32,7 @@ public class Bag{
         }
     }
 
+    //useless (?)
     public List<ObjectCard> extractCards(int n){
 
     }

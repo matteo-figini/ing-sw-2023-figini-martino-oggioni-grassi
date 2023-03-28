@@ -10,7 +10,7 @@ public class Game{
     private Bag bag=new Bag();
     private List<CommonGoalCard> commonGoalCards = new ArrayList<>();
 
-    private int activePlayer;
+    private Player activePlayer;
 
     public Game(Board board){
         this.activePlayer = activePlayer;
@@ -27,11 +27,11 @@ public class Game{
         this.commonGoalCards.add(commonGoalCard);
     }
 
-    public int getActivePlayer() {
+    public Player getActivePlayer() {
         return activePlayer;
     }
 
-    public void setActivePlayer(int activePlayer) {
+    public void setActivePlayer(Player activePlayer) {
         this.activePlayer = activePlayer;
     }
 
@@ -43,25 +43,40 @@ public class Game{
         this.lastLap = lastLap;
     }
 
+    /**
+     *
+     */
     public void chooseFirstPlayer(){
         Random f = new Random();
         int findex = f.nextInt(players.size());
         gameFirstPlayer = players.get(findex);  //set attribute first player in Game
-        players.get(findex).firstPlayer = true;  //attribute firstplayer in Player change to true
+        players.get(findex).firstPlayer = true; //attribute firstplayer in Player change to true
+        setActivePlayer(players.get(findex));
     }
 
     public Player getPlayerByNickname(String nickname){
-
+        for(Player player : players){
+            if(player.getNickname().equals(nickname)){
+                return player;
+            }
+        }
+        return null;
     }
 
     public boolean isNameTaken(String nickname){
-
+        return getPlayerByNickname(nickname) != null;
     }
 
-    public void selectNextPlayer(){
-
+    public Player selectNextPlayer(Player activePlayer){
+        int index = players.indexOf(activePlayer);
+        int nextIndex = (index + 1) % players.size();
+        return players.get(nextIndex);
     }
 
+    /**
+     *
+     * @return
+     */
     public int refillBoardFromBag(){
         bag.shuffle();
         int x = board.getFreeCellOnBoard();

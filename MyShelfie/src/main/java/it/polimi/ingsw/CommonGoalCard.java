@@ -32,6 +32,13 @@ public enum CommonGoalCard implements GoalCard{
 
     private Stack scoreCards;
 
+    /**
+     *
+     * @param available
+     * @param numPlayers
+     * @param game
+     * @param scoringToken
+     */
     public CommonGoalCard(boolean available, int numPlayers, Game game, ScoringToken scoringToken){
         this.game = game;
         this.scoringToken = scoringToken;

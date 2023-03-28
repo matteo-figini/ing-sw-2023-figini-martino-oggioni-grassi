@@ -32,6 +32,7 @@ public class Board{
         return boardContent[i][j];
     }
 
+    //useless (?)
     public void refillBoard(List<ObjectCard> cards){
 
     }

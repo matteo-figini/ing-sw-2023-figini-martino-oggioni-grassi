@@ -60,6 +60,11 @@ public class Shelf{
 
     }
 
+
+    /**
+     *
+     * @return
+     */
     public boolean isFull(){
         private boolean result = true;
         for(int i = 0; i < 6 && result = true; i++) {
