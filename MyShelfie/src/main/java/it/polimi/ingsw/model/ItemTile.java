@@ -1,4 +1,4 @@
-package it.polimi.ingsw;
+package it.polimi.ingsw.model;
 
 public class ItemTile{
     private ItemTileType color;
@@ -7,7 +7,7 @@ public class ItemTile{
         this.color = color;
     }
 
-    public String getObjectCardType() {
+    public String getItemTileType() {
         return color;
     }
 

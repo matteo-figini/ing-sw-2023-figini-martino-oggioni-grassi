@@ -1,4 +1,7 @@
-package it.polimi.ingsw;
+package it.polimi.ingsw.model;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Game{
     private boolean lastLap = false;
@@ -77,7 +80,7 @@ public class Game{
      *
      * @return
      */
-    public int refillBoardFromBag(){
+    /*public int refillBoardFromBag(){
         bag.shuffle();
         int x = board.getFreeCellsOnBoard();
         int y = bag.availableCards();
@@ -93,6 +96,6 @@ public class Game{
             }
         }
 
-    }
+    }*/
 
 }

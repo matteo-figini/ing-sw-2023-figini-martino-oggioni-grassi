@@ -1,4 +1,4 @@
-package it.polimi.ingsw;
+package it.polimi.ingsw.model;
 
 /**
  * This enumeration represents the status of the board cell type.
@@ -6,6 +6,5 @@ package it.polimi.ingsw;
  */
 public enum BoardCellType {
     NOT_PLAYABLE,
-    BUSY,
-    FREE
+    PLAYABLE;
 }
