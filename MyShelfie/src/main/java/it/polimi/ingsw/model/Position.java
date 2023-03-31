@@ -7,6 +7,11 @@ package it.polimi.ingsw.model;
 public class Position {
     private int x, y; // Coordinates
 
+    public Position (int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
     public void setY(int y) {
         this.y = y;
     }

@@ -57,24 +57,30 @@ public class Shelf {
      * Cards are inserted from the first one to the last one.
      * @param cards cards to insert in the shelf
      * @param column column where to insert the cards
+     * @throws NotEnoughCellsException exception raised when there are more cards than available cells in the column
      */
     public void insertCards(List<ItemTile> cards, int column) throws NotEnoughCellsException {
+        int firstRowAvailable;
         if (cards.size() > freeCellsOnColumn(column)) {
             throw new NotEnoughCellsException();
         }
-        // TODO: aggiungere le carte nella lista
+        firstRowAvailable = this.freeCellsOnColumn(column);
+        for (int i = 0; i < cards.size(); i++) {
+            shelfContent[firstRowAvailable][column].setTile(cards.get(i));
+            firstRowAvailable--;
+        }
     }
 
 
     /**
-     *
-     * @return
+     * Checks if the shelf is full or not
+     * @return boolean that indicates if the shelf is full.
      */
     public boolean isFull () {
         boolean result = true;
         for(int i = 0; i < rows && result == true; i++) {
             for (int j = 0; j < columns && result == true; j++) {
-                if (shelfContent[i][j].getStatus().equals(ShelfCellType.FREE)){
+                if (shelfContent[i][j].isFree()) {
                     result = false;
                 }
             }
@@ -109,7 +115,8 @@ public class Shelf {
      * @param unordered
      * @return
      */
-    public List<ItemTile> rearrangeCards(List<ItemTile> unordered){
-
+    public List<ItemTile> rearrangeCards(List<ItemTile> unordered) {
+        // TODO: pensare se questo metodo è meglio metterlo nel player
+        return null;
     }
 }

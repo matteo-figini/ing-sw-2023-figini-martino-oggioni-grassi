@@ -1,10 +1,12 @@
 package it.polimi.ingsw.model;
 
+import java.util.List;
 
-public class Player{
-
+/**
+ * This class represents the player and all his attributes
+ */
+public class Player  {
     private Shelf shelf;
-    private Game game;
     private PersonalGoalCard personalGoalCard;
 
     private String nickname;
@@ -17,77 +19,106 @@ public class Player{
 
     private boolean secondCommonGoalReached = false;
 
-    private boolean hasEndGameToken = false;
+    private boolean endGameToken = false;
 
-    private List<Position> positionList = new ArrayList();
-
-    public Player(String nickname, Shelf shelf, Game game, PersonalGoalCard personalGoalCard){
-
-        this.nickname=nickname;
-        this.score=score;
-        this.firstPlayer=firstPlayer;
-        this.firstCommonGoalReached=firstCommonGoalReached;
-        this.secondCommonGoalReached=secondCommonGoalReached;
-        this.hasEndGameToken=hasEndGameToken;
-        this.shelf=shelf;
-        this.game=game;
-        this.personalGoalCard=personalGoalCard;
-
+    /**
+     * This constructor initializes the nickname of the player and his shelf
+     * @param nickname nickname of the player
+     */
+    public Player (String nickname) {
+        this.nickname = nickname;
+        this.shelf = new Shelf();
     }
 
+    /**
+     * This method indicates if the player is the first
+     * @return a boolean that is true if the player is the first
+     */
     public boolean isFirstPlayer() {
         return firstPlayer;
     }
 
-
-    public void setFirstPlayer(boolean firstPlayer) throws simonex{
-        this.firstPlayer = firstPlayer;
+    /**
+     * This method sets the player as the first
+     */
+    public void setFirstPlayer () {
+        this.firstPlayer = true;
     }
 
+    /**
+     * This method says if the player has reached the goal mentioned in the first Common Goal Card
+     * @return a boolean stating true if the goal is reached
+     */
     public boolean isFirstCommonGoalReached() {
         return firstCommonGoalReached;
     }
 
-    public void setFirstCommonGoalReached(boolean firstCommonGoalReached) {
-        this.firstCommonGoalReached = firstCommonGoalReached;
+    /**
+     * This method changes the state of the parameter stating if the first Common Goal is reached
+     */
+    public void setFirstCommonGoalReached () {
+        this.firstCommonGoalReached = true;
     }
 
+    /**
+     * This method says if the player has reached the goal mentioned in the second Common Goal Card
+     * @return a boolean stating true if the goal is reached
+     */
     public boolean isSecondCommonGoalReached() {
         return secondCommonGoalReached;
     }
 
-    public void setSecondCommonGoalReached(boolean secondCommonGoalReached) {
-        this.secondCommonGoalReached = secondCommonGoalReached;
+    /**
+     * This method changes the state of the parameter stating if the second Common Goal is reached
+     */
+    public void setSecondCommonGoalReached () {
+        this.secondCommonGoalReached = true;
     }
 
-    public boolean isHasEndGameToken() {
-        return hasEndGameToken;
+    /**
+     * This method says if the player owns the End Game Card
+     * @return a boolean indicating whether the player has it or not
+     */
+    public boolean hasEndGameToken() {
+        return endGameToken;
     }
 
-    public void setHasEndGameToken(boolean hasEndGameToken) {
-        this.hasEndGameToken = hasEndGameToken;
+    /**
+     * This method sets the state of owning the End Game Card to true
+     */
+    public void setEndGameToken () {
+        this.endGameToken = true;
     }
 
+    /**
+     * This method gets the current score of the player
+     * @return an integer indicating the current score of the player
+     */
     public int getScore() {
         return score;
     }
 
-    public void setScore(int score) {
-        this.score = score;
+    /**
+     * This method increments the score of the player
+     * @param score indicates the new score of the player
+     */
+    public void addScore (int score) {
+        this.score += score;
     }
 
+    /**
+     * This method returns the nickname of the player
+     * @return a String containing the nickname of the player
+     */
     public String getNickname() {
         return nickname;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-    public List<Position> chooseCards(){
-
+    // TODO: capire se serve inserire qui il metodo oppure nel game
+    /*public List<Position> chooseCards () {
+        List<Position> positionList;
         return positionList;
-    }
+    }*/
 
 
 }

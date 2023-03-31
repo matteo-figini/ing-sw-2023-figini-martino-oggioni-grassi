@@ -116,6 +116,7 @@ public class Board{
      * @return Cards picked up from the board.
      */
     public List<ItemTile> pickUpCards(List<Position> positions) {
+        // TODO: lanciare eccezione nel caso in cui le celle specificate non siano corrette (es. non ci sono lati liberi nelle celle).
         BoardCell cell;
         List<ItemTile> tilesPickedUp = new ArrayList<>();
         for (int pos = 0; pos < positions.size(); pos++) {
@@ -133,7 +134,79 @@ public class Board{
      * @return a boolean indicating if filling is required.
      */
     public boolean fillingRequired() {
-        // TODO: aggiungere l'implementazione del metodo.
-        return false;
+        boolean required = true;
+        for (int i = 0; i < 9 && required; i++) {
+            for (int j = 0; j < 9 && required; j++) {
+                if (boardContent[i][j].isPlayable() && !boardContent[i][j].isFree() &&
+                    freeSides(new Position(i, j)) != playableSide(new Position(i, j))) {
+                    required = false;
+                }
+            }
+        }
+        return required;
+    }
+
+    /**
+     * This method checks the number of the free (and playable) sides around the cell specified by the parameter.
+     * @param position
+     * @return
+     */
+    private int freeSides (Position position) {
+        int sides = 0;
+        // Controllo della cella "in alto"
+        if (position.getX() > 0
+                && boardContent[position.getX() - 1][position.getY()].isPlayable()
+                && boardContent[position.getX() - 1][position.getY()].isFree()) {
+            sides++;
+        }
+        // Controllo della cella "in basso"
+        if (position.getX() < 8
+                && boardContent[position.getX() + 1][position.getY()].isPlayable()
+                && boardContent[position.getX() + 1][position.getY()].isFree()) {
+            sides++;
+        }
+        // Controllo della cella "a sinistra"
+        if (position.getY() > 0
+                && boardContent[position.getX()][position.getY() - 1].isPlayable()
+                && boardContent[position.getX()][position.getY() - 1].isFree()) {
+            sides++;
+        }
+        // Controllo della cella "a destra"
+        if (position.getY() < 8
+                && boardContent[position.getX()][position.getY() + 1].isPlayable()
+                && boardContent[position.getX()][position.getY() + 1].isFree()) {
+            sides++;
+        }
+        return sides;
+    }
+
+    /**
+     * This method counts the number of playable sides around a specified cell
+     * @param position indicates the coordinates of the cell in the board
+     * @return the number of playable sides
+     */
+    private int playableSide (Position position) {
+        int playable = 0;
+        // Controllo della cella "in alto"
+        if (position.getX() > 0
+                && boardContent[position.getX() - 1][position.getY()].isPlayable()) {
+            playable++;
+        }
+        // Controllo della cella "in basso"
+        if (position.getX() < 8
+                && boardContent[position.getX() + 1][position.getY()].isPlayable()) {
+            playable++;
+        }
+        // Controllo della cella "a sinistra"
+        if (position.getY() > 0
+                && boardContent[position.getX()][position.getY() - 1].isPlayable()) {
+            playable++;
+        }
+        // Controllo della cella "a destra"
+        if (position.getY() < 8
+                && boardContent[position.getX()][position.getY() + 1].isPlayable()) {
+            playable++;
+        }
+        return playable;
     }
 }
