@@ -14,10 +14,10 @@ public class Bag {
     private final int typesOfCards = 6;
 
     /**
-     * This constructor fills the list of the item tiles with 22 cards for each one of the 6 types.
+     * The default constructor fills the list of the item tiles with 22 cards for each one of the 6 types.
      * After the initialization, cards are shuffled.
      */
-    public Bag() {
+    public Bag () {
         for (int i = 0; i < typesOfCards; i++) {
             for (int j = 0; j < cardForType; j++) {
                 switch (i) {

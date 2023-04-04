@@ -2,8 +2,11 @@ package it.polimi.ingsw.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
-public class Game{
+// TODO: da revisionare completamente
+
+public class Game {
     private boolean lastLap = false;
 
     private List<Player> players = new ArrayList<>();
@@ -53,7 +56,7 @@ public class Game{
         Random f = new Random();
         int findex = f.nextInt(players.size());
         gameFirstPlayer = players.get(findex);  //set attribute first player in Game
-        players.get(findex).firstPlayer = true; //attribute firstplayer in Player change to true
+        // players.get(findex).firstPlayer = true; //attribute firstplayer in Player change to true
         setActivePlayer(players.get(findex));
     }
 

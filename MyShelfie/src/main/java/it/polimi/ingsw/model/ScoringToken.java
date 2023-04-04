@@ -1,8 +1,8 @@
 package it.polimi.ingsw.model;
 
 /**
- * This class represents the scoring tokens over the common goal card.
- * Each card has got a score
+ * This class represents the scoring tokens on a common goal card.
+ * Each card has got a score.
  */
 public class ScoringToken {
     private int score;

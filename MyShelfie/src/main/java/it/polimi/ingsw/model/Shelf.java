@@ -32,13 +32,7 @@ public class Shelf {
      */
     // TODO: creare una copia della shelf che contenga anche la copia delle tessere.
     public ShelfCell[][] getShelfContent() {
-        ShelfCell[][] copy = new ShelfCell[rows][columns];
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                copy[i][j] = shelfContent[i][j];
-            }
-        }
-        return copy;
+        return shelfContent;
     }
 
     /**
@@ -115,7 +109,7 @@ public class Shelf {
      * @param unordered
      * @return
      */
-    public List<ItemTile> rearrangeCards(List<ItemTile> unordered) {
+    public List<ItemTile> rearrangeCards (List<ItemTile> unordered) {
         // TODO: pensare se questo metodo è meglio metterlo nel player
         return null;
     }

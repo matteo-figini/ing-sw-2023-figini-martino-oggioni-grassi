@@ -7,7 +7,6 @@ public class CrossGoalCard extends CommonGoalCard {
 
     /**
      * Constructor that takes in input the number of the players and set the specific stack for scoring tokens.
-     *
      * @param numPlayers
      */
     public CrossGoalCard(int numPlayers) {

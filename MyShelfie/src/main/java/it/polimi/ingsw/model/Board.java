@@ -85,9 +85,9 @@ public class Board{
         return freeCellsOnBoard;
     }
 
+
     public BoardCell[][] getBoardContent() {
-        // TODO: restituire NON il riferimento alla matrice, ma una copia di essa.
-        return null;
+        return boardContent;
     }
 
     /**

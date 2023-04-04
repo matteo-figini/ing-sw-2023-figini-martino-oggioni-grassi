@@ -1,29 +1,33 @@
 package it.polimi.ingsw.model;
 
 /**
- * This class represents the coordinates inside the shelf, that can be useful for specifying where to insert & pick up
- * the item tiles.
+ * This immutable class represents a couple of 2D coordinates, useful eg. in the shelf or on the board.
  */
 public class Position {
-    private int x, y; // Coordinates
+    private int x, y;
 
+    /**
+     * This constructor creates a new object with the coordinates specified in input.
+     * @param x Row coordinate.
+     * @param y Column coordinate.
+     */
     public Position (int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
+    /**
+     * Get the value of x coordinate.
+     * @return the value of x coordinate.
+     */
     public int getY() {
         return y;
     }
 
+    /**
+     * Get the value of y coordinate.
+     * @return the value of y coordinate.
+     */
     public int getX() {
         return x;
     }
