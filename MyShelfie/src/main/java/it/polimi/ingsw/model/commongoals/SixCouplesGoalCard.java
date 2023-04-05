@@ -3,6 +3,7 @@ package it.polimi.ingsw.model.commongoals;
 import it.polimi.ingsw.model.CommonGoalCard;
 import it.polimi.ingsw.model.Shelf;
 
+// TODO: implementare l'algoritmo di controllo delle carte per SixCouplesGoalCard
 public class SixCouplesGoalCard extends CommonGoalCard {
 
     /**

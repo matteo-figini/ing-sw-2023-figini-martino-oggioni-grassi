@@ -113,12 +113,4 @@ public class Player  {
     public String getNickname() {
         return nickname;
     }
-
-    // TODO: capire se serve inserire qui il metodo oppure nel game
-    /*public List<Position> chooseCards () {
-        List<Position> positionList;
-        return positionList;
-    }*/
-
-
 }

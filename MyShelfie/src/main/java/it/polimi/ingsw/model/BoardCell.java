@@ -2,7 +2,7 @@ package it.polimi.ingsw.model;
 
 /**
  * This class represents the single cell inside the board. Every board cell has got a type (PLAYABLE/NOT PLAYABLE) and
- * a reference to the item tile contained.
+ * a reference to the item tile contained if an item tile is contained, otherwise the type is null.
  */
 public class BoardCell {
     private BoardCellType type;
@@ -37,20 +37,23 @@ public class BoardCell {
      * Add the item tile passed by parameter in the board cell.
      * @param itemTile the tile that will be added in the board.
      */
-    public void addItemTile(ItemTile itemTile) {
+    public void addItemTile (ItemTile itemTile) {
         this.itemTile = itemTile;
     }
 
     /**
-     * Remove the item tile from the board cell.
+     * Removes the item tile contained in the board cell.
+     * @return A reference to the item tile removed.
      */
-    public void freeCell () {
+    public ItemTile removeItemTile () {
+        ItemTile tile = this.itemTile;
         this.itemTile = null;
+        return tile;
     }
 
     /**
      * Indicates if the board cell is free or not.
-     * @return a boolean indicating if the board cell is free.
+     * @return A boolean indicating if the board cell is free.
      */
     public boolean isFree(){
         return (this.itemTile == null);
@@ -58,7 +61,7 @@ public class BoardCell {
 
     /**
      * Indicates if the board cell is playable or not.
-     * @return a boolean indicating if the board cell is playable.
+     * @return A boolean indicating if the board cell is playable.
      */
     public boolean isPlayable(){
         return (this.type == BoardCellType.PLAYABLE);

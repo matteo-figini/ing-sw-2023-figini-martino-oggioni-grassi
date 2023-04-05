@@ -1,5 +1,7 @@
 package it.polimi.ingsw.model;
 
+import it.polimi.ingsw.exception.WrongPositionsException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,14 +9,17 @@ public class Board{
     private BoardCell[][] boardContent;
     private int freeCellsOnBoard;
 
+    final public static int MAX_ROWS = 9;
+    final public static int MAX_COLUMNS = 9;
+
     /**
      * This constructor creates all the board cells depending on how many players are there.
      * @param numPlayer the number of the players in the game.
      */
     public Board (int numPlayer){
-        boardContent = new BoardCell[9][9];
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
+        boardContent = new BoardCell[MAX_ROWS][MAX_COLUMNS];
+        for (int i = 0; i < MAX_ROWS; i++) {
+            for (int j = 0; j < MAX_COLUMNS; j++) {
                 boardContent[i][j] = new BoardCell(BoardCellType.NOT_PLAYABLE);
             }
         }
@@ -98,8 +103,8 @@ public class Board{
     public int refillBoard (List<ItemTile> tiles){
         int numOfTilesInserted = 0;
         ItemTile tile;
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
+        for (int i = 0; i < MAX_ROWS; i++) {
+            for (int j = 0; j < MAX_COLUMNS; j++) {
                 if (boardContent[i][j].isPlayable() && boardContent[i][j].isFree() && tiles.size() > 0) {
                     tile = tiles.remove(0);
                     boardContent[i][j].addItemTile(tile);
@@ -115,18 +120,42 @@ public class Board{
      * @param positions Positions in the board where to take the cards. Requires that all the coordinates are inside the board.
      * @return Cards picked up from the board.
      */
-    public List<ItemTile> pickUpCards(List<Position> positions) {
-        // TODO: lanciare eccezione nel caso in cui le celle specificate non siano corrette (es. non ci sono lati liberi nelle celle).
+    public List<ItemTile> pickUpCards(List<Position> positions) throws WrongPositionsException {
         BoardCell cell;
         List<ItemTile> tilesPickedUp = new ArrayList<>();
+        if (!correctPositionsOfTiles(positions)) {
+            throw new WrongPositionsException();
+        }
         for (int pos = 0; pos < positions.size(); pos++) {
             cell = boardContent[positions.get(pos).getX()][positions.get(pos).getY()];
             if (cell.isPlayable() && !cell.isFree()) {
                 tilesPickedUp.add(cell.getItemTile());
-                cell.freeCell();
+                cell.removeItemTile();
             }
         }
         return tilesPickedUp;
+    }
+
+    // TODO: verificare la correttezza dell'algoritmo di correctPositionsOfTiles
+    /**
+     *
+     * @param positions
+     * @return
+     */
+    private boolean correctPositionsOfTiles (List<Position> positions) {
+        for (Position pos : positions) {
+            if (pos.getX() < 0 || pos.getX() >= MAX_ROWS || pos.getY() < 0 || pos.getY() >= MAX_COLUMNS ||
+                    boardContent[pos.getX()][pos.getY()].isFree() ||
+                    !boardContent[pos.getX()][pos.getY()].isPlayable()) {
+                return false;
+            }
+        }
+        for (Position pos : positions) {
+            if (pos.getX() > 0 && pos.getX() < MAX_ROWS-1 && pos.getY() > 0 && pos.getY() < MAX_COLUMNS-1 &&
+                playableSide(pos) == 4 && freeSides(pos) == 0)
+                return false;
+        }
+        return true;
     }
 
     /**
@@ -135,8 +164,8 @@ public class Board{
      */
     public boolean fillingRequired() {
         boolean required = true;
-        for (int i = 0; i < 9 && required; i++) {
-            for (int j = 0; j < 9 && required; j++) {
+        for (int i = 0; i < MAX_ROWS && required; i++) {
+            for (int j = 0; j < MAX_COLUMNS && required; j++) {
                 if (boardContent[i][j].isPlayable() && !boardContent[i][j].isFree() &&
                     freeSides(new Position(i, j)) != playableSide(new Position(i, j))) {
                     required = false;
@@ -160,7 +189,7 @@ public class Board{
             sides++;
         }
         // Controllo della cella "in basso"
-        if (position.getX() < 8
+        if (position.getX() < MAX_ROWS-1
                 && boardContent[position.getX() + 1][position.getY()].isPlayable()
                 && boardContent[position.getX() + 1][position.getY()].isFree()) {
             sides++;
@@ -172,7 +201,7 @@ public class Board{
             sides++;
         }
         // Controllo della cella "a destra"
-        if (position.getY() < 8
+        if (position.getY() < MAX_COLUMNS-1
                 && boardContent[position.getX()][position.getY() + 1].isPlayable()
                 && boardContent[position.getX()][position.getY() + 1].isFree()) {
             sides++;
@@ -193,7 +222,7 @@ public class Board{
             playable++;
         }
         // Controllo della cella "in basso"
-        if (position.getX() < 8
+        if (position.getX() < MAX_ROWS-1
                 && boardContent[position.getX() + 1][position.getY()].isPlayable()) {
             playable++;
         }
@@ -203,7 +232,7 @@ public class Board{
             playable++;
         }
         // Controllo della cella "a destra"
-        if (position.getY() < 8
+        if (position.getY() < MAX_COLUMNS-1
                 && boardContent[position.getX()][position.getY() + 1].isPlayable()) {
             playable++;
         }
