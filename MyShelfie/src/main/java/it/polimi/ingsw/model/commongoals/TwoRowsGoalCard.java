@@ -7,11 +7,10 @@ import it.polimi.ingsw.model.Shelf;
 public class TwoRowsGoalCard extends CommonGoalCard {
     /**
      * Constructor that takes in input the number of the players and set the specific stack for scoring tokens.
-     *
-     * @param numPlayers
+     * @param numPlayers The number of the players; depending on the value of this parameter, a different scoring token stack is initialized.
      */
     public TwoRowsGoalCard(int numPlayers) {
-        super(numPlayers);
+        super(numPlayers, "Due righe formate ciascuna da 5 diversi tipi di tessere.");
     }
 
     @Override

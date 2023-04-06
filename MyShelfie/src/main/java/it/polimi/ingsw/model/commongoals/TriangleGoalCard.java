@@ -7,11 +7,12 @@ import it.polimi.ingsw.model.Shelf;
 public class TriangleGoalCard extends CommonGoalCard {
     /**
      * Constructor that takes in input the number of the players and set the specific stack for scoring tokens.
-     *
-     * @param numPlayers
+     * @param numPlayers The number of the players; depending on the value of this parameter, a different scoring token stack is initialized.
      */
     public TriangleGoalCard(int numPlayers) {
-        super(numPlayers);
+        super(numPlayers, "Cinque colonne di altezza crescente o decrescente: a partire dalla prima colonna a sinistra o a destra, " +
+                "ogni colonna successiva deve essere formata da una tessera in più. " +
+                "Le tessere possono essere di qualsiasi tipo.");
     }
 
     @Override

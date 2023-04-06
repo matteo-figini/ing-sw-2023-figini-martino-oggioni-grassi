@@ -7,10 +7,11 @@ import it.polimi.ingsw.model.Shelf;
 public class TwoSquaresGoalCard extends CommonGoalCard {
     /**
      * Constructor that takes in input the number of the players and set the specific stack for scoring tokens.
-     * @param numPlayers
+     * @param numPlayers The number of the players; depending on the value of this parameter, a different scoring token stack is initialized.
      */
     public TwoSquaresGoalCard(int numPlayers) {
-        super(numPlayers);
+        super(numPlayers, "Due gruppi separati di 4 tessere dello stesso tipo che formano un quadrato 2x2. " + "" +
+                "Le tessere dei due gruppi devono essere dello stesso tipo.");
     }
 
     @Override

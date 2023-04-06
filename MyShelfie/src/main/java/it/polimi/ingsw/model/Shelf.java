@@ -2,25 +2,27 @@ package it.polimi.ingsw.model;
 
 import it.polimi.ingsw.exception.NotEnoughCellsException;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * This class represents the shelf of the player.
  */
 public class Shelf {
     private ShelfCell[][] shelfContent;
-    private final int rows, columns;
+
+    final public static int ROWS = 6;
+    final public static int COLUMNS = 5;
 
     /**
      * Initializes the matrix representing the shelf and every single value inside the shelf.
      */
     public Shelf (){
-        this.rows = 6;
-        this.columns = 5;
-        this.shelfContent = new ShelfCell[rows][columns];
+        this.shelfContent = new ShelfCell[ROWS][COLUMNS];
         // Initialize every cell in the matrix
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
+        for (int i = 0; i < ROWS; i++) {
+            for (int j = 0; j < COLUMNS; j++) {
                 shelfContent[i][j] = new ShelfCell();
             }
         }
@@ -39,8 +41,8 @@ public class Shelf {
      * Clears the shelf.
      */
     public void clearShelf() {
-        for (int i = 0; i < rows; i++){
-            for (int j = 0; j < columns; j++){
+        for (int i = 0; i < ROWS; i++){
+            for (int j = 0; j < COLUMNS; j++){
                 shelfContent[i][j] = null;
             }
         }
@@ -71,15 +73,14 @@ public class Shelf {
      * @return boolean that indicates if the shelf is full.
      */
     public boolean isFull () {
-        boolean result = true;
-        for(int i = 0; i < rows && result == true; i++) {
-            for (int j = 0; j < columns && result == true; j++) {
+        for(int i = 0; i < ROWS; i++) {
+            for (int j = 0; j < COLUMNS; j++) {
                 if (shelfContent[i][j].isFree()) {
-                    result = false;
+                    return false;
                 }
             }
         }
-        return result;
+        return true;
     }
 
     /**
@@ -94,23 +95,128 @@ public class Shelf {
     }
 
     /**
-     *
-     * @return
+     * This method calculates the score due to all the adjacences inside the shelf. At the end of the game, additional points are
+     * given by how many "clusters" of same item tiles are in the shelf.
+     * @return The total score due to adjacences.
      */
     public int pointsFromAdjacencies () {
-        // TODO: implementare il metodo che ritorna quanti punti sono assegnati dalle adiacenze.
-        int points = 0;
-        // ...
-        return points;
+        List<List<Position>> bigList = new ArrayList<>();
+        List<Position> l = new ArrayList<>();
+        List<Position> l1;
+
+        // Inizializzazione della matrice di supporto
+        char[][] support = new char[ROWS][COLUMNS];
+        for (int i = 0; i < ROWS; i++) {
+            for (int j = 0; j < COLUMNS; j++) {
+                support[i][j] = 'U';
+            }
+        }
+
+        // Creazione della lista delle posizioni con tessere adiacenti
+        for (int i = 0; i < ROWS; i++) {
+            for (int j = 0; j < COLUMNS; j++) {
+                if (!shelfContent[i][j].isFree() && support[i][j] != 'V') {
+                    if (support[i][j] == 'U') {
+                        l = new ArrayList<>();
+                        l.add(new Position(i, j));
+                        bigList.add(l);
+                    } else if (support[i][j] == 'I') {
+                        l = findElement(bigList, new Position(i, j));
+                    }
+
+                    // Controllo della cella a destra
+                    if ((j < COLUMNS - 1) && !shelfContent[i][j+1].isFree() &&
+                            shelfContent[i][j+1].getTile().getItemTileType() == shelfContent[i][j].getTile().getItemTileType()) {
+                        if (support[i][j+1] == 'U') {
+                            assert l != null;
+                            l.add(new Position(i, j+1));
+                            support[i][j+1] = 'I';
+                        } else if (support[i][j+1] == 'I') {
+                            try {
+                                l1 = findElement(bigList, new Position(i, j+1));
+                                int size = l1.size();
+                                for (int k = 0; k < size; k++) {
+                                    l.add(l1.remove(0));
+                                }
+                            } catch (NullPointerException ex) {
+                                System.out.println(ex.getMessage());
+                            }
+                        }
+                    }
+
+                    // Controllo della tessera sottostante
+                    if ((i < ROWS - 1) && !shelfContent[i+1][j].isFree() &&
+                            shelfContent[i+1][j].getTile().getItemTileType() == shelfContent[i][j].getTile().getItemTileType()) {
+                        if (support[i+1][j] == 'U') {
+                            assert l != null;
+                            l.add(new Position(i+1, j));
+                            support[i+1][j] = 'I';
+                        } else if (support[i+1][j] == 'I') {
+                            try {
+                                l1 = findElement(bigList, new Position(i+1, j));
+                                int size = l1.size();
+                                for (int k = 0; k < size; k++) {
+                                    l.add(l1.remove(0));
+                                }
+                            } catch (NullPointerException ex) {
+                                System.out.println(ex.getMessage());
+                            }
+                        }
+                    }
+                }
+                support[i][j] = 'V';
+            }
+        }
+        return calculatePoints(fromPositionsToSize(bigList));
+    }
+
+    /* METODI PRIVATI DI SUPPORTO AL CALCOLO DEI PUNTI PER LE ADIACENZE */
+    /**
+     * This util method returns the list inside "bigList" in which the position specified by the elem parameter is contained.
+     * @param bigList The list of positions' lists.
+     * @param elem The position to find.
+     * @return The pointer to the correct positions' list.
+     */
+    private List<Position> findElement (List<List<Position>> bigList, Position elem) {
+        for (List<Position> l : bigList) {
+            if (l.contains(new Position(elem.getX(), elem.getY()))) {
+                return l;
+            }
+        }
+        return null;
     }
 
     /**
-     *
-     * @param unordered
-     * @return
+     * This util method takes in input a list of positions' list and returns a list containing the size of the lists
+     * which have a size greater or equal than 3.
+     * @param bigList The list of positions' lists.
+     * @return A list of the sizes greater or equal than 3.
+     * NOTE: this method is implemented using functional programming constructs.
      */
-    public List<ItemTile> rearrangeCards (List<ItemTile> unordered) {
-        // TODO: pensare se questo metodo è meglio metterlo nel player
-        return null;
+    private List<Integer> fromPositionsToSize(List<List<Position>> bigList) {
+        return bigList.stream()
+                .map(List::size)
+                .filter(size -> size >= 3)
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * This util method receives in input a list containing the sizes and returns the total score from the list of cluster's size.
+     * @param sizes The list of the cluster's size. Requires that each element in it is greater or equal than 3.
+     * @return Total score calculated from the list.
+     */
+    private Integer calculatePoints (List<Integer> sizes) {
+        Integer points = 0;
+        for (Integer i : sizes) {
+            if (i == 3)
+                points += 2;
+            else if (i == 4)
+                points += 3;
+            else if (i == 5)
+                points += 5;
+            else if (i >= 6)
+                points += 8;
+        }
+        return points;
     }
 }

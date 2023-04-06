@@ -1,17 +1,21 @@
 package it.polimi.ingsw.model;
 
 import it.polimi.ingsw.exception.NoScoringTokenAvailableException;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class CommonGoalCard {
-    private List<ScoringToken> scoringTokens;   // Stack with the scoring tokens.
+    private final List<ScoringToken> scoringTokens;   // Stack with the scoring tokens.
+
+    protected String description;
 
     /**
      * Constructor that takes in input the number of the players and set the specific stack for scoring tokens.
-     * @param numPlayers
+     * @param numPlayers The number of the players; depending on the value of this parameter, a different scoring token stack is initialized.
      */
     public CommonGoalCard (int numPlayers) {
-        // Nel costruttore si inizializzano le tessere del punteggio in base al numero di giocatori
+        scoringTokens = new ArrayList<>();
         scoringTokens.add(new ScoringToken(8));
         if (numPlayers >= 3) {
             scoringTokens.add(new ScoringToken(6));
@@ -22,10 +26,15 @@ public abstract class CommonGoalCard {
         }
     }
 
+    public CommonGoalCard (int numPlayers, String description) {
+        this(numPlayers);
+        this.description = description;
+    }
+
     /**
-     * Extract the card in the top of the stack of scoring tokens.
-     * @return the card in the top of the stack
-     * @throws NoScoringTokenAvailableException there aren't available scoring tokens for the card (= stack is empty).
+     * Extract the tile at the top of the stack of scoring tokens.
+     * @return The tile at the top of the stack
+     * @throws NoScoringTokenAvailableException There aren't available scoring tokens for the card (= stack is empty).
      */
     public ScoringToken popScoringToken () throws NoScoringTokenAvailableException {
         ScoringToken token;
@@ -38,7 +47,7 @@ public abstract class CommonGoalCard {
     }
 
     /**
-     * Abstract method that will be overriden in the subclasses that check the single pattern is satisfied.
+     * Abstract method (that will be overriden in the subclasses) that check the single pattern is satisfied.
      * @param shelf the shelf where there are tails. Requires that shelf is not null.
      * @return true if the shelf passed as parameter satisfies the condition, false if it doesn't.
      */
