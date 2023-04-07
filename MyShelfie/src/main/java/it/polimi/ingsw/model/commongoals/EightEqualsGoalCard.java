@@ -7,7 +7,7 @@ import it.polimi.ingsw.model.Shelf;
 import java.util.HashMap;
 import java.util.Map;
 
-// TODO: implementare l'algoritmo di controllo delle carte per EightEqualsGoalCard
+// TODO: testare l'algoritmo di controllo delle carte per EightEqualsGoalCard
 public class EightEqualsGoalCard extends CommonGoalCard {
     /**
      * Constructor that takes in input the number of the players and set the specific stack for scoring tokens.
@@ -20,12 +20,9 @@ public class EightEqualsGoalCard extends CommonGoalCard {
     @Override
     public boolean checkPattern(Shelf shelf) {
         Map<ItemTileType, Integer> occurrences = new HashMap<>();
-        occurrences.put(ItemTileType.LIGHTBLUE, 0);
-        occurrences.put(ItemTileType.BLUE, 0);
-        occurrences.put(ItemTileType.YELLOW, 0);
-        occurrences.put(ItemTileType.GREEN, 0);
-        occurrences.put(ItemTileType.PINK, 0);
-        occurrences.put(ItemTileType.WHITE, 0);
+        for (ItemTileType type : ItemTileType.values()) {
+            occurrences.put(type, 0);
+        }
 
         // Aggiorno il valore nella mappa rispetto alla chiave corrispondente al tipo della cella.
         for (int i = 0; i < Shelf.ROWS; i++) {

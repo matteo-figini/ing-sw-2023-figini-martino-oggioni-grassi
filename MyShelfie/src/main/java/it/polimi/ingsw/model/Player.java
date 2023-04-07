@@ -113,4 +113,12 @@ public class Player  {
     public String getNickname() {
         return nickname;
     }
+
+    /**
+     * This method sets the personal goal card of the player to the value passed as parameter.
+     * @param card The personal goal card of the player.
+     */
+    public void setPersonalGoalCard (PersonalGoalCard card) {
+        this.personalGoalCard = card;
+    }
 }

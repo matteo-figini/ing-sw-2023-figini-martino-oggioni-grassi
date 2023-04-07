@@ -3,7 +3,7 @@ package it.polimi.ingsw.model.commongoals;
 import it.polimi.ingsw.model.CommonGoalCard;
 import it.polimi.ingsw.model.Shelf;
 
-// TODO: implementare l'algoritmo di controllo delle carte per TriangleGoalCard
+// TODO: testare l'algoritmo di controllo delle carte per TriangleGoalCard
 public class TriangleGoalCard extends CommonGoalCard {
     /**
      * Constructor that takes in input the number of the players and set the specific stack for scoring tokens.
@@ -17,6 +17,24 @@ public class TriangleGoalCard extends CommonGoalCard {
 
     @Override
     public boolean checkPattern(Shelf shelf) {
-        return false;
+        return (checkAscending(shelf) || checkDescending(shelf));
+    }
+
+    private boolean checkAscending (Shelf shelf) {
+        for (int j = 0; j < Shelf.COLUMNS - 1; j++) {
+            if (shelf.freeCellsOnColumn(j) != shelf.freeCellsOnColumn(j+1) - 1) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean checkDescending (Shelf shelf) {
+        for (int j = 0; j < Shelf.COLUMNS - 1; j++) {
+            if (shelf.freeCellsOnColumn(j) != shelf.freeCellsOnColumn(j+1) + 1) {
+                return false;
+            }
+        }
+        return true;
     }
 }

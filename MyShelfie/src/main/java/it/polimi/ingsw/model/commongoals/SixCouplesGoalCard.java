@@ -2,8 +2,9 @@ package it.polimi.ingsw.model.commongoals;
 
 import it.polimi.ingsw.model.CommonGoalCard;
 import it.polimi.ingsw.model.Shelf;
+import it.polimi.ingsw.model.ShelfCell;
 
-// TODO: implementare l'algoritmo di controllo delle carte per SixCouplesGoalCard
+// TODO: testare l'algoritmo di controllo delle carte per SixCouplesGoalCard
 public class SixCouplesGoalCard extends CommonGoalCard {
 
 
@@ -18,6 +19,33 @@ public class SixCouplesGoalCard extends CommonGoalCard {
 
     @Override
     public boolean checkPattern(Shelf shelf) {
-        return false;
+        int groupsFound = 0;
+        char[][] support = new char[Shelf.ROWS][Shelf.COLUMNS];
+        for (int i = 0; i < Shelf.ROWS; i++) {
+            for (int j = 0; j < Shelf.COLUMNS; j++) {
+                support[i][j] = 'U';
+            }
+        }
+
+        for (int i = 0; i < Shelf.ROWS; i++) {
+            for (int j = 0; j < Shelf.COLUMNS; j++) {
+                if (!shelf.getShelfContent()[i][j].isFree() && support[i][j] == 'U') {
+                    if ((j < Shelf.COLUMNS - 1) && !(shelf.getShelfContent()[i][j + 1].isFree()) &&
+                            (shelf.getShelfContent()[i][j + 1].getTile().getItemTileType() == shelf.getShelfContent()[i][j].getTile().getItemTileType()) &&
+                            (support[i][j + 1] == 'U')) {
+                        support[i][j + 1] = 'V';
+                        groupsFound++;
+                    } else if ((i < Shelf.ROWS - 1) && !(shelf.getShelfContent()[i + 1][j].isFree()) &&
+                            (shelf.getShelfContent()[i + 1][j].getTile().getItemTileType() == shelf.getShelfContent()[i][j].getTile().getItemTileType()) &&
+                            (support[i + 1][j] == 'U')) {
+                        support[i + 1][j] = 'V';
+                        groupsFound++;
+                    }
+                }
+                support[i][j] = 'V';
+            }
+        }
+
+        return (groupsFound >= 6);
     }
 }
