@@ -5,12 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Game, Shelf, Stack commit">
-      <change afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/CrossGoalCardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ing-sw-2023-figini-martino-oggioni-grassi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ing-sw-2023-figini-martino-oggioni-grassi.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/DiagonalFiveGoalCardTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/EightEqualsGoalCardTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/FourCornersGoalCardTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/FourLinesFourGoalCardTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/FourRowsGoalCardTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/SixCouplesGoalCardTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/ThreeColumnsGoalCardTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/TriangleGoalCardTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/TwoColumnsGoalCardTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/TwoRowsGoalCardTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/TwoSquaresGoalCardTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Shelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Shelf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/commongoals/CrossGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/commongoals/CrossGoalCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/ShelfTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/CrossGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/CrossGoalCardTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

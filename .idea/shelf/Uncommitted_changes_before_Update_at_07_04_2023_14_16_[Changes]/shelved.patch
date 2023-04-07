@@ -1,0 +1,519 @@
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_15_29_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_15_29_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_15_29_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_15_29_[Changes]/shelved.patch	(revision 4f4a7941c624a193c629f31384e93c9e3ecd8462)
++++ /dev/null	(revision 4f4a7941c624a193c629f31384e93c9e3ecd8462)
+@@ -1,148 +0,0 @@
+-Index: MyShelfie/src/main/java/it/polimi/ingsw/Game.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/MyShelfie/src/main/java/it/polimi/ingsw/Game.java b/MyShelfie/src/main/java/it/polimi/ingsw/Game.java
+-new file mode 100644
+---- /dev/null	(date 1679754488390)
+-+++ b/MyShelfie/src/main/java/it/polimi/ingsw/Game.java	(date 1679754488390)
+-@@ -0,0 +1,24 @@
+-+package it.polimi.ingsw;
+-+
+-+public class Game{
+-+    private boolean lastLap = false;
+-+    private int activePlayer;
+-+    public Game(List<String> nicknames){
+-+
+-+    };
+-+    public void chooseFirstPlayer(){
+-+
+-+    };
+-+    public Player getPlayerByNickname(String nickname){
+-+
+-+    };
+-+    public boolean isNameTaken(String nickname){
+-+
+-+    };
+-+    public void selectNextPlayer(){
+-+
+-+    };
+-+    public int refillBoardFromBag(){
+-+
+-+    };
+-+}
+-\ No newline at end of file
+-Index: .idea/misc.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/misc.xml b/.idea/misc.xml
+---- a/.idea/misc.xml	(revision 88b3ab70f7948e24a14481f0816a43d412b43232)
+-+++ b/.idea/misc.xml	(date 1679752178596)
+-@@ -1,6 +1,6 @@
+- <?xml version="1.0" encoding="UTF-8"?>
+- <project version="4">
+--  <component name="ProjectRootManager">
+-+  <component name="ProjectRootManager" version="2" project-jdk-name="openjdk-19" project-jdk-type="JavaSDK">
+-     <output url="file://$PROJECT_DIR$/out" />
+-   </component>
+- </project>
+-\ No newline at end of file
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"44ab7de7-5728-4d99-b73e-3b9c99b09f47\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/.gitignore\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/ing-sw-2023-figini-martino-oggioni-grassi.iml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/modules.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/vcs.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2N0WsRka8BZgmuN1S8dHjOlp7HD\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"ASKED_ADD_EXTERNAL_FILES\": \"true\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"44ab7de7-5728-4d99-b73e-3b9c99b09f47\" name=\"Changes\" comment=\"\" />\r\n      <created>1678801685477</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1678801685477</updated>\r\n      <workItem from=\"1678801686713\" duration=\"506000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision 88b3ab70f7948e24a14481f0816a43d412b43232)
+-+++ b/.idea/workspace.xml	(date 1679754494152)
+-@@ -5,11 +5,9 @@
+-   </component>
+-   <component name="ChangeListManager">
+-     <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="">
+--      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+--      <change afterPath="$PROJECT_DIR$/.idea/ing-sw-2023-figini-martino-oggioni-grassi.iml" afterDir="false" />
+--      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+--      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+--      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+-+      <change afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Game.java" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-     </list>
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-@@ -18,6 +16,9 @@
+-   </component>
+-   <component name="Git.Settings">
+-     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+-+  </component>
+-+  <component name="MarkdownSettingsMigration">
+-+    <option name="stateVersion" value="1" />
+-   </component>
+-   <component name="ProjectId" id="2N0WsRka8BZgmuN1S8dHjOlp7HD" />
+-   <component name="ProjectLevelVcsManager">
+-@@ -27,19 +28,19 @@
+-     <option name="hideEmptyMiddlePackages" value="true" />
+-     <option name="showLibraryContents" value="true" />
+-   </component>
+--  <component name="PropertiesComponent"><![CDATA[{
+--  "keyToString": {
+--    "ASKED_ADD_EXTERNAL_FILES": "true",
+--    "RunOnceActivity.OpenProjectViewOnStart": "true",
+--    "RunOnceActivity.ShowReadmeOnStart": "true",
+--    "WebServerToolWindowFactoryState": "false",
+--    "node.js.detected.package.eslint": "true",
+--    "node.js.detected.package.tslint": "true",
+--    "node.js.selected.package.eslint": "(autodetect)",
+--    "node.js.selected.package.tslint": "(autodetect)",
+--    "vue.rearranger.settings.migration": "true"
+-+  <component name="PropertiesComponent">{
+-+  &quot;keyToString&quot;: {
+-+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+-+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+-+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+-   }
+--}]]></component>
+-+}</component>
+-   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+-   <component name="TaskManager">
+-     <task active="true" id="Default" summary="Default task">
+-@@ -49,11 +50,26 @@
+-       <option name="presentableId" value="Default" />
+-       <updated>1678801685477</updated>
+-       <workItem from="1678801686713" duration="506000" />
+-+      <workItem from="1678803836450" duration="21000" />
+-+      <workItem from="1678803874927" duration="4000" />
+-+      <workItem from="1679496677440" duration="23000" />
+-+      <workItem from="1679750417300" duration="4047000" />
+-     </task>
+-     <servers />
+-   </component>
+-   <component name="TypeScriptGeneratedFilesManager">
+-     <option name="version" value="3" />
+-+  </component>
+-+  <component name="Vcs.Log.Tabs.Properties">
+-+    <option name="TAB_STATES">
+-+      <map>
+-+        <entry key="MAIN">
+-+          <value>
+-+            <State />
+-+          </value>
+-+        </entry>
+-+      </map>
+-+    </option>
+-   </component>
+-   <component name="VcsManagerConfiguration">
+-     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_18_50__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_18_50__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_18_50__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_18_50__Changes_.xml	(revision 4f4a7941c624a193c629f31384e93c9e3ecd8462)
++++ /dev/null	(revision 4f4a7941c624a193c629f31384e93c9e3ecd8462)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_25_03_2023_18_50_[Changes]" date="1679766612991" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_18_50_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 25/03/2023 18:50 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_12_07__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_12_07__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_12_07__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_12_07__Changes_.xml	(revision 4f4a7941c624a193c629f31384e93c9e3ecd8462)
++++ /dev/null	(revision 4f4a7941c624a193c629f31384e93c9e3ecd8462)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_26_03_2023_12_07_[Changes]" date="1679825279606" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_12_07_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 26/03/2023 12:07 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_15_29__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_15_29__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_15_29__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_15_29__Changes_.xml	(revision 4f4a7941c624a193c629f31384e93c9e3ecd8462)
++++ /dev/null	(revision 4f4a7941c624a193c629f31384e93c9e3ecd8462)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_25_03_2023_15_29_[Changes]" date="1679754678228" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_15_29_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 25/03/2023 15:29 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_12_07_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_12_07_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_12_07_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_12_07_[Changes]/shelved.patch	(revision 4f4a7941c624a193c629f31384e93c9e3ecd8462)
++++ /dev/null	(revision 4f4a7941c624a193c629f31384e93c9e3ecd8462)
+@@ -1,160 +0,0 @@
+-Index: MyShelfie/src/main/java/it/polimi/ingsw/Player.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>package it.polimi.ingsw;\r\n\r\n\r\npublic class Player{\r\n\r\n    private String nickname;\r\n\r\n    private int score = 0;\r\n\r\n    private boolean firstPlayer = false;\r\n\r\n    private boolean firstCommonGoalReached = false;\r\n\r\n    private boolean secondCommonGoalReached = false;\r\n\r\n    private boolean hasEndGameToken = false;\r\n\r\n\r\n    public Player(String nickname){\r\n\r\n        this.nickname=nickname;\r\n        this.score=score;\r\n        this.firstPlayer=firstPlayer;\r\n        this.firstCommonGoalReached=firstCommonGoalReached;\r\n        this.secondCommonGoalReached=secondCommonGoalReached;\r\n        this.hasEndGameToken=hasEndGameToken;\r\n\r\n    }\r\n\r\n    public boolean isFirstPlayer() {\r\n        return firstPlayer;\r\n    }\r\n\r\n    public void setFirstPlayer(boolean firstPlayer) {\r\n        this.firstPlayer = firstPlayer;\r\n    }\r\n\r\n    public boolean isFirstCommonGoalReached() {\r\n        return firstCommonGoalReached;\r\n    }\r\n\r\n    public void setFirstCommonGoalReached(boolean firstCommonGoalReached) {\r\n        this.firstCommonGoalReached = firstCommonGoalReached;\r\n    }\r\n\r\n    public boolean isSecondCommonGoalReached() {\r\n        return secondCommonGoalReached;\r\n    }\r\n\r\n    public void setSecondCommonGoalReached(boolean secondCommonGoalReached) {\r\n        this.secondCommonGoalReached = secondCommonGoalReached;\r\n    }\r\n\r\n    public boolean isHasEndGameToken() {\r\n        return hasEndGameToken;\r\n    }\r\n\r\n    public void setHasEndGameToken(boolean hasEndGameToken) {\r\n        this.hasEndGameToken = hasEndGameToken;\r\n    }\r\n\r\n    public int getScore() {\r\n        return score;\r\n    }\r\n\r\n    public void setScore(int score) {\r\n        this.score = score;\r\n    }\r\n\r\n    public String getNickname() {\r\n        return nickname;\r\n    }\r\n\r\n    public void setNickname(String nickname) {\r\n        this.nickname = nickname;\r\n    }\r\n\r\n    public List<Position> chooseCards(){\r\n\r\n    }\r\n\r\n    public List<ObjectCard> rearrangeCards(List<ObjectCard> unordered){\r\n\r\n    }\r\n}
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/MyShelfie/src/main/java/it/polimi/ingsw/Player.java b/MyShelfie/src/main/java/it/polimi/ingsw/Player.java
+---- a/MyShelfie/src/main/java/it/polimi/ingsw/Player.java	(revision 427d23c3c6125203b52029e2e100a6c913317da1)
+-+++ b/MyShelfie/src/main/java/it/polimi/ingsw/Player.java	(date 1679820950128)
+-@@ -3,6 +3,7 @@
+- 
+- public class Player{
+- 
+-+    private Shelf shelf;
+-     private String nickname;
+- 
+-     private int score = 0;
+-@@ -16,14 +17,15 @@
+-     private boolean hasEndGameToken = false;
+- 
+- 
+--    public Player(String nickname){
+-+    public Player(String nickname, Shelf shelf){
+- 
+--        this.nickname=nickname;
+--        this.score=score;
+--        this.firstPlayer=firstPlayer;
+--        this.firstCommonGoalReached=firstCommonGoalReached;
+--        this.secondCommonGoalReached=secondCommonGoalReached;
+--        this.hasEndGameToken=hasEndGameToken;
+-+        this.nickname = nickname;
+-+        this.score = score;
+-+        this.firstPlayer = firstPlayer;
+-+        this.firstCommonGoalReached = firstCommonGoalReached;
+-+        this.secondCommonGoalReached = secondCommonGoalReached;
+-+        this.hasEndGameToken = hasEndGameToken;
+-+        this.shelf = shelf;
+- 
+-     }
+- 
+-Index: MyShelfie/src/main/java/it/polimi/ingsw/Shelf.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>package it.polimi.ingsw;\r\n\r\npublic class Shelf{\r\n\r\n    private ShelfCell shelfContent[6][5];\r\n\r\n    public Shelf(){\r\n        this.shelfContent = shelfContent;\r\n    }\r\n\r\n    public void setShelfContent(ShelfCell[] shelfContent) {\r\n        this.shelfContent = shelfContent;\r\n    }\r\n\r\n    public ShelfCell[] getShelfContent() {\r\n        return shelfContent;\r\n    }\r\n\r\n    public void clearShelf(){\r\n\r\n    }\r\n\r\n    public void insertCards(List<ObjectCard> cards, int columns){\r\n\r\n    }\r\n\r\n    public boolean isFull(){\r\n\r\n    }\r\n\r\n    public int freeCellsOnColumn(int column){\r\n\r\n    }\r\n\r\n    public int pointsFromAdjacency(){\r\n\r\n    }\r\n}
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/MyShelfie/src/main/java/it/polimi/ingsw/Shelf.java b/MyShelfie/src/main/java/it/polimi/ingsw/Shelf.java
+---- a/MyShelfie/src/main/java/it/polimi/ingsw/Shelf.java	(revision 427d23c3c6125203b52029e2e100a6c913317da1)
+-+++ b/MyShelfie/src/main/java/it/polimi/ingsw/Shelf.java	(date 1679820950143)
+-@@ -2,10 +2,12 @@
+- 
+- public class Shelf{
+- 
+-+    private Player player;
+-     private ShelfCell shelfContent[6][5];
+- 
+--    public Shelf(){
+-+    public Shelf(Player player){
+-         this.shelfContent = shelfContent;
+-+        this.player = player;
+-     }
+- 
+-     public void setShelfContent(ShelfCell[] shelfContent) {
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"44ab7de7-5728-4d99-b73e-3b9c99b09f47\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Bag.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Board.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/CommonGoalCard.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Game.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Position.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/ScoringToken.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Shelf.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2N0WsRka8BZgmuN1S8dHjOlp7HD\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"44ab7de7-5728-4d99-b73e-3b9c99b09f47\" name=\"Changes\" comment=\"\" />\r\n      <created>1678801685477</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1678801685477</updated>\r\n      <workItem from=\"1678801686713\" duration=\"506000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision 427d23c3c6125203b52029e2e100a6c913317da1)
+-+++ b/.idea/workspace.xml	(date 1679825218930)
+-@@ -4,16 +4,10 @@
+-     <option name="autoReloadType" value="SELECTIVE" />
+-   </component>
+-   <component name="ChangeListManager">
+--    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="">
+--      <change afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Bag.java" afterDir="false" />
+--      <change afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Board.java" afterDir="false" />
+--      <change afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/CommonGoalCard.java" afterDir="false" />
+--      <change afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Game.java" afterDir="false" />
+--      <change afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Position.java" afterDir="false" />
+--      <change afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/ScoringToken.java" afterDir="false" />
+--      <change afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Shelf.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="full project layout commit">
+-       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Player.java" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Shelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Shelf.java" afterDir="false" />
+-     </list>
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-@@ -21,7 +15,15 @@
+-     <option name="LAST_RESOLUTION" value="IGNORE" />
+-   </component>
+-   <component name="Git.Settings">
+-+    <option name="PREVIOUS_COMMIT_AUTHORS">
+-+      <list>
+-+        <option value="Simone &lt;simone2.oggioni@mail.polimi.it&gt;" />
+-+      </list>
+-+    </option>
+-     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+-+  </component>
+-+  <component name="MarkdownSettingsMigration">
+-+    <option name="stateVersion" value="1" />
+-   </component>
+-   <component name="ProjectId" id="2N0WsRka8BZgmuN1S8dHjOlp7HD" />
+-   <component name="ProjectLevelVcsManager">
+-@@ -53,7 +55,17 @@
+-       <option name="presentableId" value="Default" />
+-       <updated>1678801685477</updated>
+-       <workItem from="1678801686713" duration="506000" />
+-+      <workItem from="1679772782937" duration="432000" />
+-+      <workItem from="1679819234885" duration="2691000" />
+-+    </task>
+-+    <task id="LOCAL-00001" summary="2 try">
+-+      <created>1679766477426</created>
+-+      <option name="number" value="00001" />
+-+      <option name="presentableId" value="LOCAL-00001" />
+-+      <option name="project" value="LOCAL" />
+-+      <updated>1679766477426</updated>
+-     </task>
+-+    <option name="localTasksCounter" value="2" />
+-     <servers />
+-   </component>
+-   <component name="TypeScriptGeneratedFilesManager">
+-@@ -65,6 +77,21 @@
+-         <entry key="MAIN">
+-           <value>
+-             <State />
+-+          </value>
+-+        </entry>
+-+      </map>
+-+    </option>
+-+    <option name="RECENT_FILTERS">
+-+      <map>
+-+        <entry key="Branch">
+-+          <value>
+-+            <list>
+-+              <RecentGroup>
+-+                <option name="FILTER_VALUES">
+-+                  <option value="origin/main" />
+-+                </option>
+-+              </RecentGroup>
+-+            </list>
+-           </value>
+-         </entry>
+-       </map>
+-@@ -72,5 +99,7 @@
+-   </component>
+-   <component name="VcsManagerConfiguration">
+-     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+-+    <MESSAGE value="2 try" />
+-+    <option name="LAST_COMMIT_MESSAGE" value="2 try" />
+-   </component>
+- </project>
+-\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_18_50_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_18_50_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_18_50_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_18_50_[Changes]/shelved.patch	(revision 4f4a7941c624a193c629f31384e93c9e3ecd8462)
++++ /dev/null	(revision 4f4a7941c624a193c629f31384e93c9e3ecd8462)
+@@ -1,57 +0,0 @@
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"44ab7de7-5728-4d99-b73e-3b9c99b09f47\" name=\"Changes\" comment=\"first project layout\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/PersonalGoalCard.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/PersonalGoalCard.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Player.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Player.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2N0WsRka8BZgmuN1S8dHjOlp7HD\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"44ab7de7-5728-4d99-b73e-3b9c99b09f47\" name=\"Changes\" comment=\"\" />\r\n      <created>1678801685477</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1678801685477</updated>\r\n      <workItem from=\"1678801686713\" duration=\"506000\" />\r\n      <workItem from=\"1678803801068\" duration=\"24000\" />\r\n      <workItem from=\"1679563807266\" duration=\"41000\" />\r\n      <workItem from=\"1679563859808\" duration=\"7000\" />\r\n      <workItem from=\"1679752768661\" duration=\"3763000\" />\r\n      <workItem from=\"1679756574646\" duration=\"55000\" />\r\n      <workItem from=\"1679760410042\" duration=\"2954000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Class Player layout\">\r\n      <created>1679754417366</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1679754417366</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"first project layout\">\r\n      <created>1679761427232</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1679761427232</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"Class Player layout\" />\r\n    <MESSAGE value=\"first project layout\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"first project layout\" />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision 6fd41976df21a4c7e8a1ce67fd77ba57e1c7f30f)
+-+++ b/.idea/workspace.xml	(date 1679766517182)
+-@@ -4,10 +4,8 @@
+-     <option name="autoReloadType" value="SELECTIVE" />
+-   </component>
+-   <component name="ChangeListManager">
+--    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="first project layout">
+-+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="half project layout">
+-       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/PersonalGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/PersonalGoalCard.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Player.java" afterDir="false" />
+-     </list>
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-@@ -55,7 +53,7 @@
+-       <workItem from="1679563859808" duration="7000" />
+-       <workItem from="1679752768661" duration="3763000" />
+-       <workItem from="1679756574646" duration="55000" />
+--      <workItem from="1679760410042" duration="2954000" />
+-+      <workItem from="1679760410042" duration="4693000" />
+-     </task>
+-     <task id="LOCAL-00001" summary="Class Player layout">
+-       <created>1679754417366</created>
+-@@ -71,7 +69,14 @@
+-       <option name="project" value="LOCAL" />
+-       <updated>1679761427232</updated>
+-     </task>
+--    <option name="localTasksCounter" value="3" />
+-+    <task id="LOCAL-00003" summary="half project layout">
+-+      <created>1679764496365</created>
+-+      <option name="number" value="00003" />
+-+      <option name="presentableId" value="LOCAL-00003" />
+-+      <option name="project" value="LOCAL" />
+-+      <updated>1679764496365</updated>
+-+    </task>
+-+    <option name="localTasksCounter" value="4" />
+-     <servers />
+-   </component>
+-   <component name="TypeScriptGeneratedFilesManager">
+-@@ -92,6 +97,7 @@
+-     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+-     <MESSAGE value="Class Player layout" />
+-     <MESSAGE value="first project layout" />
+--    <option name="LAST_COMMIT_MESSAGE" value="first project layout" />
+-+    <MESSAGE value="half project layout" />
+-+    <option name="LAST_COMMIT_MESSAGE" value="half project layout" />
+-   </component>
+- </project>
+-\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_17_43_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_17_43_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_17_43_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_17_43_[Changes]/shelved.patch	(revision 4f4a7941c624a193c629f31384e93c9e3ecd8462)
++++ /dev/null	(revision 4f4a7941c624a193c629f31384e93c9e3ecd8462)
+@@ -1,32 +0,0 @@
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"44ab7de7-5728-4d99-b73e-3b9c99b09f47\" name=\"Changes\" comment=\"half project layout\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_15_29__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_15_29__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Bag.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Bag.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Board.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Board.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/BoardCell.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/BoardCell.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/CommonGoalCard.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/CommonGoalCard.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Game.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Game.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/PersonalGoalCard.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/PersonalGoalCard.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Player.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Player.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/ScoringToken.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/ScoringToken.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Shelf.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Shelf.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/ShelfCell.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/ShelfCell.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2N0WsRka8BZgmuN1S8dHjOlp7HD\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"44ab7de7-5728-4d99-b73e-3b9c99b09f47\" name=\"Changes\" comment=\"\" />\r\n      <created>1678801685477</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1678801685477</updated>\r\n      <workItem from=\"1678801686713\" duration=\"506000\" />\r\n      <workItem from=\"1678803801068\" duration=\"24000\" />\r\n      <workItem from=\"1679563807266\" duration=\"41000\" />\r\n      <workItem from=\"1679563859808\" duration=\"7000\" />\r\n      <workItem from=\"1679752768661\" duration=\"3763000\" />\r\n      <workItem from=\"1679756574646\" duration=\"55000\" />\r\n      <workItem from=\"1679760410042\" duration=\"2954000\" />\r\n      <workItem from=\"1679819247069\" duration=\"5081000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Class Player layout\">\r\n      <created>1679754417366</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1679754417366</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"first project layout\">\r\n      <created>1679761427232</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1679761427232</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_FILTERS\">\r\n      <map>\r\n        <entry key=\"Branch\">\r\n          <value>\r\n            <list>\r\n              <RecentGroup>\r\n                <option name=\"FILTER_VALUES\">\r\n                  <option value=\"main\" />\r\n                </option>\r\n              </RecentGroup>\r\n            </list>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"Class Player layout\" />\r\n    <MESSAGE value=\"first project layout\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"first project layout\" />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision b98b6a1141f47e20a4122c44342642d36350754c)
+-+++ b/.idea/workspace.xml	(date 1679825329822)
+-@@ -4,20 +4,11 @@
+-     <option name="autoReloadType" value="SELECTIVE" />
+-   </component>
+-   <component name="ChangeListManager">
+--    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="half project layout">
+--      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="full project layout commit">
+-       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_15_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_15_29__Changes_.xml" afterDir="false" />
+-       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Bag.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Board.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/BoardCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/BoardCell.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/CommonGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/CommonGoalCard.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Game.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/PersonalGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/PersonalGoalCard.java" afterDir="false" />
+-       <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Player.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/ScoringToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/ScoringToken.java" afterDir="false" />
+-       <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Shelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/Shelf.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/ShelfCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/ShelfCell.java" afterDir="false" />
+-     </list>
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_17_43__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_17_43__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_17_43__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_17_43__Changes_.xml	(revision 4f4a7941c624a193c629f31384e93c9e3ecd8462)
++++ /dev/null	(revision 4f4a7941c624a193c629f31384e93c9e3ecd8462)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_26_03_2023_17_43_[Changes]" date="1679845404600" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_17_43_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 26/03/2023 17:43 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"44ab7de7-5728-4d99-b73e-3b9c99b09f47\" name=\"Changes\" comment=\"Game, Shelf, Stack commit\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/ing-sw-2023-figini-martino-oggioni-grassi.iml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/ing-sw-2023-figini-martino-oggioni-grassi.iml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_15_29__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_15_29__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_18_50__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_18_50__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_12_07__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_12_07__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_17_43__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_17_43__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Board.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Board.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Player.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Player.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Position.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Position.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Shelf.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Shelf.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2N0WsRka8BZgmuN1S8dHjOlp7HD\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.appearance&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"44ab7de7-5728-4d99-b73e-3b9c99b09f47\" name=\"Changes\" comment=\"\" />\r\n      <created>1678801685477</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1678801685477</updated>\r\n      <workItem from=\"1678801686713\" duration=\"506000\" />\r\n      <workItem from=\"1678803801068\" duration=\"24000\" />\r\n      <workItem from=\"1679563807266\" duration=\"41000\" />\r\n      <workItem from=\"1679563859808\" duration=\"7000\" />\r\n      <workItem from=\"1679752768661\" duration=\"3763000\" />\r\n      <workItem from=\"1679756574646\" duration=\"55000\" />\r\n      <workItem from=\"1679760410042\" duration=\"2954000\" />\r\n      <workItem from=\"1679819247069\" duration=\"5440000\" />\r\n      <workItem from=\"1679834336146\" duration=\"65000\" />\r\n      <workItem from=\"1679834672053\" duration=\"8421000\" />\r\n      <workItem from=\"1679988642837\" duration=\"2015000\" />\r\n      <workItem from=\"1680272787375\" duration=\"4605000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Class Player layout\">\r\n      <created>1679754417366</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1679754417366</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"first project layout\">\r\n      <created>1679761427232</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1679761427232</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"linked classes commit\">\r\n      <created>1679825167487</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1679825167487</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Game, Shelf, Stack commit\">\r\n      <created>1679918315816</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1679918315816</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"5\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_FILTERS\">\r\n      <map>\r\n        <entry key=\"Branch\">\r\n          <value>\r\n            <list>\r\n              <RecentGroup>\r\n                <option name=\"FILTER_VALUES\">\r\n                  <option value=\"main\" />\r\n                </option>\r\n              </RecentGroup>\r\n            </list>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"Class Player layout\" />\r\n    <MESSAGE value=\"first project layout\" />\r\n    <MESSAGE value=\"linked classes commit\" />\r\n    <MESSAGE value=\"Game, Shelf, Stack commit\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Game, Shelf, Stack commit\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 4f4a7941c624a193c629f31384e93c9e3ecd8462)
++++ b/.idea/workspace.xml	(date 1680869730575)
+@@ -5,16 +5,15 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Game, Shelf, Stack commit">
+-      <change beforePath="$PROJECT_DIR$/.idea/ing-sw-2023-figini-martino-oggioni-grassi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ing-sw-2023-figini-martino-oggioni-grassi.iml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_15_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_15_29__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_18_50__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_18_50__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_12_07__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_12_07__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_17_43__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_17_43__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_15_29_[Changes]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_15_29__Changes_.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_18_50_[Changes]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_18_50__Changes_.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_12_07_[Changes]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_12_07__Changes_.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_17_43_[Changes]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_17_43__Changes_.xml" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Board.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Player.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Position.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Shelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Shelf.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -68,7 +67,9 @@
+       <workItem from="1679834336146" duration="65000" />
+       <workItem from="1679834672053" duration="8421000" />
+       <workItem from="1679988642837" duration="2015000" />
+-      <workItem from="1680272787375" duration="4605000" />
++      <workItem from="1680598628705" duration="105000" />
++      <workItem from="1680612262710" duration="65000" />
++      <workItem from="1680869217665" duration="510000" />
+     </task>
+     <task id="LOCAL-00001" summary="Class Player layout">
+       <created>1679754417366</created>
