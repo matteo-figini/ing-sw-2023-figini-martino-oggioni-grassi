@@ -37,6 +37,10 @@ public class Shelf {
         return shelfContent;
     }
 
+    public void setShelfContent(ShelfCell[][] shelfContent) {
+        this.shelfContent = shelfContent;
+    }
+
     /**
      * Clears the shelf.
      */

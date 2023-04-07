@@ -1,7 +1,6 @@
 package it.polimi.ingsw.model.commongoals;
 
-import it.polimi.ingsw.model.CommonGoalCard;
-import it.polimi.ingsw.model.Shelf;
+import it.polimi.ingsw.model.*;
 
 // TODO: testare l'algoritmo di controllo delle carte per CrossGoalCard
 public class CrossGoalCard extends CommonGoalCard {
