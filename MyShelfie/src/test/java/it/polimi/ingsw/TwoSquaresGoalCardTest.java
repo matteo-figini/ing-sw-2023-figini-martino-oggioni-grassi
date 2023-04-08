@@ -13,6 +13,7 @@ public class TwoSquaresGoalCardTest {
 
     private Shelf correctShelf;
     private Shelf uncorrectShelf;
+    private Shelf uncorrectShelf2;
     private TwoSquaresGoalCard card = new TwoSquaresGoalCard(2);
     private ShelfCell[][] shelfContent;
 
@@ -42,15 +43,15 @@ public class TwoSquaresGoalCardTest {
         shelfContent[4][1].setTile(new ItemTile(ItemTileType.BLUE));
         shelfContent[4][0].setTile(new ItemTile(ItemTileType.BLUE));
 
-        shelfContent[3][4].setTile(new ItemTile(ItemTileType.LIGHTBLUE));
+        shelfContent[3][4].setTile(new ItemTile(ItemTileType.BLUE));
         shelfContent[3][3].setTile(new ItemTile(ItemTileType.BLUE));
         shelfContent[3][2].setTile(new ItemTile(ItemTileType.PINK));
         shelfContent[3][1].setTile(new ItemTile(ItemTileType.BLUE));
         shelfContent[3][0].setTile(new ItemTile(ItemTileType.BLUE));
 
-        /*shelfContent[2][4].setTile(new ItemTile(ItemTileType.BLUE));
+        shelfContent[2][4].setTile(new ItemTile(ItemTileType.BLUE));
         shelfContent[2][3].setTile(new ItemTile(ItemTileType.BLUE));
-        shelfContent[2][2].setTile(new ItemTile(ItemTileType.GREEN));
+        /*shelfContent[2][2].setTile(new ItemTile(ItemTileType.GREEN));
         shelfContent[2][1].setTile(new ItemTile(ItemTileType.PINK));
         shelfContent[2][0].setTile(new ItemTile(ItemTileType.BLUE));
 
@@ -121,17 +122,72 @@ public class TwoSquaresGoalCardTest {
         uncorrectShelf.setShelfContent(shelfContent);
     }
 
+    @BeforeEach
+    void setupUncorrectShelf2(){
+        //setup della shelf corretta da passare come parametro
+        this.uncorrectShelf2 = new Shelf();
+        this.shelfContent = new ShelfCell[6][5];
+        for(int i=0; i<6; i++){
+            for(int j=0; j<5;j++){
+                shelfContent[i][j] = new ShelfCell();
+            }
+        }
+
+        // Initialize every cell in the matrix
+
+        shelfContent[5][4].setTile(new ItemTile(ItemTileType.PINK));
+        shelfContent[5][3].setTile(new ItemTile(ItemTileType.PINK));
+        shelfContent[5][2].setTile(new ItemTile(ItemTileType.WHITE));
+        shelfContent[5][1].setTile(new ItemTile(ItemTileType.GREEN));
+        shelfContent[5][0].setTile(new ItemTile(ItemTileType.YELLOW));
+
+        shelfContent[4][4].setTile(new ItemTile(ItemTileType.PINK));
+        shelfContent[4][3].setTile(new ItemTile(ItemTileType.PINK));
+        shelfContent[4][2].setTile(new ItemTile(ItemTileType.GREEN));
+        shelfContent[4][1].setTile(new ItemTile(ItemTileType.BLUE));
+        shelfContent[4][0].setTile(new ItemTile(ItemTileType.BLUE));
+
+        shelfContent[3][4].setTile(new ItemTile(ItemTileType.LIGHTBLUE));
+        shelfContent[3][3].setTile(new ItemTile(ItemTileType.LIGHTBLUE));
+        shelfContent[3][2].setTile(new ItemTile(ItemTileType.PINK));
+        shelfContent[3][1].setTile(new ItemTile(ItemTileType.BLUE));
+        shelfContent[3][0].setTile(new ItemTile(ItemTileType.BLUE));
+
+        shelfContent[2][4].setTile(new ItemTile(ItemTileType.LIGHTBLUE));
+        shelfContent[2][3].setTile(new ItemTile(ItemTileType.LIGHTBLUE));
+        /*shelfContent[2][2].setTile(new ItemTile(ItemTileType.GREEN));
+        shelfContent[2][1].setTile(new ItemTile(ItemTileType.PINK));
+        shelfContent[2][0].setTile(new ItemTile(ItemTileType.BLUE));
+
+        shelfContent[1][4].setTile(new ItemTile(ItemTileType.GREEN));
+        shelfContent[1][3].setTile(new ItemTile(ItemTileType.GREEN));
+        shelfContent[1][2].setTile(new ItemTile(ItemTileType.WHITE));
+        shelfContent[1][1].setTile(new ItemTile(ItemTileType.GREEN));
+        shelfContent[1][0].setTile(new ItemTile(ItemTileType.PINK));
+
+        shelfContent[0][4].setTile(new ItemTile(ItemTileType.YELLOW));
+        shelfContent[0][3].setTile(new ItemTile(ItemTileType.BLUE));
+        shelfContent[0][2].setTile(new ItemTile(ItemTileType.WHITE));
+        shelfContent[0][1].setTile(new ItemTile(ItemTileType.BLUE));
+        shelfContent[0][0].setTile(new ItemTile(ItemTileType.PINK));*/
+
+        uncorrectShelf2.setShelfContent(shelfContent);
+    }
+
     //in input una shelf con il pattern corretto da verificare
     @Test
     void checkPatternTestTrue(){
-
         Assertions.assertTrue(card.checkPattern(correctShelf));
     }
 
     //in input una shelf con il pattern incorretto da verificare
     @Test
     void checkPatternTestFalse(){
-
         Assertions.assertFalse(card.checkPattern(uncorrectShelf));
+    }
+
+    @Test
+    void checkPatternTestFalse2(){
+        Assertions.assertFalse(card.checkPattern(uncorrectShelf2));
     }
 }

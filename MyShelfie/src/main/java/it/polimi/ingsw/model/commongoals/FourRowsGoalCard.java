@@ -24,30 +24,39 @@ public class FourRowsGoalCard extends CommonGoalCard {
         int validRows = 0;
 
         for (int i = 0; i < Shelf.ROWS; i++) {
+            boolean containsFreeCells;
+
             Map<ItemTileType, Integer> tilesInRow = new HashMap<>();
             for (ItemTileType type : ItemTileType.values()) {
                 tilesInRow.put(type, 0);
             }
-            for (int j = 0; j < Shelf.COLUMNS; j++) {
-                ShelfCell shelfCell = shelf.getShelfContent()[i][j];
-                if (!shelfCell.isFree()) {
-                    Integer prevValue = tilesInRow.get(shelfCell.getTile().getItemTileType());
+
+            assert tilesInRow.size() == 6;
+
+            containsFreeCells = false;
+            for (int j = 0; j < Shelf.COLUMNS && !containsFreeCells; j++) {
+                if (!shelf.getShelfContent()[i][j].isFree()) {
+                    Integer prevValue = tilesInRow.get(shelf.getShelfContent()[i][j].getTile().getItemTileType());
                     prevValue = prevValue + 1;
-                    tilesInRow.put(shelfCell.getTile().getItemTileType(), prevValue);
+                    tilesInRow.put(shelf.getShelfContent()[i][j].getTile().getItemTileType(), prevValue);
+                } else {
+                    containsFreeCells = true;
                 }
             }
 
-            int keysWithZeroVal = 0;
-            for (Map.Entry<ItemTileType, Integer> set : tilesInRow.entrySet()) {
-                if (set.getValue() == 0) {
-                    keysWithZeroVal++;
+            if (!containsFreeCells) {
+                int keysWithZeroVal = 0;
+                for (Map.Entry<ItemTileType, Integer> set : tilesInRow.entrySet()) {
+                    if (set.getValue() == 0) {
+                        keysWithZeroVal++;
+                    }
                 }
-            }
-            if (keysWithZeroVal >= 3) {
-                validRows++;
+                if (keysWithZeroVal >= 3) {
+                    validRows++;
+                }
             }
         }
 
-        return validRows >= 4;
+        return (validRows >= 4);
     }
 }

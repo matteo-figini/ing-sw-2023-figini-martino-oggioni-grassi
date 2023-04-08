@@ -124,14 +124,12 @@ public class ThreeColumnsGoalCardTest {
     //in input una shelf con il pattern corretto da verificare
     @Test
     void checkPatternTestTrue(){
-
         Assertions.assertTrue(card.checkPattern(correctShelf));
     }
 
     //in input una shelf con il pattern incorretto da verificare
     @Test
     void checkPatternTestFalse(){
-
         Assertions.assertFalse(card.checkPattern(uncorrectShelf));
     }
 }

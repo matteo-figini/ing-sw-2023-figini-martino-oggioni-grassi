@@ -24,27 +24,32 @@ public class ThreeColumnsGoalCard extends CommonGoalCard {
         int validColumns = 0;
 
         for (int j = 0; j < Shelf.COLUMNS; j++) {
+            boolean containsFreeCells = false;
             Map<ItemTileType, Integer> tilesInCol = new HashMap<>();
             for (ItemTileType type : ItemTileType.values()) {
                 tilesInCol.put(type, 0);
             }
-            for (int i = 0; i < Shelf.ROWS; i++) {
-                ShelfCell shelfCell = shelf.getShelfContent()[i][j];
-                if (!shelfCell.isFree()) {
-                    Integer prevValue = tilesInCol.get(shelfCell.getTile().getItemTileType());
+
+            for (int i = 0; i < Shelf.ROWS && !containsFreeCells; i++) {
+                if (!shelf.getShelfContent()[i][j].isFree()) {
+                    Integer prevValue = tilesInCol.get(shelf.getShelfContent()[i][j].getTile().getItemTileType());
                     prevValue = prevValue + 1;
-                    tilesInCol.put(shelfCell.getTile().getItemTileType(), prevValue);
+                    tilesInCol.put(shelf.getShelfContent()[i][j].getTile().getItemTileType(), prevValue);
+                } else {
+                    containsFreeCells = true;
                 }
             }
 
-            int keysWithZeroVal = 0;
-            for (Map.Entry<ItemTileType, Integer> set : tilesInCol.entrySet()) {
-                if (set.getValue() == 0) {
-                    keysWithZeroVal++;
+            if (!containsFreeCells) {
+                int keysWithZeroVal = 0;
+                for (Map.Entry<ItemTileType, Integer> set : tilesInCol.entrySet()) {
+                    if (set.getValue() == 0) {
+                        keysWithZeroVal++;
+                    }
                 }
-            }
-            if (keysWithZeroVal >= 3) {
-                validColumns++;
+                if (keysWithZeroVal >= 3) {
+                    validColumns++;
+                }
             }
         }
 
