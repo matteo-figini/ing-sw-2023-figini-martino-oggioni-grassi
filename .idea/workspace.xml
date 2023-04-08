@@ -4,23 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Game, Shelf, Stack commit">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_04_2023_13_47__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_04_2023_13_47__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_04_2023_14_16__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_04_2023_14_16__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_04_2023_16_38__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_04_2023_16_38__Changes_.xml" afterDir="false" />
+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="commongoals test structure commit">
+      <change afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/PersonalGoalCardTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/CrossGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/CrossGoalCardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/DiagonalFiveGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/DiagonalFiveGoalCardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/EightEqualsGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/EightEqualsGoalCardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/FourCornersGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/FourCornersGoalCardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/FourLinesFourGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/FourLinesFourGoalCardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/FourRowsGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/FourRowsGoalCardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/SixCouplesGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/SixCouplesGoalCardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/ThreeColumnsGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/ThreeColumnsGoalCardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/TriangleGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/TriangleGoalCardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/TwoColumnsGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/TwoColumnsGoalCardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/TwoRowsGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/TwoRowsGoalCardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/TwoSquaresGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/TwoSquaresGoalCardTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,8 +53,8 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.TwoSquaresGoalCardTest">
-    <configuration name="ThreeColumnsGoalCardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.PersonalGoalCardTest">
+    <configuration name="DiagonalFiveGoalCardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ing-sw-2023-figini-martino-oggioni-grassi" />
       <extension name="coverage">
         <pattern>
@@ -77,13 +63,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="it.polimi.ingsw" />
-      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.ThreeColumnsGoalCardTest" />
+      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.DiagonalFiveGoalCardTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TriangleGoalCardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PersonalGoalCardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ing-sw-2023-figini-martino-oggioni-grassi" />
       <extension name="coverage">
         <pattern>
@@ -92,7 +78,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="it.polimi.ingsw" />
-      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.TriangleGoalCardTest" />
+      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.PersonalGoalCardTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -145,11 +131,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PersonalGoalCardTest" />
+        <item itemvalue="JUnit.DiagonalFiveGoalCardTest" />
         <item itemvalue="JUnit.TwoSquaresGoalCardTest" />
         <item itemvalue="JUnit.TwoRowsGoalCardTest" />
         <item itemvalue="JUnit.TwoColumnsGoalCardTest" />
-        <item itemvalue="JUnit.TriangleGoalCardTest" />
-        <item itemvalue="JUnit.ThreeColumnsGoalCardTest" />
       </list>
     </recent_temporary>
   </component>
@@ -177,6 +163,7 @@
       <workItem from="1680698404477" duration="4505000" />
       <workItem from="1680869791168" duration="7934000" />
       <workItem from="1680885330851" duration="5758000" />
+      <workItem from="1680935921526" duration="6453000" />
     </task>
     <task id="LOCAL-00001" summary="Class Player layout">
       <created>1679754417366</created>
