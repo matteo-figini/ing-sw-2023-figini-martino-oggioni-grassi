@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="commongoals test structure commit">
-      <change afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/PersonalGoalCardTest.java" afterDir="false" />
+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="PersonalGoalCardTest commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +52,22 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.PersonalGoalCardTest">
+  <component name="RunManager" selected="JUnit.CrossGoalCardTest">
+    <configuration name="CrossGoalCardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ing-sw-2023-figini-martino-oggioni-grassi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.polimi.ingsw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="it.polimi.ingsw" />
+      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.CrossGoalCardTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DiagonalFiveGoalCardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ing-sw-2023-figini-martino-oggioni-grassi" />
       <extension name="coverage">
@@ -79,21 +93,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="it.polimi.ingsw" />
       <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.PersonalGoalCardTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TwoColumnsGoalCardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ing-sw-2023-figini-martino-oggioni-grassi" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="it.polimi.ingsw.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="it.polimi.ingsw" />
-      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.TwoColumnsGoalCardTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -131,11 +130,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CrossGoalCardTest" />
         <item itemvalue="JUnit.PersonalGoalCardTest" />
         <item itemvalue="JUnit.DiagonalFiveGoalCardTest" />
         <item itemvalue="JUnit.TwoSquaresGoalCardTest" />
         <item itemvalue="JUnit.TwoRowsGoalCardTest" />
-        <item itemvalue="JUnit.TwoColumnsGoalCardTest" />
       </list>
     </recent_temporary>
   </component>
@@ -163,7 +162,7 @@
       <workItem from="1680698404477" duration="4505000" />
       <workItem from="1680869791168" duration="7934000" />
       <workItem from="1680885330851" duration="5758000" />
-      <workItem from="1680935921526" duration="6453000" />
+      <workItem from="1680935921526" duration="7733000" />
     </task>
     <task id="LOCAL-00001" summary="Class Player layout">
       <created>1679754417366</created>
@@ -193,7 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679918315816</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="PersonalGoalCardTest commit">
+      <created>1680943324374</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1680943324374</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,6 +237,7 @@
     <MESSAGE value="first project layout" />
     <MESSAGE value="linked classes commit" />
     <MESSAGE value="Game, Shelf, Stack commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Game, Shelf, Stack commit" />
+    <MESSAGE value="PersonalGoalCardTest commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="PersonalGoalCardTest commit" />
   </component>
 </project>
