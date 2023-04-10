@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-// TODO: da revisionare completamente
+// TODO: da revisionare
 
 // TODO: singleton pattern?
 /**
@@ -17,6 +17,8 @@ import java.util.Random;
 public class Game {
     final static public int MIN_PLAYERS = 2;
     final static public int MAX_PLAYERS = 4;
+
+    private int numberOfPlayers;    // This attribute represents the chosen number of players for the game.
     private boolean lastLap;    // This attribute is 'true' whether the game is at the last lap, 'false' otherwise.
     private final List<Player> players;   // This list represents the players in the game.
     private Player activePlayer;    // This attribute represents a pointer to the current player in the list above.
@@ -128,6 +130,22 @@ public class Game {
         assignsCommonGoalCards();
         assignsPersonalGoalCards();
         chooseFirstPlayer();
+    }
+
+    /**
+     * This method checks if this turn is the last one because of one player fills completely his shelf.
+     * @return A boolean value indicating if this turn is the last one.
+     */
+    public boolean checkLastLapCondition () {
+        if (!lastLap) {
+            for (Player player : players) {
+                if (player.getShelf().isFull()) {
+                    lastLap = true;
+                    break;
+                }
+            }
+        }
+        return lastLap;
     }
 
     /**
@@ -252,7 +270,6 @@ public class Game {
         // Continua questo processo finché la dimensione della lista è minore del numero di numeri specificati (howMany)
         while (generatedNumbers.size() < howMany) {
             Integer randomNum = random.nextInt(max - min + 1) + 1;
-            System.out.println("Generated number: " + randomNum);
             if (!generatedNumbers.contains(randomNum)) {
                 generatedNumbers.add(randomNum);
             }

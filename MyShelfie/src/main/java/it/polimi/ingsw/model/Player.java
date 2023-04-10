@@ -121,4 +121,8 @@ public class Player  {
     public void setPersonalGoalCard (PersonalGoalCard card) {
         this.personalGoalCard = card;
     }
+
+    public Shelf getShelf () {
+        return this.shelf;
+    }
 }

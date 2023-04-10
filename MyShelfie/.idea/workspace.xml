@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="652d13d0-8bba-4893-9fb4-464eeee35643" name="Changes" comment="Added implementation for checkPattern method in the common goal cards. Minor fixes on Player and Game classes.">
+    <list default="true" id="652d13d0-8bba-4893-9fb4-464eeee35643" name="Changes" comment="Bug fixing on CommonGoalCard due to test.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/controller/GameController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/message/Message.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/observer/Observable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/observer/Observer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/FourRowsGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/FourRowsGoalCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/ThreeColumnsGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/ThreeColumnsGoalCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/FourRowsGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/FourRowsGoalCardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/ThreeColumnsGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/ThreeColumnsGoalCardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/TwoSquaresGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/TwoSquaresGoalCardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/Position.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +205,14 @@
       <workItem from="1680861912640" duration="1790000" />
       <workItem from="1680867174638" duration="2503000" />
       <workItem from="1680896142611" duration="309000" />
-      <workItem from="1680941783155" duration="1665000" />
+      <workItem from="1680941783155" duration="1811000" />
+      <workItem from="1680946739608" duration="251000" />
+      <workItem from="1680980773486" duration="266000" />
+      <workItem from="1680983141296" duration="11000" />
+      <workItem from="1681051514889" duration="158000" />
+      <workItem from="1681052308435" duration="1296000" />
+      <workItem from="1681056797303" duration="286000" />
+      <workItem from="1681120120888" duration="614000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1678803384404</created>
@@ -275,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680869656678</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Bug fixing on CommonGoalCard due to test.">
+      <created>1680943543920</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1680943543920</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,7 +325,8 @@
     <MESSAGE value="Added scheme for CommonGoalCards; other little edits on board" />
     <MESSAGE value="Added description for CommonGoalCard &amp; the method &quot;pointsfromAdjacencies&quot; on the Shelf." />
     <MESSAGE value="Added implementation for checkPattern method in the common goal cards. Minor fixes on Player and Game classes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added implementation for checkPattern method in the common goal cards. Minor fixes on Player and Game classes." />
+    <MESSAGE value="Bug fixing on CommonGoalCard due to test." />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug fixing on CommonGoalCard due to test." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
