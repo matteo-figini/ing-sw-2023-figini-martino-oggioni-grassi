@@ -9,7 +9,7 @@ import java.util.List;
  * This class represents the bag containing the tiles.
  */
 public class Bag {
-    private List<ItemTile> itemTileList;
+    private List<ItemTile> itemTileList = new ArrayList<>();
     private final int cardForType = 22;
     private final int typesOfCards = 6;
 
