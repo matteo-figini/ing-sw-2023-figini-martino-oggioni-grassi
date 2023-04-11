@@ -95,6 +95,10 @@ public class Board{
         return boardContent;
     }
 
+    public void setBoardContent(BoardCell[][] boardContent) {
+        this.boardContent = boardContent;
+    }
+
     /**
      * Refills the board with the tiles specified in the list passed as parameter.
      * @param tiles the tiles to put in the board.
