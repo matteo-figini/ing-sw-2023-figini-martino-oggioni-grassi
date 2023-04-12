@@ -4,15 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="PersonalGoalCardTest updated commit">
+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="BoardTest: refillBoardTest commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/BoardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/FourRowsGoalCardTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/FourRowsGoalCardTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/ThreeColumnsGoalCardTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/ThreeColumnsGoalCardTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/TwoSquaresGoalCardTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/TwoSquaresGoalCardTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/commongoals/FourRowsGoalCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/commongoals/FourRowsGoalCard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/commongoals/ThreeColumnsGoalCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/commongoals/ThreeColumnsGoalCard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Bag.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Bag.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Position.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Position.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,6 +90,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BoardTest.refillBoardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ing-sw-2023-figini-martino-oggioni-grassi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.polimi.ingsw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="it.polimi.ingsw" />
+      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.BoardTest" />
+      <option name="METHOD_NAME" value="refillBoardTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BoardTest.refillBoardTest1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ing-sw-2023-figini-martino-oggioni-grassi" />
       <extension name="coverage">
@@ -121,28 +137,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PersonalGoalCardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ing-sw-2023-figini-martino-oggioni-grassi" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="it.polimi.ingsw.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="it.polimi.ingsw" />
-      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.PersonalGoalCardTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.BoardTest" />
+        <item itemvalue="JUnit.BoardTest.refillBoardTest" />
         <item itemvalue="JUnit.BoardTest.refillBoardTest1" />
         <item itemvalue="JUnit.BagTest" />
         <item itemvalue="JUnit.CrossGoalCardTest" />
-        <item itemvalue="JUnit.PersonalGoalCardTest" />
       </list>
     </recent_temporary>
   </component>
@@ -173,7 +174,10 @@
       <workItem from="1680935921526" duration="7733000" />
       <workItem from="1680988239068" duration="53000" />
       <workItem from="1681151847953" duration="4430000" />
-      <workItem from="1681197292621" duration="6870000" />
+      <workItem from="1681197292621" duration="7225000" />
+      <workItem from="1681215485257" duration="1257000" />
+      <workItem from="1681287575159" duration="80000" />
+      <workItem from="1681302849023" duration="2644000" />
     </task>
     <task id="LOCAL-00001" summary="Class Player layout">
       <created>1679754417366</created>
@@ -210,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680943324374</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="BoardTest: refillBoardTest commit">
+      <created>1681204431948</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681204431948</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,6 +260,7 @@
     <MESSAGE value="linked classes commit" />
     <MESSAGE value="Game, Shelf, Stack commit" />
     <MESSAGE value="PersonalGoalCardTest commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="PersonalGoalCardTest commit" />
+    <MESSAGE value="BoardTest: refillBoardTest commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="BoardTest: refillBoardTest commit" />
   </component>
 </project>

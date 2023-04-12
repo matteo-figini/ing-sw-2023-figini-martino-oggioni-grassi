@@ -4,6 +4,7 @@ import it.polimi.ingsw.model.*;
 import it.polimi.ingsw.model.BoardCell;
 import it.polimi.ingsw.model.Board;
 import it.polimi.ingsw.model.ItemTile;
+import it.polimi.ingsw.model.Position;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,11 +19,18 @@ public class BoardTest {
     BoardCell[][] boardContent;
     List<ItemTile> tiles;
 
+    int numPlayer = 4;
+
+    Position nofreesides;
+    Position onefreeside;
+    Position twofreesides;
+    Position threefreesides;
+    Position fourfreesides;
+
     //TODO: da completare
 
     @BeforeEach
-    void setUp(){
-        int numPlayer = 4;
+    void setUpRefillBoardTest(){
         this.board = new Board(numPlayer);
         this.boardContent = new BoardCell[9][9];
         this.tiles = new ArrayList<>();
@@ -159,11 +167,14 @@ public class BoardTest {
         }
 
         //2 players
-        //Assertions.assertEquals(26, board.refillBoard(tiles));
+        if(numPlayer==2)
+            Assertions.assertEquals(26, board.refillBoard(tiles));
         //3 players
-        //Assertions.assertEquals(34, board.refillBoard(tiles));
+        if(numPlayer==3)
+            Assertions.assertEquals(34, board.refillBoard(tiles));
         //4 players
-        Assertions.assertEquals(42, board.refillBoard(tiles));
+        if(numPlayer==4)
+            Assertions.assertEquals(42, board.refillBoard(tiles));
 
         System.out.println("POST-REFILL");
         for(int i=0; i<9; i++){
@@ -176,4 +187,101 @@ public class BoardTest {
         }
     }
 
+   @BeforeEach
+    void setUpPlayableSideTest(){
+        if(numPlayer==2){
+            nofreesides = new Position(0,0);
+            onefreeside = new Position(1,2);
+            twofreesides = new Position(1,3);
+            threefreesides = new Position(2,3);
+            fourfreesides = new Position(2,4);
+        }
+       if(numPlayer==3){
+           nofreesides = new Position(7,1);
+           onefreeside = new Position(7,2);
+           twofreesides = new Position(2,2);
+           threefreesides = new Position(1,3);
+           fourfreesides = new Position(6,5);
+       }
+       if(numPlayer==4){
+           nofreesides = new Position(1,7);
+           onefreeside = new Position(0,2);
+           twofreesides = new Position(0,5);
+           threefreesides = new Position(3,7);
+           fourfreesides = new Position(4,7);
+       }
+
+       this.board = new Board(numPlayer);
+       this.boardContent = new BoardCell[9][9];
+
+       for(int i=0; i<9; i++){
+           for(int j=0; j<9;j++){
+               boardContent[i][j] = new BoardCell(BoardCellType.NOT_PLAYABLE);
+           }
+       }
+
+       //imposto PLAYABLE le celle della board in base al numero di giocatori
+       if (numPlayer >= 2) {
+           boardContent[1][3] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[1][4] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[2][3] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[2][4] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[2][5] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[3][2] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[3][3] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[3][4] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[3][5] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[3][6] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[3][7] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[4][1] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[4][2] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[4][3] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[4][4] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[4][5] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[4][6] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[4][7] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[5][1] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[5][2] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[5][3] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[5][4] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[5][5] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[5][6] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[6][3] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[6][4] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[6][5] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[7][4] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[7][5] = new BoardCell(BoardCellType.PLAYABLE);
+       }
+       if (numPlayer >= 3) {
+           boardContent[0][3] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[2][2] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[2][6] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[3][8] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[5][0] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[6][2] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[6][6] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[8][5] = new BoardCell(BoardCellType.PLAYABLE);
+       }
+       if (numPlayer >= 4) {
+           boardContent[0][4] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[1][5] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[3][1] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[4][0] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[4][8] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[5][7] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[7][3] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent[8][4] = new BoardCell(BoardCellType.PLAYABLE);
+       }
+
+       board.setBoardContent(boardContent);
+    }
+
+    @Test
+    void playableSideTest(){
+        Assertions.assertEquals(4,board.playableSide(fourfreesides));
+        Assertions.assertEquals(3,board.playableSide(threefreesides));
+        Assertions.assertEquals(2,board.playableSide(twofreesides));
+        Assertions.assertEquals(1,board.playableSide(onefreeside));
+        Assertions.assertEquals(0,board.playableSide(nofreesides));
+    }
 }

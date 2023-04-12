@@ -218,7 +218,7 @@ public class Board{
      * @param position indicates the coordinates of the cell in the board
      * @return the number of playable sides
      */
-    private int playableSide (Position position) {
+    public int playableSide(Position position) {
         int playable = 0;
         // Controllo della cella "in alto"
         if (position.getX() > 0
