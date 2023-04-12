@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="BoardTest: playableSideTest commit">
-      <change afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/ShelfTest.java" afterDir="false" />
+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="ShelfTest: pointsFromAdjacenciesTest, insertCardsTest commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Shelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Shelf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/BoardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/BoardTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/BoardTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Shelf.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Shelf.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,21 +56,6 @@
   }
 }</component>
   <component name="RunManager" selected="JUnit.ShelfTest">
-    <configuration name="BagTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ing-sw-2023-figini-martino-oggioni-grassi" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="it.polimi.ingsw.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="it.polimi.ingsw" />
-      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.BagTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="BoardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ing-sw-2023-figini-martino-oggioni-grassi" />
       <extension name="coverage">
@@ -81,6 +67,22 @@
       <option name="PACKAGE_NAME" value="it.polimi.ingsw" />
       <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.BoardTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BoardTest.playableSideTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ing-sw-2023-figini-martino-oggioni-grassi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.polimi.ingsw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="it.polimi.ingsw" />
+      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.BoardTest" />
+      <option name="METHOD_NAME" value="playableSideTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -136,9 +138,9 @@
       <list>
         <item itemvalue="JUnit.ShelfTest" />
         <item itemvalue="JUnit.BoardTest" />
+        <item itemvalue="JUnit.BoardTest.playableSideTest" />
         <item itemvalue="JUnit.BoardTest.refillBoardTest" />
         <item itemvalue="JUnit.BoardTest.refillBoardTest1" />
-        <item itemvalue="JUnit.BagTest" />
       </list>
     </recent_temporary>
   </component>
@@ -172,7 +174,7 @@
       <workItem from="1681197292621" duration="7225000" />
       <workItem from="1681215485257" duration="1257000" />
       <workItem from="1681287575159" duration="80000" />
-      <workItem from="1681302849023" duration="9774000" />
+      <workItem from="1681302849023" duration="10538000" />
     </task>
     <task id="LOCAL-00001" summary="Class Player layout">
       <created>1679754417366</created>
@@ -223,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681305729618</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="ShelfTest: pointsFromAdjacenciesTest, insertCardsTest commit">
+      <created>1681314577379</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1681314577379</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,6 +273,7 @@
     <MESSAGE value="PersonalGoalCardTest commit" />
     <MESSAGE value="BoardTest: refillBoardTest commit" />
     <MESSAGE value="BoardTest: playableSideTest commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="BoardTest: playableSideTest commit" />
+    <MESSAGE value="ShelfTest: pointsFromAdjacenciesTest, insertCardsTest commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="ShelfTest: pointsFromAdjacenciesTest, insertCardsTest commit" />
   </component>
 </project>

@@ -15,8 +15,11 @@ import java.util.List;
 public class BoardTest {
 
     Board board;
+    Board board1;
 
     BoardCell[][] boardContent;
+
+    BoardCell[][] boardContent1;
     List<ItemTile> tiles;
 
     int numPlayer = 4;
@@ -211,77 +214,77 @@ public class BoardTest {
            fourfreesides = new Position(4,7);
        }
 
-       this.board = new Board(numPlayer);
-       this.boardContent = new BoardCell[9][9];
+       this.board1 = new Board(numPlayer);
+       this.boardContent1 = new BoardCell[9][9];
 
        for(int i=0; i<9; i++){
            for(int j=0; j<9;j++){
-               boardContent[i][j] = new BoardCell(BoardCellType.NOT_PLAYABLE);
+               boardContent1[i][j] = new BoardCell(BoardCellType.NOT_PLAYABLE);
            }
        }
 
        //imposto PLAYABLE le celle della board in base al numero di giocatori
        if (numPlayer >= 2) {
-           boardContent[1][3] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[1][4] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[2][3] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[2][4] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[2][5] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[3][2] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[3][3] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[3][4] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[3][5] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[3][6] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[3][7] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[4][1] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[4][2] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[4][3] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[4][4] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[4][5] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[4][6] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[4][7] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[5][1] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[5][2] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[5][3] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[5][4] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[5][5] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[5][6] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[6][3] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[6][4] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[6][5] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[7][4] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[7][5] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[1][3] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[1][4] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[2][3] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[2][4] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[2][5] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[3][2] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[3][3] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[3][4] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[3][5] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[3][6] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[3][7] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[4][1] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[4][2] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[4][3] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[4][4] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[4][5] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[4][6] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[4][7] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[5][1] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[5][2] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[5][3] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[5][4] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[5][5] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[5][6] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[6][3] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[6][4] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[6][5] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[7][4] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[7][5] = new BoardCell(BoardCellType.PLAYABLE);
        }
        if (numPlayer >= 3) {
-           boardContent[0][3] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[2][2] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[2][6] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[3][8] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[5][0] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[6][2] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[6][6] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[8][5] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[0][3] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[2][2] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[2][6] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[3][8] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[5][0] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[6][2] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[6][6] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[8][5] = new BoardCell(BoardCellType.PLAYABLE);
        }
        if (numPlayer >= 4) {
-           boardContent[0][4] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[1][5] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[3][1] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[4][0] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[4][8] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[5][7] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[7][3] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[8][4] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[0][4] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[1][5] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[3][1] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[4][0] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[4][8] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[5][7] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[7][3] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent1[8][4] = new BoardCell(BoardCellType.PLAYABLE);
        }
 
-       board.setBoardContent(boardContent);
+       board1.setBoardContent(boardContent1);
     }
 
     @Test
     void playableSideTest(){
-        Assertions.assertEquals(4,board.playableSide(fourfreesides));
-        Assertions.assertEquals(3,board.playableSide(threefreesides));
-        Assertions.assertEquals(2,board.playableSide(twofreesides));
-        Assertions.assertEquals(1,board.playableSide(onefreeside));
-        Assertions.assertEquals(0,board.playableSide(nofreesides));
+        Assertions.assertEquals(4,board1.playableSide(fourfreesides));
+        Assertions.assertEquals(3,board1.playableSide(threefreesides));
+        Assertions.assertEquals(2,board1.playableSide(twofreesides));
+        Assertions.assertEquals(1,board1.playableSide(onefreeside));
+        Assertions.assertEquals(0,board1.playableSide(nofreesides));
     }
 }
