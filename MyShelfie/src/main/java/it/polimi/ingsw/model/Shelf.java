@@ -64,7 +64,7 @@ public class Shelf {
         if (cards.size() > freeCellsOnColumn(column)) {
             throw new NotEnoughCellsException();
         }
-        firstRowAvailable = this.freeCellsOnColumn(column);
+        firstRowAvailable = this.freeCellsOnColumn(column) - 1;
         for (int i = 0; i < cards.size(); i++) {
             shelfContent[firstRowAvailable][column].setTile(cards.get(i));
             firstRowAvailable--;
