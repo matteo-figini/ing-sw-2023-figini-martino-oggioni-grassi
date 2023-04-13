@@ -1,18 +1,19 @@
-package it.polimi.ingsw;
+package it.polimi.ingsw.commongoaltests;
 
 import it.polimi.ingsw.model.ItemTile;
 import it.polimi.ingsw.model.ItemTileType;
 import it.polimi.ingsw.model.Shelf;
 import it.polimi.ingsw.model.ShelfCell;
-import it.polimi.ingsw.model.commongoals.FourLinesFourGoalCard;
+import it.polimi.ingsw.model.commongoals.CrossGoalCard;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class FourLinesFourGoalCardTest {
+public class CrossGoalCardTest {
+
     private Shelf correctShelf;
     private Shelf uncorrectShelf;
-    private FourLinesFourGoalCard card = new FourLinesFourGoalCard(2);
+    private CrossGoalCard card = new CrossGoalCard(2) ;
     private ShelfCell[][] shelfContent;
 
 
@@ -29,44 +30,54 @@ public class FourLinesFourGoalCardTest {
 
         // Initialize every cell in the matrix
 
-        shelfContent[5][4].setTile(new ItemTile(ItemTileType.PINK));
-        shelfContent[5][3].setTile(new ItemTile(ItemTileType.YELLOW));
+        shelfContent[5][4].setTile(new ItemTile(ItemTileType.GREEN));
+        shelfContent[5][3].setTile(new ItemTile(ItemTileType.PINK));
         shelfContent[5][2].setTile(new ItemTile(ItemTileType.GREEN));
-        shelfContent[5][1].setTile(new ItemTile(ItemTileType.GREEN));
-        shelfContent[5][0].setTile(new ItemTile(ItemTileType.YELLOW));
+        shelfContent[5][1].setTile(new ItemTile(ItemTileType.PINK));
+        shelfContent[5][0].setTile(new ItemTile(ItemTileType.GREEN));
 
         shelfContent[4][4].setTile(new ItemTile(ItemTileType.BLUE));
-        shelfContent[4][3].setTile(new ItemTile(ItemTileType.YELLOW));
-        shelfContent[4][2].setTile(new ItemTile(ItemTileType.LIGHTBLUE));
+        shelfContent[4][3].setTile(new ItemTile(ItemTileType.BLUE));
+        shelfContent[4][2].setTile(new ItemTile(ItemTileType.PINK));
         shelfContent[4][1].setTile(new ItemTile(ItemTileType.BLUE));
-        shelfContent[4][0].setTile(new ItemTile(ItemTileType.YELLOW));
+        shelfContent[4][0].setTile(new ItemTile(ItemTileType.BLUE));
 
         shelfContent[3][4].setTile(new ItemTile(ItemTileType.GREEN));
-        shelfContent[3][3].setTile(new ItemTile(ItemTileType.YELLOW));
-        shelfContent[3][2].setTile(new ItemTile(ItemTileType.LIGHTBLUE));
-        shelfContent[3][1].setTile(new ItemTile(ItemTileType.YELLOW));
-        shelfContent[3][0].setTile(new ItemTile(ItemTileType.YELLOW));
+        shelfContent[3][3].setTile(new ItemTile(ItemTileType.PINK));
+        shelfContent[3][2].setTile(new ItemTile(ItemTileType.GREEN));
+        shelfContent[3][1].setTile(new ItemTile(ItemTileType.PINK));
+        shelfContent[3][0].setTile(new ItemTile(ItemTileType.GREEN));
 
         shelfContent[2][4].setTile(new ItemTile(ItemTileType.BLUE));
-        shelfContent[2][3].setTile(new ItemTile(ItemTileType.YELLOW));
-        shelfContent[2][2].setTile(new ItemTile(ItemTileType.LIGHTBLUE));
-        shelfContent[2][1].setTile(new ItemTile(ItemTileType.YELLOW));
-        shelfContent[2][0].setTile(new ItemTile(ItemTileType.YELLOW));
+        shelfContent[2][3].setTile(new ItemTile(ItemTileType.BLUE));
+        shelfContent[2][2].setTile(new ItemTile(ItemTileType.BLUE));
+        shelfContent[2][1].setTile(new ItemTile(ItemTileType.BLUE));
+        shelfContent[2][0].setTile(new ItemTile(ItemTileType.BLUE));
 
         shelfContent[1][4].setTile(new ItemTile(ItemTileType.GREEN));
         shelfContent[1][3].setTile(new ItemTile(ItemTileType.GREEN));
-        shelfContent[1][2].setTile(new ItemTile(ItemTileType.LIGHTBLUE));
-        shelfContent[1][1].setTile(new ItemTile(ItemTileType.YELLOW));
-        shelfContent[1][0].setTile(new ItemTile(ItemTileType.PINK));
+        shelfContent[1][2].setTile(new ItemTile(ItemTileType.GREEN));
+        shelfContent[1][1].setTile(new ItemTile(ItemTileType.GREEN));
+        shelfContent[1][0].setTile(new ItemTile(ItemTileType.GREEN));
 
         shelfContent[0][4].setTile(new ItemTile(ItemTileType.BLUE));
         shelfContent[0][3].setTile(new ItemTile(ItemTileType.BLUE));
         shelfContent[0][2].setTile(new ItemTile(ItemTileType.BLUE));
-        shelfContent[0][1].setTile(new ItemTile(ItemTileType.YELLOW));
+        shelfContent[0][1].setTile(new ItemTile(ItemTileType.BLUE));
         shelfContent[0][0].setTile(new ItemTile(ItemTileType.BLUE));
 
         correctShelf.setShelfContent(shelfContent);
     }
+
+
+
+
+    //in input una shelf con il pattern corretto da verificare
+    @Test
+    void checkPatternTestTrue(){
+        Assertions.assertTrue(card.checkPattern(correctShelf));
+    }
+
 
     @BeforeEach
     void setupUncorrectShelf(){
@@ -81,35 +92,35 @@ public class FourLinesFourGoalCardTest {
 
         // Initialize every cell in the matrix
 
-        shelfContent[5][4].setTile(new ItemTile(ItemTileType.PINK));
-        shelfContent[5][3].setTile(new ItemTile(ItemTileType.GREEN));
+        shelfContent[3][3].setTile(new ItemTile(ItemTileType.GREEN));
+        shelfContent[5][3].setTile(new ItemTile(ItemTileType.LIGHTBLUE));
         shelfContent[5][2].setTile(new ItemTile(ItemTileType.GREEN));
-        shelfContent[5][1].setTile(new ItemTile(ItemTileType.GREEN));
+        shelfContent[5][1].setTile(new ItemTile(ItemTileType.PINK));
         shelfContent[5][0].setTile(new ItemTile(ItemTileType.GREEN));
 
         shelfContent[4][4].setTile(new ItemTile(ItemTileType.BLUE));
-        shelfContent[4][3].setTile(new ItemTile(ItemTileType.PINK));
-        shelfContent[4][2].setTile(new ItemTile(ItemTileType.BLUE));
+        shelfContent[4][3].setTile(new ItemTile(ItemTileType.BLUE));
+        shelfContent[4][2].setTile(new ItemTile(ItemTileType.PINK));
         shelfContent[4][1].setTile(new ItemTile(ItemTileType.BLUE));
         shelfContent[4][0].setTile(new ItemTile(ItemTileType.BLUE));
 
         shelfContent[3][4].setTile(new ItemTile(ItemTileType.GREEN));
-        shelfContent[3][3].setTile(new ItemTile(ItemTileType.GREEN));
-        shelfContent[3][2].setTile(new ItemTile(ItemTileType.PINK));
-        shelfContent[3][1].setTile(new ItemTile(ItemTileType.GREEN));
+        shelfContent[3][3].setTile(new ItemTile(ItemTileType.PINK));
+        shelfContent[3][2].setTile(new ItemTile(ItemTileType.GREEN));
+        shelfContent[3][1].setTile(new ItemTile(ItemTileType.PINK));
         shelfContent[3][0].setTile(new ItemTile(ItemTileType.GREEN));
 
         shelfContent[2][4].setTile(new ItemTile(ItemTileType.BLUE));
         shelfContent[2][3].setTile(new ItemTile(ItemTileType.BLUE));
         shelfContent[2][2].setTile(new ItemTile(ItemTileType.BLUE));
-        shelfContent[2][1].setTile(new ItemTile(ItemTileType.PINK));
+        shelfContent[2][1].setTile(new ItemTile(ItemTileType.BLUE));
         shelfContent[2][0].setTile(new ItemTile(ItemTileType.BLUE));
 
         shelfContent[1][4].setTile(new ItemTile(ItemTileType.GREEN));
         shelfContent[1][3].setTile(new ItemTile(ItemTileType.GREEN));
         shelfContent[1][2].setTile(new ItemTile(ItemTileType.GREEN));
         shelfContent[1][1].setTile(new ItemTile(ItemTileType.GREEN));
-        shelfContent[1][0].setTile(new ItemTile(ItemTileType.PINK));
+        shelfContent[1][0].setTile(new ItemTile(ItemTileType.GREEN));
 
         shelfContent[0][4].setTile(new ItemTile(ItemTileType.BLUE));
         shelfContent[0][3].setTile(new ItemTile(ItemTileType.BLUE));
@@ -120,15 +131,9 @@ public class FourLinesFourGoalCardTest {
         uncorrectShelf.setShelfContent(shelfContent);
     }
 
-    //in input una shelf con il pattern corretto da verificare
-    @Test
-    void checkPatternTestTrue(){
-        Assertions.assertTrue(card.checkPattern(correctShelf));
-    }
-
-    //in input una shelf con il pattern incorretto da verificare
     @Test
     void checkPatternTestFalse(){
+        //in input una shelf con il pattern incorretto da verificare
         Assertions.assertFalse(card.checkPattern(uncorrectShelf));
     }
 }

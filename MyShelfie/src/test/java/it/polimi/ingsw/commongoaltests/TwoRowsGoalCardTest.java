@@ -1,19 +1,19 @@
-package it.polimi.ingsw;
+package it.polimi.ingsw.commongoaltests;
 
 import it.polimi.ingsw.model.ItemTile;
 import it.polimi.ingsw.model.ItemTileType;
 import it.polimi.ingsw.model.Shelf;
 import it.polimi.ingsw.model.ShelfCell;
-import it.polimi.ingsw.model.commongoals.FourCornersGoalCard;
+import it.polimi.ingsw.model.commongoals.TwoRowsGoalCard;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class FourCornersGoalCardTest {
+public class TwoRowsGoalCardTest {
 
     private Shelf correctShelf;
     private Shelf uncorrectShelf;
-    private FourCornersGoalCard card = new FourCornersGoalCard(2);
+    private TwoRowsGoalCard card = new TwoRowsGoalCard(2);
     private ShelfCell[][] shelfContent;
 
 
@@ -30,11 +30,11 @@ public class FourCornersGoalCardTest {
 
         // Initialize every cell in the matrix
 
-        shelfContent[5][4].setTile(new ItemTile(ItemTileType.YELLOW));
+        shelfContent[5][4].setTile(new ItemTile(ItemTileType.PINK));
         shelfContent[5][3].setTile(new ItemTile(ItemTileType.GREEN));
         shelfContent[5][2].setTile(new ItemTile(ItemTileType.GREEN));
         shelfContent[5][1].setTile(new ItemTile(ItemTileType.GREEN));
-        shelfContent[5][0].setTile(new ItemTile(ItemTileType.YELLOW));
+        shelfContent[5][0].setTile(new ItemTile(ItemTileType.GREEN));
 
         shelfContent[4][4].setTile(new ItemTile(ItemTileType.BLUE));
         shelfContent[4][3].setTile(new ItemTile(ItemTileType.PINK));
@@ -49,22 +49,22 @@ public class FourCornersGoalCardTest {
         shelfContent[3][0].setTile(new ItemTile(ItemTileType.GREEN));
 
         shelfContent[2][4].setTile(new ItemTile(ItemTileType.BLUE));
-        shelfContent[2][3].setTile(new ItemTile(ItemTileType.BLUE));
-        shelfContent[2][2].setTile(new ItemTile(ItemTileType.BLUE));
+        shelfContent[2][3].setTile(new ItemTile(ItemTileType.GREEN));
+        shelfContent[2][2].setTile(new ItemTile(ItemTileType.YELLOW));
         shelfContent[2][1].setTile(new ItemTile(ItemTileType.PINK));
-        shelfContent[2][0].setTile(new ItemTile(ItemTileType.BLUE));
+        shelfContent[2][0].setTile(new ItemTile(ItemTileType.LIGHTBLUE));
 
-        shelfContent[1][4].setTile(new ItemTile(ItemTileType.GREEN));
-        shelfContent[1][3].setTile(new ItemTile(ItemTileType.GREEN));
-        shelfContent[1][2].setTile(new ItemTile(ItemTileType.GREEN));
+        shelfContent[1][4].setTile(new ItemTile(ItemTileType.LIGHTBLUE));
+        shelfContent[1][3].setTile(new ItemTile(ItemTileType.YELLOW));
+        shelfContent[1][2].setTile(new ItemTile(ItemTileType.WHITE));
         shelfContent[1][1].setTile(new ItemTile(ItemTileType.GREEN));
         shelfContent[1][0].setTile(new ItemTile(ItemTileType.PINK));
 
-        shelfContent[0][4].setTile(new ItemTile(ItemTileType.YELLOW));
+        shelfContent[0][4].setTile(new ItemTile(ItemTileType.BLUE));
         shelfContent[0][3].setTile(new ItemTile(ItemTileType.BLUE));
         shelfContent[0][2].setTile(new ItemTile(ItemTileType.BLUE));
         shelfContent[0][1].setTile(new ItemTile(ItemTileType.BLUE));
-        shelfContent[0][0].setTile(new ItemTile(ItemTileType.YELLOW));
+        shelfContent[0][0].setTile(new ItemTile(ItemTileType.BLUE));
 
         correctShelf.setShelfContent(shelfContent);
     }
@@ -133,3 +133,4 @@ public class FourCornersGoalCardTest {
         Assertions.assertFalse(card.checkPattern(uncorrectShelf));
     }
 }
+

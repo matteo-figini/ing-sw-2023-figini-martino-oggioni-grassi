@@ -1,19 +1,19 @@
-package it.polimi.ingsw;
+package it.polimi.ingsw.commongoaltests;
 
 import it.polimi.ingsw.model.ItemTile;
 import it.polimi.ingsw.model.ItemTileType;
 import it.polimi.ingsw.model.Shelf;
 import it.polimi.ingsw.model.ShelfCell;
-import it.polimi.ingsw.model.commongoals.TwoRowsGoalCard;
+import it.polimi.ingsw.model.commongoals.EightEqualsGoalCard;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class TwoRowsGoalCardTest {
+public class EightEqualsGoalCardTest {
 
     private Shelf correctShelf;
     private Shelf uncorrectShelf;
-    private TwoRowsGoalCard card = new TwoRowsGoalCard(2);
+    private EightEqualsGoalCard card = new EightEqualsGoalCard(2);
     private ShelfCell[][] shelfContent;
 
 
@@ -32,39 +32,39 @@ public class TwoRowsGoalCardTest {
 
         shelfContent[5][4].setTile(new ItemTile(ItemTileType.PINK));
         shelfContent[5][3].setTile(new ItemTile(ItemTileType.GREEN));
-        shelfContent[5][2].setTile(new ItemTile(ItemTileType.GREEN));
+        shelfContent[5][2].setTile(new ItemTile(ItemTileType.PINK));
         shelfContent[5][1].setTile(new ItemTile(ItemTileType.GREEN));
         shelfContent[5][0].setTile(new ItemTile(ItemTileType.GREEN));
 
-        shelfContent[4][4].setTile(new ItemTile(ItemTileType.BLUE));
+        shelfContent[4][4].setTile(new ItemTile(ItemTileType.PINK));
         shelfContent[4][3].setTile(new ItemTile(ItemTileType.PINK));
         shelfContent[4][2].setTile(new ItemTile(ItemTileType.BLUE));
         shelfContent[4][1].setTile(new ItemTile(ItemTileType.BLUE));
         shelfContent[4][0].setTile(new ItemTile(ItemTileType.BLUE));
 
-        shelfContent[3][4].setTile(new ItemTile(ItemTileType.GREEN));
-        shelfContent[3][3].setTile(new ItemTile(ItemTileType.GREEN));
+        shelfContent[3][4].setTile(new ItemTile(ItemTileType.PINK));
+        shelfContent[3][3].setTile(new ItemTile(ItemTileType.PINK));
         shelfContent[3][2].setTile(new ItemTile(ItemTileType.PINK));
         shelfContent[3][1].setTile(new ItemTile(ItemTileType.GREEN));
-        shelfContent[3][0].setTile(new ItemTile(ItemTileType.GREEN));
+        shelfContent[3][0].setTile(new ItemTile(ItemTileType.PINK));
 
-        shelfContent[2][4].setTile(new ItemTile(ItemTileType.BLUE));
-        shelfContent[2][3].setTile(new ItemTile(ItemTileType.GREEN));
-        shelfContent[2][2].setTile(new ItemTile(ItemTileType.YELLOW));
-        shelfContent[2][1].setTile(new ItemTile(ItemTileType.PINK));
-        shelfContent[2][0].setTile(new ItemTile(ItemTileType.LIGHTBLUE));
+        /*shelfContent[2][4].setTile(new ItemTile(ItemTileType.BLUE));
+        shelfContent[2][3].setTile(new ItemTile(ItemTileType.BLUE));
+        shelfContent[2][2].setTile(new ItemTile(ItemTileType.BLUE));
+        shelfContent[2][1].setTile(new ItemTile(ItemTileType.BLUE));
+        shelfContent[2][0].setTile(new ItemTile(ItemTileType.BLUE));*/
 
-        shelfContent[1][4].setTile(new ItemTile(ItemTileType.LIGHTBLUE));
-        shelfContent[1][3].setTile(new ItemTile(ItemTileType.YELLOW));
-        shelfContent[1][2].setTile(new ItemTile(ItemTileType.WHITE));
+        /*shelfContent[1][4].setTile(new ItemTile(ItemTileType.GREEN));
+        shelfContent[1][3].setTile(new ItemTile(ItemTileType.PINK));
+        shelfContent[1][2].setTile(new ItemTile(ItemTileType.PINK));
         shelfContent[1][1].setTile(new ItemTile(ItemTileType.GREEN));
-        shelfContent[1][0].setTile(new ItemTile(ItemTileType.PINK));
+        shelfContent[1][0].setTile(new ItemTile(ItemTileType.PINK));*/
 
-        shelfContent[0][4].setTile(new ItemTile(ItemTileType.BLUE));
-        shelfContent[0][3].setTile(new ItemTile(ItemTileType.BLUE));
-        shelfContent[0][2].setTile(new ItemTile(ItemTileType.BLUE));
-        shelfContent[0][1].setTile(new ItemTile(ItemTileType.BLUE));
-        shelfContent[0][0].setTile(new ItemTile(ItemTileType.BLUE));
+        //shelfContent[0][4].setTile(new ItemTile(ItemTileType.BLUE));
+        //shelfContent[0][3].setTile(new ItemTile(ItemTileType.BLUE));
+        //shelfContent[0][2].setTile(new ItemTile(ItemTileType.BLUE));
+        //shelfContent[0][1].setTile(new ItemTile(ItemTileType.BLUE));
+        //shelfContent[0][0].setTile(new ItemTile(ItemTileType.BLUE));
 
         correctShelf.setShelfContent(shelfContent);
     }
@@ -85,7 +85,7 @@ public class TwoRowsGoalCardTest {
         shelfContent[5][4].setTile(new ItemTile(ItemTileType.PINK));
         shelfContent[5][3].setTile(new ItemTile(ItemTileType.GREEN));
         shelfContent[5][2].setTile(new ItemTile(ItemTileType.GREEN));
-        shelfContent[5][1].setTile(new ItemTile(ItemTileType.GREEN));
+        shelfContent[5][1].setTile(new ItemTile(ItemTileType.LIGHTBLUE));
         shelfContent[5][0].setTile(new ItemTile(ItemTileType.GREEN));
 
         shelfContent[4][4].setTile(new ItemTile(ItemTileType.BLUE));
@@ -95,12 +95,12 @@ public class TwoRowsGoalCardTest {
         shelfContent[4][0].setTile(new ItemTile(ItemTileType.BLUE));
 
         shelfContent[3][4].setTile(new ItemTile(ItemTileType.GREEN));
-        shelfContent[3][3].setTile(new ItemTile(ItemTileType.GREEN));
+        shelfContent[3][3].setTile(new ItemTile(ItemTileType.YELLOW));
         shelfContent[3][2].setTile(new ItemTile(ItemTileType.PINK));
         shelfContent[3][1].setTile(new ItemTile(ItemTileType.GREEN));
         shelfContent[3][0].setTile(new ItemTile(ItemTileType.GREEN));
 
-        shelfContent[2][4].setTile(new ItemTile(ItemTileType.BLUE));
+        /*shelfContent[2][4].setTile(new ItemTile(ItemTileType.BLUE));
         shelfContent[2][3].setTile(new ItemTile(ItemTileType.BLUE));
         shelfContent[2][2].setTile(new ItemTile(ItemTileType.BLUE));
         shelfContent[2][1].setTile(new ItemTile(ItemTileType.PINK));
@@ -116,7 +116,7 @@ public class TwoRowsGoalCardTest {
         shelfContent[0][3].setTile(new ItemTile(ItemTileType.BLUE));
         shelfContent[0][2].setTile(new ItemTile(ItemTileType.BLUE));
         shelfContent[0][1].setTile(new ItemTile(ItemTileType.BLUE));
-        shelfContent[0][0].setTile(new ItemTile(ItemTileType.BLUE));
+        shelfContent[0][0].setTile(new ItemTile(ItemTileType.BLUE));*/
 
         uncorrectShelf.setShelfContent(shelfContent);
     }
@@ -133,4 +133,3 @@ public class TwoRowsGoalCardTest {
         Assertions.assertFalse(card.checkPattern(uncorrectShelf));
     }
 }
-

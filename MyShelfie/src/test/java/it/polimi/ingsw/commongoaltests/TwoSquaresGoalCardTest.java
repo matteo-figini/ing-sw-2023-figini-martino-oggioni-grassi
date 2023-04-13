@@ -1,4 +1,4 @@
-package it.polimi.ingsw;
+package it.polimi.ingsw.commongoaltests;
 
 import it.polimi.ingsw.model.ItemTile;
 import it.polimi.ingsw.model.ItemTileType;
