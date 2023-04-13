@@ -59,7 +59,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.BoardTest">
+  <component name="RunManager" selected="JUnit.ShelfTest">
     <configuration name="BagTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ing-sw-2023-figini-martino-oggioni-grassi" />
       <extension name="coverage">
@@ -122,7 +122,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CrossGoalCardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ShelfTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ing-sw-2023-figini-martino-oggioni-grassi" />
       <extension name="coverage">
         <pattern>
@@ -131,7 +131,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="it.polimi.ingsw" />
-      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.CrossGoalCardTest" />
+      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.ShelfTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -139,11 +139,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ShelfTest" />
         <item itemvalue="JUnit.BoardTest" />
         <item itemvalue="JUnit.BoardTest.refillBoardTest" />
         <item itemvalue="JUnit.BoardTest.refillBoardTest1" />
         <item itemvalue="JUnit.BagTest" />
-        <item itemvalue="JUnit.CrossGoalCardTest" />
       </list>
     </recent_temporary>
   </component>
