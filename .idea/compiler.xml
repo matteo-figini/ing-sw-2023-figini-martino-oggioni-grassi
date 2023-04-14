@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="PSP000" target="19" />
+      <module name="ing-sw-2023-figini-martino-oggioni-grassi" target="19" />
     </bytecodeTargetLevel>
   </component>
 </project>
