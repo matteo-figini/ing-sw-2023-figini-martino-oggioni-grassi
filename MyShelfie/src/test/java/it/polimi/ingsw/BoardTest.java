@@ -14,9 +14,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BoardTest {
-    Board board1, board2, board3, board4;
 
-    BoardCell[][] boardContent;
+    Board board1;
+    Board board2;
+    Board board3;
+    Board board4;
+
+    BoardCell[][] boardContent1;
+
+    BoardCell[][] boardContent2;
+    BoardCell[][] boardContent3;
+    BoardCell[][] boardContent4;
     List<ItemTile> tiles;
 
     List<Position> positions = new ArrayList<>();
@@ -36,66 +44,66 @@ public class BoardTest {
     @BeforeEach
     void setUpRefillBoardTest(){
         this.board1 = new Board(numPlayer);
-        this.boardContent = new BoardCell[9][9];
+        this.boardContent1 = new BoardCell[9][9];
         this.tiles = new ArrayList<>();
 
         for(int i=0; i<9; i++){
             for(int j=0; j<9;j++){
-                boardContent[i][j] = new BoardCell(BoardCellType.NOT_PLAYABLE);
+                boardContent1[i][j] = new BoardCell(BoardCellType.NOT_PLAYABLE);
             }
         }
 
         //imposto PLAYABLE le celle della board in base al numero di giocatori
         if (numPlayer >= 2) {
-            boardContent[1][3] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[1][4] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[2][3] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[2][4] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[2][5] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[3][2] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[3][3] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[3][4] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[3][5] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[3][6] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[3][7] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[4][1] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[4][2] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[4][3] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[4][4] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[4][5] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[4][6] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[4][7] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[5][1] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[5][2] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[5][3] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[5][4] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[5][5] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[5][6] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[6][3] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[6][4] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[6][5] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[7][4] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[7][5] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[1][3] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[1][4] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[2][3] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[2][4] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[2][5] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[3][2] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[3][3] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[3][4] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[3][5] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[3][6] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[3][7] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[4][1] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[4][2] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[4][3] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[4][4] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[4][5] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[4][6] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[4][7] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[5][1] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[5][2] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[5][3] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[5][4] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[5][5] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[5][6] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[6][3] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[6][4] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[6][5] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[7][4] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[7][5] = new BoardCell(BoardCellType.PLAYABLE);
         }
         if (numPlayer >= 3) {
-            boardContent[0][3] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[2][2] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[2][6] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[3][8] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[5][0] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[6][2] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[6][6] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[8][5] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[0][3] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[2][2] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[2][6] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[3][8] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[5][0] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[6][2] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[6][6] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[8][5] = new BoardCell(BoardCellType.PLAYABLE);
         }
         if (numPlayer >= 4) {
-            boardContent[0][4] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[1][5] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[3][1] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[4][0] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[4][8] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[5][7] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[7][3] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[8][4] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[0][4] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[1][5] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[3][1] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[4][0] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[4][8] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[5][7] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[7][3] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent1[8][4] = new BoardCell(BoardCellType.PLAYABLE);
         }
 
         //inserisco nella lista le tiles da aggiungere in base al numero di player
@@ -150,11 +158,11 @@ public class BoardTest {
         }
 
         //inserire 3 tile nella board disposte in modo che si possa fare il refill
-        boardContent[3][6].addItemTile(new ItemTile(ItemTileType.WHITE));
-        boardContent[4][7].addItemTile(new ItemTile(ItemTileType.WHITE));
-        boardContent[7][5].addItemTile(new ItemTile(ItemTileType.WHITE));
+        boardContent1[3][6].addItemTile(new ItemTile(ItemTileType.WHITE));
+        boardContent1[4][7].addItemTile(new ItemTile(ItemTileType.WHITE));
+        boardContent1[7][5].addItemTile(new ItemTile(ItemTileType.WHITE));
 
-        board1.setBoardContent(boardContent);
+        board1.setBoardContent(boardContent1);
     }
 
     @Test
@@ -163,10 +171,10 @@ public class BoardTest {
         System.out.println("PRE-REFILL");
         for(int i=0; i<9; i++){
             for(int j=0; j<9; j++){
-                if(boardContent[i][j].getItemTile()!=null)
-                    System.out.println(" " + i + ";" + j + " " + boardContent[i][j].getItemTile().getItemTileType());
+                if(boardContent1[i][j].getItemTile()!=null)
+                    System.out.println(" " + i + ";" + j + " " + boardContent1[i][j].getItemTile().getItemTileType());
                 else
-                    System.out.println(" " + i + ";" + j + " " + boardContent[i][j].getItemTile());
+                    System.out.println(" " + i + ";" + j + " " + boardContent1[i][j].getItemTile());
             }
         }
 
@@ -183,10 +191,10 @@ public class BoardTest {
         System.out.println("POST-REFILL");
         for(int i=0; i<9; i++){
             for(int j=0; j<9; j++){
-                if(boardContent[i][j].getItemTile()!=null)
-                    System.out.println(" " + i + ";" + j + " " + boardContent[i][j].getItemTile().getItemTileType());
+                if(boardContent1[i][j].getItemTile()!=null)
+                    System.out.println(" " + i + ";" + j + " " + boardContent1[i][j].getItemTile().getItemTileType());
                 else
-                    System.out.println(" " + i + ";" + j + " " + boardContent[i][j].getItemTile());
+                    System.out.println(" " + i + ";" + j + " " + boardContent1[i][j].getItemTile());
             }
         }
     }
@@ -216,68 +224,68 @@ public class BoardTest {
        }
 
        this.board2 = new Board(numPlayer);
-       this.boardContent = new BoardCell[9][9];
+       this.boardContent2 = new BoardCell[9][9];
 
        for(int i=0; i<9; i++){
            for(int j=0; j<9;j++){
-               boardContent[i][j] = new BoardCell(BoardCellType.NOT_PLAYABLE);
+               boardContent2[i][j] = new BoardCell(BoardCellType.NOT_PLAYABLE);
            }
        }
 
        //imposto PLAYABLE le celle della board in base al numero di giocatori
        if (numPlayer >= 2) {
-           boardContent[1][3] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[1][4] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[2][3] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[2][4] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[2][5] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[3][2] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[3][3] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[3][4] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[3][5] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[3][6] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[3][7] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[4][1] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[4][2] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[4][3] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[4][4] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[4][5] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[4][6] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[4][7] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[5][1] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[5][2] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[5][3] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[5][4] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[5][5] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[5][6] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[6][3] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[6][4] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[6][5] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[7][4] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[7][5] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[1][3] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[1][4] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[2][3] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[2][4] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[2][5] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[3][2] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[3][3] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[3][4] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[3][5] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[3][6] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[3][7] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[4][1] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[4][2] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[4][3] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[4][4] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[4][5] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[4][6] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[4][7] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[5][1] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[5][2] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[5][3] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[5][4] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[5][5] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[5][6] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[6][3] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[6][4] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[6][5] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[7][4] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[7][5] = new BoardCell(BoardCellType.PLAYABLE);
        }
        if (numPlayer >= 3) {
-           boardContent[0][3] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[2][2] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[2][6] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[3][8] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[5][0] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[6][2] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[6][6] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[8][5] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[0][3] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[2][2] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[2][6] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[3][8] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[5][0] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[6][2] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[6][6] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[8][5] = new BoardCell(BoardCellType.PLAYABLE);
        }
        if (numPlayer >= 4) {
-           boardContent[0][4] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[1][5] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[3][1] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[4][0] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[4][8] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[5][7] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[7][3] = new BoardCell(BoardCellType.PLAYABLE);
-           boardContent[8][4] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[0][4] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[1][5] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[3][1] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[4][0] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[4][8] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[5][7] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[7][3] = new BoardCell(BoardCellType.PLAYABLE);
+           boardContent2[8][4] = new BoardCell(BoardCellType.PLAYABLE);
        }
 
-       board2.setBoardContent(boardContent);
+       board2.setBoardContent(boardContent2);
     }
 
     @Test
@@ -298,72 +306,72 @@ public class BoardTest {
 
 
         this.board3 = new Board(numPlayer);
-        this.boardContent = new BoardCell[9][9];
+        this.boardContent3 = new BoardCell[9][9];
 
         for(int i=0; i<9; i++){
             for(int j=0; j<9;j++){
-                boardContent[i][j] = new BoardCell(BoardCellType.NOT_PLAYABLE);
+                boardContent3[i][j] = new BoardCell(BoardCellType.NOT_PLAYABLE);
             }
         }
 
         //imposto PLAYABLE le celle della board in base al numero di giocatori
         if (numPlayer >= 2) {
-            boardContent[1][3] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[1][4] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[2][3] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[2][4] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[2][5] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[3][2] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[3][3] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[3][4] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[3][5] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[3][6] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[3][7] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[4][1] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[4][2] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[4][3] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[4][4] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[4][5] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[4][6] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[4][7] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[5][1] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[5][2] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[5][3] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[5][4] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[5][5] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[5][6] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[6][3] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[6][4] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[6][5] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[7][4] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[7][5] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[1][3] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[1][4] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[2][3] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[2][4] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[2][5] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[3][2] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[3][3] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[3][4] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[3][5] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[3][6] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[3][7] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[4][1] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[4][2] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[4][3] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[4][4] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[4][5] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[4][6] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[4][7] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[5][1] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[5][2] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[5][3] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[5][4] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[5][5] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[5][6] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[6][3] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[6][4] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[6][5] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[7][4] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[7][5] = new BoardCell(BoardCellType.PLAYABLE);
         }
         if (numPlayer >= 3) {
-            boardContent[0][3] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[2][2] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[2][6] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[3][8] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[5][0] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[6][2] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[6][6] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[8][5] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[0][3] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[2][2] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[2][6] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[3][8] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[5][0] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[6][2] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[6][6] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[8][5] = new BoardCell(BoardCellType.PLAYABLE);
         }
         if (numPlayer >= 4) {
-            boardContent[0][4] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[1][5] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[3][1] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[4][0] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[4][8] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[5][7] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[7][3] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[8][4] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[0][4] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[1][5] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[3][1] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[4][0] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[4][8] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[5][7] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[7][3] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent3[8][4] = new BoardCell(BoardCellType.PLAYABLE);
         }
 
-        boardContent[5][5].addItemTile(new ItemTile(ItemTileType.WHITE));
-        boardContent[4][4].addItemTile(new ItemTile(ItemTileType.WHITE));
-        boardContent[4][5].addItemTile(new ItemTile(ItemTileType.WHITE));
+        boardContent3[5][5].addItemTile(new ItemTile(ItemTileType.WHITE));
+        boardContent3[4][4].addItemTile(new ItemTile(ItemTileType.WHITE));
+        boardContent3[4][5].addItemTile(new ItemTile(ItemTileType.WHITE));
 
-        board3.setBoardContent(boardContent);
+        board3.setBoardContent(boardContent3);
 
 
     }
@@ -374,8 +382,8 @@ public class BoardTest {
         tilesPickedUp = board3.pickUpCards(positions);
 
         System.out.println("Posizioni: ");
-        for (ItemTile itemTile : tilesPickedUp) {
-            System.out.println(" " + itemTile.getItemTileType());
+        for(int i=0; i<tilesPickedUp.size();i++){
+            System.out.println(" " + tilesPickedUp.get(i).getItemTileType());
         }
 
     }
@@ -384,84 +392,84 @@ public class BoardTest {
     void setUpFillingRequiredTest(){
         board4 = new Board(numPlayer);
 
-        this.boardContent = new BoardCell[9][9];
+        this.boardContent4 = new BoardCell[9][9];
 
         for(int i=0; i<9; i++){
             for(int j=0; j<9;j++){
-                boardContent[i][j] = new BoardCell(BoardCellType.NOT_PLAYABLE);
+                boardContent4[i][j] = new BoardCell(BoardCellType.NOT_PLAYABLE);
             }
         }
 
         //imposto PLAYABLE le celle della board in base al numero di giocatori
         if (numPlayer >= 2) {
-            boardContent[1][3] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[1][4] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[2][3] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[2][4] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[2][5] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[3][2] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[3][3] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[3][4] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[3][5] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[3][6] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[3][7] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[4][1] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[4][2] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[4][3] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[4][4] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[4][5] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[4][6] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[4][7] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[5][1] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[5][2] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[5][3] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[5][4] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[5][5] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[5][6] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[6][3] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[6][4] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[6][5] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[7][4] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[7][5] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[1][3] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[1][4] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[2][3] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[2][4] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[2][5] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[3][2] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[3][3] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[3][4] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[3][5] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[3][6] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[3][7] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[4][1] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[4][2] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[4][3] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[4][4] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[4][5] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[4][6] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[4][7] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[5][1] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[5][2] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[5][3] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[5][4] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[5][5] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[5][6] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[6][3] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[6][4] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[6][5] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[7][4] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[7][5] = new BoardCell(BoardCellType.PLAYABLE);
         }
         if (numPlayer >= 3) {
-            boardContent[0][3] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[2][2] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[2][6] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[3][8] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[5][0] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[6][2] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[6][6] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[8][5] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[0][3] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[2][2] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[2][6] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[3][8] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[5][0] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[6][2] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[6][6] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[8][5] = new BoardCell(BoardCellType.PLAYABLE);
         }
         if (numPlayer >= 4) {
-            boardContent[0][4] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[1][5] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[3][1] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[4][0] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[4][8] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[5][7] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[7][3] = new BoardCell(BoardCellType.PLAYABLE);
-            boardContent[8][4] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[0][4] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[1][5] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[3][1] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[4][0] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[4][8] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[5][7] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[7][3] = new BoardCell(BoardCellType.PLAYABLE);
+            boardContent4[8][4] = new BoardCell(BoardCellType.PLAYABLE);
         }
 
         //caso TRUE
-        boardContent[1][3].addItemTile(new ItemTile(ItemTileType.WHITE));
+        /*boardContent[1][3].addItemTile(new ItemTile(ItemTileType.WHITE));
         boardContent[3][7].addItemTile(new ItemTile(ItemTileType.WHITE));
-        boardContent[6][5].addItemTile(new ItemTile(ItemTileType.WHITE));
+        boardContent[6][5].addItemTile(new ItemTile(ItemTileType.WHITE));*/
 
         //caso FALSE
-        boardContent[5][5].addItemTile(new ItemTile(ItemTileType.WHITE));
-        boardContent[5][4].addItemTile(new ItemTile(ItemTileType.WHITE));
-        boardContent[3][6].addItemTile(new ItemTile(ItemTileType.WHITE));
+        boardContent4[5][5].addItemTile(new ItemTile(ItemTileType.WHITE));
+        boardContent4[5][4].addItemTile(new ItemTile(ItemTileType.WHITE));
+        boardContent4[3][6].addItemTile(new ItemTile(ItemTileType.WHITE));
 
-        board4.setBoardContent(boardContent);
+        board4.setBoardContent(boardContent4);
     }
 
     @Test
     void FillingRequiredTest(){
         //caso TRUE
-        // Assertions.assertTrue(board4.fillingRequired());
+        //Assertions.assertTrue(board4.fillingRequired());
 
         //caso FALSE
         Assertions.assertFalse(board4.fillingRequired());
