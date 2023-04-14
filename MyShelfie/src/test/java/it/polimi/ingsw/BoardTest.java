@@ -14,12 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BoardTest {
-
-    Board board1;
-    Board board2;
-    Board board3;
-    Board board4;
-    Board board5;
+    Board board1, board2, board3, board4;
 
     BoardCell[][] boardContent;
     List<ItemTile> tiles;
@@ -379,8 +374,8 @@ public class BoardTest {
         tilesPickedUp = board3.pickUpCards(positions);
 
         System.out.println("Posizioni: ");
-        for(int i=0; i<tilesPickedUp.size();i++){
-            System.out.println(" " + tilesPickedUp.get(i).getItemTileType());
+        for (ItemTile itemTile : tilesPickedUp) {
+            System.out.println(" " + itemTile.getItemTileType());
         }
 
     }
@@ -451,9 +446,9 @@ public class BoardTest {
         }
 
         //caso TRUE
-        /*boardContent[1][3].addItemTile(new ItemTile(ItemTileType.WHITE));
+        boardContent[1][3].addItemTile(new ItemTile(ItemTileType.WHITE));
         boardContent[3][7].addItemTile(new ItemTile(ItemTileType.WHITE));
-        boardContent[6][5].addItemTile(new ItemTile(ItemTileType.WHITE));*/
+        boardContent[6][5].addItemTile(new ItemTile(ItemTileType.WHITE));
 
         //caso FALSE
         boardContent[5][5].addItemTile(new ItemTile(ItemTileType.WHITE));
@@ -466,7 +461,7 @@ public class BoardTest {
     @Test
     void FillingRequiredTest(){
         //caso TRUE
-        //Assertions.assertTrue(board4.fillingRequired());
+        // Assertions.assertTrue(board4.fillingRequired());
 
         //caso FALSE
         Assertions.assertFalse(board4.fillingRequired());

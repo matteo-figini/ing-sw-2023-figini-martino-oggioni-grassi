@@ -4,15 +4,83 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="BoardTest: refillBoardTest commit">
+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Added very very basic skeleton for client and server">
+      <change afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/controller/GameState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/view/View.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/view/VirtualView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_04_2023_14_16__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_04_2023_14_16__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_04_2023_16_38__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_04_2023_16_38__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_04_2023_21_51__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_04_2023_21_51__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_04_2023_22_11__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_04_2023_22_11__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/controller/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/BoardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Bag.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Bag.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Position.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Position.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/BagTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/BoardTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/PersonalGoalCardTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/PlayerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/ShelfTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/commongoaltests/CrossGoalCardTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/commongoaltests/DiagonalFiveGoalCardTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/commongoaltests/EightEqualsGoalCardTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/commongoaltests/FourCornersGoalCardTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/commongoaltests/FourLinesFourGoalCardTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/commongoaltests/FourRowsGoalCardTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/commongoaltests/SixCouplesGoalCardTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/commongoaltests/ThreeColumnsGoalCardTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/commongoaltests/TriangleGoalCardTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/commongoaltests/TwoColumnsGoalCardTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/commongoaltests/TwoRowsGoalCardTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/commongoaltests/TwoSquaresGoalCardTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/controller/GameController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/exception/NoScoringTokenAvailableException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/exception/NotEnoughCellsException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/exception/WrongNumberOfCardsException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/exception/WrongPositionsException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Bag.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Board.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/BoardCell.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/BoardCellType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/CommonGoalCard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Game.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/ItemTile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/ItemTileType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/PersonalGoalCard$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/PersonalGoalCard$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/PersonalGoalCard$11.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/PersonalGoalCard$12.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/PersonalGoalCard$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/PersonalGoalCard$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/PersonalGoalCard$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/PersonalGoalCard$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/PersonalGoalCard$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/PersonalGoalCard$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/PersonalGoalCard$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/PersonalGoalCard$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/PersonalGoalCard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Position.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/ScoringToken.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/Shelf.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/ShelfCell.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/commongoals/CrossGoalCard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/commongoals/DiagonalFiveGoalCard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/commongoals/EightEqualsGoalCard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/commongoals/FourCornersGoalCard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/commongoals/FourLinesFourGoalCard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/commongoals/FourRowsGoalCard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/commongoals/SixCouplesGoalCard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/commongoals/ThreeColumnsGoalCard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/commongoals/TriangleGoalCard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/commongoals/TwoColumnsGoalCard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/commongoals/TwoRowsGoalCard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/model/commongoals/TwoSquaresGoalCard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/network/message/Message.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/observer/Observable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ing-sw-2023-figini-martino-oggioni-grassi/it/polimi/ingsw/observer/Observer.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +90,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -33,7 +103,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2N0WsRka8BZgmuN1S8dHjOlp7HD" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -51,16 +121,22 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.appearance&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.ShelfTest">
-    <configuration name="BagTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.BoardTest">
+    <configuration name="ClientMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.ClientMain" />
       <module name="ing-sw-2023-figini-martino-oggioni-grassi" />
       <extension name="coverage">
         <pattern>
@@ -68,9 +144,19 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="it.polimi.ingsw" />
-      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.BagTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.ServerMain" />
+      <module name="ing-sw-2023-figini-martino-oggioni-grassi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.polimi.ingsw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -90,7 +176,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoardTest.refillBoardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BoardTest.FillingRequiredTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ing-sw-2023-figini-martino-oggioni-grassi" />
       <extension name="coverage">
         <pattern>
@@ -100,23 +186,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="it.polimi.ingsw" />
       <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.BoardTest" />
-      <option name="METHOD_NAME" value="refillBoardTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BoardTest.refillBoardTest1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ing-sw-2023-figini-martino-oggioni-grassi" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="it.polimi.ingsw.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="it.polimi.ingsw" />
-      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.BoardTest" />
-      <option name="METHOD_NAME" value="refillBoardTest1" />
+      <option name="METHOD_NAME" value="FillingRequiredTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -139,11 +209,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ShelfTest" />
         <item itemvalue="JUnit.BoardTest" />
-        <item itemvalue="JUnit.BoardTest.refillBoardTest" />
-        <item itemvalue="JUnit.BoardTest.refillBoardTest1" />
-        <item itemvalue="JUnit.BagTest" />
+        <item itemvalue="JUnit.BoardTest.FillingRequiredTest" />
+        <item itemvalue="Application.ServerMain" />
+        <item itemvalue="Application.ClientMain" />
+        <item itemvalue="JUnit.ShelfTest" />
       </list>
     </recent_temporary>
   </component>
@@ -178,6 +248,9 @@
       <workItem from="1681215485257" duration="1257000" />
       <workItem from="1681287575159" duration="80000" />
       <workItem from="1681302849023" duration="2644000" />
+      <workItem from="1681378994108" duration="173000" />
+      <workItem from="1681381878417" duration="1046000" />
+      <workItem from="1681459238333" duration="3079000" />
     </task>
     <task id="LOCAL-00001" summary="Class Player layout">
       <created>1679754417366</created>
@@ -221,22 +294,20 @@
       <option name="project" value="LOCAL" />
       <updated>1681204431948</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added very very basic skeleton for client and server">
+      <created>1681382916956</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1681382916956</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="RECENT_FILTERS">
       <map>
         <entry key="Branch">
@@ -252,6 +323,15 @@
         </entry>
       </map>
     </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -261,6 +341,7 @@
     <MESSAGE value="Game, Shelf, Stack commit" />
     <MESSAGE value="PersonalGoalCardTest commit" />
     <MESSAGE value="BoardTest: refillBoardTest commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="BoardTest: refillBoardTest commit" />
+    <MESSAGE value="Added very very basic skeleton for client and server" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added very very basic skeleton for client and server" />
   </component>
 </project>

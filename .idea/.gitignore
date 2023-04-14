@@ -51,7 +51,7 @@ cmake-build-*/
 
 # IntelliJ
 out/
-# MyShelfie/out/
+MyShelfie/out/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/

@@ -15,26 +15,42 @@ import java.util.Random;
  * It can be useful as an entry point for the controller.
  */
 public class Game {
+    private static Game gameInstance;   // Default instance for the game (singleton pattern applied).
     final static public int MIN_PLAYERS = 2;
     final static public int MAX_PLAYERS = 4;
 
     private int numberOfPlayers;    // This attribute represents the chosen number of players for the game.
     private boolean lastLap;    // This attribute is 'true' whether the game is at the last lap, 'false' otherwise.
     private final List<Player> players;   // This list represents the players in the game.
-    private Player activePlayer;    // This attribute represents a pointer to the current player in the list above.
     private Board board;    // This attribute represents the board of the game.
     private final Bag bagTiles;    // This attribute represents the bag with the item tiles.
-    private List<CommonGoalCard> commonGoalCards;   // This list represents the (two) common goal cards in the game.
+    private final List<CommonGoalCard> commonGoalCards;   // This list represents the (two) common goal cards in the game.
 
     // TODO: istanziare la board una volta che il numero di giocatori è chiaro!
 
-    public Game () {
+    /**
+     * This method apply the singleton pattern to this class.
+     * @return The instance of the game.
+     */
+    public static Game getGameInstance () {
+        if (gameInstance == null) {
+            gameInstance = new Game();
+        }
+        return gameInstance;
+    }
+
+    /**
+     * Default constructor is private due to singleton pattern applied. It instantiates all the necessary elements for
+     * the Game.
+     */
+    private Game () {
         this.lastLap = false;
         this.players = new ArrayList<>();
-        this.activePlayer = null;
         this.bagTiles = new Bag();
         this.commonGoalCards = new ArrayList<>();
     }
+
+
 
     /**
      * This method creates a new player instance based on the nickname passed as parameter and add it to the players list.
@@ -48,14 +64,6 @@ public class Game {
 
     public void addCommonGoalCard(CommonGoalCard commonGoalCard){
         this.commonGoalCards.add(commonGoalCard);
-    }
-
-    public Player getActivePlayer() {
-        return activePlayer;
-    }
-
-    public void setActivePlayer (Player activePlayer) {
-        this.activePlayer = activePlayer;
     }
 
     /**
@@ -72,15 +80,6 @@ public class Game {
      */
     public void setLastLap () {
         this.lastLap = true;
-    }
-
-    /**
-     * This method choose randomly the first player inside the players' list.
-     */
-    public void chooseFirstPlayer() {
-        Random random = new Random();
-        this.activePlayer = players.get(random.nextInt(players.size()));
-        this.activePlayer.setFirstPlayer();
     }
 
     /**
@@ -107,12 +106,6 @@ public class Game {
         return getPlayerByNickname(nickname) != null;
     }
 
-    public Player selectNextPlayer () {
-        int index = players.indexOf(activePlayer);
-        int nextIndex = (index + 1) % players.size();
-        return players.get(nextIndex);
-    }
-
     /**
      * This method prepare the game components after the initialization of the players. In order to start the game,
      * these operations are mandatory:
@@ -120,7 +113,6 @@ public class Game {
      * -) Refill the board from the bag with item tiles.
      * -) Draw & assign 2 common goal cards
      * -) Draw & assign 1 personal goal card for each player.
-     * -) Choose randomly the first player in the list.
      */
     public void startGame () {
         assert players.size() >= MIN_PLAYERS && players.size() <= MAX_PLAYERS;
@@ -129,7 +121,6 @@ public class Game {
         this.refillBoardFromBag();
         assignsCommonGoalCards();
         assignsPersonalGoalCards();
-        chooseFirstPlayer();
     }
 
     /**

@@ -23,8 +23,7 @@ public class Board{
                 boardContent[i][j] = new BoardCell(BoardCellType.NOT_PLAYABLE);
             }
         }
-        /* TODO: il metodo della scimmia per inizializzare le caselle funziona relativamente.
-            Si potrebbe migliorare l'implementazione, ad esempio, inserendo i dati di configurazione in un file. */
+
         if (numPlayer >= 2) {
             boardContent[1][3] = new BoardCell(BoardCellType.PLAYABLE);
             boardContent[1][4] = new BoardCell(BoardCellType.PLAYABLE);
@@ -130,8 +129,8 @@ public class Board{
         if (!correctPositionsOfTiles(positions)) {
             throw new WrongPositionsException();
         }
-        for (int pos = 0; pos < positions.size(); pos++) {
-            cell = boardContent[positions.get(pos).getX()][positions.get(pos).getY()];
+        for (Position position : positions) {
+            cell = boardContent[position.getX()][position.getY()];
             if (cell.isPlayable() && !cell.isFree()) {
                 tilesPickedUp.add(cell.getItemTile());
                 cell.removeItemTile();
