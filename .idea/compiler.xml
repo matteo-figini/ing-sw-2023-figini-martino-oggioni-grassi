@@ -9,8 +9,10 @@
         <module name="PSP18" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="ing-sw-2023-figini-martino-oggioni-grassi" target="19" />
-    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="PSP18" options="" />
+    </option>
   </component>
 </project>
