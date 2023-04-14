@@ -4,100 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Added very very basic skeleton for client and server">
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ing-sw-2023-figini-martino-oggioni-grassi.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_04_2023_14_16_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_04_2023_14_16__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_04_2023_16_38_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_04_2023_16_38__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_04_2023_21_51_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_04_2023_21_51__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_04_2023_22_11_[Changes]/FourRowsGoalCard.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_04_2023_22_11_[Changes]/FourRowsGoalCardTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_04_2023_22_11_[Changes]/ThreeColumnsGoalCard.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_04_2023_22_11_[Changes]/ThreeColumnsGoalCardTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_04_2023_22_11_[Changes]/TwoSquaresGoalCardTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_04_2023_22_11_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_04_2023_22_11__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_18_16_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/Bag.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/Board.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/Game.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/Player.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/Position.class" beforeDir="false" />
+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="BoardTest small adjustments part2 commit">
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/deliverables/uml/uml_model_initial.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/deliverables/uml/uml_model_initial.drawio" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/deliverables/uml/uml_model_initial.png" beforeDir="false" afterPath="$PROJECT_DIR$/deliverables/uml/uml_model_initial.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/ClientMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/ClientMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/ServerMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/ServerMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/controller/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/controller/GameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/exception/NoScoringTokenAvailableException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/exception/NoScoringTokenAvailableException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/exception/NotEnoughCellsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/exception/NotEnoughCellsException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/exception/WrongNumberOfCardsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/exception/WrongNumberOfCardsException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/exception/WrongPositionsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/exception/WrongPositionsException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/Bag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/BoardCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/BoardCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/BoardCellType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/BoardCellType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/CommonGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/CommonGoalCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/ItemTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/ItemTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/ItemTileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/ItemTileType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/PersonalGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/PersonalGoalCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/Position.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/ScoringToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/ScoringToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/Shelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/Shelf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/ShelfCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/ShelfCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/commongoals/CrossGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/CrossGoalCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/commongoals/DiagonalFiveGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/DiagonalFiveGoalCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/commongoals/EightEqualsGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/EightEqualsGoalCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/commongoals/FourCornersGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/FourCornersGoalCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/commongoals/FourLinesFourGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/FourLinesFourGoalCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/commongoals/FourRowsGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/FourRowsGoalCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/commongoals/SixCouplesGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/SixCouplesGoalCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/commongoals/ThreeColumnsGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/ThreeColumnsGoalCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/commongoals/TriangleGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/TriangleGoalCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/commongoals/TwoColumnsGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/TwoColumnsGoalCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/commongoals/TwoRowsGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/TwoRowsGoalCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/model/commongoals/TwoSquaresGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/TwoSquaresGoalCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/network/message/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/message/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/observer/Observable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/observer/Observable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/observer/Observer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/observer/Observer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/main/java/it/polimi/ingsw/view/VirtualView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/VirtualView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/BagTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/BagTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/BoardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/PersonalGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/PersonalGoalCardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/PlayerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/ShelfTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/ShelfTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/commongoaltests/CrossGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/commongoaltests/CrossGoalCardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/commongoaltests/DiagonalFiveGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/commongoaltests/DiagonalFiveGoalCardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/commongoaltests/EightEqualsGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/commongoaltests/EightEqualsGoalCardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/commongoaltests/FourCornersGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/commongoaltests/FourCornersGoalCardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/commongoaltests/FourLinesFourGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/commongoaltests/FourLinesFourGoalCardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/commongoaltests/FourRowsGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/commongoaltests/FourRowsGoalCardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/commongoaltests/SixCouplesGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/commongoaltests/SixCouplesGoalCardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/commongoaltests/ThreeColumnsGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/commongoaltests/ThreeColumnsGoalCardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/commongoaltests/TriangleGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/commongoaltests/TriangleGoalCardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/commongoaltests/TwoColumnsGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/commongoaltests/TwoColumnsGoalCardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/commongoaltests/TwoRowsGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/commongoaltests/TwoRowsGoalCardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyShelfie/src/test/java/it/polimi/ingsw/commongoaltests/TwoSquaresGoalCardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/polimi/ingsw/commongoaltests/TwoSquaresGoalCardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,6 +29,13 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="2N0WsRka8BZgmuN1S8dHjOlp7HD" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -127,30 +44,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.38965517",
-    "settings.editor.selected.configurable": "editor.preferences.appearance",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.38965517&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.appearance&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\matte\IdeaProjects\ing-sw-2023-figini-martino-oggioni-grassi\" />
@@ -158,7 +75,7 @@
       <recent name="C:\Users\matte\IdeaProjects\ing-sw-2023-figini-martino-oggioni-grassi" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BoardTest">
+  <component name="RunManager" selected="JUnit.BoardTest (1)">
     <configuration name="ClientMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.ClientMain" />
       <module name="ing-sw-2023-figini-martino-oggioni-grassi" />
@@ -181,6 +98,21 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BoardTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PSP18" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.polimi.ingsw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="it.polimi.ingsw" />
+      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.BoardTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -216,28 +148,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShelfTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ing-sw-2023-figini-martino-oggioni-grassi" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="it.polimi.ingsw.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="it.polimi.ingsw" />
-      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.ShelfTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BoardTest (1)" />
         <item itemvalue="JUnit.BoardTest" />
         <item itemvalue="JUnit.BoardTest.FillingRequiredTest" />
         <item itemvalue="Application.ServerMain" />
         <item itemvalue="Application.ClientMain" />
-        <item itemvalue="JUnit.ShelfTest" />
       </list>
     </recent_temporary>
   </component>
@@ -276,6 +193,7 @@
       <workItem from="1681381878417" duration="1046000" />
       <workItem from="1681459238333" duration="3079000" />
       <workItem from="1681473024747" duration="427000" />
+      <workItem from="1681474947380" duration="398000" />
     </task>
     <task id="LOCAL-00001" summary="Class Player layout">
       <created>1679754417366</created>
@@ -333,6 +251,15 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="RECENT_FILTERS">
       <map>
         <entry key="Branch">
@@ -344,15 +271,6 @@
                 </option>
               </RecentGroup>
             </list>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
           </value>
         </entry>
       </map>
