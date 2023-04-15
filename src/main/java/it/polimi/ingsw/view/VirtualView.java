@@ -6,4 +6,18 @@ package it.polimi.ingsw.view;
  */
 public class VirtualView implements View {
 
+    @Override
+    public void askNickname () {
+        // TODO: implementare il metodo askNickname() per VV
+    }
+
+    @Override
+    public void askPlayersNumber () {
+        // TODO: implementare il metodo askPlayersNumber() per VV
+    }
+
+    @Override
+    public void askUserColumnAndPositions() {
+        // TODO: implementare il metodo askUserColumnAndPositions() per VV
+    }
 }

@@ -3,6 +3,7 @@ package it.polimi.ingsw.model;
 import it.polimi.ingsw.exception.WrongPositionsException;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Board{
@@ -139,11 +140,14 @@ public class Board{
         return tilesPickedUp;
     }
 
-    // TODO: verificare la correttezza dell'algoritmo di correctPositionsOfTiles
     /**
-     *
-     * @param positions
-     * @return
+     * This method checks that the list of the positions passed as parameter satisfies the conditions specified by the game rules.
+     * More specifically, there are some conditions to verify:
+     * 1) Positions in the list must exist in the board and there is a tile in each position.
+     * 2) Positions must be aligned and adjacent (see {@code alignedAndClosePositions()} for further details.
+     * 3) Each tile in the position specified must have at least one free side.
+     * @param positions The list of the positions specified by parameter
+     * @return A boolean indicating if the requirements are satisfied.
      */
     private boolean correctPositionsOfTiles (List<Position> positions) {
         for (Position pos : positions) {
@@ -152,6 +156,9 @@ public class Board{
                     !boardContent[pos.getX()][pos.getY()].isPlayable()) {
                 return false;
             }
+        }
+        if (!alignedAndClosePositions(positions)) {
+            return false;
         }
         for (Position pos : positions) {
             if (pos.getX() > 0 && pos.getX() < MAX_ROWS-1 && pos.getY() > 0 && pos.getY() < MAX_COLUMNS-1 &&
@@ -240,5 +247,63 @@ public class Board{
             playable++;
         }
         return playable;
+    }
+
+    /**
+     * This method checks that the specified positions passed by parameter are:
+     * -) on the same row and in adjacent columns, or:
+     * -) on the same column and in adjacent rows.
+     * @param positions The positions to check.
+     * @return A boolean indicating if the list of positions specified as parameter contains aligned and adjacent positions.
+     * Ensures that the list passed as parameter is not edited by the method.
+     */
+    private boolean alignedAndClosePositions (final List<Position> positions) {
+        boolean alignedTilesForRow = true;
+        boolean alignedTilesForCol = true;
+
+        for (int i = 0; i < positions.size() - 1 && alignedTilesForRow; i++) {
+            if (positions.get(i).getX() != positions.get(i + 1).getX()) {
+                alignedTilesForRow = false;
+            }
+        }
+        if (alignedTilesForRow) {
+            // Ordinamento per colonna
+            List<Position> positionsAlignedForCol = new ArrayList<>(positions);
+            Collections.sort (positionsAlignedForCol, (p1, p2) -> {
+                if (p1.getY() < p2.getY()) return -1;
+                else if (p1.getY() > p2.getY()) return 1;
+                else return 0;
+            });
+
+            for (int i = 0; i < positionsAlignedForCol.size() - 1 && alignedTilesForRow; i++) {
+                if (positionsAlignedForCol.get(i).getY() != positionsAlignedForCol.get(i + 1).getY() - 1) {
+                    alignedTilesForRow = false;
+                }
+            }
+        }
+
+        if (!alignedTilesForRow) {
+            for (int i = 0; i < positions.size() - 1 && alignedTilesForCol; i++) {
+                if (positions.get(i).getY() != positions.get(i + 1).getY()) {
+                    alignedTilesForCol = false;
+                }
+            }
+            if (alignedTilesForCol) {
+                // Ordinamento per colonna
+                List<Position> positionsAlignedForCol = new ArrayList<>(positions);
+                Collections.sort (positionsAlignedForCol, (p1, p2) -> {
+                    if (p1.getX() < p2.getX()) return -1;
+                    else if (p1.getX() > p2.getX()) return 1;
+                    else return 0;
+                });
+
+                for (int i = 0; i < positionsAlignedForCol.size() - 1 && alignedTilesForCol; i++) {
+                    if (positionsAlignedForCol.get(i).getX() + 1 != positionsAlignedForCol.get(i + 1).getX()) {
+                        alignedTilesForCol = false;
+                    }
+                }
+            }
+        }
+        return (alignedTilesForRow || alignedTilesForCol);
     }
 }

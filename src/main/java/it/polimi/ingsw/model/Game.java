@@ -50,36 +50,12 @@ public class Game {
         this.commonGoalCards = new ArrayList<>();
     }
 
-
-
     /**
-     * This method creates a new player instance based on the nickname passed as parameter and add it to the players list.
-     * @param nickname The nickname of the player. Requires that is not null.
+     * Add the {@code CommonGoalCard} passed by parameter to the list of the common goal cards.
+     * @param commonGoalCard The common goal card to add in the list.
      */
-    public void addPlayer (String nickname) {
-        Player newPlayer = new Player(nickname);
-        this.players.add(newPlayer);
-    }
-
-
-    public void addCommonGoalCard(CommonGoalCard commonGoalCard){
+    public void addCommonGoalCard (CommonGoalCard commonGoalCard) {
         this.commonGoalCards.add(commonGoalCard);
-    }
-
-    /**
-     * This method indicates if it is the last lap of the match.
-     * @return A boolean indicating if it is the last lap.
-     */
-    public boolean isLastLap() {
-        return lastLap;
-    }
-
-    /**
-     * This method sets the attribute "lastLap" to true, so it means that this is the final lap of the match.
-     * Ensures that isLastLap() returns true.
-     */
-    public void setLastLap () {
-        this.lastLap = true;
     }
 
     /**
@@ -89,7 +65,7 @@ public class Game {
      */
     public Player getPlayerByNickname (String nickname) {
         for (Player player : players) {
-            if (player.getNickname().equals(nickname)) {
+            if (player.getNickname().equalsIgnoreCase(nickname)) {
                 return player;
             }
         }
@@ -266,5 +242,79 @@ public class Game {
             }
         }
         return generatedNumbers;
+    }
+
+    /* ---------- GETTERS & SETTERS ---------- */
+    /**
+     * This method indicates if it is the last lap of the match.
+     * @return A boolean indicating if it is the last lap.
+     */
+    public boolean isLastLap() {
+        return lastLap;
+    }
+
+    /**
+     * This method sets the attribute "lastLap" to true, so it means that this is the final lap of the match.
+     * Ensures that isLastLap() returns true.
+     */
+    public void setLastLap () {
+        this.lastLap = true;
+    }
+
+    /**
+     * This method returns the list of the players in the game.
+     * @return The list of the players in the game.
+     */
+    public List<Player> getPlayers () {
+        return players;
+    }
+
+    /**
+     * This method creates a new player instance based on the nickname passed as parameter and add it to the players list.
+     * @param nickname The nickname of the player. Requires that is not null.
+     */
+    public void addPlayer (String nickname) {
+        Player newPlayer = new Player(nickname);
+        this.players.add(newPlayer);
+    }
+
+    /**
+     * This method returns the chosen number of players in the game.
+     * @return The chosen number of players in the game.
+     */
+    public int getChosenPlayersNumber () {
+        return numberOfPlayers;
+    }
+
+    /**
+     * This method sets the chosen number of players in the game.
+     * @param chosenPlayersNumber The desired number of players in the game.
+     */
+    public void setChosenPlayersNumber (int chosenPlayersNumber) {
+        this.numberOfPlayers = chosenPlayersNumber;
+    }
+
+    /**
+     * This method returns the board in the game.
+     * @return The board in the game.
+     */
+    public Board getBoard () {
+        return this.board;
+    }
+
+    /**
+     * This method returns the bag of the tiles in the game.
+     * @return The bag of the tiles in the game.
+     */
+    public Bag getBagTiles () {
+        return this.bagTiles;
+    }
+
+    /**
+     * Returns the list of the common goal cards in the game.
+     * @return The list of the common goal cards in the game.
+     */
+    public List<CommonGoalCard> getCommonGoalCards () {
+        return this.commonGoalCards;
     }
 }

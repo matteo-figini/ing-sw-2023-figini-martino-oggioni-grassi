@@ -1,6 +1,7 @@
 package it.polimi.ingsw.controller;
 
 import it.polimi.ingsw.model.Game;
+import it.polimi.ingsw.model.Player;
 import it.polimi.ingsw.view.VirtualView;
 
 import java.util.HashMap;
@@ -34,13 +35,6 @@ public class GameController {
         setGameState(GameState.LOBBY_STATE);
     }
 
-    /*
-    Per strutturare il controller, pensavo di realizzare qualcosa del tipo:
-    -) un metodo riceve i messaggi: in base allo stato corrente del gioco, i messaggi vengono delegati ad un metodo (uno per gli stati);
-    -) ciascuno dei metodi che riceve il messaggio controlla
-    E' necessario controllare il mittente dei messaggi, per garantire che il mittente dei messaggi sia il giocatore attualmente attivo.
-     */
-
     /* ---------- GETTERS & SETTERS ---------- */
     /**
      * This method returns the current state of the game.
@@ -59,6 +53,8 @@ public class GameController {
         this.gameState = gameState;
     }
 
+    /* ---------- VIRTUAL VIEW METHODS ---------- */
+
     /**
      * This method returns the virtual view map.
      * @return The virtual view map.
@@ -67,6 +63,48 @@ public class GameController {
         return virtualViewMap;
     }
 
+    public void addVirtualView (String nickname, VirtualView virtualView) {
+        // TODO: connect the observable (game, board, shelf...) with the observer (vv).
+        this.virtualViewMap.put(nickname, virtualView);
+    }
+
+    /* ---------- LOGIN HANDLER ---------- */
+    /**
+     * This method handles the login of all the clients. Every client is identified by his nickname and has a virtual view.
+     * For each client, it establishes if the client is the first one (and in this case requires the number of the players)
+     * and checks if the desired player number is reached, then starts the game.
+     * @param nickname The nickname of the client to add to the players' list.
+     * @param virtualView The virtual view of the client to add to the virtual views' map.
+     */
+    public void handleLogin (String nickname, VirtualView virtualView) {
+        if (virtualViewMap.isEmpty()) {
+            // First player to login. The nickname is always correct!
+            addVirtualView(nickname, virtualView);
+            game.getPlayers().add(new Player(nickname));
+            // TODO: Inform the player of the connection.
+            virtualView.askPlayersNumber();
+        } else if (virtualViewMap.size() < game.getChosenPlayersNumber()) {
+            // The player is not the first one.
+            // We suppose here that the nickname is already checked by the server.
+            addVirtualView(nickname, virtualView);
+            game.getPlayers().add(new Player(nickname));
+            // TODO: Inform the player of the connection.
+
+            if (game.getPlayers().size() == game.getChosenPlayersNumber()) {
+                // Desired number of players reached.
+                // Se implementiamo la persistenza, questo potrebbe essere il punto in cui ripristinare lo stato del gioco.
+                // Altrimenti, inizia il gioco.
+            }
+        }
+    }
+
     /* ---------- UTILITY METHODS ---------- */
 
+    /**
+     * This method starts the game
+     */
+    private void startGame () {
+        setGameState(GameState.IN_GAME);
+        // TODO: operare sulla classe Game!
+    }
 }
