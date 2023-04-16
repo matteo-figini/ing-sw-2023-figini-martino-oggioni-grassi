@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Updated Board.alignedAndClosePositions method. First skeleton of the MVC classes">
+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="updated pom.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,9 +74,8 @@
       <recent name="C:\Users\matte\IdeaProjects\ing-sw-2023-figini-martino-oggioni-grassi" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PersonalGoalCardTest">
-    <configuration name="ClientMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.ClientMain" />
+  <component name="RunManager" selected="JUnit.BoardTest.pickUpCardsTest">
+    <configuration name="BagTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PSP18" />
       <extension name="coverage">
         <pattern>
@@ -83,19 +83,9 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServerMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.ServerMain" />
-      <module name="PSP18" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="it.polimi.ingsw.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="PACKAGE_NAME" value="it.polimi.ingsw" />
+      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.BagTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -115,22 +105,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ing-sw-2023-figini-martino-oggioni-grassi" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="it.polimi.ingsw.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="it.polimi.ingsw" />
-      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.BoardTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PersonalGoalCardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BoardTest.pickUpCardsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PSP18" />
       <extension name="coverage">
         <pattern>
@@ -139,7 +114,38 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="it.polimi.ingsw" />
-      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.PersonalGoalCardTest" />
+      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.BoardTest" />
+      <option name="METHOD_NAME" value="pickUpCardsTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PlayerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PSP18" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.polimi.ingsw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="it.polimi.ingsw" />
+      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.PlayerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShelfTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PSP18" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.polimi.ingsw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="it.polimi.ingsw" />
+      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.ShelfTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -147,11 +153,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PersonalGoalCardTest" />
-        <item itemvalue="Application.ServerMain" />
-        <item itemvalue="Application.ClientMain" />
+        <item itemvalue="JUnit.BoardTest.pickUpCardsTest" />
         <item itemvalue="JUnit.BoardTest (1)" />
-        <item itemvalue="JUnit.BoardTest" />
+        <item itemvalue="JUnit.BagTest" />
+        <item itemvalue="JUnit.ShelfTest" />
+        <item itemvalue="JUnit.PlayerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -198,6 +204,8 @@
       <workItem from="1681569301912" duration="1760000" />
       <workItem from="1681579453958" duration="58000" />
       <workItem from="1681638208040" duration="59000" />
+      <workItem from="1681655129550" duration="327000" />
+      <workItem from="1681655550110" duration="406000" />
     </task>
     <task id="LOCAL-00001" summary="Class Player layout">
       <created>1679754417366</created>
@@ -262,7 +270,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681572658699</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="updated pom.xml">
+      <created>1681655295198</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1681655295198</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,9 +318,9 @@
     <MESSAGE value="PersonalGoalCardTest commit" />
     <MESSAGE value="BoardTest: refillBoardTest commit" />
     <MESSAGE value="Added very very basic skeleton for client and server" />
-    <MESSAGE value="updated pom.xml" />
     <MESSAGE value="Updated Board.alignedAndClosePositions method. First skeleton of the MVC classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Board.alignedAndClosePositions method. First skeleton of the MVC classes" />
+    <MESSAGE value="updated pom.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated pom.xml" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
