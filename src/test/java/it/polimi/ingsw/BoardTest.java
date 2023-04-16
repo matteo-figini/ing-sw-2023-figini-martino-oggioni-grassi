@@ -2,13 +2,9 @@ package it.polimi.ingsw;
 
 import it.polimi.ingsw.exception.WrongPositionsException;
 import it.polimi.ingsw.model.*;
-import it.polimi.ingsw.model.BoardCell;
-import it.polimi.ingsw.model.Board;
-import it.polimi.ingsw.model.ItemTile;
-import it.polimi.ingsw.model.Position;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
