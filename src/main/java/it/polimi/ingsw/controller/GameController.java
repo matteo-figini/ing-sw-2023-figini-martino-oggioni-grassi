@@ -1,11 +1,14 @@
 package it.polimi.ingsw.controller;
 
+import it.polimi.ingsw.exception.NotEnoughCellsException;
+import it.polimi.ingsw.exception.WrongPositionsException;
 import it.polimi.ingsw.model.Game;
+import it.polimi.ingsw.model.ItemTile;
 import it.polimi.ingsw.model.Player;
+import it.polimi.ingsw.model.Position;
 import it.polimi.ingsw.view.VirtualView;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * This class represents the main class for the controller in the MVC package. It receives the inputs as messages
@@ -16,6 +19,13 @@ public class GameController {
     private GameState gameState;    // State of the game.
     private String activePlayer;    // Active player.
     private Map<String, VirtualView> virtualViewMap;    // Map of the virtual views.
+    private List<Position> chosePosition;
+    private int flag=0;
+    private Position p;
+    private Scanner input = new Scanner(System.in);
+    private int x, y;
+    private List<ItemTile> selectedCards = new ArrayList<>();
+    private int c;
 
     /**
      * Default constructor for the {@code GameController} class.
@@ -112,14 +122,39 @@ public class GameController {
     }
 
     //turnController partirà quando il server gli darà il via, dandogli il nome dell'activePlayer
-    private void turnController(String activePlayer){
+    private void turnController(String activePlayer) throws WrongPositionsException, NotEnoughCellsException {
         /*
         -chiedere al client quali cards prendere
-        -controllare che le carte selezionate possano essere prese
+        -controllare che le carte selezionate possano essere prese (lo fa giá pickUpCards)
         -prendere le suddette cards nell'ordine selezionato
-        -inserire le cards nella shelf nella colonna inserita dall'utente, verificando che la colonna abbia abbastanza posti
+        -inserire le cards nella shelf nella colonna inserita dall'utente, verificando che la colonna abbia abbastanza posti (la verifica lo fa insertCards)
         -fine turno
         */
+        //TODO: messaggio inizio turno, seleziona cards
+        //creare una lista vuota di posizioni, chiederle all'utente e metterle nella lista creata. Poi passarla a pickUpCards
+        chosePosition = new ArrayList<>();
+        for(int i=0;flag!=1 && i<3;i++){
+            //TODO: messaggio:"inserire x e y della posizione"
+            x = input.nextInt();
+            y = input.nextInt();
+            p = new Position(x,y);
+            chosePosition.add(p);
+            //TODO: messaggio: "terminare l'inserimento?, se si mettere 1, se no mettere 0"
+            flag = input.nextInt();
+        }
+        selectedCards = game.getBoard().pickUpCards(chosePosition);
+
+        //inserire la lista di cards nella shelf
+        //TODO: messaggio: "in quale colonna della shelf si devono inserire le cards?"
+        do {
+            c = input.nextInt();
+        }while(c>=0 && c<5);
+        game.getPlayerByNickname(activePlayer).getShelf().insertCards(selectedCards, c);
+
+        //TODO: messaggio: "inserimento andato a buon fine"
+
+        //controlla se l'utente ha riempito la propria shelf --> si fa l'ultimo giro    NON SO SE VA FATTO OGNI GIRO
+        //game.checkLastLapCondition();
     }
 
     private void lastLap(){
