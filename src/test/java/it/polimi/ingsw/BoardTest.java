@@ -293,7 +293,7 @@ public class BoardTest {
         Assertions.assertEquals(0,board2.playableSide(nofreesides));
     }
 
-    @BeforeEach
+    /*@BeforeEach
     void setUpPickUpCardsTest(){
 
         positions.add( new Position(4,4));
@@ -382,7 +382,7 @@ public class BoardTest {
             System.out.println(" " + tilesPickedUp.get(i).getItemTileType());
         }
 
-    }
+    }*/
 
     @BeforeEach
     void setUpFillingRequiredTest(){

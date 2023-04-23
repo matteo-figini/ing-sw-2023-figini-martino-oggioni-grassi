@@ -93,7 +93,9 @@ public class GameController {
             if (game.getPlayers().size() == game.getChosenPlayersNumber()) {
                 // Desired number of players reached.
                 // Se implementiamo la persistenza, questo potrebbe essere il punto in cui ripristinare lo stato del gioco.
-                // Altrimenti, inizia il gioco.
+                // Inizia il gioco.
+                startGame();
+                // TODO: inviare messaggio di inizio game
             }
         }
     }
@@ -105,6 +107,32 @@ public class GameController {
      */
     private void startGame () {
         setGameState(GameState.IN_GAME);
+        game.startGame();
         // TODO: operare sulla classe Game!
     }
+
+    //turnController partirà quando il server gli darà il via, dandogli il nome dell'activePlayer
+    private void turnController(String activePlayer){
+        /*
+        -chiedere al client quali cards prendere
+        -controllare che le carte selezionate possano essere prese
+        -prendere le suddette cards nell'ordine selezionato
+        -inserire le cards nella shelf nella colonna inserita dall'utente, verificando che la colonna abbia abbastanza posti
+        -fine turno
+        */
+    }
+
+    private void lastLap(){
+        /*
+        -si deve continuare a fare i turni ma fermandosi quando si arriva al giocare con la chair
+        */
+    }
+
+    private void endGame(){
+        /*
+        -il gioco si interrompe
+        -contare tutti i punti di ogni giocatore e proclamare il vincitore
+        */
+    }
+
 }
