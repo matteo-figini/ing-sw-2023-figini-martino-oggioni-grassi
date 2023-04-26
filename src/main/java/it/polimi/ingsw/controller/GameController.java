@@ -6,6 +6,7 @@ import it.polimi.ingsw.model.Game;
 import it.polimi.ingsw.model.ItemTile;
 import it.polimi.ingsw.model.Player;
 import it.polimi.ingsw.model.Position;
+import it.polimi.ingsw.network.message.Message;
 import it.polimi.ingsw.view.VirtualView;
 
 import java.util.*;
@@ -19,13 +20,6 @@ public class GameController {
     private GameState gameState;    // State of the game.
     private String activePlayer;    // Active player.
     private Map<String, VirtualView> virtualViewMap;    // Map of the virtual views.
-    private List<Position> chosePosition;
-    private int flag=0;
-    private Position p;
-    private Scanner input = new Scanner(System.in);
-    private int x, y;
-    private List<ItemTile> selectedCards = new ArrayList<>();
-    private int c;
 
     /**
      * Default constructor for the {@code GameController} class.
@@ -41,7 +35,7 @@ public class GameController {
     private void initGameController () {
         this.game = Game.getGameInstance();
         this.virtualViewMap = new HashMap<>();      // Potrebbe dare problemi di concorrenza?
-        // Altre cose da istanziare
+        // TODO: Altre cose da istanziare?
         setGameState(GameState.LOBBY_STATE);
     }
 
@@ -76,6 +70,26 @@ public class GameController {
     public void addVirtualView (String nickname, VirtualView virtualView) {
         // TODO: connect the observable (game, board, shelf...) with the observer (vv).
         this.virtualViewMap.put(nickname, virtualView);
+    }
+
+    /* ---------- MESSAGE SWITCH ---------- */
+    /**
+     * This method handles a message received from the client switching on the current game state.
+     * @param message The message received from the client over the network.
+     */
+    public void onMessageReceived (Message message) {
+        switch (gameState) {
+            case LOBBY_STATE:
+                break;
+            case IN_GAME:
+                break;
+            case LAST_LAP:
+                break;
+            case END_GAME:
+                break;
+            default:
+                // TODO: segnalare stato di gioco non valido!
+        }
     }
 
     /* ---------- LOGIN HANDLER ---------- */
@@ -132,7 +146,7 @@ public class GameController {
         */
         //TODO: messaggio inizio turno, seleziona cards
         //creare una lista vuota di posizioni, chiederle all'utente e metterle nella lista creata. Poi passarla a pickUpCards
-        chosePosition = new ArrayList<>();
+        /*chosePosition = new ArrayList<>();
         for(int i=0;flag!=1 && i<3;i++){
             //TODO: messaggio:"inserire x e y della posizione"
             x = input.nextInt();
@@ -154,7 +168,7 @@ public class GameController {
         //TODO: messaggio: "inserimento andato a buon fine"
 
         //controlla se l'utente ha riempito la propria shelf --> si fa l'ultimo giro    NON SO SE VA FATTO OGNI GIRO
-        //game.checkLastLapCondition();
+        //game.checkLastLapCondition();*/
     }
 
     private void lastLap(){

@@ -1,0 +1,31 @@
+package it.polimi.ingsw.network.message;
+
+/**
+ * Message used from the server to send text information to a client.
+ * It inherits from {@code Message} class and contains a string for the message.
+ */
+public class GenericMessage extends Message {
+    private String genericMessage;
+
+    public GenericMessage (String genericMessage) {
+        super ("SERVER", MessageType.GENERIC_MESSAGE);
+        this.genericMessage = genericMessage;
+    }
+
+    /**
+     * This method returns the generic message.
+     * @return The generic message.
+     */
+    public String getGenericMessage () {
+        return genericMessage;
+    }
+
+    @Override
+    public String toString() {
+        return "GenericMessage{" +
+                "genericMessage='" + genericMessage + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", messageType=" + messageType +
+                '}';
+    }
+}
