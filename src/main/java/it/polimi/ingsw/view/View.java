@@ -21,4 +21,6 @@ public interface View {
      */
     public void askUserColumnAndPositions ();
 
+
+
 }

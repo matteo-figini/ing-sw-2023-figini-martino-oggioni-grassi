@@ -20,4 +20,6 @@ public class VirtualView implements View {
     public void askUserColumnAndPositions() {
         // TODO: implementare il metodo askUserColumnAndPositions() per VV
     }
+
+    //TODO: implementare tutti i metodi show();
 }
