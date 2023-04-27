@@ -7,6 +7,7 @@ import it.polimi.ingsw.model.ItemTile;
 import it.polimi.ingsw.model.Player;
 import it.polimi.ingsw.model.Position;
 import it.polimi.ingsw.network.message.Message;
+import it.polimi.ingsw.network.message.MessageType;
 import it.polimi.ingsw.view.VirtualView;
 
 import java.util.*;
@@ -82,6 +83,7 @@ public class GameController {
             case LOBBY_STATE:
                 break;
             case IN_GAME:
+                turnController(message);    // Passa il controllo a turnController.
                 break;
             case LAST_LAP:
                 break;
@@ -135,40 +137,24 @@ public class GameController {
         // TODO: operare sulla classe Game!
     }
 
-    //turnController partirà quando il server gli darà il via, dandogli il nome dell'activePlayer
-    private void turnController(String activePlayer) throws WrongPositionsException, NotEnoughCellsException {
+    private void turnController (Message message) {
+        // TODO: bisogna anche controllare che il messaggio arrivi dal client corretto!
         /*
-        -chiedere al client quali cards prendere
-        -controllare che le carte selezionate possano essere prese (lo fa giá pickUpCards)
-        -prendere le suddette cards nell'ordine selezionato
-        -inserire le cards nella shelf nella colonna inserita dall'utente, verificando che la colonna abbia abbastanza posti (la verifica lo fa insertCards)
-        -fine turno
-        */
-        //TODO: messaggio inizio turno, seleziona cards
-        //creare una lista vuota di posizioni, chiederle all'utente e metterle nella lista creata. Poi passarla a pickUpCards
-        /*chosePosition = new ArrayList<>();
-        for(int i=0;flag!=1 && i<3;i++){
-            //TODO: messaggio:"inserire x e y della posizione"
-            x = input.nextInt();
-            y = input.nextInt();
-            p = new Position(x,y);
-            chosePosition.add(p);
-            //TODO: messaggio: "terminare l'inserimento?, se si mettere 1, se no mettere 0"
-            flag = input.nextInt();
+        Il controller riceve un messaggio contenente le posizioni delle tessere da estrarre dalla board e la colonna
+        della shelf nella quale inserire le tessere. Qualora le posizioni non siano valide oppure non vi siano sufficienti
+        celle nella colonna (condizioni segnalate con il lancio di un'eccezione), si notifica al client il problema e si chiede
+        il reinserimento dei dati.
+        Se le posizioni e la colonna sono valide, il server estrae le tessere dalle posizioni specificate nella board e le inserisce
+        nella shelf del giocatore.
+        In seguito si verificano, per quel giocatore, le singole condizioni di gioco:
+        - Si verifica se il giocatore ha soddisfatto uno dei due obiettivi comuni che prima non erano soddisfatti
+        - Si veri
+         */
+        if (message.getMessageType() == MessageType.PICK_TILES) {
+
+        } else {
+            System.out.println("ERROR: Wrong message type (expected: PICK_TILES, actual: " + message.getMessageType().toString() + ")");
         }
-        selectedCards = game.getBoard().pickUpCards(chosePosition);
-
-        //inserire la lista di cards nella shelf
-        //TODO: messaggio: "in quale colonna della shelf si devono inserire le cards?"
-        do {
-            c = input.nextInt();
-        }while(c>=0 && c<5);
-        game.getPlayerByNickname(activePlayer).getShelf().insertCards(selectedCards, c);
-
-        //TODO: messaggio: "inserimento andato a buon fine"
-
-        //controlla se l'utente ha riempito la propria shelf --> si fa l'ultimo giro    NON SO SE VA FATTO OGNI GIRO
-        //game.checkLastLapCondition();*/
     }
 
     private void lastLap(){

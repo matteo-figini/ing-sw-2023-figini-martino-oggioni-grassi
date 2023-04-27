@@ -10,6 +10,9 @@ public enum MessageType {
     PLAYERSNUMBER_REQUEST,
     PLAYERSNUMBER_REPLY,
 
+    // Fase di gioco
+    PICK_TILES,
+
     // Utility
     GENERIC_MESSAGE
 }

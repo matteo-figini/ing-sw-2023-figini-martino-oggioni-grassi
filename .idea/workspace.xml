@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="updated pom.xml">
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/message/GenericMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/message/LoginReply.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/message/LoginRequest.java" afterDir="false" />
+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="added GenericMessage and LoginRequest classes">
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/message/PickTiles.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/message/PlayersNumberReply.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/message/PlayersNumberRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/message/LoginReply.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/message/LoginReply.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/message/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/message/Message.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/message/MessageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/message/MessageType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -222,7 +224,9 @@
       <workItem from="1682497562569" duration="40000" />
       <workItem from="1682497901402" duration="222000" />
       <workItem from="1682500546898" duration="107000" />
-      <workItem from="1682501447377" duration="1074000" />
+      <workItem from="1682501447377" duration="1113000" />
+      <workItem from="1682521889512" duration="15000" />
+      <workItem from="1682584128717" duration="1585000" />
     </task>
     <task id="LOCAL-00001" summary="Class Player layout">
       <created>1679754417366</created>
@@ -294,7 +298,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681655295198</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="added GenericMessage and LoginRequest classes">
+      <created>1682502559614</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1682502559614</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,7 +348,8 @@
     <MESSAGE value="Added very very basic skeleton for client and server" />
     <MESSAGE value="Updated Board.alignedAndClosePositions method. First skeleton of the MVC classes" />
     <MESSAGE value="updated pom.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated pom.xml" />
+    <MESSAGE value="added GenericMessage and LoginRequest classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="added GenericMessage and LoginRequest classes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
