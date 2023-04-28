@@ -9,18 +9,22 @@ public interface View {
     /**
      * Asks the user to set a nickname.
      */
-    public void askNickname ();
+    void askNickname ();
 
     /**
      * Asks the first user to set the players number.
      */
-    public void askPlayersNumber ();
+    void askPlayersNumber ();
 
     /**
      * Asks the user a column on his shelf and a list of positions on which to draw the tiles from the board.
      */
-    public void askUserColumnAndPositions ();
+    void askUserColumnAndPositions ();
 
-
+    /**
+     * Shows a generic message to the client.
+     * @param genericMessage The text message to be shown.
+     */
+    void showGenericMessage (String genericMessage);
 
 }

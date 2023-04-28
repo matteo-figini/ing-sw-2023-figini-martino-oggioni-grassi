@@ -21,5 +21,10 @@ public class VirtualView implements View {
         // TODO: implementare il metodo askUserColumnAndPositions() per VV
     }
 
+    @Override
+    public void showGenericMessage (String genericMessage) {
+
+    }
+
     //TODO: implementare tutti i metodi show();
 }

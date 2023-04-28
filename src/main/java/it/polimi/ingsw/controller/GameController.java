@@ -1,13 +1,12 @@
 package it.polimi.ingsw.controller;
 
+import it.polimi.ingsw.exception.NoScoringTokenAvailableException;
 import it.polimi.ingsw.exception.NotEnoughCellsException;
 import it.polimi.ingsw.exception.WrongPositionsException;
-import it.polimi.ingsw.model.Game;
-import it.polimi.ingsw.model.ItemTile;
-import it.polimi.ingsw.model.Player;
-import it.polimi.ingsw.model.Position;
+import it.polimi.ingsw.model.*;
 import it.polimi.ingsw.network.message.Message;
 import it.polimi.ingsw.network.message.MessageType;
+import it.polimi.ingsw.network.message.PickTiles;
 import it.polimi.ingsw.view.View;
 import it.polimi.ingsw.view.VirtualView;
 
@@ -154,21 +153,42 @@ public class GameController {
         }
     }
 
+    /**
+     * This method handles a player's turn.
+     * @param message
+     */
     private void turnController (Message message) {
-        // TODO: bisogna anche controllare che il messaggio arrivi dal client corretto!
-        /*
-        Il controller riceve un messaggio contenente le posizioni delle tessere da estrarre dalla board e la colonna
-        della shelf nella quale inserire le tessere. Qualora le posizioni non siano valide oppure non vi siano sufficienti
-        celle nella colonna (condizioni segnalate con il lancio di un'eccezione), si notifica al client il problema e si chiede
-        il reinserimento dei dati.
-        Se le posizioni e la colonna sono valide, il server estrae le tessere dalle posizioni specificate nella board e le inserisce
-        nella shelf del giocatore.
-        In seguito si verificano, per quel giocatore, le singole condizioni di gioco:
-        - Si verifica se il giocatore ha soddisfatto uno dei due obiettivi comuni che prima non erano soddisfatti
-        - Si veri
-         */
-        if (message.getMessageType() == MessageType.PICK_TILES) {
+        VirtualView currentVirtualView = virtualViewMap.get(activePlayer);
 
+        if (message.getMessageType() == MessageType.PICK_TILES) {
+            if (message.getNickname().equals(activePlayer)) {
+                PickTiles messageReceived = (PickTiles) message;
+
+                if (game.getPlayerByNickname(activePlayer).getShelf().freeCellsOnColumn(messageReceived.getColumn()) >= messageReceived.getPositionsOfTiles().size()) {
+                    // Vi sono sufficienti celle nella shelf. A questo punto controllo che le posizioni coincidano con tessere valide.
+                    if (insertTilesInShelf(messageReceived.getPositionsOfTiles(), messageReceived.getColumn())) {
+                        // TODO: Mostra la board aggiornata a tutti i client
+                        // TODO: Mostra la shelf aggiornata al giocatore corrente
+                        checkCommonGoalsCompleted();
+                        checkBoardRefillRequested();
+                        if (game.getPlayerByNickname(activePlayer).getShelf().isFull()) {
+                            setGameState(GameState.LAST_LAP);
+                            // TODO: inviare un messaggio in broadcast che informa i giocatori che l'ultimo giro è appena iniziato.
+                        }
+                    } else {
+                        // Eccezione sollevata durante l'inserimento delle tessere.
+                        // Notifica al client l'errore e richiedi l'inserimento.
+                        currentVirtualView.showGenericMessage("There was a problem during the insertion: maybe" +
+                                "positions are not valid or the column hasn't got enough cells!");
+                        // TODO: come richiedere al client l'inserimento delle tessere?
+                    }
+                } else {
+                    currentVirtualView.showGenericMessage("There aren't enough free cells on the selected column!");
+                }
+
+            } else {
+                System.out.println("ERROR: Message from the wrong client (expected: " + activePlayer + ", actual: " + message.getNickname() + ")");
+            }
         } else {
             System.out.println("ERROR: Wrong message type (expected: PICK_TILES, actual: " + message.getMessageType().toString() + ")");
         }
@@ -194,6 +214,67 @@ public class GameController {
     private void broadcastGenericMessage (String messageString) {
         for (VirtualView virtualView : virtualViewMap.values()) {
             // TODO: invocare il metodo corretto per la virtualView
+        }
+    }
+
+    /**
+     * This method extracts the tiles from the board and insert them in the column.
+     * @param positions Positions of tiles to extract from the board.
+     * @return A boolean indicating if the insertion was successful or not.
+     */
+    private boolean insertTilesInShelf (List<Position> positions, int column) {
+        boolean insertionSuccessful = true;
+        List<ItemTile> itemTiles;
+        try {
+            itemTiles = game.getBoard().pickUpCards(positions);
+            game.getPlayerByNickname(activePlayer).getShelf().insertCards(itemTiles, column);
+        } catch (WrongPositionsException | NotEnoughCellsException e) {
+            System.out.println(e.getMessage());
+            insertionSuccessful = false;
+        }
+        return insertionSuccessful;
+    }
+
+    /**
+     * This method checks if the active player completed a new common goal.
+     * For each of the two common goal cards, the condition is that the player didn't reach the common goal before,
+     * and it reach it now; then the score of the player is updated.
+     */
+    private void checkCommonGoalsCompleted () {
+        Player activePlayerGame = game.getPlayerByNickname(activePlayer);
+        CommonGoalCard commonGoalCard = game.getCommonGoalCards().get(0);
+        int score = 0;
+
+        if (!activePlayerGame.isFirstCommonGoalReached() && commonGoalCard.checkPattern(activePlayerGame.getShelf())) {
+            activePlayerGame.setFirstCommonGoalReached();
+            try {
+                score = commonGoalCard.popScoringToken().getScore();
+                activePlayerGame.addScore(score);
+            } catch (NoScoringTokenAvailableException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+        commonGoalCard = game.getCommonGoalCards().get(1);
+        if (!activePlayerGame.isSecondCommonGoalReached() && commonGoalCard.checkPattern(activePlayerGame.getShelf())) {
+            activePlayerGame.setSecondCommonGoalReached();
+            try {
+                score = commonGoalCard.popScoringToken().getScore();
+                activePlayerGame.addScore(score);
+            } catch (NoScoringTokenAvailableException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    /**
+     * This method checks if a board refill is requested. If it is, proceeds with board refilling.
+     */
+    private void checkBoardRefillRequested () {
+        if (game.getBoard().fillingRequired()) {
+            game.refillBoardFromBag();
+            System.out.println("Proceeding with board refill...");
+            // TODO: mostrare a tutti i client la board aggiornata.
         }
     }
 
