@@ -8,6 +8,7 @@ import it.polimi.ingsw.model.Player;
 import it.polimi.ingsw.model.Position;
 import it.polimi.ingsw.network.message.Message;
 import it.polimi.ingsw.network.message.MessageType;
+import it.polimi.ingsw.view.View;
 import it.polimi.ingsw.view.VirtualView;
 
 import java.util.*;
@@ -73,27 +74,6 @@ public class GameController {
         this.virtualViewMap.put(nickname, virtualView);
     }
 
-    /* ---------- MESSAGE SWITCH ---------- */
-    /**
-     * This method handles a message received from the client switching on the current game state.
-     * @param message The message received from the client over the network.
-     */
-    public void onMessageReceived (Message message) {
-        switch (gameState) {
-            case LOBBY_STATE:
-                break;
-            case IN_GAME:
-                turnController(message);    // Passa il controllo a turnController.
-                break;
-            case LAST_LAP:
-                break;
-            case END_GAME:
-                break;
-            default:
-                // TODO: segnalare stato di gioco non valido!
-        }
-    }
-
     /* ---------- LOGIN HANDLER ---------- */
     /**
      * This method handles the login of all the clients. Every client is identified by his nickname and has a virtual view.
@@ -129,12 +109,49 @@ public class GameController {
     /* ---------- UTILITY METHODS ---------- */
 
     /**
-     * This method starts the game
+     * This method starts the game...
      */
     private void startGame () {
         setGameState(GameState.IN_GAME);
         game.startGame();
         // TODO: operare sulla classe Game!
+    }
+
+    /* ---------- MESSAGE SWITCH && STATE HANDLING ---------- */
+    /**
+     * This method handles a message received from the client switching on the current game state.
+     * @param message The message received from the client over the network.
+     */
+    public void onMessageReceived (Message message) {
+        switch (gameState) {
+            case LOBBY_STATE:
+                lobbyStateHandler(message);
+                break;
+            case IN_GAME:
+                turnController(message);
+                break;
+            case LAST_LAP:
+                break;
+            case END_GAME:
+                break;
+            default:
+                // TODO: segnalare stato di gioco non valido!
+        }
+    }
+
+    /**
+     * This method handles the Lobby state.
+     * In this state, the only message allowed is PLAYERSNUMBER_REPLY, since the login is handled directly by the {@code Server}.
+     * @param message The message received.
+     */
+    private void lobbyStateHandler (Message message) {
+        if (message.getMessageType() == MessageType.PLAYERSNUMBER_REPLY) {
+            // TODO: implementare questo metodo
+            // Se il numero di giocatori inserito è nel range atteso, imposta il numero di giocatori in Game
+            // e invia un messaggio di attesa di altri giocatori
+        } else {
+            System.out.println("ERROR: Wrong message type (expected: PLAYERSNUMBER_REPLY, actual: " + message.getMessageType().toString() + ")");
+        }
     }
 
     private void turnController (Message message) {
@@ -168,6 +185,16 @@ public class GameController {
         -il gioco si interrompe
         -contare tutti i punti di ogni giocatore e proclamare il vincitore
         */
+    }
+
+    /**
+     * This method sends a text message to each client.
+     * @param messageString The text message to be sent.
+     */
+    private void broadcastGenericMessage (String messageString) {
+        for (VirtualView virtualView : virtualViewMap.values()) {
+            // TODO: invocare il metodo corretto per la virtualView
+        }
     }
 
 }
