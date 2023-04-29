@@ -19,7 +19,7 @@ public interface View {
     /**
      * Asks the user a column on his shelf and a list of positions on which to draw the tiles from the board.
      */
-    void askUserColumnAndPositions ();
+    void askColumnAndPositions ();
 
     /**
      * Shows a generic message to the client.

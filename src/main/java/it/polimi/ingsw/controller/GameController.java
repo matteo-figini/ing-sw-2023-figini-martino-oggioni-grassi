@@ -93,36 +93,35 @@ public class GameController {
      * @param message The message received from the network layer.
      */
     private void turnController (Message message) {
-        VirtualView currentVirtualView = virtualViewMap.get(activePlayer);
+        VirtualView currentVirtualView = virtualViewMap.get(getActivePlayer());
 
         if (message.getMessageType() == MessageType.PICK_TILES) {
-            if (message.getNickname().equals(activePlayer)) {
+            if (message.getNickname().equals(getActivePlayer())) {
                 PickTiles messageReceived = (PickTiles) message;
 
-                if (game.getPlayerByNickname(activePlayer).getShelf().freeCellsOnColumn(messageReceived.getColumn()) >= messageReceived.getPositionsOfTiles().size()) {
+                if (game.getPlayerByNickname(getActivePlayer()).getShelf().freeCellsOnColumn(messageReceived.getColumn()) >= messageReceived.getPositionsOfTiles().size()) {
                     // Vi sono sufficienti celle nella shelf. A questo punto controllo che le posizioni coincidano con tessere valide.
                     if (insertTilesInShelf(messageReceived.getPositionsOfTiles(), messageReceived.getColumn())) {
                         // TODO: Mostra la board aggiornata a tutti i client
                         // TODO: Mostra la shelf aggiornata a tutti i client
                         checkCommonGoalsCompleted();
                         checkBoardRefillRequested();
-                        if (game.getPlayerByNickname(activePlayer).getShelf().isFull()) {
+                        if (game.getPlayerByNickname(getActivePlayer()).getShelf().isFull()) {
                             setGameState(GameState.LAST_LAP);
-                            broadcastGenericMessage(activePlayer + " completed his shelf. Last lap starts now!");
+                            broadcastGenericMessage(getActivePlayer() + " completed his shelf. Last lap starts now!");
                         }
+                        newTurn();
                     } else {
-                        // Eccezione sollevata durante l'inserimento delle tessere.
-                        // Notifica al client l'errore e richiedi l'inserimento.
-                        currentVirtualView.showGenericMessage("There was a problem during the insertion: maybe" +
+                        currentVirtualView.showGenericMessage("There was a problem during the insertion: maybe " +
                                 "positions are not valid or the column hasn't got enough cells!");
-                        // TODO: come richiedere al client l'inserimento delle tessere?
+                        askActivePlayerColumnAndPosition();
                     }
                 } else {
                     currentVirtualView.showGenericMessage("There aren't enough free cells on the selected column!");
                 }
 
             } else {
-                System.out.println("ERROR: Message from the wrong client (expected: " + activePlayer + ", actual: " + message.getNickname() + ")");
+                System.out.println("ERROR: Message from the wrong client (expected: " + getActivePlayer() + ", actual: " + message.getNickname() + ")");
             }
         } else {
             System.out.println("ERROR: Wrong message type (expected: PICK_TILES, actual: " + message.getMessageType().toString() + ")");
@@ -133,12 +132,12 @@ public class GameController {
         /*
         -si deve continuare a fare i turni ma fermandosi quando si arriva al giocare con la chair
         */
-        VirtualView currentVirtualView = virtualViewMap.get(activePlayer);
+        VirtualView currentVirtualView = virtualViewMap.get(getActivePlayer());
         if (message.getMessageType() == MessageType.PICK_TILES) {
-            if (message.getNickname().equals(activePlayer)) {
+            if (message.getNickname().equals(getActivePlayer())) {
                 PickTiles messageReceived = (PickTiles) message;
 
-                if (game.getPlayerByNickname(activePlayer).getShelf().freeCellsOnColumn(messageReceived.getColumn()) >= messageReceived.getPositionsOfTiles().size()) {
+                if (game.getPlayerByNickname(getActivePlayer()).getShelf().freeCellsOnColumn(messageReceived.getColumn()) >= messageReceived.getPositionsOfTiles().size()) {
                     // Vi sono sufficienti celle nella shelf. A questo punto controllo che le posizioni coincidano con tessere valide.
                     if (insertTilesInShelf(messageReceived.getPositionsOfTiles(), messageReceived.getColumn())) {
                         // TODO: Mostra la board aggiornata a tutti i client
@@ -149,13 +148,13 @@ public class GameController {
                             setGameState(GameState.END_GAME);
                             broadcastGenericMessage("Next player has the chair: the game finishes!");
                             endGame();
+                        } else {
+                            newTurn();
                         }
                     } else {
-                        // Eccezione sollevata durante l'inserimento delle tessere.
-                        // Notifica al client l'errore e richiedi l'inserimento.
                         currentVirtualView.showGenericMessage("There was a problem during the insertion: maybe" +
                                 "positions are not valid or the column hasn't got enough cells!");
-                        // TODO: come richiedere al client l'inserimento delle tessere?
+                        askActivePlayerColumnAndPosition();
                     }
                 } else {
                     currentVirtualView.showGenericMessage("There aren't enough free cells on the selected column!");
@@ -196,7 +195,7 @@ public class GameController {
         if (virtualViewMap.isEmpty()) {
             // First player to login. The nickname is always correct!
             addVirtualView(nickname, virtualView);
-            game.getPlayers().add(new Player(nickname));
+            game.addPlayer(nickname);
 
             // TODO: Inform the player of the connection.
             virtualView.askPlayersNumber();
@@ -204,7 +203,7 @@ public class GameController {
         } else if (virtualViewMap.size() < game.getChosenPlayersNumber()) {
             // The player is not the first one. We suppose here that the nickname is already checked by the server.
             addVirtualView(nickname, virtualView);
-            game.getPlayers().add(new Player(nickname));
+            game.addPlayer(nickname);
             // TODO: Inform the player of the connection.
             //virtualView.showGenericMessage("Waiting for other players...");
 
@@ -218,18 +217,12 @@ public class GameController {
         }
     }
 
-    public boolean checkNicknameAvailability(String nickname, List<Player> players, VirtualView virtualView){
-        //implement input controller to get the nickname
-        return false;
-    }
-
-
     /* ---------- TURN HANDLING ---------- */
     /**
      * This method returns the next active player (without changing it in the game).
      * @return The name of the next active player.
      */
-    public String getNextPlayer () {
+    private String getNextPlayer () {
         Player player = game.getPlayerByNickname(getActivePlayer());
         int indexOfPlayer = game.getPlayers().indexOf(player);
         if (indexOfPlayer == game.getPlayers().size() - 1) {
@@ -239,7 +232,26 @@ public class GameController {
         }
         return game.getPlayers().get(indexOfPlayer).getNickname();
     }
-    
+
+    /**
+     * This method returns the nickname of a player, chosen randomly inside the list of the players.
+     * @return The nickname of the randomly chosen player.
+     */
+    private String chooseRandomPlayer () {
+        Random random = new Random();
+        int indexOfFirstPlayer = random.nextInt(game.getPlayers().size());  // To generate number between 0 and the number of player - 1
+        return game.getPlayers().get(indexOfFirstPlayer).getNickname();
+    }
+
+    /**
+     * This method evolves the turn of the player, passing on the next one and notifying the players.
+     */
+    private void newTurn () {
+        setActivePlayer(getNextPlayer());
+        broadcastGenericMessage("Turn of " + getActivePlayer());
+        askActivePlayerColumnAndPosition();
+    }
+
     /* ---------- GETTERS & SETTERS ---------- */
     /**
      * This method returns the current state of the game.
@@ -250,7 +262,7 @@ public class GameController {
     }
 
     /**
-     * This private method sets the current state of the game. It is private because only the class itself can change 
+     * This private method sets the current state of the game. It is private because only the class itself can change
      * the state of the game.
      * @param gameState The new state of the game.
      */
@@ -276,10 +288,6 @@ public class GameController {
         }
     }
 
-    public List<Player> getPlayers(){
-        return game.getListofPlayers();
-    }
-
     /* ---------- VIRTUAL VIEW METHODS ---------- */
     /**
      * This method returns the virtual view map.
@@ -293,10 +301,6 @@ public class GameController {
         this.virtualViewMap.put(nickname, virtualView);
     }
 
-    public void removeVirtualView (String nickname, VirtualView vv){
-        this.virtualViewMap.remove(nickname, vv);
-    }
-
     /* ---------- UTILITY METHODS ---------- */
     /**
      * This method starts the game...
@@ -304,8 +308,16 @@ public class GameController {
     private void startGame () {
         setGameState(GameState.IN_GAME);
         game.startGame();
+        // TODO: mostrare a tutti gli utenti la board
+        // TODO: mostrare a tutti gli utenti le shelf
+        // TODO: mostrare a tutti gli utenti le carte obiettivo comune
+        // TODO: mostrare a ciascun utente la propria carta obiettivo personale
         broadcastGenericMessage("Game Started");
 
+        // TODO: gestione del nuovo turno
+        setActivePlayer(chooseRandomPlayer());  // Choose the first player
+        broadcastGenericMessage("Turn of " + getActivePlayer());
+        askActivePlayerColumnAndPosition();
     }
 
     /**
@@ -319,6 +331,16 @@ public class GameController {
     }
 
     /**
+     * This method sends a request to the active player to choose the item tiles it wants to pick up from the board
+     * and the column it wants to insert them.
+     */
+    private void askActivePlayerColumnAndPosition () {
+        VirtualView virtualView = virtualViewMap.get(getActivePlayer());
+        System.out.println(getActivePlayer() + " is required to select column and position.");
+        virtualView.askColumnAndPositions();
+    }
+
+    /**
      * This method extracts the tiles from the board and insert them in the column.
      * @param positions Positions of tiles to extract from the board.
      * @return A boolean indicating if the insertion was successful or not.
@@ -328,7 +350,7 @@ public class GameController {
         List<ItemTile> itemTiles;
         try {
             itemTiles = game.getBoard().pickUpCards(positions);
-            game.getPlayerByNickname(activePlayer).getShelf().insertCards(itemTiles, column);
+            game.getPlayerByNickname(getActivePlayer()).getShelf().insertCards(itemTiles, column);
         } catch (WrongPositionsException | NotEnoughCellsException e) {
             System.out.println(e.getMessage());
             insertionSuccessful = false;
@@ -342,7 +364,7 @@ public class GameController {
      * and it reach it now; then the score of the player is updated.
      */
     private void checkCommonGoalsCompleted () {
-        Player activePlayerModel = game.getPlayerByNickname(activePlayer);
+        Player activePlayerModel = game.getPlayerByNickname(getActivePlayer());
         CommonGoalCard commonGoalCard = game.getCommonGoalCards().get(0);
         int score = 0;
 
