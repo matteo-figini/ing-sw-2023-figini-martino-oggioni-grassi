@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Added method lobbyStateHandler in GameController (must be written correctly)">
+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="updated pom.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/server/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/VirtualView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/VirtualView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -215,18 +214,8 @@
       <workItem from="1682162176816" duration="6439000" />
       <workItem from="1682168881919" duration="176000" />
       <workItem from="1682256513542" duration="3385000" />
-      <workItem from="1682346100371" duration="805000" />
-      <workItem from="1682347664697" duration="485000" />
-      <workItem from="1682349221416" duration="18000" />
-      <workItem from="1682497562569" duration="40000" />
-      <workItem from="1682497901402" duration="222000" />
-      <workItem from="1682500546898" duration="107000" />
-      <workItem from="1682501447377" duration="1113000" />
-      <workItem from="1682521889512" duration="15000" />
-      <workItem from="1682584128717" duration="1585000" />
-      <workItem from="1682605543756" duration="1672000" />
-      <workItem from="1682691464124" duration="1170000" />
-      <workItem from="1682702494275" duration="2670000" />
+      <workItem from="1682754051135" duration="593000" />
+      <workItem from="1682768675199" duration="7059000" />
     </task>
     <task id="LOCAL-00001" summary="Class Player layout">
       <created>1679754417366</created>
@@ -298,21 +287,7 @@
       <option name="project" value="LOCAL" />
       <updated>1681655295198</updated>
     </task>
-    <task id="LOCAL-00011" summary="added GenericMessage and LoginRequest classes">
-      <created>1682502559614</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1682502559614</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Added method lobbyStateHandler in GameController (must be written correctly)">
-      <created>1682692630414</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1682692630414</updated>
-    </task>
-    <option name="localTasksCounter" value="13" />
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,9 +330,7 @@
     <MESSAGE value="Added very very basic skeleton for client and server" />
     <MESSAGE value="Updated Board.alignedAndClosePositions method. First skeleton of the MVC classes" />
     <MESSAGE value="updated pom.xml" />
-    <MESSAGE value="added GenericMessage and LoginRequest classes" />
-    <MESSAGE value="Added method lobbyStateHandler in GameController (must be written correctly)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added method lobbyStateHandler in GameController (must be written correctly)" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated pom.xml" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

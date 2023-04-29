@@ -88,12 +88,14 @@ public class GameController {
             game.getPlayers().add(new Player(nickname));
             // TODO: Inform the player of the connection.
             virtualView.askPlayersNumber();
+            //virtualView.showGenericMessage("Waiting for other players...");
         } else if (virtualViewMap.size() < game.getChosenPlayersNumber()) {
             // The player is not the first one.
             // We suppose here that the nickname is already checked by the server.
             addVirtualView(nickname, virtualView);
             game.getPlayers().add(new Player(nickname));
             // TODO: Inform the player of the connection.
+            //virtualView.showGenericMessage("Waiting for other players...");
 
             if (game.getPlayers().size() == game.getChosenPlayersNumber()) {
                 // Desired number of players reached.
@@ -113,7 +115,8 @@ public class GameController {
     private void startGame () {
         setGameState(GameState.IN_GAME);
         game.startGame();
-        // TODO: operare sulla classe Game!
+        broadcastGenericMessage("Game Started");
+
     }
 
     /* ---------- MESSAGE SWITCH && STATE HANDLING ---------- */
@@ -124,7 +127,7 @@ public class GameController {
     public void onMessageReceived (Message message) {
         switch (gameState) {
             case LOBBY_STATE:
-                lobbyStateHandler(message);
+                //lobbyStateHandler(message);
                 break;
             case IN_GAME:
                 turnController(message);
@@ -143,9 +146,8 @@ public class GameController {
      * In this state, the only message allowed is PLAYERSNUMBER_REPLY, since the login is handled directly by the {@code Server}.
      * @param message The message received.
      */
-    private void lobbyStateHandler (Message message) {
+    private void lobbyStateHandler (Message message) {   //utile?
         if (message.getMessageType() == MessageType.PLAYERSNUMBER_REPLY) {
-            // TODO: implementare questo metodo
             // Se il numero di giocatori inserito è nel range atteso, imposta il numero di giocatori in Game
             // e invia un messaggio di attesa di altri giocatori
         } else {
@@ -213,7 +215,7 @@ public class GameController {
      */
     private void broadcastGenericMessage (String messageString) {
         for (VirtualView virtualView : virtualViewMap.values()) {
-            // TODO: invocare il metodo corretto per la virtualView
+            virtualView.showGenericMessage(messageString);
         }
     }
 

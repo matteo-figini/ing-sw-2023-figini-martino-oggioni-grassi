@@ -30,7 +30,7 @@ public abstract class Server {
     }
 
     public void addClient(String nickname, ClientHandler clientHandler ){
-        VirtualView vv= new VirtualView();
+        VirtualView vv= new VirtualView(clientHandler);
 
         if (gameController.getGameState() == GameState.LOBBY_STATE){
             gameController.addVirtualView(nickname, vv);
