@@ -93,26 +93,26 @@ public class GameController {
      * @param message The message received from the network layer.
      */
     private void turnController (Message message) {
-        VirtualView currentVirtualView = virtualViewMap.get(activePlayer);
+        VirtualView currentVirtualView = virtualViewMap.get(getActivePlayer());
 
         if (message.getMessageType() == MessageType.PICK_TILES) {
-            if (message.getNickname().equals(activePlayer)) {
+            if (message.getNickname().equals(getActivePlayer())) {
                 PickTiles messageReceived = (PickTiles) message;
 
-                if (game.getPlayerByNickname(activePlayer).getShelf().freeCellsOnColumn(messageReceived.getColumn()) >= messageReceived.getPositionsOfTiles().size()) {
+                if (game.getPlayerByNickname(getActivePlayer()).getShelf().freeCellsOnColumn(messageReceived.getColumn()) >= messageReceived.getPositionsOfTiles().size()) {
                     // Vi sono sufficienti celle nella shelf. A questo punto controllo che le posizioni coincidano con tessere valide.
                     if (insertTilesInShelf(messageReceived.getPositionsOfTiles(), messageReceived.getColumn())) {
                         // TODO: Mostra la board aggiornata a tutti i client
                         // TODO: Mostra la shelf aggiornata a tutti i client
                         checkCommonGoalsCompleted();
                         checkBoardRefillRequested();
-                        if (game.getPlayerByNickname(activePlayer).getShelf().isFull()) {
+                        if (game.getPlayerByNickname(getActivePlayer()).getShelf().isFull()) {
                             setGameState(GameState.LAST_LAP);
-                            broadcastGenericMessage(activePlayer + " completed his shelf. Last lap starts now!");
+                            broadcastGenericMessage(getActivePlayer() + " completed his shelf. Last lap starts now!");
                         }
                         newTurn();
                     } else {
-                        currentVirtualView.showGenericMessage("There was a problem during the insertion: maybe" +
+                        currentVirtualView.showGenericMessage("There was a problem during the insertion: maybe " +
                                 "positions are not valid or the column hasn't got enough cells!");
                         askActivePlayerColumnAndPosition();
                     }
@@ -121,7 +121,7 @@ public class GameController {
                 }
 
             } else {
-                System.out.println("ERROR: Message from the wrong client (expected: " + activePlayer + ", actual: " + message.getNickname() + ")");
+                System.out.println("ERROR: Message from the wrong client (expected: " + getActivePlayer() + ", actual: " + message.getNickname() + ")");
             }
         } else {
             System.out.println("ERROR: Wrong message type (expected: PICK_TILES, actual: " + message.getMessageType().toString() + ")");
@@ -132,12 +132,12 @@ public class GameController {
         /*
         -si deve continuare a fare i turni ma fermandosi quando si arriva al giocare con la chair
         */
-        VirtualView currentVirtualView = virtualViewMap.get(activePlayer);
+        VirtualView currentVirtualView = virtualViewMap.get(getActivePlayer());
         if (message.getMessageType() == MessageType.PICK_TILES) {
-            if (message.getNickname().equals(activePlayer)) {
+            if (message.getNickname().equals(getActivePlayer())) {
                 PickTiles messageReceived = (PickTiles) message;
 
-                if (game.getPlayerByNickname(activePlayer).getShelf().freeCellsOnColumn(messageReceived.getColumn()) >= messageReceived.getPositionsOfTiles().size()) {
+                if (game.getPlayerByNickname(getActivePlayer()).getShelf().freeCellsOnColumn(messageReceived.getColumn()) >= messageReceived.getPositionsOfTiles().size()) {
                     // Vi sono sufficienti celle nella shelf. A questo punto controllo che le posizioni coincidano con tessere valide.
                     if (insertTilesInShelf(messageReceived.getPositionsOfTiles(), messageReceived.getColumn())) {
                         // TODO: Mostra la board aggiornata a tutti i client
@@ -195,7 +195,7 @@ public class GameController {
         if (virtualViewMap.isEmpty()) {
             // First player to login. The nickname is always correct!
             addVirtualView(nickname, virtualView);
-            game.getPlayers().add(new Player(nickname));
+            game.addPlayer(nickname);
 
             // TODO: Inform the player of the connection.
             virtualView.askPlayersNumber();
@@ -203,7 +203,7 @@ public class GameController {
         } else if (virtualViewMap.size() < game.getChosenPlayersNumber()) {
             // The player is not the first one. We suppose here that the nickname is already checked by the server.
             addVirtualView(nickname, virtualView);
-            game.getPlayers().add(new Player(nickname));
+            game.addPlayer(nickname);
             // TODO: Inform the player of the connection.
             //virtualView.showGenericMessage("Waiting for other players...");
 
@@ -217,18 +217,12 @@ public class GameController {
         }
     }
 
-    public boolean checkNicknameAvailability(String nickname, List<Player> players, VirtualView virtualView){
-        //implement input controller to get the nickname
-        return false;
-    }
-
-
     /* ---------- TURN HANDLING ---------- */
     /**
      * This method returns the next active player (without changing it in the game).
      * @return The name of the next active player.
      */
-    public String getNextPlayer () {
+    private String getNextPlayer () {
         Player player = game.getPlayerByNickname(getActivePlayer());
         int indexOfPlayer = game.getPlayers().indexOf(player);
         if (indexOfPlayer == game.getPlayers().size() - 1) {
@@ -257,7 +251,7 @@ public class GameController {
         broadcastGenericMessage("Turn of " + getActivePlayer());
         askActivePlayerColumnAndPosition();
     }
-    
+
     /* ---------- GETTERS & SETTERS ---------- */
     /**
      * This method returns the current state of the game.
@@ -268,7 +262,7 @@ public class GameController {
     }
 
     /**
-     * This private method sets the current state of the game. It is private because only the class itself can change 
+     * This private method sets the current state of the game. It is private because only the class itself can change
      * the state of the game.
      * @param gameState The new state of the game.
      */
@@ -294,10 +288,6 @@ public class GameController {
         }
     }
 
-    public List<Player> getPlayers(){
-        return game.getPlayers();
-    }
-
     /* ---------- VIRTUAL VIEW METHODS ---------- */
     /**
      * This method returns the virtual view map.
@@ -307,18 +297,8 @@ public class GameController {
         return virtualViewMap;
     }
 
-    /**
-     * This method add a virtual view to the virtual view map using {@code nickname} as the key and {@code virtualView}
-     * as the value.
-     * @param nickname The key corresponding to the user nickname.
-     * @param virtualView The virtual view associated with the user.
-     */
     public void addVirtualView (String nickname, VirtualView virtualView) {
         this.virtualViewMap.put(nickname, virtualView);
-    }
-
-    public void removeVirtualView (String nickname, VirtualView vv){
-        this.virtualViewMap.remove(nickname, vv);
     }
 
     /* ---------- UTILITY METHODS ---------- */
@@ -370,7 +350,7 @@ public class GameController {
         List<ItemTile> itemTiles;
         try {
             itemTiles = game.getBoard().pickUpCards(positions);
-            game.getPlayerByNickname(activePlayer).getShelf().insertCards(itemTiles, column);
+            game.getPlayerByNickname(getActivePlayer()).getShelf().insertCards(itemTiles, column);
         } catch (WrongPositionsException | NotEnoughCellsException e) {
             System.out.println(e.getMessage());
             insertionSuccessful = false;
@@ -384,7 +364,7 @@ public class GameController {
      * and it reach it now; then the score of the player is updated.
      */
     private void checkCommonGoalsCompleted () {
-        Player activePlayerModel = game.getPlayerByNickname(activePlayer);
+        Player activePlayerModel = game.getPlayerByNickname(getActivePlayer());
         CommonGoalCard commonGoalCard = game.getCommonGoalCards().get(0);
         int score = 0;
 
@@ -422,4 +402,5 @@ public class GameController {
             // TODO: mostrare a tutti i client la board aggiornata.
         }
     }
+
 }
