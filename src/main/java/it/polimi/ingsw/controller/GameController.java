@@ -83,8 +83,7 @@ public class GameController {
         }
     }
     /*
-     * TODO (Problema di concorrenza): potrebbe creare problemi il fatto che nuovi giocatori si connettano mentre il primo giocatore
-     * sta ancora decidendo il numero di giocatori?
+     * TODO (Problema di concorrenza): potrebbe creare problemi il fatto che nuovi giocatori si connettano mentre il primo giocatore sta ancora decidendo il numero di giocatori?
      */
 
     /**
