@@ -27,7 +27,7 @@ public class LoginReply extends Message {
         return "LoginReply{" +
                 "nicknameAccepted=" + nicknameAccepted +
                 ", connectionEstablished=" + connectionEstablished +
-                ", nickname='" + this.getNickname() + '\'' +
+                ", nickname='" + nickname + '\'' +
                 '}';
     }
 }

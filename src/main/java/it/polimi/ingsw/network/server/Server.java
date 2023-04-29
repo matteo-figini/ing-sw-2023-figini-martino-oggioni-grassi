@@ -34,6 +34,7 @@ public abstract class Server {
 
         if (gameController.getGameState() == GameState.LOBBY_STATE){
             gameController.addVirtualView(nickname, vv);
+            // TODO: perché non viene più chiamato il metodo handleLogin()?
             if (gameController.checkNicknameAvailability(nickname, gameController.getPlayers(), vv))
                 clientHandlerMap.put(nickname, clientHandler);
         } else {

@@ -5,9 +5,9 @@ package it.polimi.ingsw.network.message;
  * Every message contains the nickname of the sender/receiver and a type determined by the enumeration {@code MessageType}.
  */
 public abstract class Message {
-    private String nickname;         // Nickname of the sender/receiver
+    protected String nickname;         // Nickname of the sender/receiver
 
-    private MessageType messageType; // Type of the message
+    protected MessageType messageType; // Type of the message
 
     /**
      * Default constructor set the nickname and the type of the message.
