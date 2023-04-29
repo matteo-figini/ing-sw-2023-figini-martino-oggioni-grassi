@@ -26,7 +26,7 @@ public class VirtualView implements View {
     }
 
     @Override
-    public void askUserColumnAndPositions() {
+    public void askColumnAndPositions() {
         // TODO: implementare il metodo askUserColumnAndPositions() per VV
     }
 

@@ -115,11 +115,6 @@ public class Game {
         return lastLap;
     }
 
-    public List<Player> getListofPlayers (){
-        return this.players;
-    }
-
-
     /**
      * This method refills the board from the bag. The number of the tiles to move is the minimum value between the number
      * of the free cells on the board and the number of the tiles in the bag.
