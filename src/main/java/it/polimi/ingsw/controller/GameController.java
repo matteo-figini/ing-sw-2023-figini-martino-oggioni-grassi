@@ -218,6 +218,12 @@ public class GameController {
         }
     }
 
+    public boolean checkNicknameAvailability(String nickname, List<Player> players, VirtualView virtualView){
+        //implement input controller to get the nickname
+        return false;
+    }
+
+
     /* ---------- TURN HANDLING ---------- */
     /**
      * This method returns the next active player (without changing it in the game).
@@ -270,6 +276,10 @@ public class GameController {
         }
     }
 
+    public List<Player> getPlayers(){
+        return game.getListofPlayers();
+    }
+
     /* ---------- VIRTUAL VIEW METHODS ---------- */
     /**
      * This method returns the virtual view map.
@@ -281,6 +291,10 @@ public class GameController {
 
     public void addVirtualView (String nickname, VirtualView virtualView) {
         this.virtualViewMap.put(nickname, virtualView);
+    }
+
+    public void removeVirtualView (String nickname, VirtualView vv){
+        this.virtualViewMap.remove(nickname, vv);
     }
 
     /* ---------- UTILITY METHODS ---------- */

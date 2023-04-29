@@ -34,20 +34,20 @@ public abstract class Server {
 
         if (gameController.getGameState() == GameState.LOBBY_STATE){
             gameController.addVirtualView(nickname, vv);
-            gameController.handleLogin(nickname, vv);
-            //TODO: chiarire come viene fatto il controllo del corretto nickname (in modo da mettere una condizione
-            //prima di inserire il nuovo client
-            clientHandlerMap.put(nickname, clientHandler);
+            if (gameController.checkNicknameAvailability(nickname, gameController.getPlayers(), vv))
+                clientHandlerMap.put(nickname, clientHandler);
         } else {
             //SHOW login result
             clientHandler.disconnect();
-
         }
     }
 
-    public void removeClient(String nickname){
-
+    public void removeClient(String nickname, VirtualView vv){
+        clientHandlerMap.remove(nickname);
+        gameController.removeVirtualView(nickname, vv);
+        //Notify
     }
+
 
     //TODO mancano tutti i metodi relativi alla gestione di messaggi
 
