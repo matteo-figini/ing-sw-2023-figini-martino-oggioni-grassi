@@ -32,11 +32,33 @@ public class Shelf {
      * Creates a matrix that represent a copy of the shelf.
      * @return pointer to the copy.
      */
-    // TODO: creare una copia della shelf che contenga anche la copia delle tessere.
     public ShelfCell[][] getShelfContent() {
         return shelfContent;
     }
 
+    /**
+     * Return a matrix representing a copy of the shelf content.
+     * Since {@code ItemTile} is an immutable class, the item tile contained (if exists) is the same reference to the
+     * original one, while the shelf cell is a copy since {@code ShelfCell} is not an immutable class.
+     * @return A matrix representing a copy of the shelf content.
+     */
+    public ShelfCell[][] getShelfContentCopy () {
+        ShelfCell[][] shelfCopy = new ShelfCell[ROWS][COLUMNS];
+        for (int i = 0; i < ROWS; i++) {
+            for (int j = 0; j < COLUMNS; j++) {
+                shelfCopy[i][j] = new ShelfCell();
+                if (!shelfContent[i][j].isFree()) {
+                    shelfCopy[i][j].setTile(shelfContent[i][j].getTile());
+                }
+            }
+        }
+        return shelfCopy;
+    }
+
+    /**
+     * Set the shelf content to the parameter passed as parameter.
+     * @param shelfContent The shelf content required
+     */
     public void setShelfContent(ShelfCell[][] shelfContent) {
         this.shelfContent = shelfContent;
     }

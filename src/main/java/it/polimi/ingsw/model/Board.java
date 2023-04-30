@@ -95,6 +95,24 @@ public class Board{
         return boardContent;
     }
 
+    /**
+     * Return a matrix representing a copy of the board content.
+     * Since {@code ItemTile} is an immutable class, the item tile contained (if exists) is the same reference to the
+     * original one, while the board cell is a copy since {@code BoardCell} is not an immutable class.
+     * @return A matrix representing a copy of the board content.
+     */
+    public BoardCell[][] getBoardContentCopy () {
+        BoardCell[][] boardCopy = new BoardCell[MAX_ROWS][MAX_COLUMNS];
+        for (int i = 0; i < MAX_ROWS; i++) {
+            for (int j = 0; j < MAX_COLUMNS; j++) {
+                boardCopy[i][j] = new BoardCell(boardContent[i][j].getType());
+                if (boardContent[i][j].isPlayable() && !boardContent[i][j].isFree())
+                    boardCopy[i][j].addItemTile(boardContent[i][j].getItemTile());
+            }
+        }
+        return boardCopy;
+    }
+
     public void setBoardContent(BoardCell[][] boardContent) {
         this.boardContent = boardContent;
     }
