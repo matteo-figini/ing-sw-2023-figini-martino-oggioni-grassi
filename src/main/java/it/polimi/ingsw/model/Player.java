@@ -122,6 +122,10 @@ public class Player  {
         this.personalGoalCard = card;
     }
 
+    public PersonalGoalCard getPersonalGoalCard (){
+        return personalGoalCard;
+    }
+
     public Shelf getShelf () {
         return this.shelf;
     }

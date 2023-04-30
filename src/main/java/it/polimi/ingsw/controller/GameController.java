@@ -16,12 +16,15 @@ import java.util.*;
  * This class represents the main class for the controller in the MVC package. It receives the inputs as messages
  * from the view and updates the model, controlling all the game logic.
  */
-public class GameController {
+public class GameController{
     private Game game;              // Entry point for the model.
     private GameState gameState;    // State of the game.
     private String activePlayer;    // Active player.
     private Map<String, VirtualView> virtualViewMap;    // Map of the virtual views.
 
+    private Map<String, Integer> scoreMap;
+
+    private int finalScore;
     /**
      * Default constructor for the {@code GameController} class.
      * Every action is demanded to {@code initGameController} method that creates the game controller class.
@@ -36,6 +39,7 @@ public class GameController {
     private void initGameController () {
         this.game = Game.getGameInstance();
         this.virtualViewMap = new HashMap<>();      // Potrebbe dare problemi di concorrenza?
+        this.scoreMap = new HashMap<>();
         // TODO: Altre cose da istanziare?
         setGameState(GameState.LOBBY_STATE);
     }
@@ -107,6 +111,7 @@ public class GameController {
                         checkBoardRefillRequested();
                         if (game.getPlayerByNickname(getActivePlayer()).getShelf().isFull()) {
                             setGameState(GameState.LAST_LAP);
+                            game.getPlayerByNickname(getActivePlayer()).setEndGameToken();
                             broadcastGenericMessage(getActivePlayer() + " completed his shelf. Last lap starts now!");
                         }
                         newTurn();
@@ -168,12 +173,19 @@ public class GameController {
     }
 
     private void endGame () {
+        for(int i=0;i<game.getPlayers().size();i++){
+            finalScore = 0;
+            finalScore = game.getPlayers().get(i).getShelf().pointsFromAdjacencies();
+
+            finalScore = finalScore + game.getPlayers().get(i).getScore(); //lo score in Player viene già aggiornato nel checkCommonGoalCompleted, giusto?
+            finalScore = finalScore + game.getPlayers().get(i).getPersonalGoalCard().pointsFromGoals(game.getPlayers().get(i).getPersonalGoalCard().goalsSatisfied(game.getPlayers().get(i).getShelf()));
+            if(game.getPlayers().get(i).hasEndGameToken()) {
+                finalScore++;
+            }
+            addScore(game.getPlayers().get(i).getNickname(), finalScore);
+        }
+
         /*
-         * Per ogni giocatore presente, conta il numero di punti effettuati:
-         * - Numero di obiettivi personali soddisfatti
-         * - (I punti delle carte obiettivo comune sono già stati assegnati)
-         * - (Anche i punti dell'innesco di fine partita sono già stati assegnati)
-         * - Numero di adiacenze ottenute nella libreria.
          * Poi, cerca il giocatore con punteggio più alto:
          * - Se il giocatore con punteggio più alto è unico, lui è il vincitore della partita.
          * - Altrimenti, in caso di parità, il vincitore è colui che è più lontano dal giocatore con la sedia.
@@ -195,17 +207,13 @@ public class GameController {
             // First player to login. The nickname is always correct!
             addVirtualView(nickname, virtualView);
             game.addPlayer(nickname);
-
-            // TODO: Inform the player of the connection.
             virtualView.askPlayersNumber();
-            //virtualView.showGenericMessage("Waiting for other players...");
+            virtualView.showGenericMessage("Waiting for other players...");
         } else if (virtualViewMap.size() < game.getChosenPlayersNumber()) {
             // The player is not the first one. We suppose here that the nickname is already checked by the server.
             addVirtualView(nickname, virtualView);
             game.addPlayer(nickname);
-            // TODO: Inform the player of the connection.
-            //virtualView.showGenericMessage("Waiting for other players...");
-
+            virtualView.showGenericMessage("Waiting for other players...");
             if (game.getPlayers().size() == game.getChosenPlayersNumber()) {
                 broadcastGenericMessage("All the players are connected.");
                 // Desired number of players reached.
@@ -415,4 +423,15 @@ public class GameController {
         }
     }
 
+    public void addScore (String nickname, Integer finalScore) {
+        this.scoreMap.put(nickname, finalScore);
+    }
+
+    public void removeScore (String nickname, Integer finalScore){
+        this.scoreMap.remove(nickname, finalScore);
+    }
+
+    public Map<String, Integer> getScoreMap() {
+        return scoreMap;
+    }
 }
