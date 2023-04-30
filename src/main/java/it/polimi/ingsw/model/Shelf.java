@@ -94,7 +94,7 @@ public class Shelf {
      */
     public int freeCellsOnColumn (int column) {
         int topRow;
-        for (topRow = 0; shelfContent[topRow][column].isFree(); topRow++);
+        for (topRow = 0; topRow < Shelf.ROWS && shelfContent[topRow][column].isFree(); topRow++);
         return topRow;
     }
 
