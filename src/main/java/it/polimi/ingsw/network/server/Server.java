@@ -2,7 +2,6 @@ package it.polimi.ingsw.network.server;
 
 import it.polimi.ingsw.controller.GameController;
 import it.polimi.ingsw.controller.GameState;
-import it.polimi.ingsw.network.client.ClientHandler;
 import it.polimi.ingsw.view.VirtualView;
 
 import java.util.HashMap;

@@ -4,9 +4,52 @@ import it.polimi.ingsw.model.Board;
 import it.polimi.ingsw.model.BoardCell;
 import it.polimi.ingsw.model.Shelf;
 import it.polimi.ingsw.model.ShelfCell;
+import it.polimi.ingsw.network.client.ClientManager;
 import it.polimi.ingsw.view.View;
 
+import java.util.Scanner;
+
 public class TUI implements View {
+    private ClientManager clientManager;
+
+    public TUI () {
+        // TODO: azioni di inizio per la view...
+    }
+
+    public void init () {
+        System.out.println("Welcome to MyShelfie Game!");
+    }
+
+    /**
+     * This method asks the user to insert the connection information about the server, such as IP address and port.
+     */
+    public void askServerInformation () {
+        String ipAddress;
+        String defaultIpAddress = "127.0.0.1";      // Localhost address.
+        int port;
+        int defaultPort = 14000;
+        Scanner scn = new Scanner(System.in);
+        boolean validInput = true;
+
+        System.out.println("Please enter the information about IP address and port of the server: ");
+
+        // Insert and verify the IP address
+        do {
+            ipAddress = scn.nextLine();
+            // TODO: implementare il controllo dell'indirizzo IP (vedi classe ClientManager).
+        } while (!validInput);
+
+        // Insert and verify the port
+        do {
+            System.out.print("Inserisci il numero di porta: ");
+            port = scn.nextInt();
+            if (ClientManager.isValidPort(port)) {
+                validInput = true;
+            }
+        } while (!validInput);
+
+        // TODO: passare le richieste di connessione al client manager.
+    }
 
     @Override
     public void askNickname() {

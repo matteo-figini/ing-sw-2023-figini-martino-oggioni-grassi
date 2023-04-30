@@ -2,7 +2,7 @@ package it.polimi.ingsw.view;
 
 import it.polimi.ingsw.model.BoardCell;
 import it.polimi.ingsw.model.ShelfCell;
-import it.polimi.ingsw.network.client.ClientHandler;
+import it.polimi.ingsw.network.server.ClientHandler;
 import it.polimi.ingsw.network.message.BoardContent;
 import it.polimi.ingsw.network.message.GenericMessage;
 import it.polimi.ingsw.network.message.ShelfContent;
