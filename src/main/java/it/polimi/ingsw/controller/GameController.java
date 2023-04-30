@@ -23,8 +23,6 @@ public class GameController{
     private Map<String, VirtualView> virtualViewMap;    // Map of the virtual views.
 
     private Map<String, Integer> scoreMap;
-
-    private int finalScore;
     /**
      * Default constructor for the {@code GameController} class.
      * Every action is demanded to {@code initGameController} method that creates the game controller class.
@@ -172,17 +170,16 @@ public class GameController{
         }
     }
 
+    /**
+     * This method ends the game, calculating the points for each player.
+     */
     private void endGame () {
-        for(int i=0;i<game.getPlayers().size();i++){
-            finalScore = 0;
-            finalScore = game.getPlayers().get(i).getShelf().pointsFromAdjacencies();
-
-            finalScore = finalScore + game.getPlayers().get(i).getScore(); //lo score in Player viene già aggiornato nel checkCommonGoalCompleted, giusto?
-            finalScore = finalScore + game.getPlayers().get(i).getPersonalGoalCard().pointsFromGoals(game.getPlayers().get(i).getPersonalGoalCard().goalsSatisfied(game.getPlayers().get(i).getShelf()));
-            if(game.getPlayers().get(i).hasEndGameToken()) {
-                finalScore++;
+        for (Player player : game.getPlayers()) {
+            player.addScore(player.getShelf().pointsFromAdjacencies());     // Aggiungi i punti delle adiacenze
+            player.addScore(player.getPersonalGoalCard().pointsFromGoals(player.getPersonalGoalCard().goalsSatisfied(player.getShelf())));  // Aggiungi gli obiettivi personali
+            if (player.hasEndGameToken()) {
+                player.addScore(1);     // Points from the end game token
             }
-            addScore(game.getPlayers().get(i).getNickname(), finalScore);
         }
 
         /*
