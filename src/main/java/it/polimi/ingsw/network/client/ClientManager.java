@@ -13,15 +13,15 @@ public class ClientManager {
      * @return {@code true} if the IP address is valid, {@code false} otherwise.
      */
     public static boolean isValidIPAddress (String ipAddress) {
+        if (ipAddress == null)
+            return false;
+
         final String IPV4_REGEX_VALIDATOR = "^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\." +
                                             "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\." +
                                             "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\." +
                                             "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
         final Pattern IPV4_PATTERN = Pattern.compile(IPV4_REGEX_VALIDATOR);
         final Matcher matcher = IPV4_PATTERN.matcher(ipAddress);
-
-        if (ipAddress == null)
-            return false;
         return matcher.matches();
     }
 
