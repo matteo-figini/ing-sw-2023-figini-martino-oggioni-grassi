@@ -1,5 +1,8 @@
 package it.polimi.ingsw.network.client;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class ClientManager {
 
 
@@ -10,8 +13,16 @@ public class ClientManager {
      * @return {@code true} if the IP address is valid, {@code false} otherwise.
      */
     public static boolean isValidIPAddress (String ipAddress) {
-        // TODO: implementare il metodo di controllo dell'indirizzo IP (espressione regolare?)
-        return true;
+        final String IPV4_REGEX_VALIDATOR = "^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\." +
+                                            "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\." +
+                                            "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\." +
+                                            "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
+        final Pattern IPV4_PATTERN = Pattern.compile(IPV4_REGEX_VALIDATOR);
+        final Matcher matcher = IPV4_PATTERN.matcher(ipAddress);
+
+        if (ipAddress == null)
+            return false;
+        return matcher.matches();
     }
 
     /**

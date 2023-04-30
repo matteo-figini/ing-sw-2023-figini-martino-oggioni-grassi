@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="First implementation of TUI view methods. Added visualization for shelf and board">
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/client/ClientManager.java" afterDir="false" />
+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="First implementation of TUI view methods. Added server info requests.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/client/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/server/ClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/VirtualView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/VirtualView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/tui/TUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/tui/TUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/client/ClientManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/client/ClientManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +225,8 @@
       <workItem from="1682856419693" duration="62000" />
       <workItem from="1682857991314" duration="65000" />
       <workItem from="1682864286770" duration="1549000" />
-      <workItem from="1682865897076" duration="1078000" />
+      <workItem from="1682865897076" duration="1134000" />
+      <workItem from="1682870155567" duration="341000" />
     </task>
     <task id="LOCAL-00001" summary="Class Player layout">
       <created>1679754417366</created>
@@ -329,7 +326,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682865730598</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="First implementation of TUI view methods. Added server info requests.">
+      <created>1682867025104</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1682867025104</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,7 +379,8 @@
     <MESSAGE value="refactoring of endGame method" />
     <MESSAGE value="refactoring of freeCellsOnColumn method" />
     <MESSAGE value="First implementation of TUI view methods. Added visualization for shelf and board" />
-    <option name="LAST_COMMIT_MESSAGE" value="First implementation of TUI view methods. Added visualization for shelf and board" />
+    <MESSAGE value="First implementation of TUI view methods. Added server info requests." />
+    <option name="LAST_COMMIT_MESSAGE" value="First implementation of TUI view methods. Added server info requests." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
