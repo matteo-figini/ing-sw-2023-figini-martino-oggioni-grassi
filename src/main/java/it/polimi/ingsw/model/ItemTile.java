@@ -1,7 +1,7 @@
 package it.polimi.ingsw.model;
 
 /**
- * This class represents the item tile in the board or in the shelf.
+ * This immutable class represents the item tile in the board or in the shelf.
  * Every item tile has got an item tile type (enumeration) that represents the type.
  */
 public class ItemTile {

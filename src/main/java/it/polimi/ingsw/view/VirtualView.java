@@ -1,7 +1,11 @@
 package it.polimi.ingsw.view;
 
+import it.polimi.ingsw.model.BoardCell;
+import it.polimi.ingsw.model.ShelfCell;
 import it.polimi.ingsw.network.client.ClientHandler;
+import it.polimi.ingsw.network.message.BoardContent;
 import it.polimi.ingsw.network.message.GenericMessage;
+import it.polimi.ingsw.network.message.ShelfContent;
 
 /**
  * This class offer a mirror of a single client view for the server.
@@ -33,6 +37,16 @@ public class VirtualView implements View {
     @Override
     public void showGenericMessage (String genericMessage) {
         clientHandler.sendMessage(new GenericMessage(genericMessage));
+    }
+
+    @Override
+    public void showBoardContent(BoardCell[][] boardContent) {
+        clientHandler.sendMessage(new BoardContent(boardContent));
+    }
+
+    @Override
+    public void showShelfContent(ShelfCell[][] shelfContent, String player) {
+        clientHandler.sendMessage(new ShelfContent(shelfContent, player));
     }
 
     //TODO: implementare tutti i metodi show();

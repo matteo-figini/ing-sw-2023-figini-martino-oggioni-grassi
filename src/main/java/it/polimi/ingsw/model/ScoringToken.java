@@ -1,7 +1,7 @@
 package it.polimi.ingsw.model;
 
 /**
- * This class represents the scoring tokens on a common goal card.
+ * This immutable class represents the scoring tokens on a common goal card.
  * Each card has got a score.
  */
 public class ScoringToken {

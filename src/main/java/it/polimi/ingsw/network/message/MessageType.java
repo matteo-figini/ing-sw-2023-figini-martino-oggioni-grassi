@@ -12,6 +12,9 @@ public enum MessageType {
 
     // Fase di gioco
     PICK_TILES,
+    SHELF_CONTENT,
+    BOARD_CONTENT,
+
 
     // Utility
     GENERIC_MESSAGE

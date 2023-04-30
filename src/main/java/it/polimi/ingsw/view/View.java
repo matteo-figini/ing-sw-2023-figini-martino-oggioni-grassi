@@ -1,5 +1,8 @@
 package it.polimi.ingsw.view;
 
+import it.polimi.ingsw.model.BoardCell;
+import it.polimi.ingsw.model.ShelfCell;
+
 /**
  * This interface represents all the methods for the specific views. Every type of view (CLI, GUI with Swing/JavaFX,
  * virtual views on the server...) must implement this interface.
@@ -26,5 +29,18 @@ public interface View {
      * @param genericMessage The text message to be shown.
      */
     void showGenericMessage (String genericMessage);
+
+    /**
+     * Show a matrix representing the board cells.
+     * @param boardContent A matrix representing the board cells.
+     */
+    void showBoardContent (BoardCell[][] boardContent);
+
+    /**
+     * Show a matrix representing the shelf cells.
+     * @param shelfContent A matrix representing the shelf cells.
+     * @param nickname The nickname to which the shelf content belongs to.
+     */
+    void showShelfContent (ShelfCell[][] shelfContent, String nickname);
 
 }
