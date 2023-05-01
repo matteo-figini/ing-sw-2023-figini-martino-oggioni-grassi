@@ -12,40 +12,54 @@ import it.polimi.ingsw.controller.GameController;
  */
 public class SocketServer extends Server {
 
-    public SocketServer () {
-        super(new GameController());
+    private ServerSocket serverSocket;
+    private Socket clientSocket;
+    private int port = 55555;
+    private boolean serverState;
 
+
+    /**
+     * This constructor creates a server-side socket on a given port.
+     * @throws IOException when a problem occurs with the I/O system.
+     */
+    public SocketServer() throws IOException {
+        super(new GameController());
+        this.serverSocket = new ServerSocket(this.port);
     }
 
-    public void ServerSocket(int portNumber) throws IOException {
-        try (ServerSocket sc = new ServerSocket(portNumber)){
-        System.out.println("Server socket ready on port: " + portNumber);
+    /**
+     * This method returns the current state of the Server.
+     * @return a boolean which value is 1 if the Server is active, 0 otherwise.
+     */
+    public boolean isActive(){
+        return this.serverState;
+    }
 
-            while (true) {
-                //Accepting connection from a Client on portNumber
+    /**
+     * This method sets the current state of the Server
+     * @param state
+     */
+    public void setState(boolean state){
+        this.serverState = state;
+    }
+
+
+    public void runServerConnection() throws IOException {
+
+        while (isActive()) {
+            try {
+                ServerSocket sc = new ServerSocket(this.port);
+                System.out.println("Server socket ready on port: " + this.port);
                 Socket s = sc.accept();
                 System.out.println("Received client connection");
-                //Read data from the client via an InputStream obtained from the client socket
-                Scanner in = new Scanner(s.getInputStream());
-                //Send data to the client via the client socket’s OutputStream
-                PrintWriter out = new PrintWriter(s.getOutputStream());
-                String line = in.nextLine();
-                if (line.equals("quit")) break;
-                else {
-                    out.println("Received: " + line);
-                    out.flush();
-                }
-                //closing connection
-                in.close();
-                out.close();
-                s.close();
-                sc.close();
+
+            } catch (IOException ex) {
+                System.err.println("Connection Failed. Try again.");
             }
-        } catch (IOException ex) {
-        System.out.println("Server exception: " + ex.getMessage());
-        ex.printStackTrace();
         }
-        System.out.println("Closing sockets");
+    }
+
+    public void closeConnection(){
 
     }
 
