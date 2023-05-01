@@ -1,13 +1,13 @@
 package it.polimi.ingsw.network.client;
 
 import it.polimi.ingsw.network.message.Message;
+import it.polimi.ingsw.observer.Observable;
 
 /**
  * This abstract class represents a general client. It will be extended by subclasses, depending on the technology
  * chosen for networking (e.g. Socket or RMI).
  */
-public abstract class Client {
-
+public abstract class Client extends Observable {
     /**
      * This method sends a message to the server.
      * @param message The message to be sent.

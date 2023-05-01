@@ -17,5 +17,7 @@ public enum MessageType {
 
 
     // Utility
-    GENERIC_MESSAGE
+    GENERIC_MESSAGE,
+    ERROR_MESSAGE,
+    PING_MESSAGE
 }

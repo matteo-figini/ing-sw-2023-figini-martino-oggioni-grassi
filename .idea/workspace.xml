@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Complete refactoring of Personal Goal cards">
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/server/SocketClientHandler.java" afterDir="false" />
+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="first implementation of the client network part">
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/message/ErrorMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/ClientMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/ClientMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/client/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/client/SocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/client/SocketClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/message/MessageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/message/MessageType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/tui/TUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/tui/TUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -232,7 +232,8 @@
       <workItem from="1682865897076" duration="1134000" />
       <workItem from="1682870155567" duration="1634000" />
       <workItem from="1682877698232" duration="356000" />
-      <workItem from="1682929645068" duration="3210000" />
+      <workItem from="1682929645068" duration="3260000" />
+      <workItem from="1682952212441" duration="2268000" />
     </task>
     <task id="LOCAL-00001" summary="Class Player layout">
       <created>1679754417366</created>
@@ -367,7 +368,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682932085689</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="first implementation of the client network part">
+      <created>1682932903423</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1682932903423</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -417,7 +425,8 @@
     <MESSAGE value="added isValidIPAddress method" />
     <MESSAGE value="added some useful methods in Board.java and Shelf.java" />
     <MESSAGE value="Complete refactoring of Personal Goal cards" />
-    <option name="LAST_COMMIT_MESSAGE" value="Complete refactoring of Personal Goal cards" />
+    <MESSAGE value="first implementation of the client network part" />
+    <option name="LAST_COMMIT_MESSAGE" value="first implementation of the client network part" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
