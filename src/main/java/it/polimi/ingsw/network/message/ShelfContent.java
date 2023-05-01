@@ -19,6 +19,14 @@ public class ShelfContent extends Message {
         this.player = player;
     }
 
+    public ShelfCell[][] getShelfContent() {
+        return shelfContent;
+    }
+
+    public String getPlayer() {
+        return player;
+    }
+
     @Override
     public String toString() {
         return "ShelfContent{" +

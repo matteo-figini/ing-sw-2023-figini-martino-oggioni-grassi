@@ -49,7 +49,7 @@ public class SocketClient extends Client {
 
     @Override
     public void readMessage() {
-        // TODO: implementare il metodo
+        // TODO: implementare il metodo (creare un thread separato?)
     }
 
     /**
@@ -68,7 +68,7 @@ public class SocketClient extends Client {
     }
 
     @Override
-    public void enablePinger (boolean pingEnabled) {
+    public void enablePing (boolean pingEnabled) {
         // TODO: implementare il metodo
     }
 

@@ -17,6 +17,10 @@ public class BoardContent extends Message {
         this.boardContent = boardContent;
     }
 
+    public BoardCell[][] getBoardContent() {
+        return boardContent;
+    }
+
     @Override
     public String toString() {
         return "BoardContent{" +

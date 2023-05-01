@@ -28,5 +28,5 @@ public abstract class Client extends Observable {
      * Enable a heartbeat (ping messages) to keep the connection alive.
      * @param pingEnabled A boolean value {@code true} to enable the heartbeat, otherwise {@code false} to kill the heartbeat.
      */
-    public abstract void enablePinger (boolean pingEnabled);
+    public abstract void enablePing (boolean pingEnabled);
 }

@@ -153,4 +153,19 @@ public class TUI implements View {
             System.out.println();
         }
     }
+
+    /* ---------- GETTERS & SETTERS ---------- */
+    /**
+     * @return The client manager associated to the client.
+     */
+    public ClientManager getClientManager() {
+        return clientManager;
+    }
+
+    /**
+     * @param clientManager The client manager associated to the client.
+     */
+    public void setClientManager(ClientManager clientManager) {
+        this.clientManager = clientManager;
+    }
 }
