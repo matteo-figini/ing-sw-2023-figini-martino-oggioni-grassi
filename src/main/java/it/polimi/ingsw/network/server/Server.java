@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * This abstract class represents the implementation of the Server.
  */
-public abstract class Server {
+public abstract class Server extends Thread{
 
     /** Instance of the {@code GameController} class. */
     private GameController gameController;
