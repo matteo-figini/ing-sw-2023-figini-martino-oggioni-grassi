@@ -2,6 +2,7 @@ package it.polimi.ingsw.network.server;
 
 import it.polimi.ingsw.controller.GameController;
 import it.polimi.ingsw.controller.GameState;
+import it.polimi.ingsw.network.message.Message;
 import it.polimi.ingsw.view.VirtualView;
 
 import java.util.HashMap;
@@ -10,7 +11,6 @@ import java.util.Map;
 /**
  * This abstract class represents the implementation of the Server.
  */
-// TODO: capire se è necessario tenere la classe astratta oppure no
 public abstract class Server {
 
     /** Instance of the {@code GameController} class. */
@@ -28,12 +28,17 @@ public abstract class Server {
         clientHandlerMap = new HashMap<>();
     }
 
+    /**
+     * This method creates a Client after checking if the nickname is valid or the game is not already started
+     * Otherwise in will disconnect the client.
+     * @param nickname
+     * @param clientHandler
+     */
     public void addClient(String nickname, ClientHandler clientHandler ){
         VirtualView vv= new VirtualView(clientHandler);
 
         if (gameController.getGameState() == GameState.LOBBY_STATE){
             gameController.addVirtualView(nickname, vv);
-            // TODO: perché non viene più chiamato il metodo handleLogin()?
             if (gameController.checkNicknameAvailability(nickname, gameController.getPlayers(), vv))
                 clientHandlerMap.put(nickname, clientHandler);
         } else {
@@ -42,13 +47,23 @@ public abstract class Server {
         }
     }
 
+    /**
+     * This method disconnects a Client (his VirtualView and Clienthandler) from the network.
+     * @param nickname
+     * @param vv
+     */
     public void removeClient(String nickname, VirtualView vv){
         clientHandlerMap.remove(nickname);
         gameController.removeVirtualView(nickname, vv);
         //Notify
     }
 
-
-    //TODO mancano tutti i metodi relativi alla gestione di messaggi
-
+    /**
+     * Sends a message from the Client to the controller.
+     *
+     * @param message to be forwarded to the GameController
+     */
+    public void onMessageReceived(Message message){
+        gameController.onMessageReceived(message);
+    }
 }
