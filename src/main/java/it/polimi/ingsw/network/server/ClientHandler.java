@@ -8,6 +8,7 @@ import it.polimi.ingsw.network.message.Message;
  * This interface contains methods for sending a message to a client and to manage connection/disconnection.
  */
 public interface ClientHandler {
+
     /**
      * This method sends a message to the client handled by the client handler.
      * @param message The message to send to the client.
