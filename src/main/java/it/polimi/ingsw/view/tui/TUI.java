@@ -102,8 +102,15 @@ public class TUI implements View {
     @Override
     public void showShelfContent (ShelfCell[][] shelfContent, String nickname) {
         System.out.println("Shelf of " + nickname + ":");
+        System.out.print("  | ");
+        for (int i = 0; i < Shelf.COLUMNS; i++) {
+            System.out.print(i + " ");
+        }
+        System.out.println("\n--------------");
         for (int i = 0; i < Shelf.ROWS; i++) {
             for (int j = 0; j < Shelf.COLUMNS; j++) {
+                if (j == 0)
+                    System.out.print(i + " | ");
                 if (!shelfContent[i][j].isFree()) {
                     switch (shelfContent[i][j].getTile().getItemTileType()) {
                         case GREEN -> System.out.print("G ");

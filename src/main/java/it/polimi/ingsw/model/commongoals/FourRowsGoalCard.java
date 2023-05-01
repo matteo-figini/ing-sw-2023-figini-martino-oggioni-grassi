@@ -1,9 +1,7 @@
 package it.polimi.ingsw.model.commongoals;
 
-import it.polimi.ingsw.model.CommonGoalCard;
 import it.polimi.ingsw.model.ItemTileType;
 import it.polimi.ingsw.model.Shelf;
-import it.polimi.ingsw.model.ShelfCell;
 
 import java.util.HashMap;
 import java.util.Map;

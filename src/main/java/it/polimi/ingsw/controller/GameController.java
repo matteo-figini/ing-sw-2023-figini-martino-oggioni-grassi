@@ -4,6 +4,7 @@ import it.polimi.ingsw.exception.NoScoringTokenAvailableException;
 import it.polimi.ingsw.exception.NotEnoughCellsException;
 import it.polimi.ingsw.exception.WrongPositionsException;
 import it.polimi.ingsw.model.*;
+import it.polimi.ingsw.model.commongoals.CommonGoalCard;
 import it.polimi.ingsw.network.message.Message;
 import it.polimi.ingsw.network.message.MessageType;
 import it.polimi.ingsw.network.message.PickTiles;

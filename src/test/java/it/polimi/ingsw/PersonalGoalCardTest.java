@@ -4,7 +4,8 @@ import it.polimi.ingsw.model.ItemTile;
 import it.polimi.ingsw.model.ItemTileType;
 import it.polimi.ingsw.model.Shelf;
 import it.polimi.ingsw.model.ShelfCell;
-import it.polimi.ingsw.model.PersonalGoalCard;
+import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
+import it.polimi.ingsw.model.personalgoals.PersonalGC1;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,7 +18,7 @@ import org.junit.jupiter.api.Test;
 public class PersonalGoalCardTest {
 
     //Here you can change PERSONAL_1 with other numbers [1,12] to test all personal goal card patterns
-    private final PersonalGoalCard card = PersonalGoalCard.PERSONAL_1 ;
+    private final PersonalGoalCard card = new PersonalGC1();
 
     private Shelf personal6matches;
     private Shelf personal5matches;

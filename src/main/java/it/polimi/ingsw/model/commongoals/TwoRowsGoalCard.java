@@ -1,6 +1,5 @@
 package it.polimi.ingsw.model.commongoals;
 
-import it.polimi.ingsw.model.CommonGoalCard;
 import it.polimi.ingsw.model.ItemTileType;
 import it.polimi.ingsw.model.Shelf;
 

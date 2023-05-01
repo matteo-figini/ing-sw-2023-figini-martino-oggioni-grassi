@@ -1,6 +1,6 @@
 package it.polimi.ingsw.model;
 
-import java.util.List;
+import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
 
 /**
  * This class represents the player and all his attributes

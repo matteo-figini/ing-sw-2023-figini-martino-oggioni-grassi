@@ -1,6 +1,8 @@
-package it.polimi.ingsw.model;
+package it.polimi.ingsw.model.commongoals;
 
 import it.polimi.ingsw.exception.NoScoringTokenAvailableException;
+import it.polimi.ingsw.model.ScoringToken;
+import it.polimi.ingsw.model.Shelf;
 
 import java.util.ArrayList;
 import java.util.List;

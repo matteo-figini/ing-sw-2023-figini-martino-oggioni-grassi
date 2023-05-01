@@ -2,6 +2,7 @@ package it.polimi.ingsw.model;
 
 import it.polimi.ingsw.exception.WrongNumberOfCardsException;
 import it.polimi.ingsw.model.commongoals.*;
+import it.polimi.ingsw.model.personalgoals.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -182,37 +183,27 @@ public class Game {
      * personal goal card as in the real game.
      */
     public void assignsPersonalGoalCards () {
-        List<Integer> numbers = getDifferentRandomNumbersInRange(players.size(), 1, PersonalGoalCard.values().length);
+        List<Integer> numbers = getDifferentRandomNumbersInRange(players.size(), 1, 12);
         assert numbers != null && numbers.size() == players.size();
 
         for (Player player : players) {
             PersonalGoalCard card;
-            if (numbers.get(0) == 1) {
-                card = PersonalGoalCard.PERSONAL_1;
-            } else if (numbers.get(0) == 2) {
-                card = PersonalGoalCard.PERSONAL_2;
-            } else if (numbers.get(0) == 3) {
-                card = PersonalGoalCard.PERSONAL_3;
-            } else if (numbers.get(0) == 4) {
-                card = PersonalGoalCard.PERSONAL_4;
-            } else if (numbers.get(0) == 5) {
-                card = PersonalGoalCard.PERSONAL_5;
-            } else if (numbers.get(0) == 6) {
-                card = PersonalGoalCard.PERSONAL_6;
-            } else if (numbers.get(0) == 7) {
-                card = PersonalGoalCard.PERSONAL_7;
-            } else if (numbers.get(0) == 8) {
-                card = PersonalGoalCard.PERSONAL_8;
-            } else if (numbers.get(0) == 9) {
-                card = PersonalGoalCard.PERSONAL_9;
-            } else if (numbers.get(0) == 10) {
-                card = PersonalGoalCard.PERSONAL_10;
-            } else if (numbers.get(0) == 11) {
-                card = PersonalGoalCard.PERSONAL_11;
-            } else {
-                card = PersonalGoalCard.PERSONAL_12;
+            switch (numbers.get(0)) {
+                case 1 -> card = new PersonalGC1();
+                case 2 -> card = new PersonalGC2();
+                case 3 -> card = new PersonalGC3();
+                case 4 -> card = new PersonalGC4();
+                case 5 -> card = new PersonalGC5();
+                case 6 -> card = new PersonalGC6();
+                case 7 -> card = new PersonalGC7();
+                case 8 -> card = new PersonalGC8();
+                case 9 -> card = new PersonalGC9();
+                case 10 -> card = new PersonalGC10();
+                case 11 -> card = new PersonalGC11();
+                default -> card = new PersonalGC12();
             }
             player.setPersonalGoalCard(card);
+            numbers.remove(0);
         }
     }
 
