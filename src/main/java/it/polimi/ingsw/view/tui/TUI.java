@@ -24,28 +24,19 @@ public class TUI implements View {
      * This method asks the user to insert the connection information about the server, such as IP address and port.
      */
     public void askServerInformation () {
-        String ipAddress;
-        String defaultIpAddress = "127.0.0.1";      // Localhost address.
-        int port;
-        int defaultPort = 14000;
+        String ipAddress, defaultIpAddress = "127.0.0.1";      // Localhost address.
+        int port, defaultPort = 14000;
         Scanner scn = new Scanner(System.in);
-        boolean validInput = true;
+        boolean validInput = false;
 
-        System.out.println("Please enter the information about IP address and port of the server: ");
-
-        // Insert and verify the IP address
+        // Insert and verify the IP address and the port
         do {
+            System.out.print("Please insert the IP address of the server (default: " + defaultIpAddress + "): ");
             ipAddress = scn.nextLine();
-            // TODO: implementare il controllo dell'indirizzo IP (vedi classe ClientManager).
-        } while (!validInput);
-
-        // Insert and verify the port
-        do {
-            System.out.print("Inserisci il numero di porta: ");
+            System.out.print("Please insert the port of the server (default: " + defaultPort + "): ");
             port = scn.nextInt();
-            if (ClientManager.isValidPort(port)) {
+            if (ClientManager.isValidIPAddress(ipAddress) && ClientManager.isValidPort(port))
                 validInput = true;
-            }
         } while (!validInput);
 
         // TODO: passare le richieste di connessione al client manager.

@@ -1,5 +1,7 @@
 package it.polimi.ingsw;
 
+import it.polimi.ingsw.view.tui.TUI;
+
 public class ClientMain {
     public static void main(String[] args) {
         boolean cliRequested = false;
@@ -15,6 +17,8 @@ public class ClientMain {
         }
 
         if (cliRequested && !rmiRequested) {
+            TUI tuiInterface = new TUI();
+
             // TODO: Avviare la comunicazione del client con interfaccia TUI e Socket per la connessione
         } else if (cliRequested && rmiRequested) {
             System.out.println("Unable to manage RMI connection. Client stopped.");
