@@ -39,6 +39,7 @@ public abstract class Server extends Thread{
 
         if (gameController.getGameState() == GameState.LOBBY_STATE){
             gameController.addVirtualView(nickname, vv);
+            gameController.handleLogin(nickname, vv);
             if (gameController.checkNicknameAvailability (nickname, gameController.getPlayers(), vv))
                 clientHandlerMap.put(nickname, clientHandler);
         } else {
