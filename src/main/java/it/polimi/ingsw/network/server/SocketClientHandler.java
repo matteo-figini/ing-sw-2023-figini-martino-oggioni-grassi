@@ -24,8 +24,7 @@ public class SocketClientHandler extends Thread implements ClientHandler{
         this.isConnected = true;
     }
     public void run() {
-
-        //TODO: implementare i lock e vedere se ha senso tenere 'Extends Thread' o è meglio implementare l'interfaccia Runnable.
+        System.out.println("Server waiting for connections...");
 
         try{
             while(!Thread.currentThread().isInterrupted()){
@@ -35,14 +34,15 @@ public class SocketClientHandler extends Thread implements ClientHandler{
                     if (message.getMessageType() == MessageType.LOGIN_REQUEST){
                         server.addClient(message.getNickname(), this);
                     } else {
-                        sendMessage(message);
+                        System.out.println("Received Message: " + message.toString());
+                        server.onMessageReceived(message);
                     }
                 }
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("I/O error.");
         } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+            System.out.println("Class not found error.");
         }
     }
 
@@ -52,13 +52,26 @@ public class SocketClientHandler extends Thread implements ClientHandler{
     }
 
     @Override
-    public void sendMessage(Message message) {
-        
+    public void MessageToClient(Message message) {
+        try{
+            output.writeObject(message);
+            output.reset();
+        } catch (IOException e) {
+            System.err.println("I/O Error.");
+        }
     }
 
     @Override
-    public void disconnect() {
-
+    public void disconnect() throws IOException {
+        try {
+            if(clientSocket.isConnected())
+            clientSocket.close();
+        } catch (IOException e) {
+            System.err.println("I/O Error.");
+        }
+        Thread.currentThread().interrupt();
+        server.closeConnection();
+        this.isConnected = false;
     }
 
     @Override

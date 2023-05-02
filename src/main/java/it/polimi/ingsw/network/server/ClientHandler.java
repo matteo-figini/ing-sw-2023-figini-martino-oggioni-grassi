@@ -2,6 +2,8 @@ package it.polimi.ingsw.network.server;
 
 import it.polimi.ingsw.network.message.Message;
 
+import java.io.IOException;
+
 /**
  * This interface represents a generic client handler for the server, to handle the connection with a specific client.
  * Every type of connection (e.g. Socket/RMI) must implement this interface.
@@ -13,12 +15,12 @@ public interface ClientHandler {
      * This method sends a message to the client handled by the client handler.
      * @param message The message to send to the client.
      */
-    public void sendMessage (Message message);
+    public void MessageToClient(Message message);
 
     /**
      * This method disconnects the specified client from the server, e.g. due to ping timeout or not valid information.
      */
-    public void disconnect ();
+    public void disconnect () throws IOException;
     // La connessione con il client è gestita esplicitamente dal server!
 
     /**

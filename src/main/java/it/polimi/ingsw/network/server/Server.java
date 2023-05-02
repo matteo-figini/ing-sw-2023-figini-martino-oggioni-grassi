@@ -5,6 +5,7 @@ import it.polimi.ingsw.controller.GameState;
 import it.polimi.ingsw.network.message.Message;
 import it.polimi.ingsw.view.VirtualView;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,7 +35,7 @@ public abstract class Server extends Thread{
      * @param nickname
      * @param clientHandler
      */
-    public void addClient(String nickname, ClientHandler clientHandler ){
+    public void addClient(String nickname, ClientHandler clientHandler ) throws IOException {
         VirtualView vv= new VirtualView(clientHandler);
 
         if (gameController.getGameState() == GameState.LOBBY_STATE){
@@ -67,4 +68,5 @@ public abstract class Server extends Thread{
     public void onMessageReceived(Message message){
         gameController.onMessageReceived(message);
     }
+
 }
