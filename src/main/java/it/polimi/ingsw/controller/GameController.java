@@ -104,8 +104,8 @@ public class GameController{
                 if (game.getPlayerByNickname(getActivePlayer()).getShelf().freeCellsOnColumn(messageReceived.getColumn()) >= messageReceived.getPositionsOfTiles().size()) {
                     // Vi sono sufficienti celle nella shelf. A questo punto controllo che le posizioni coincidano con tessere valide.
                     if (insertTilesInShelf(messageReceived.getPositionsOfTiles(), messageReceived.getColumn())) {
-                        // TODO: Mostra la board aggiornata a tutti i client
-                        // TODO: Mostra la shelf aggiornata a tutti i client
+                        showBoard();
+                        showShelfOfEachPlayer();
                         checkCommonGoalsCompleted();
                         checkBoardRefillRequested();
                         if (game.getPlayerByNickname(getActivePlayer()).getShelf().isFull()) {
@@ -132,9 +132,6 @@ public class GameController{
     }
 
     private void lastLapStateManager (Message message) {
-        /*
-        -si deve continuare a fare i turni ma fermandosi quando si arriva al giocare con la chair
-        */
         VirtualView currentVirtualView = virtualViewMap.get(getActivePlayer());
         if (message.getMessageType() == MessageType.PICK_TILES) {
             if (message.getNickname().equals(getActivePlayer())) {
@@ -143,8 +140,8 @@ public class GameController{
                 if (game.getPlayerByNickname(getActivePlayer()).getShelf().freeCellsOnColumn(messageReceived.getColumn()) >= messageReceived.getPositionsOfTiles().size()) {
                     // Vi sono sufficienti celle nella shelf. A questo punto controllo che le posizioni coincidano con tessere valide.
                     if (insertTilesInShelf(messageReceived.getPositionsOfTiles(), messageReceived.getColumn())) {
-                        // TODO: Mostra la board aggiornata a tutti i client
-                        // TODO: Mostra la shelf aggiornata a tutti i client
+                        showBoard();
+                        showShelfOfEachPlayer();
                         checkCommonGoalsCompleted();
                         checkBoardRefillRequested();
                         if (game.getPlayerByNickname(getNextPlayer()).isFirstPlayer()) {
@@ -224,6 +221,7 @@ public class GameController{
 
     public boolean checkNicknameAvailability (String nickname, List<Player> players, VirtualView virtualView){
         //implement input controller to get the nickname
+        // TODO: what does do this method? Is it necessary to pass the list of the players, while the controller already knows them?
         return false;
     }
 
@@ -336,6 +334,28 @@ public class GameController{
         setActivePlayer(chooseRandomPlayer());  // Choose the first player
         broadcastGenericMessage("Turn of " + getActivePlayer());
         askActivePlayerColumnAndPosition();
+    }
+
+    /**
+     * This method shows to each player the updated board.
+     */
+    private void showBoard () {
+        for (Player player : game.getPlayers()) {
+            VirtualView virtualView = virtualViewMap.get(player.getNickname());
+            virtualView.showBoardContent(game.getBoard().getBoardContentCopy());
+        }
+    }
+
+    /**
+     * This method shows to each player the shelf of every player.
+     */
+    private void showShelfOfEachPlayer () {
+        for (Player player : game.getPlayers()) {
+            VirtualView virtualView = virtualViewMap.get(player.getNickname());
+            for (Player playerShelf : game.getPlayers()) {
+                virtualView.showShelfContent(playerShelf.getShelf().getShelfContentCopy(), playerShelf.getNickname());
+            }
+        }
     }
 
     /**
