@@ -1,5 +1,9 @@
 package it.polimi.ingsw;
 
+import it.polimi.ingsw.controller.GameController;
+import it.polimi.ingsw.network.server.Server;
+import it.polimi.ingsw.network.server.SocketServer;
+
 public class ServerMain {
     public static void main(String[] args) {
         boolean rmiConnection = false;
@@ -10,12 +14,16 @@ public class ServerMain {
                 break;
             }
         }
-        // TODO: Istanzia la classe che gestisce il server e il game controller.
 
         if (rmiConnection) {
             System.out.println("Unable to manage RMI connection. Server closing.");
         } else {
-            // TODO: Istanzia la classe che gestisce il server mediante socket
+            GameController gameController = new GameController();
+            Server server = new Server(gameController);
+
+            SocketServer socketServer = new SocketServer(server, SocketServer.SOCKET_SERVER_PORT);
+            Thread thread = new Thread(socketServer);
+            thread.start();
         }
     }
 }

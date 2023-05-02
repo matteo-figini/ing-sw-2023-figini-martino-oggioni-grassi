@@ -2,33 +2,41 @@ package it.polimi.ingsw.network.client;
 
 import it.polimi.ingsw.network.message.ErrorMessage;
 import it.polimi.ingsw.network.message.Message;
+import it.polimi.ingsw.network.message.PingMessage;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * This class extends the {@code Client} class using socket technology.
  */
 public class SocketClient extends Client {
     private final Socket socket;        // Client socket
-    private final ObjectInputStream objectInputStream;  // Input stream for socket
-    private final ObjectOutputStream objectOutputStream;    // Output stream for socket
+    private final ObjectInputStream inputStream;  // Input stream for socket
+    private final ObjectOutputStream outputStream;    // Output stream for socket
     private final int SOCKET_TIMEOUT = 20000;
+
+    private final ExecutorService readExecutionQueue = Executors.newSingleThreadExecutor();
+    private final ScheduledExecutorService pingSchedule = Executors.newSingleThreadScheduledExecutor();;
 
     /**
      * Default constructor sets the connection to the server.
      * @param ipAddress IP address of the server.
      * @param port Port of the server.
      */
-    public SocketClient (String ipAddress, int port) throws IOException {
+    public SocketClient (ClientManager manager, String ipAddress, int port) throws IOException {
+        setClientManager(manager);
         this.socket = new Socket();
         this.socket.connect(new InetSocketAddress(ipAddress, port), SOCKET_TIMEOUT);
-        this.objectInputStream = new ObjectInputStream(socket.getInputStream());
-        this.objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
-        // TODO: cosa fare per abilitare il ping?
+        this.inputStream = new ObjectInputStream(socket.getInputStream());
+        this.outputStream = new ObjectOutputStream(socket.getOutputStream());
     }
 
     /**
@@ -39,17 +47,30 @@ public class SocketClient extends Client {
     @Override
     public void sendMessage (Message message) {
         try {
-            this.objectOutputStream.writeObject(message);
-            this.objectOutputStream.reset();
+            this.outputStream.writeObject(message);
+            this.outputStream.reset();
         } catch (IOException e) {
             this.disconnect();
-            notifyObservers(new ErrorMessage(null, "Unable to send the message. Client disconnected."));
+            clientManager.update(new ErrorMessage(null, "Unable to send the message. Client disconnected."));
         }
     }
 
     @Override
     public void readMessage() {
-        // TODO: implementare il metodo (creare un thread separato?)
+        readExecutionQueue.execute(() -> {
+            while (!readExecutionQueue.isShutdown()) {
+                Message message;
+                try {
+                    message = (Message) inputStream.readObject();
+                    System.out.println("Message received: " + message.toString());
+                } catch (IOException | ClassNotFoundException e) {
+                    message = new ErrorMessage(null, "Connection lost with the server.");
+                    disconnect();
+                    readExecutionQueue.shutdownNow();
+                }
+                clientManager.update(message);
+            }
+        });
     }
 
     /**
@@ -63,13 +84,18 @@ public class SocketClient extends Client {
                 socket.close();
             }
         } catch (IOException e) {
-            notifyObservers(new ErrorMessage(null, "Unable to disconnect from the server."));
+            clientManager.update(new ErrorMessage(null, "Unable to disconnect from the server."));
         }
     }
 
     @Override
-    public void enablePing (boolean pingEnabled) {
-        // TODO: implementare il metodo
+    public void enablePing () {
+        pingSchedule.scheduleAtFixedRate(() -> sendMessage(new PingMessage()), 0, 1000, TimeUnit.MILLISECONDS);
+    }
+
+    @Override
+    public void disablePing () {
+        pingSchedule.shutdownNow();
     }
 
 

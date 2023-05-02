@@ -2,6 +2,7 @@ package it.polimi.ingsw.view;
 
 import it.polimi.ingsw.model.BoardCell;
 import it.polimi.ingsw.model.ShelfCell;
+import it.polimi.ingsw.network.message.LoginReply;
 import it.polimi.ingsw.network.server.ClientHandler;
 import it.polimi.ingsw.network.message.BoardContent;
 import it.polimi.ingsw.network.message.GenericMessage;
@@ -35,6 +36,11 @@ public class VirtualView implements View {
     }
 
     @Override
+    public void showLoginResponse(boolean validNickname, boolean connectionEstablished) {
+        clientHandler.sendMessage(new LoginReply(validNickname, connectionEstablished));
+    }
+
+    @Override
     public void showGenericMessage (String genericMessage) {
         clientHandler.sendMessage(new GenericMessage(genericMessage));
     }
@@ -48,6 +54,8 @@ public class VirtualView implements View {
     public void showShelfContent(ShelfCell[][] shelfContent, String player) {
         clientHandler.sendMessage(new ShelfContent(shelfContent, player));
     }
+
+
 
     //TODO: implementare tutti i metodi show();
 }

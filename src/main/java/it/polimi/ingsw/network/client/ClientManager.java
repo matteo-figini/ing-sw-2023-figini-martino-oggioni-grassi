@@ -11,8 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ClientManager {
-
-    private final View view;
+    private View view;
     private Client client;
     private String nickname;
 
@@ -33,7 +32,7 @@ public class ClientManager {
      */
     public void onUpdateServerInformation (String ipAddress, int port) {
         try {
-            this.client = new SocketClient(ipAddress, port);
+            this.client = new SocketClient(this, ipAddress, port);
             client.readMessage();
             view.askNickname();
         } catch (IOException e) {

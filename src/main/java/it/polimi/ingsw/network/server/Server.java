@@ -6,19 +6,23 @@ import it.polimi.ingsw.network.message.Message;
 import it.polimi.ingsw.view.VirtualView;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * This abstract class represents the implementation of the Server.
+ * Based on the network technology (socket or RMI), derived class will extend the functionalities.
  */
-public abstract class Server {
+public class Server {
 
     /** Instance of the {@code GameController} class. */
-    private GameController gameController;
+    private final GameController gameController;
 
     /** Map containing all the instances of the {@code ClientHandler} by their nickname. */
-    private Map<String, ClientHandler> clientHandlerMap;
+    private final Map<String, ClientHandler> clientHandlerMap;
+
+    private final Object lock;
 
     /**
      * Creates an instance of the server.
@@ -26,76 +30,66 @@ public abstract class Server {
      */
     public Server (GameController gameController) {
         this.gameController = gameController;
-        clientHandlerMap = new HashMap<>();
-    }
-
-    /**
-     * This method asks the gameController the nickname of the current player.
-     * @return the nickname of the current player.
-     */
-    public String getNickname(){
-        return this.gameController.getActivePlayer();
-    }
-
-    public VirtualView getVVbyNickname() {
-        String nickname = getNickname();
-        Map<String, VirtualView> map = gameController.getVirtualView();
-        VirtualView vv = map.get(nickname);
-        return vv;
+        this.clientHandlerMap = Collections.synchronizedMap(new HashMap<>());
+        this.lock = new Object();
     }
 
     /**
      * This method creates a Client after checking if the nickname is valid or the game is not already started
-     * Otherwise in will disconnect the client.
-     * @param nickname
-     * @param clientHandler
+     * Otherwise in will disconnect the client. If the nickname is valid but the game already started, the client
+     * handler will be disconnected, else if the game is not started yet but the nickname is not valid, a correct response
+     * is submitted to the client.
+     * @param nickname The nickname of the new potential client.
+     * @param clientHandler The client handler of the specific client.
      */
-    public void addClient(String nickname, ClientHandler clientHandler ) throws IOException {
-        VirtualView vv= new VirtualView(clientHandler);
-
-        if (gameController.getGameState() == GameState.LOBBY_STATE){
-            gameController.addVirtualView(nickname, vv);
-            gameController.handleLogin(nickname, vv);
-            if (gameController.checkNicknameAvailability (nickname, gameController.getPlayers(), vv))
+    public void addClient (String nickname, ClientHandler clientHandler) {
+        VirtualView virtualView = new VirtualView(clientHandler);
+        if (gameController.getGameState() == GameState.LOBBY_STATE) {
+            if (gameController.checkNicknameAvailability(nickname, virtualView)) {
                 clientHandlerMap.put(nickname, clientHandler);
+                gameController.handleLogin(nickname, virtualView);
+            } else {
+                virtualView.showLoginResponse(false, true);
+            }
         } else {
-            //SHOW login result
-            clientHandler.disconnect();
+            virtualView.showLoginResponse(true, false);
+            // clientHandler.disconnect();
         }
     }
 
     /**
      * This method disconnects a Client (his VirtualView and Clienthandler) from the network.
-     * @param nickname
-     * @param vv
+     * @param nickname The nickname of the client that will be disconnected.
+     * @param virtualView The virtual view of the client that will be disconnected.
      */
-    public void removeClient(String nickname, VirtualView vv){
+    public void removeClient (String nickname, VirtualView virtualView) {
         clientHandlerMap.remove(nickname);
-        gameController.removeVirtualView(nickname, vv);
-        //Notify
+        gameController.removeVirtualView(nickname, virtualView);
+        System.out.println("Disconnected client \"" + nickname + "\" from the server.");
     }
 
     /**
      * Sends a message from the Client to the controller.
-     *
      * @param message to be forwarded to the GameController
      */
-    public void onMessageReceived(Message message){
+    public void onMessageReceived (Message message) {
         gameController.onMessageReceived(message);
     }
 
     /**
-     *This methods communicates with the Game Controller when a disconnection occurs.
+     * This method communicates with the Game Controller when a disconnection occurs.
      * @param clientHandler
      */
-    public void ManageDisconnection(ClientHandler clientHandler){
-        removeClient(getNickname(), getVVbyNickname());
+    public void manageDisconnection (ClientHandler clientHandler) {
+        // TODO: implementare la disconnessione di un client
+        // Siccome per ora non stiamo implementando la resilienza alle disconnessioni, è sufficiente che una volta che un client
+        // si disconnette, la partita termina per tutti i client.
+        /*removeClient(getNickname(), getVVbyNickname());
         if (gameController.getGameState() != GameState.LOBBY_STATE){
-           //TODO: Send message (generic?) to change the state of the game to END_GAME
             clientHandlerMap.clear();
             gameController.getVirtualView().remove(getNickname());
             gameController.getPlayers().remove(getNickname());
-        }
+        }*/
     }
 
 }

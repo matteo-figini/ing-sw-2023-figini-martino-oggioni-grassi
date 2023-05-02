@@ -12,75 +12,90 @@ import java.net.Socket;
  * This class is used to manage multi-client connection. When a new connection is accepted,
  * a new object SocketClientHandler is created and a new thread is started.
  */
-public class SocketClientHandler extends Thread implements ClientHandler{
+public class SocketClientHandler implements ClientHandler, Runnable {
     private Socket clientSocket;
-    private SocketServer server;
+    private SocketServer socketServer;
+    private ObjectInputStream inputStream;
+    private ObjectOutputStream outputStream;
     private boolean isConnected;
-    private ObjectInputStream input;
-    private ObjectOutputStream output;
+    private final Object inputLockObject;
+    private final Object outputLockObject;
 
     /**
      * This constructor creates a socket ClientHandler which will manage by thread every single client connection.
      * @param server instance of the socket Server.
      * @param clientSocket Socket connected to the Client.
      */
-    public SocketClientHandler(SocketServer server, Socket clientSocket) {
+    public SocketClientHandler (SocketServer server, Socket clientSocket) {
         this.clientSocket = clientSocket;
-        this.server = server;
+        this.socketServer = server;
         this.isConnected = true;
+        this.inputLockObject = new Object();
+        this.outputLockObject = new Object();
+
+        try {
+            this.outputStream = new ObjectOutputStream(this.clientSocket.getOutputStream());
+            this.inputStream = new ObjectInputStream(this.clientSocket.getInputStream());
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
-    /**
-     * This method creates a Thread
-     */
-    public void run() {
-        System.out.println("Server waiting for connections...");
-
-        try{
-            while(!Thread.currentThread().isInterrupted()){
-                Message message = (Message) input.readObject();
-
-                if (message != null && message.getMessageType() != MessageType.PING_MESSAGE){
-                    if (message.getMessageType() == MessageType.LOGIN_REQUEST){
-                        server.addClient(message.getNickname(), this);
-                    } else {
-                        System.out.println("Received Message: " + message.toString());
-                        server.onMessageReceived(message);
+    @Override
+    public void run () {
+        try {
+            System.out.println("Established new client connection with: " + clientSocket.getInetAddress().toString());
+            try {
+                while (!Thread.currentThread().isInterrupted()) {
+                    synchronized (inputLockObject) {
+                        Message message = (Message) inputStream.readObject();
+                        if (message != null && message.getMessageType() != MessageType.PING_MESSAGE) {
+                            if (message.getMessageType() == MessageType.LOGIN_REQUEST) {
+                                socketServer.addClient(message.getNickname(), this);
+                            } else {
+                                System.out.println("Received message: " + message.toString());
+                                socketServer.onMessageReceived(message);
+                            }
+                        }
                     }
                 }
+            } catch (ClassNotFoundException | ClassCastException e) {
+                System.out.println("Invalid stream.");
             }
-        } catch (IOException e) {
-            System.out.println("I/O error.");
-        } catch (ClassNotFoundException e) {
-            System.out.println("Class not found error.");
-        }
-    }
-
-    public void start() {
-        System.out.println("Starting Thread for the client " + clientSocket.getInetAddress().getHostName());
-        super.start();
-    }
-
-    @Override
-    public void MessageToClient(Message message) {
-        try{
-            output.writeObject(message);
-            output.reset();
-        } catch (IOException e) {
-            System.err.println("I/O Error.");
-        }
-    }
-
-    @Override
-    public void disconnect() throws IOException {
-        try {
-            if(clientSocket.isConnected())
             clientSocket.close();
         } catch (IOException e) {
+            System.out.println("Unable to handle Socket client handler.");
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void sendMessage (Message message) {
+        try {
+            synchronized (outputLockObject) {
+                outputStream.writeObject(message);
+                outputStream.reset();
+                System.out.println("Message sent: " + message.toString());
+            }
+        } catch (IOException e) {
             System.err.println("I/O Error.");
+            disconnect();
+        }
+    }
+
+    @Override
+    public void disconnect() {
+        if (!isConnected)
+            return;
+        try {
+            if (!clientSocket.isClosed()) {
+                clientSocket.close();
+            }
+        } catch (IOException e) {
+            System.out.println("I/O Error.");
         }
         Thread.currentThread().interrupt();
-        server.closeConnection(this);
+        //socketServer.closeConnection(this);
         this.isConnected = false;
     }
 

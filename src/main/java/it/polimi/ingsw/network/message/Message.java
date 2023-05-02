@@ -1,10 +1,12 @@
 package it.polimi.ingsw.network.message;
 
+import java.io.Serializable;
+
 /**
  * This immutable class represents a message sent between client and server.
  * Every message contains the nickname of the sender/receiver and a type determined by the enumeration {@code MessageType}.
  */
-public abstract class Message {
+public abstract class Message implements Serializable {
     protected String nickname;         // Nickname of the sender/receiver
 
     protected MessageType messageType; // Type of the message

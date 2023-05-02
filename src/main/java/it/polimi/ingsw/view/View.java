@@ -25,6 +25,13 @@ public interface View {
     void askColumnAndPositions ();
 
     /**
+     * Show a login response to the client.
+     * @param validNickname {@code true} if the selected nickname is valid, {@code false} otherwise.
+     * @param connectionEstablished {@code true} if a solid connection is established, {@code false} otherwise.
+     */
+    void showLoginResponse (boolean validNickname, boolean connectionEstablished);
+
+    /**
      * Shows a generic message to the client.
      * @param genericMessage The text message to be shown.
      */

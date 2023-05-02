@@ -7,7 +7,9 @@ import it.polimi.ingsw.observer.Observable;
  * This abstract class represents a general client. It will be extended by subclasses, depending on the technology
  * chosen for networking (e.g. Socket or RMI).
  */
-public abstract class Client extends Observable {
+public abstract class Client {
+    protected ClientManager clientManager;
+
     /**
      * This method sends a message to the server.
      * @param message The message to be sent.
@@ -26,7 +28,16 @@ public abstract class Client extends Observable {
 
     /**
      * Enable a heartbeat (ping messages) to keep the connection alive.
-     * @param pingEnabled A boolean value {@code true} to enable the heartbeat, otherwise {@code false} to kill the heartbeat.
      */
-    public abstract void enablePing (boolean pingEnabled);
+    public abstract void enablePing ();
+
+    public abstract void disablePing ();
+
+    public ClientManager getClientManager() {
+        return clientManager;
+    }
+
+    public void setClientManager(ClientManager clientManager) {
+        this.clientManager = clientManager;
+    }
 }

@@ -50,20 +50,15 @@ public class GameController{
      */
     public void onMessageReceived (Message message) {
         switch (gameState) {
-            case LOBBY_STATE:
-                lobbyStateHandler(message);
-                break;
-            case IN_GAME:
-                turnController(message);
-                break;
-            case LAST_LAP:
-                lastLapStateManager(message);
-                break;
-            case END_GAME:
+            case LOBBY_STATE -> lobbyStateHandler(message);
+            case IN_GAME -> turnController(message);
+            case LAST_LAP -> lastLapStateManager(message);
+            /*case END_GAME:
                 // TODO: Teoricamente non dovrebbero arrivare messaggi in questa fase (forse l'inizio di una nuova partita?)
                 break;
             default:
                 // TODO: segnalare stato di gioco non valido!
+             */
         }
     }
 
@@ -219,10 +214,20 @@ public class GameController{
         }
     }
 
-    public boolean checkNicknameAvailability (String nickname, List<Player> players, VirtualView virtualView){
-        //implement input controller to get the nickname
-        // TODO: what does do this method? Is it necessary to pass the list of the players, while the controller already knows them?
-        return false;
+    /**
+     * This method checks if the nickname passed as parameter is a valid nickname.
+     * @param nickname The nickname that will be checked.
+     * @param virtualView The virtual view of the client (useful for notifying the result).
+     * @return {@code true} if "nickname" is a valid nickname, {@code false} otherwise.
+     */
+    public boolean checkNicknameAvailability (String nickname, VirtualView virtualView) {
+        if (nickname == null || nickname.isEmpty() || nickname.equalsIgnoreCase("SERVER")) {
+            virtualView.showGenericMessage("Forbidden name.");
+            return false;
+        } else if (game.isNicknameTaken(nickname)) {
+            virtualView.showGenericMessage("Nickname already in use by another player.");
+        }
+        return true;
     }
 
     /* ---------- TURN HANDLING ---------- */
@@ -317,12 +322,23 @@ public class GameController{
         return virtualViewMap;
     }
 
+    /**
+     * This method associates the {@code nickname} (key) with the {@code virtualView} (value).
+     * @param nickname The nickname of the player.
+     * @param virtualView The virtual view of the player.
+     */
     public void addVirtualView (String nickname, VirtualView virtualView) {
         this.virtualViewMap.put(nickname, virtualView);
     }
 
-    public void removeVirtualView (String nickname, VirtualView vv){
-        this.virtualViewMap.remove(nickname, vv);
+    /**
+     * This method removes the virtual view of the client with {@code nickname} specified, only if it is correctly mapped
+     * on the virtual view map.
+     * @param nickname The nickname of the client that will be removed.
+     * @param virtualView The virtual view of the client that will be removed.
+     */
+    public void removeVirtualView (String nickname, VirtualView virtualView){
+        this.virtualViewMap.remove(nickname, virtualView);
     }
 
     /* ---------- UTILITY METHODS ---------- */

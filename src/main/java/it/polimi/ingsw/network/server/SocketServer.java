@@ -3,31 +3,69 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import it.polimi.ingsw.controller.GameController;
+import it.polimi.ingsw.network.message.Message;
 
 /**
  * This class extends the Server class by Socket network technology.
  */
-public class SocketServer extends Server {
-    private Server server;
-    private ServerSocket serverSocket;
-    private int port = 55555;
+public class SocketServer implements Runnable {
+    private final int port;
+    public static final int SOCKET_SERVER_PORT = 5000;
     private boolean serverState = false;
-
+    private final Server server;
+    private ServerSocket serverSocket;
 
     /**
      * This constructor creates a server-side socket on a given port.
-     * @throws IOException when a problem occurs with the I/O system.
      */
-    public SocketServer() throws IOException {
-        super(new GameController());
-        this.serverSocket = new ServerSocket(this.port);
-        serverSocket.setSoTimeout(10000);
-        this.serverState = true;
+    public SocketServer (Server server, int port) {
+        this.server = server;
+        this.port = port;
     }
 
     /**
+     * Creates a thread that will listen on the {@code ServerSocket}.
+     * When a new client asks for the connection, a new {@code SocketClientHandler} is created.
+     */
+    @Override
+    public void run () {
+        try {
+            this.serverSocket = new ServerSocket(this.port);
+            System.out.println("Socket server running on port " + this.port);
+            this.serverState = true;
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Unable to start socket server.");
+        }
+
+        while (!Thread.currentThread().isInterrupted()) {
+            try {
+                Socket clientSocket = serverSocket.accept();    // Wait for a new connection and receives the socket Object
+                System.out.println("New connection request from: " + clientSocket.getInetAddress());
+                clientSocket.setSoTimeout(0);
+                // Create and start the specific client handler.
+                SocketClientHandler clientHandler = new SocketClientHandler(this, clientSocket);
+                Thread thread = new Thread(clientHandler);
+                thread.start();
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+    }
+
+    public void addClient(String nickname, ClientHandler clientHandler) {
+        server.addClient(nickname, clientHandler);
+    }
+
+    public void onMessageReceived(Message message) {
+        server.onMessageReceived(message);
+    }
+
+    /* ---------- GETTERS & SETTERS ---------- */
+    /**
      * This method returns the current state of the Server.
-     * @return a boolean which value is 1 if the Server is active, 0 otherwise.
+     * @return A boolean indicating the current status of the server.
      */
     public boolean isActive(){
         return this.serverState;
@@ -39,38 +77,6 @@ public class SocketServer extends Server {
      */
     public void setState(boolean state){
         this.serverState = state;
-    }
-
-
-    /**
-     * This method is built to accept connections from different clients.
-     * @throws IOException when a I/O error occurs.
-     */
-    public void runServerConnection() throws IOException {
-        System.out.println("Server started. Waiting for connections...");
-        while (isActive()) {
-           Socket clientSocket = serverSocket.accept();
-            System.out.println("Connection accepted from " + clientSocket.getInetAddress().getHostName());
-            SocketClientHandler clientHandler = new SocketClientHandler(this, clientSocket);
-            clientHandler.start();
-        }
-    }
-
-
-    /**
-     * This method will be used to close the server connection.
-     */
-    public void closeConnection(ClientHandler clientHandler){
-        if (serverSocket != null) {
-            try {
-                System.out.println("Closing Server...");
-                serverSocket.close();
-                server.ManageDisconnection(clientHandler);
-                serverState = false;
-            } catch (IOException e) {
-                System.err.println("Disconnection Failed. Try again.");
-            }
-        }
     }
 }
 

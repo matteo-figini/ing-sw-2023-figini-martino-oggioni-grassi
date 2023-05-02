@@ -15,7 +15,7 @@ public interface ClientHandler {
      * This method sends a message to the client handled by the client handler.
      * @param message The message to send to the client.
      */
-    public void MessageToClient(Message message);
+    public void sendMessage(Message message);
 
     /**
      * This method disconnects the specified client from the server, e.g. due to ping timeout or not valid information.
