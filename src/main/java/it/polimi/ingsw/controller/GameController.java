@@ -270,6 +270,14 @@ public class GameController{
     }
 
     /**
+     * This method returns the map of the virtual view of every player.
+     * @return the VirtualView map.
+     */
+    public Map<String, VirtualView> getVirtualView(){
+        return this.virtualViewMap;
+    }
+
+    /**
      * This private method sets the current state of the game. It is private because only the class itself can change
      * the state of the game.
      * @param gameState The new state of the game.

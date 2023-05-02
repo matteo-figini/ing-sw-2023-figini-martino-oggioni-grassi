@@ -8,7 +8,7 @@ import it.polimi.ingsw.controller.GameController;
  * This class extends the Server class by Socket network technology.
  */
 public class SocketServer extends Server {
-
+    private Server server;
     private ServerSocket serverSocket;
     private int port = 55555;
     private boolean serverState = false;
@@ -60,11 +60,12 @@ public class SocketServer extends Server {
     /**
      * This method will be used to close the server connection.
      */
-    public void closeConnection(){
+    public void closeConnection(ClientHandler clientHandler){
         if (serverSocket != null) {
             try {
                 System.out.println("Closing Server...");
                 serverSocket.close();
+                server.ManageDisconnection(clientHandler);
                 serverState = false;
             } catch (IOException e) {
                 System.err.println("Disconnection Failed. Try again.");

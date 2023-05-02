@@ -18,11 +18,21 @@ public class SocketClientHandler extends Thread implements ClientHandler{
     private boolean isConnected;
     private ObjectInputStream input;
     private ObjectOutputStream output;
+
+    /**
+     * This constructor creates a socket ClientHandler which will manage by thread every single client connection.
+     * @param server instance of the socket Server.
+     * @param clientSocket Socket connected to the Client.
+     */
     public SocketClientHandler(SocketServer server, Socket clientSocket) {
         this.clientSocket = clientSocket;
         this.server = server;
         this.isConnected = true;
     }
+
+    /**
+     * This method creates a Thread
+     */
     public void run() {
         System.out.println("Server waiting for connections...");
 
@@ -70,7 +80,7 @@ public class SocketClientHandler extends Thread implements ClientHandler{
             System.err.println("I/O Error.");
         }
         Thread.currentThread().interrupt();
-        server.closeConnection();
+        server.closeConnection(this);
         this.isConnected = false;
     }
 

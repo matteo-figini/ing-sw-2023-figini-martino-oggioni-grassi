@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * This abstract class represents the implementation of the Server.
  */
-public abstract class Server extends Thread{
+public abstract class Server {
 
     /** Instance of the {@code GameController} class. */
     private GameController gameController;
@@ -27,6 +27,21 @@ public abstract class Server extends Thread{
     public Server (GameController gameController) {
         this.gameController = gameController;
         clientHandlerMap = new HashMap<>();
+    }
+
+    /**
+     * This method asks the gameController the nickname of the current player.
+     * @return the nickname of the current player.
+     */
+    public String getNickname(){
+        return this.gameController.getActivePlayer();
+    }
+
+    public VirtualView getVVbyNickname() {
+        String nickname = getNickname();
+        Map<String, VirtualView> map = gameController.getVirtualView();
+        VirtualView vv = map.get(nickname);
+        return vv;
     }
 
     /**
@@ -67,6 +82,20 @@ public abstract class Server extends Thread{
      */
     public void onMessageReceived(Message message){
         gameController.onMessageReceived(message);
+    }
+
+    /**
+     *This methods communicates with the Game Controller when a disconnection occurs.
+     * @param clientHandler
+     */
+    public void ManageDisconnection(ClientHandler clientHandler){
+        removeClient(getNickname(), getVVbyNickname());
+        if (gameController.getGameState() != GameState.LOBBY_STATE){
+           //TODO: Send message (generic?) to change the state of the game to END_GAME
+            clientHandlerMap.clear();
+            gameController.getVirtualView().remove(getNickname());
+            gameController.getPlayers().remove(getNickname());
+        }
     }
 
 }
