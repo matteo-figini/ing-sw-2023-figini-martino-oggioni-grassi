@@ -2,6 +2,7 @@ package it.polimi.ingsw.model;
 
 import it.polimi.ingsw.exception.NotEnoughCellsException;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,7 +10,7 @@ import java.util.stream.Collectors;
 /**
  * This class represents the shelf of the player.
  */
-public class Shelf {
+public class Shelf implements Serializable {
     private ShelfCell[][] shelfContent;
 
     final public static int ROWS = 6;

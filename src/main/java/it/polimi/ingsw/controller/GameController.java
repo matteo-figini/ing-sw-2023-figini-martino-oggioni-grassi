@@ -7,7 +7,7 @@ import it.polimi.ingsw.model.*;
 import it.polimi.ingsw.model.commongoals.CommonGoalCard;
 import it.polimi.ingsw.network.message.Message;
 import it.polimi.ingsw.network.message.MessageType;
-import it.polimi.ingsw.network.message.PickTiles;
+import it.polimi.ingsw.network.message.PickTilesReply;
 import it.polimi.ingsw.network.message.PlayersNumberReply;
 import it.polimi.ingsw.view.VirtualView;
 
@@ -74,7 +74,7 @@ public class GameController{
                 game.setChosenPlayersNumber(messageReceived.getPlayersNumber());
                 System.out.println("This game will have " + game.getChosenPlayersNumber() + " players.");
             } else {
-                // Rimanda la richiesta di invio del numero di giocatori
+                // TODO: rimandare il messaggio!
             }
         } else {
             System.out.println("ERROR: Wrong message type (expected: PLAYERSNUMBER_REPLY, actual: " + message.getMessageType().toString() + ")");
@@ -92,9 +92,9 @@ public class GameController{
     private void turnController (Message message) {
         VirtualView currentVirtualView = virtualViewMap.get(getActivePlayer());
 
-        if (message.getMessageType() == MessageType.PICK_TILES) {
+        if (message.getMessageType() == MessageType.PICK_TILES_REPLY) {
             if (message.getNickname().equals(getActivePlayer())) {
-                PickTiles messageReceived = (PickTiles) message;
+                PickTilesReply messageReceived = (PickTilesReply) message;
 
                 if (game.getPlayerByNickname(getActivePlayer()).getShelf().freeCellsOnColumn(messageReceived.getColumn()) >= messageReceived.getPositionsOfTiles().size()) {
                     // Vi sono sufficienti celle nella shelf. A questo punto controllo che le posizioni coincidano con tessere valide.
@@ -128,9 +128,9 @@ public class GameController{
 
     private void lastLapStateManager (Message message) {
         VirtualView currentVirtualView = virtualViewMap.get(getActivePlayer());
-        if (message.getMessageType() == MessageType.PICK_TILES) {
+        if (message.getMessageType() == MessageType.PICK_TILES_REPLY) {
             if (message.getNickname().equals(getActivePlayer())) {
-                PickTiles messageReceived = (PickTiles) message;
+                PickTilesReply messageReceived = (PickTilesReply) message;
 
                 if (game.getPlayerByNickname(getActivePlayer()).getShelf().freeCellsOnColumn(messageReceived.getColumn()) >= messageReceived.getPositionsOfTiles().size()) {
                     // Vi sono sufficienti celle nella shelf. A questo punto controllo che le posizioni coincidano con tessere valide.
@@ -206,9 +206,6 @@ public class GameController{
             virtualView.showGenericMessage("Waiting for other players...");
             if (game.getPlayers().size() == game.getChosenPlayersNumber()) {
                 broadcastGenericMessage("All the players are connected.");
-                // Desired number of players reached.
-                // Se implementiamo la persistenza, questo potrebbe essere il punto in cui ripristinare lo stato del gioco.
-                // Inizia il gioco.
                 startGame();
             }
         }
@@ -261,6 +258,7 @@ public class GameController{
      */
     private void newTurn () {
         setActivePlayer(getNextPlayer());
+        showGameInformation();
         broadcastGenericMessage("Turn of " + getActivePlayer());
         askActivePlayerColumnAndPosition();
     }
@@ -348,16 +346,25 @@ public class GameController{
     private void startGame () {
         setGameState(GameState.IN_GAME);
         game.startGame();
-        // TODO: mostrare a tutti gli utenti la board
-        // TODO: mostrare a tutti gli utenti le shelf
-        // TODO: mostrare a tutti gli utenti le carte obiettivo comune
-        // TODO: mostrare a ciascun utente la propria carta obiettivo personale
+        System.out.println("Game starting with " + game.getPlayers().size());
+        showGameInformation();
         broadcastGenericMessage("Game Started");
 
-        // TODO: gestione del nuovo turno
         setActivePlayer(chooseRandomPlayer());  // Choose the first player
         broadcastGenericMessage("Turn of " + getActivePlayer());
         askActivePlayerColumnAndPosition();
+    }
+
+    /**
+     * This method is used to show to each player:
+     * - The game board
+     * - The shelf of each player
+     * - The common goal cards
+     * - The player's personal goal card
+     */
+    private void showGameInformation () {
+        showBoard();
+        showShelfOfEachPlayer();
     }
 
     /**

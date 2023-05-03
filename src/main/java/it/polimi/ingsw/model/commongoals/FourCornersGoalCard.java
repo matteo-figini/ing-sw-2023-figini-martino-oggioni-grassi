@@ -2,7 +2,6 @@ package it.polimi.ingsw.model.commongoals;
 
 import it.polimi.ingsw.model.Shelf;
 
-// TODO: testare l'algoritmo di controllo delle carte per FourCornersGoalCard
 public class FourCornersGoalCard extends CommonGoalCard {
 
     /**

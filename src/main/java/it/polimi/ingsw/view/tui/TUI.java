@@ -28,7 +28,7 @@ public class TUI implements View {
      * Then it delegates the connection to the {@code ClientManager}.
      */
     public void askServerInformation () {
-        String ipAddress, defaultIpAddress = "127.0.0.1";      // Localhost address.
+        String ipAddress, defaultIpAddress = "127.0.0.1", input;      // Localhost address.
         int port, defaultPort = 5000;
         boolean validInput = false;
 
@@ -36,8 +36,15 @@ public class TUI implements View {
         do {
             System.out.print("Please insert the IP address of the server (default: " + defaultIpAddress + "): ");
             ipAddress = scanner.nextLine();
+            if (ipAddress.equalsIgnoreCase(""))
+                ipAddress = defaultIpAddress;
             System.out.print("Please insert the port of the server (default: " + defaultPort + "): ");
-            port = Integer.parseInt(scanner.nextLine());
+            input = scanner.nextLine();
+            if (input.equals(""))
+                port = defaultPort;
+            else
+                port = Integer.parseInt(input);
+
             if (ClientManager.isValidIPAddress(ipAddress) && ClientManager.isValidPort(port))
                 validInput = true;
         } while (!validInput);
@@ -54,7 +61,12 @@ public class TUI implements View {
 
     @Override
     public void askPlayersNumber () {
-
+        int numOfPlayers = 2;           // Default players number
+        do {
+            System.out.print("How many players do you want to play with (between 2 and 4)? ");
+            numOfPlayers = Integer.parseInt(scanner.nextLine());
+        } while (numOfPlayers < Game.MIN_PLAYERS || numOfPlayers > Game.MAX_PLAYERS);
+        clientManager.onUpdatePlayersNumber(numOfPlayers);
     }
 
     @Override
@@ -92,7 +104,7 @@ public class TUI implements View {
             column = Integer.parseInt(scanner.nextLine());
         } while (column < 0 || column >= Shelf.COLUMNS);
 
-        // TODO: Notify observers that a new PICK_TILES message is ready.
+        clientManager.onUpdateColumnAndPosition(positions, column);
     }
 
     @Override

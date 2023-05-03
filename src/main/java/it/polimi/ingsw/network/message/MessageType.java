@@ -11,7 +11,8 @@ public enum MessageType {
     PLAYERSNUMBER_REPLY,
 
     // Fase di gioco
-    PICK_TILES,
+    PICK_TILES_REQUEST,
+    PICK_TILES_REPLY,
     SHELF_CONTENT,
     BOARD_CONTENT,
 

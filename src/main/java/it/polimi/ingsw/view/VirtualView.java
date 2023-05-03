@@ -2,11 +2,8 @@ package it.polimi.ingsw.view;
 
 import it.polimi.ingsw.model.BoardCell;
 import it.polimi.ingsw.model.ShelfCell;
-import it.polimi.ingsw.network.message.LoginReply;
+import it.polimi.ingsw.network.message.*;
 import it.polimi.ingsw.network.server.ClientHandler;
-import it.polimi.ingsw.network.message.BoardContent;
-import it.polimi.ingsw.network.message.GenericMessage;
-import it.polimi.ingsw.network.message.ShelfContent;
 
 /**
  * This class offer a mirror of a single client view for the server.
@@ -27,12 +24,12 @@ public class VirtualView implements View {
 
     @Override
     public void askPlayersNumber () {
-        // TODO: implementare il metodo askPlayersNumber() per VV
+        clientHandler.sendMessage(new PlayersNumberRequest());
     }
 
     @Override
     public void askColumnAndPositions() {
-        // TODO: implementare il metodo askUserColumnAndPositions() per VV
+        clientHandler.sendMessage(new PickTilesRequest());
     }
 
     @Override

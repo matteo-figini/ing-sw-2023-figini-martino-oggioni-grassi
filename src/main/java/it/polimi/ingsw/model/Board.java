@@ -2,11 +2,12 @@ package it.polimi.ingsw.model;
 
 import it.polimi.ingsw.exception.WrongPositionsException;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Board{
+public class Board implements Serializable {
     private BoardCell[][] boardContent;
     private int freeCellsOnBoard;
 

@@ -4,10 +4,11 @@ import it.polimi.ingsw.exception.NoScoringTokenAvailableException;
 import it.polimi.ingsw.model.ScoringToken;
 import it.polimi.ingsw.model.Shelf;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class CommonGoalCard {
+public abstract class CommonGoalCard implements Serializable {
     private final List<ScoringToken> scoringTokens;   // Stack with the scoring tokens.
 
     protected String description;

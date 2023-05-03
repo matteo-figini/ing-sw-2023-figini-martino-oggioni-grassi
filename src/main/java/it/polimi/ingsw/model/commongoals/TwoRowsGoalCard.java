@@ -6,7 +6,6 @@ import it.polimi.ingsw.model.Shelf;
 import java.util.HashMap;
 import java.util.Map;
 
-// TODO: testare l'algoritmo di controllo delle carte per TwoRowsGoalCard
 public class TwoRowsGoalCard extends CommonGoalCard {
     /**
      * Constructor that takes in input the number of the players and set the specific stack for scoring tokens.

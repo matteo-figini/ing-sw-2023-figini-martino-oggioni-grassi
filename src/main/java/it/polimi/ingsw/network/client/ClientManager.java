@@ -1,6 +1,5 @@
 package it.polimi.ingsw.network.client;
 
-import it.polimi.ingsw.model.Board;
 import it.polimi.ingsw.model.Position;
 import it.polimi.ingsw.network.message.*;
 import it.polimi.ingsw.view.View;
@@ -64,7 +63,7 @@ public class ClientManager {
      * @param column The column in the shelf.
      */
     public void onUpdateColumnAndPosition (List<Position> positions, int column) {
-        client.sendMessage(new PickTiles(this.nickname, positions, column));
+        client.sendMessage(new PickTilesReply(this.nickname, positions, column));
     }
 
     /**
@@ -83,7 +82,12 @@ public class ClientManager {
      */
     public void update (Message message) {
         switch (message.getMessageType()) {
-            // ...
+            case PLAYERSNUMBER_REQUEST -> {
+                view.askPlayersNumber();
+            }
+            case PICK_TILES_REQUEST -> {
+                view.askColumnAndPositions();
+            }
             case BOARD_CONTENT -> {
                 BoardContent boardMessage = (BoardContent) message;
                 view.showBoardContent(boardMessage.getBoardContent());
@@ -97,6 +101,7 @@ public class ClientManager {
                 view.showGenericMessage(genericMessage.getGenericMessage());
             }
             // ...
+            // TODO: completare il metodo
         }
     }
 

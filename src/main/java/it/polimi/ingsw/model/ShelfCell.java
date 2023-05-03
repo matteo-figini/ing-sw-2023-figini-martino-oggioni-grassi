@@ -1,9 +1,11 @@
 package it.polimi.ingsw.model;
 
+import java.io.Serializable;
+
 /**
  * This class represents a cell inside the shelf.
  */
-public class ShelfCell {
+public class ShelfCell implements Serializable {
     private ItemTile tile;      // Tile contained in the cell
 
     /**

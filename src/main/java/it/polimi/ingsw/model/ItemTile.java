@@ -1,10 +1,12 @@
 package it.polimi.ingsw.model;
 
+import java.io.Serializable;
+
 /**
  * This immutable class represents the item tile in the board or in the shelf.
  * Every item tile has got an item tile type (enumeration) that represents the type.
  */
-public class ItemTile {
+public class ItemTile implements Serializable {
     private ItemTileType type;
 
     /**

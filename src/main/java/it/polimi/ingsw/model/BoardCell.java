@@ -1,10 +1,12 @@
 package it.polimi.ingsw.model;
 
+import java.io.Serializable;
+
 /**
  * This class represents the single cell inside the board. Every board cell has got a type (PLAYABLE/NOT PLAYABLE) and
  * a reference to the item tile contained if an item tile is contained, otherwise the type is null.
  */
-public class BoardCell {
+public class BoardCell implements Serializable {
     private BoardCellType type;
     private ItemTile itemTile;
 

@@ -10,7 +10,6 @@ import java.util.Random;
 
 // TODO: da revisionare
 
-// TODO: singleton pattern?
 /**
  * This class represents all the game in terms of player, board and all the model.
  * It can be useful as an entry point for the controller.
@@ -92,8 +91,6 @@ public class Game {
      * -) Draw & assign 1 personal goal card for each player.
      */
     public void startGame () {
-        assert players.size() >= MIN_PLAYERS && players.size() <= MAX_PLAYERS;
-
         this.board = new Board(players.size());
         this.refillBoardFromBag();
         assignsCommonGoalCards();

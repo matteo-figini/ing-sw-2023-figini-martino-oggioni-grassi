@@ -4,6 +4,7 @@ import it.polimi.ingsw.model.ItemTileType;
 import it.polimi.ingsw.model.Position;
 import it.polimi.ingsw.model.Shelf;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,7 +13,7 @@ import java.util.Map;
  * There are 12 distinct personal goal cards in the game, so this enumeration can have 12 possible instances.
  * Every instance of the enumeration reimplements the method that check how many goals are satisfied.
  */
-public abstract class PersonalGoalCard {
+public abstract class PersonalGoalCard implements Serializable {
     protected Map <Position, ItemTileType> schema;
 
     /**

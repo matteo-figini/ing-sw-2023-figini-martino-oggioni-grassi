@@ -1,11 +1,12 @@
 package it.polimi.ingsw.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * This immutable class represents a couple of 2D coordinates, useful eg. in the shelf or on the board.
  */
-public class Position {
+public class Position implements Serializable {
     private final int x;
     private final int y;
 
