@@ -12,6 +12,7 @@ import it.polimi.ingsw.network.message.PlayersNumberReply;
 import it.polimi.ingsw.view.VirtualView;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * This class represents the main class for the controller in the MVC package. Main action of the game controller are:
@@ -212,13 +213,9 @@ public class GameController {
         }
         System.out.println(sortedScoreMap);
 
-        /*
-         * Poi, cerca il giocatore con punteggio più alto:
-         * - Se il giocatore con punteggio più alto è unico, lui è il vincitore della partita.
-         * - Altrimenti, in caso di parità, il vincitore è colui che è più lontano dal giocatore con la sedia.
-         * Infine, termina la partita (es. resettando l'istanza di Game e facendo altre cose...).
-         * TODO: da definire cosa succede nel dopo-partita: nuova partita oppure interruzione di tutto quanto?
-         */
+        Game.resetGameInstance();
+        broadcastGenericMessage("Game finished! Server ready for a new game...");
+        initGameController();
     }
 
     /* ---------- LOGIN HANDLER ---------- */
@@ -229,25 +226,35 @@ public class GameController {
      * @param nickname The nickname of the client to add to the players' list.
      * @param virtualView The virtual view of the client to add to the virtual views' map.
      */
+    // TODO: change Javadoc!
     public void handleLogin (String nickname, VirtualView virtualView) {
-        if (virtualViewMap.isEmpty()) {
-            // First player to login. The nickname is always correct!
-            addVirtualView(nickname, virtualView);
-            game.addPlayer(nickname);
-            virtualView.askPlayersNumber();
-            virtualView.showGenericMessage("Waiting for other players...");
-        } else if (virtualViewMap.size() < game.getChosenPlayersNumber()) {
-            // The player is not the first one. We suppose here that the nickname is already checked by the server.
-            addVirtualView(nickname, virtualView);
-            game.addPlayer(nickname);
-            virtualView.showGenericMessage("Waiting for other players...");
-            if (gameSuspended && virtualViewMap.size() > 1) {
-                System.out.println("The game can reload from here...");
-                // TODO: finire di implementare la riconnessione di un client che si era disconnesso
+        if (gameState == GameState.LOBBY_STATE) {
+            if (virtualViewMap.isEmpty()) {
+                // First player to login. The nickname is always correct!
+                addVirtualView(nickname, virtualView);
+                game.addPlayer(nickname);
+                virtualView.askPlayersNumber();
+                virtualView.showGenericMessage("Waiting for other players...");
+            } else if (virtualViewMap.size() < game.getChosenPlayersNumber()) {
+                // The player is not the first one. We suppose here that the nickname is already checked by the server.
+                addVirtualView(nickname, virtualView);
+                game.addPlayer(nickname);
+                System.out.println("Players connected: " + virtualViewMap.size() + "/" + game.getChosenPlayersNumber());
+                if (!gameSuspended && getOnlinePlayers().size() == game.getChosenPlayersNumber()) {
+                    broadcastGenericMessage("All the players are connected.");
+                    startGame();
+                }
             }
-            if (game.getPlayers().size() == game.getChosenPlayersNumber()) {
-                broadcastGenericMessage("All the players are connected.");
-                startGame();
+        } else if (gameState == GameState.IN_GAME || gameState == GameState.LAST_LAP) {
+            if (gameSuspended) {
+                addVirtualView(nickname, virtualView);
+                game.getPlayerByNickname(nickname).setOnlinePlayer(true);
+                gameSuspended = false;
+                broadcastGenericMessage("New player reconnected: " + nickname);
+                if (getOnlinePlayers().size() == game.getChosenPlayersNumber()) {
+                    broadcastGenericMessage("All the players are connected.");
+                    newTurn();
+                }
             }
         }
     }
@@ -262,8 +269,10 @@ public class GameController {
         if (nickname == null || nickname.isEmpty() || nickname.equalsIgnoreCase("SERVER")) {
             virtualView.showGenericMessage("Forbidden name.");
             return false;
-        } else if (game.isNicknameTaken(nickname)) {
+        }
+        if (game.isNicknameTaken(nickname)) {
             virtualView.showGenericMessage("Nickname already in use by another player.");
+            return false;
         }
         return true;
     }
@@ -277,17 +286,11 @@ public class GameController {
         boolean onlinePlayer = false;
         Player player = game.getPlayerByNickname(getActivePlayer());
         int indexOfPlayer = game.getPlayers().indexOf(player);
-
         do {
             indexOfPlayer++;
             if (indexOfPlayer == game.getPlayers().size())
                 indexOfPlayer = 0;
         } while (!game.getPlayers().get(indexOfPlayer).isOnlinePlayer());
-        /*if (indexOfPlayer == game.getPlayers().size() - 1) {
-            indexOfPlayer = 0;
-        } else {
-            indexOfPlayer++;
-        }*/
         return game.getPlayers().get(indexOfPlayer).getNickname();
     }
 
@@ -555,5 +558,25 @@ public class GameController {
      */
     public boolean isGameSuspended() {
         return gameSuspended;
+    }
+
+    /**
+     * @return A list of the online players' nicknames.
+     */
+    public List<String> getOnlinePlayers () {
+        return game.getPlayers().stream()
+                .filter(Player::isOnlinePlayer)
+                .map(Player::getNickname)
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * @return A list of the offline players' nicknames.
+     */
+    public List<String> getOfflinePlayers () {
+        return game.getPlayers().stream()
+                .filter(player -> !player.isOnlinePlayer())
+                .map(Player::getNickname)
+                .collect(Collectors.toList());
     }
 }

@@ -39,6 +39,10 @@ public class Game {
         return gameInstance;
     }
 
+    public static void resetGameInstance () {
+        gameInstance = null;
+    }
+
     /**
      * Default constructor is private due to singleton pattern applied. It instantiates all the necessary elements for
      * the Game.

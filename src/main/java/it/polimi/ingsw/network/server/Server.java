@@ -51,14 +51,17 @@ public class Server {
                 virtualView.showLoginResponse(false, true);
             }
         } else {
-            // Se il gioco era sospeso e il client connesso era già presente all'interno della lista dei client,
-            // riconnettilo.
-            // TODO: modificare il metodo, adattando la riconnessione del client
-            if (gameController.isGameSuspended()) {
-                System.out.println("Game can restart from here...");
+            if (gameController.isGameSuspended() && gameController.getOfflinePlayers().contains(nickname)) {
+                // Il giocatore era precedentemente connesso, poi si è disconnesso e ora si è riconnesso.
+                clientHandlerMap.remove(nickname);
+
+                clientHandlerMap.put(nickname, clientHandler);
+                System.out.println("Player reconnected: " + nickname);
+                gameController.handleLogin(nickname, virtualView);
+            } else {
+                virtualView.showLoginResponse(true, false);
+                // clientHandler.disconnect();
             }
-            virtualView.showLoginResponse(true, false);
-            // clientHandler.disconnect();
         }
     }
 
@@ -87,6 +90,7 @@ public class Server {
         nicknameOfDisconnectedClient = fromClientHandlerToNickname(clientHandler);
         System.out.println("Nickname of the disconnected client: " + nicknameOfDisconnectedClient);
         clientHandlerMap.remove(nicknameOfDisconnectedClient);
+        gameController.getVirtualViewMap().remove(nicknameOfDisconnectedClient);
         gameController.setPlayerOffline(nicknameOfDisconnectedClient);
     }
 
