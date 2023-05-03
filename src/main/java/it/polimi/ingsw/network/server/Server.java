@@ -5,7 +5,6 @@ import it.polimi.ingsw.controller.GameState;
 import it.polimi.ingsw.network.message.Message;
 import it.polimi.ingsw.view.VirtualView;
 
-import java.io.IOException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,7 +21,7 @@ public class Server {
     /** Map containing all the instances of the {@code ClientHandler} by their nickname. */
     private final Map<String, ClientHandler> clientHandlerMap;
 
-    private final Object lock;
+    // private final Object lock;
 
     /**
      * Creates an instance of the server.
@@ -31,7 +30,7 @@ public class Server {
     public Server (GameController gameController) {
         this.gameController = gameController;
         this.clientHandlerMap = Collections.synchronizedMap(new HashMap<>());
-        this.lock = new Object();
+        // this.lock = new Object();
     }
 
     /**
@@ -52,6 +51,12 @@ public class Server {
                 virtualView.showLoginResponse(false, true);
             }
         } else {
+            // Se il gioco era sospeso e il client connesso era già presente all'interno della lista dei client,
+            // riconnettilo.
+            // TODO: modificare il metodo, adattando la riconnessione del client
+            if (gameController.isGameSuspended()) {
+                System.out.println("Game can restart from here...");
+            }
             virtualView.showLoginResponse(true, false);
             // clientHandler.disconnect();
         }
@@ -76,20 +81,21 @@ public class Server {
         gameController.onMessageReceived(message);
     }
 
-    /**
-     * This method communicates with the Game Controller when a disconnection occurs.
-     * @param clientHandler
-     */
-    public void manageDisconnection (ClientHandler clientHandler) {
-        // TODO: implementare la disconnessione di un client
-        // Siccome per ora non stiamo implementando la resilienza alle disconnessioni, è sufficiente che una volta che un client
-        // si disconnette, la partita termina per tutti i client.
-        /*removeClient(getNickname(), getVVbyNickname());
-        if (gameController.getGameState() != GameState.LOBBY_STATE){
-            clientHandlerMap.clear();
-            gameController.getVirtualView().remove(getNickname());
-            gameController.getPlayers().remove(getNickname());
-        }*/
+    public void onClientDisconnection (ClientHandler clientHandler) {
+        String nicknameOfDisconnectedClient;
+        System.out.println("Client " + clientHandler.toString() + " disconnected.");
+        nicknameOfDisconnectedClient = fromClientHandlerToNickname(clientHandler);
+        System.out.println("Nickname of the disconnected client: " + nicknameOfDisconnectedClient);
+        clientHandlerMap.remove(nicknameOfDisconnectedClient);
+        gameController.setPlayerOffline(nicknameOfDisconnectedClient);
     }
 
+    private String fromClientHandlerToNickname (ClientHandler clientHandler) {
+        for (Map.Entry<String, ClientHandler> entry : clientHandlerMap.entrySet()) {
+            if (entry.getValue().equals(clientHandler)) {
+                return entry.getKey();
+            }
+        }
+        return null;
+    }
 }

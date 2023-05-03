@@ -2,6 +2,8 @@ package it.polimi.ingsw.network.server;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.List;
+
 import it.polimi.ingsw.controller.GameController;
 import it.polimi.ingsw.network.message.Message;
 
@@ -51,7 +53,10 @@ public class SocketServer implements Runnable {
                 System.out.println(e.getMessage());
             }
         }
+    }
 
+    public void onClientDisconnection (ClientHandler clientHandler) {
+        server.onClientDisconnection(clientHandler);
     }
 
     public void addClient(String nickname, ClientHandler clientHandler) {

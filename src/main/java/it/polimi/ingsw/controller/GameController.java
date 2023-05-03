@@ -14,16 +14,28 @@ import it.polimi.ingsw.view.VirtualView;
 import java.util.*;
 
 /**
- * This class represents the main class for the controller in the MVC package. It receives the inputs as messages
- * from the view and updates the model, controlling all the game logic.
+ * This class represents the main class for the controller in the MVC package. Main action of the game controller are:
+ * - Receiving the messages from the client and take decisions based on the message type and the game state;
+ * - Sending the model updates to all the clients;
+ * - Manage the game logic.
  */
-public class GameController{
-    private Game game;              // Entry point for the model.
-    private GameState gameState;    // State of the game.
-    private String activePlayer;    // Active player.
+public class GameController {
+
+    /** Entry point for the model. */
+    private Game game;
+
+    /** State of the game. */
+    private GameState gameState;
+
+    /** Name of the current active player. */
+    private String activePlayer;
+
+    /** Map of the virtual views (key: player's nickname, value: {@code VirtualView}). */
     private Map<String, VirtualView> virtualViewMap;    // Map of the virtual views.
 
-    private Map<String, Integer> scoreMap;
+    /** {@code true} if the game is currently suspended, {@code false} otherwise (default situation) */
+    private boolean gameSuspended;
+
     /**
      * Default constructor for the {@code GameController} class.
      * Every action is demanded to {@code initGameController} method that creates the game controller class.
@@ -37,47 +49,42 @@ public class GameController{
      */
     private void initGameController () {
         this.game = Game.getGameInstance();
-        this.virtualViewMap = new HashMap<>();      // Potrebbe dare problemi di concorrenza?
-        this.scoreMap = new HashMap<>();
-        // TODO: Altre cose da istanziare?
+        this.virtualViewMap = new HashMap<>();
+        this.gameSuspended = false;
         setGameState(GameState.LOBBY_STATE);
     }
 
-    /* ---------- MESSAGES HANDLER ---------- */
+    /* ---------- MESSAGE HANDLER ---------- */
     /**
-     * This method handles a message received from the client switching on the current game state.
+     * Handles a received message and take actions based on the current game state.
      * @param message The message received from the client over the network layer.
      */
     public void onMessageReceived (Message message) {
-        switch (gameState) {
-            case LOBBY_STATE -> lobbyStateHandler(message);
-            case IN_GAME -> turnController(message);
-            case LAST_LAP -> lastLapStateManager(message);
-            /*case END_GAME:
-                // TODO: Teoricamente non dovrebbero arrivare messaggi in questa fase (forse l'inizio di una nuova partita?)
-                break;
-            default:
-                // TODO: segnalare stato di gioco non valido!
-             */
+        if (!gameSuspended) {
+            switch (gameState) {
+                case LOBBY_STATE -> lobbyStateManager(message);
+                case IN_GAME -> turnController(message);
+                case LAST_LAP -> lastLapStateManager(message);
+                case END_GAME -> endGameStateManager(message);
+                default -> { System.out.println("Unhandled message: " + message.toString()); }
+            }
+        } else {
+            broadcastGenericMessage("Can't receive message since the game is suspended.");
         }
     }
 
     /**
-     * This method handles the Lobby state.
-     * In this state, the only message allowed is PLAYERSNUMBER_REPLY, since the login is handled directly by the {@code Server}.
-     * @param message The message received from the network layer.
+     * Take actions based on a message arrived in {@code LOBBY_STATE} state.
+     * @param message The message received. Requires that the number of the players is between {@code Game.MIN_PLAYERS}
+     *                and {@code Game.MAX_PLAYERS}.
      */
-    private void lobbyStateHandler (Message message) {
+    private void lobbyStateManager (Message message) {
         if (message.getMessageType() == MessageType.PLAYERSNUMBER_REPLY) {
             PlayersNumberReply messageReceived = (PlayersNumberReply) message;
-            if (messageReceived.getPlayersNumber() >= Game.MIN_PLAYERS && messageReceived.getPlayersNumber() <= Game.MAX_PLAYERS) {
-                game.setChosenPlayersNumber(messageReceived.getPlayersNumber());
-                System.out.println("This game will have " + game.getChosenPlayersNumber() + " players.");
-            } else {
-                // TODO: rimandare il messaggio!
-            }
+            game.setChosenPlayersNumber(messageReceived.getPlayersNumber());
+            System.out.println("This game will have " + game.getChosenPlayersNumber() + " players.");
         } else {
-            System.out.println("ERROR: Wrong message type (expected: PLAYERSNUMBER_REPLY, actual: " + message.getMessageType().toString() + ")");
+            System.out.println("ERROR: Wrong message type (expected: PLAYERS_NUMBER_REPLY, actual: " + message.getMessageType().toString() + ")");
         }
     }
     /*
@@ -86,9 +93,8 @@ public class GameController{
      */
 
     /**
-     * This method handles a player's turn inside IN_GAME state.
-     * Server receives a PICK_TILES request from the active player and controls the execution flow.
-     * @param message The message received from the network layer.
+     * Take actions based on a message arrived in {@code IN_GAME} state.
+     * @param message The message received.
      */
     private void turnController (Message message) {
         VirtualView currentVirtualView = virtualViewMap.get(getActivePlayer());
@@ -127,8 +133,8 @@ public class GameController{
     }
 
     /**
-     *
-     * @param message
+     * Take actions based on a message arrived in {@code LAST_LAP} state.
+     * @param message The message received.
      */
     private void lastLapStateManager (Message message) {
         VirtualView currentVirtualView = virtualViewMap.get(getActivePlayer());
@@ -145,7 +151,7 @@ public class GameController{
                         if (game.getPlayerByNickname(getNextPlayer()).isFirstPlayer()) {
                             setGameState(GameState.END_GAME);
                             broadcastGenericMessage("Next player has the chair: the game finishes!");
-                            endGame();
+                            terminateGame();
                         } else {
                             newTurn();
                         }
@@ -167,9 +173,17 @@ public class GameController{
     }
 
     /**
+     * Take actions based on a message arrived in {@code END_GAME} state.
+     * @param message The message received.
+     */
+    private void endGameStateManager (Message message) {
+
+    }
+
+    /**
      * This method ends the game, calculating the points for each player.
      */
-    private void endGame () {
+    private void terminateGame () {
         for (Player player : game.getPlayers()) {
             player.addScore(player.getShelf().pointsFromAdjacencies());     // Aggiungi i punti delle adiacenze
             player.addScore(player.getPersonalGoalCard().pointsFromGoals(player.getPersonalGoalCard().goalsSatisfied(player.getShelf())));  // Aggiungi gli obiettivi personali
@@ -227,6 +241,10 @@ public class GameController{
             addVirtualView(nickname, virtualView);
             game.addPlayer(nickname);
             virtualView.showGenericMessage("Waiting for other players...");
+            if (gameSuspended && virtualViewMap.size() > 1) {
+                System.out.println("The game can reload from here...");
+                // TODO: finire di implementare la riconnessione di un client che si era disconnesso
+            }
             if (game.getPlayers().size() == game.getChosenPlayersNumber()) {
                 broadcastGenericMessage("All the players are connected.");
                 startGame();
@@ -256,13 +274,20 @@ public class GameController{
      * @return The name of the next active player.
      */
     private String getNextPlayer () {
+        boolean onlinePlayer = false;
         Player player = game.getPlayerByNickname(getActivePlayer());
         int indexOfPlayer = game.getPlayers().indexOf(player);
-        if (indexOfPlayer == game.getPlayers().size() - 1) {
+
+        do {
+            indexOfPlayer++;
+            if (indexOfPlayer == game.getPlayers().size())
+                indexOfPlayer = 0;
+        } while (!game.getPlayers().get(indexOfPlayer).isOnlinePlayer());
+        /*if (indexOfPlayer == game.getPlayers().size() - 1) {
             indexOfPlayer = 0;
         } else {
             indexOfPlayer++;
-        }
+        }*/
         return game.getPlayers().get(indexOfPlayer).getNickname();
     }
 
@@ -281,57 +306,8 @@ public class GameController{
      */
     private void newTurn () {
         setActivePlayer(getNextPlayer());
-        // showGameInformation();
         broadcastGenericMessage("Turn of " + getActivePlayer());
         askActivePlayerColumnAndPosition();
-    }
-
-    /* ---------- GETTERS & SETTERS ---------- */
-    /**
-     * This method returns the current state of the game.
-     * @return The current state of the game.
-     */
-    public GameState getGameState() {
-        return gameState;
-    }
-
-    /**
-     * This method returns the map of the virtual view of every player.
-     * @return the VirtualView map.
-     */
-    public Map<String, VirtualView> getVirtualView(){
-        return this.virtualViewMap;
-    }
-
-    /**
-     * This private method sets the current state of the game. It is private because only the class itself can change
-     * the state of the game.
-     * @param gameState The new state of the game.
-     */
-    private void setGameState(GameState gameState) {
-        this.gameState = gameState;
-    }
-
-    /**
-     * This method returns the name of the current active player.
-     * @return A string containing the name of the current active player.
-     */
-    public String getActivePlayer() {
-        return activePlayer;
-    }
-
-    /**
-     * This method sets the name of the current active player with the value passed as parameter if it exists.
-     * @param player The name of the current active player.
-     */
-    public void setActivePlayer (String player) {
-        if (game.getPlayerByNickname(player) != null) {
-            this.activePlayer = player;
-        }
-    }
-
-    public List<Player> getPlayers(){
-        return game.getPlayers();
     }
 
     /* ---------- VIRTUAL VIEW METHODS ---------- */
@@ -524,5 +500,60 @@ public class GameController{
             broadcastGenericMessage("Proceeding with board refill...");
             showBoard();
         }
+    }
+
+    public void setPlayerOffline (String nickname) {
+        virtualViewMap.remove(nickname);
+        game.getPlayerByNickname(nickname).setOnlinePlayer(false);
+        if (game.getOnlinePlayersNumber() == 1) {
+            gameSuspended = true;
+            broadcastGenericMessage("Game suspended: there's only " + game.getOnlinePlayersNumber() + " player connected.");
+        } else if (nickname.equals(activePlayer) && (gameState.equals(GameState.IN_GAME) || gameState.equals(GameState.LAST_LAP))) {
+            // If the player disconnected is not the current player, starts a new turn anyway!
+            broadcastGenericMessage("Since " + nickname + " is disconnected, the next player is: " + getNextPlayer());
+            newTurn();
+        } else {
+            // TODO: cosa serve scrivere qui?
+        }
+    }
+
+    /* ---------- GETTERS & SETTERS ---------- */
+    /**
+     * @return The current state of the game.
+     */
+    public GameState getGameState() {
+        return gameState;
+    }
+
+    /**
+     * @param gameState The new state of the game.
+     */
+    private void setGameState(GameState gameState) {
+        this.gameState = gameState;
+    }
+
+    /**
+     * @return A string containing the name of the current active player.
+     */
+    public String getActivePlayer() {
+        return activePlayer;
+    }
+
+    /**
+     * This method sets the name of the current active player with the value passed as parameter if it exists.
+     * @param nickname The name of the current active player.
+     */
+    public void setActivePlayer (String nickname) {
+        Player player = game.getPlayerByNickname(nickname);
+        if (player != null && player.isOnlinePlayer()) {
+            this.activePlayer = nickname;
+        }
+    }
+
+    /**
+     * @return {@code true} if the game is actually suspended, {@code false} otherwise.
+     */
+    public boolean isGameSuspended() {
+        return gameSuspended;
     }
 }

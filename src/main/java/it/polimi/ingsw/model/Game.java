@@ -305,4 +305,8 @@ public class Game {
     public List<CommonGoalCard> getCommonGoalCards () {
         return this.commonGoalCards;
     }
+
+    public Integer getOnlinePlayersNumber () {
+        return Math.toIntExact(players.stream().filter(Player::isOnlinePlayer).count());
+    }
 }

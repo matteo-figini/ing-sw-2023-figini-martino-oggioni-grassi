@@ -11,7 +11,10 @@ import it.polimi.ingsw.view.View;
 import java.util.*;
 
 public class TUI implements View {
+    /** The {@code ClientManager} associated to the client. */
     private ClientManager clientManager;
+
+    /** Class for reading inputs from terminal. */
     private final Scanner scanner;
 
     public TUI () {
@@ -19,7 +22,17 @@ public class TUI implements View {
     }
 
     public void startView () {
-        System.out.println("Welcome to the awesome MyShelfie Game!");
+        System.out.println("\n" +
+                "         ___                          ,-,--.  ,--.-,,-,--,    ,----.                _,---.   .=-.-.   ,----.  \n" +
+                "  .-._ .'=.'\\ ,--.-.  .-,--.        ,-.'-  _\\/==/  /|=|  | ,-.--` , \\   _.-.     .-`.' ,  \\ /==/_ /,-.--` , \\ \n" +
+                " /==/ \\|==|  /==/- / /=/_ /        /==/_ ,_.'|==|_ ||=|, ||==|-  _.-` .-,.'|    /==/_  _.-'|==|, ||==|-  _.-` \n" +
+                " |==|,|  / - \\==\\, \\/=/. /         \\==\\  \\   |==| ,|/=| _||==|   `.-.|==|, |   /==/-  '..-.|==|  ||==|   `.-. \n" +
+                " |==|  \\/  , |\\==\\  \\/ -/           \\==\\ -\\  |==|- `-' _ /==/_ ,    /|==|- |   |==|_ ,    /|==|- /==/_ ,    / \n" +
+                " |==|- ,   _ | |==|  ,_/            _\\==\\ ,\\ |==|  _     |==|    .-' |==|, |   |==|   .--' |==| ,|==|    .-'  \n" +
+                " |==| _ /\\   | \\==\\-, /            /==/\\/ _ ||==|   .-. ,\\==|_  ,`-._|==|- `-._|==|-  |    |==|- |==|_  ,`-._ \n" +
+                " /==/  / / , / /==/._/             \\==\\ - , //==/, //=/  /==/ ,     //==/ - , ,/==/   \\    /==/. /==/ ,     / \n" +
+                " `--`./  `--`  `--`-`               `--`---' `--`-' `-`--`--`-----`` `--`-----'`--`---'    `--`-``--`-----``  \n");
+        System.out.println("Welcome to MyShelfie Game!");
         this.askServerInformation();
     }
 

@@ -8,7 +8,6 @@ import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
 public class Player  {
     private Shelf shelf;
     private PersonalGoalCard personalGoalCard;
-
     private String nickname;
 
     private int score = 0;
@@ -20,6 +19,7 @@ public class Player  {
     private boolean secondCommonGoalReached = false;
 
     private boolean endGameToken = false;
+    private boolean onlinePlayer;
 
     /**
      * This constructor initializes the nickname of the player and his shelf
@@ -28,6 +28,7 @@ public class Player  {
     public Player (String nickname) {
         this.nickname = nickname;
         this.shelf = new Shelf();
+        this.onlinePlayer = true;
     }
 
     /**
@@ -130,5 +131,11 @@ public class Player  {
         return this.shelf;
     }
 
+    public boolean isOnlinePlayer() {
+        return onlinePlayer;
+    }
 
+    public void setOnlinePlayer(boolean onlinePlayer) {
+        this.onlinePlayer = onlinePlayer;
+    }
 }

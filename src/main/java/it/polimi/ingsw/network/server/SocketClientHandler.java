@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.net.SocketException;
 
 /**
  * This class is used to manage multi-client connection. When a new connection is accepted,
@@ -48,7 +49,14 @@ public class SocketClientHandler implements ClientHandler, Runnable {
             try {
                 while (!Thread.currentThread().isInterrupted()) {
                     synchronized (inputLockObject) {
-                        Message message = (Message) inputStream.readObject();
+                        Message message = null;
+                        try {
+                            message = (Message) inputStream.readObject();
+                        } catch (SocketException se) {
+                            clientSocket.close();
+                            this.isConnected = false;
+                            Thread.currentThread().interrupt();
+                        }
                         if (message != null && message.getMessageType() != MessageType.PING_MESSAGE) {
                             if (message.getMessageType() == MessageType.LOGIN_REQUEST) {
                                 socketServer.addClient(message.getNickname(), this);
@@ -59,6 +67,7 @@ public class SocketClientHandler implements ClientHandler, Runnable {
                         }
                     }
                 }
+                socketServer.onClientDisconnection(this);
             } catch (ClassNotFoundException | ClassCastException e) {
                 System.out.println("Invalid stream.");
             }
