@@ -62,7 +62,7 @@ public class SocketClient extends Client {
                 Message message;
                 try {
                     message = (Message) inputStream.readObject();
-                    System.out.println("Message received: " + message.toString());
+                    // System.out.println("Message received: " + message.toString());
                 } catch (IOException | ClassNotFoundException e) {
                     message = new ErrorMessage(null, "Connection lost with the server.");
                     disconnect();

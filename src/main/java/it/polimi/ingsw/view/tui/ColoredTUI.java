@@ -1,6 +1,10 @@
 package it.polimi.ingsw.view.tui;
 
 import it.polimi.ingsw.model.*;
+import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * This class extends the {@code TUI} class in order to handle a better text user interface using ANSI escape
@@ -31,8 +35,9 @@ public class ColoredTUI extends TUI {
                     System.out.print(i + " | ");
                 if (boardContent[i][j].isPlayable()) {
                     if (!boardContent[i][j].isFree()) {
-                        drawItemTile(boardContent[i][j].getItemTile());
+                        drawItemTile(boardContent[i][j].getItemTile().getItemTileType());
                         System.out.print(" ");
+
                     } else {
                         System.out.print("-   ");
                     }
@@ -41,36 +46,60 @@ public class ColoredTUI extends TUI {
                 }
             }
             System.out.println();
-            System.out.println();
         }
     }
 
     @Override
     public void showShelfContent (ShelfCell[][] shelfContent, String nickname) {
-        // TODO: adapt this method!
         System.out.println("Shelf of " + nickname + ":");
         System.out.print("  | ");
-        for (int i = 0; i < Shelf.COLUMNS; i++) {
-            System.out.print(i + " ");
-        }
-        System.out.println("\n--------------");
+        for (int i = 0; i < Shelf.COLUMNS; i++)
+            System.out.print(i + "   ");
+        System.out.println("\n-----------------------");
         for (int i = 0; i < Shelf.ROWS; i++) {
             for (int j = 0; j < Shelf.COLUMNS; j++) {
                 if (j == 0)
                     System.out.print(i + " | ");
                 if (!shelfContent[i][j].isFree()) {
-                    drawItemTile(shelfContent[i][j].getTile());
+                    drawItemTile(shelfContent[i][j].getTile().getItemTileType());
                     System.out.print(" ");
                 } else {
-                    System.out.print("- ");
+                    System.out.print("-   ");
                 }
             }
+            System.out.println();
+            // System.out.println();
+        }
+    }
+
+    @Override
+    public void showPersonalGoalCard (PersonalGoalCard personalGoalCard) {
+        Map<Position, ItemTileType> copySchema = new HashMap<>(personalGoalCard.getSchema());
+
+        System.out.print("  | ");
+        for (int i = 0; i < Shelf.COLUMNS; i++) {
+            System.out.print(i + "   ");
+        }
+        System.out.println("\n-----------------------");
+        for (int i = 0; i < Shelf.ROWS; i++) {
+            for (int j = 0; j < Shelf.COLUMNS; j++) {
+                if (j == 0)
+                    System.out.print(i + " | ");
+                Position position = new Position(i, j);
+                if (copySchema.containsKey(position)) {
+                    drawItemTile(copySchema.get(position));
+                    System.out.print(" ");
+                } else {
+                    System.out.print("-   ");
+                }
+            }
+            // System.out.println();
             System.out.println();
         }
     }
 
-    private void drawItemTile (ItemTile itemTile) {
-        switch (itemTile.getItemTileType()) {
+    private void drawItemTile (ItemTileType itemTileType) {
+        switch (itemTileType) {
             case GREEN -> System.out.print(ANSI_GREEN_BACKGROUND + "   " + ANSI_RESET);
             case WHITE -> System.out.print(ANSI_WHITE_BACKGROUND + "   " + ANSI_RESET);
             case YELLOW -> System.out.print(ANSI_YELLOW_BACKGROUND + "   " + ANSI_RESET);
@@ -80,6 +109,4 @@ public class ColoredTUI extends TUI {
             default -> System.out.print(ANSI_RED_TEXT + "?  " + ANSI_RESET);
         }
     }
-
-    // TODO: override del metodo che mostra le carte obiettivo personale
 }

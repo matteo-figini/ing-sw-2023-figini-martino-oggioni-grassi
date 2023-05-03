@@ -1,13 +1,14 @@
 package it.polimi.ingsw.network.client;
 
 import it.polimi.ingsw.network.message.Message;
-import it.polimi.ingsw.observer.Observable;
 
 /**
  * This abstract class represents a general client. It will be extended by subclasses, depending on the technology
  * chosen for networking (e.g. Socket or RMI).
  */
 public abstract class Client {
+
+    /** The {@code ClientManager} associated to the client. */
     protected ClientManager clientManager;
 
     /**
@@ -27,16 +28,27 @@ public abstract class Client {
     public abstract void disconnect ();
 
     /**
-     * Enable a heartbeat (ping messages) to keep the connection alive.
+     * Enable a ping messages to keep the connection alive.
      */
     public abstract void enablePing ();
 
+    /**
+     * Disable the ping message when the connection is not required.
+     */
     public abstract void disablePing ();
 
+    /**
+     * Return the client manager associated with the client.
+     * @return The client manager associated with the client.
+     */
     public ClientManager getClientManager() {
         return clientManager;
     }
 
+    /**
+     * Set the client manager to the parameter.
+     * @param clientManager The client manager of the client.
+     */
     public void setClientManager(ClientManager clientManager) {
         this.clientManager = clientManager;
     }

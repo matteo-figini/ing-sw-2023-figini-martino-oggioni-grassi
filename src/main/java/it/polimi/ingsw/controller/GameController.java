@@ -82,6 +82,7 @@ public class GameController{
     }
     /*
      * TODO (Problema di concorrenza): potrebbe creare problemi il fatto che nuovi giocatori si connettano mentre il primo giocatore sta ancora decidendo il numero di giocatori?
+     *  Spoiler: sì, crea problemi. Si potrebbe agire lato server mettendo in mutua esclusione la connessione al server con i giocatori che accedono.
      */
 
     /**
@@ -99,10 +100,9 @@ public class GameController{
                 if (game.getPlayerByNickname(getActivePlayer()).getShelf().freeCellsOnColumn(messageReceived.getColumn()) >= messageReceived.getPositionsOfTiles().size()) {
                     // Vi sono sufficienti celle nella shelf. A questo punto controllo che le posizioni coincidano con tessere valide.
                     if (insertTilesInShelf(messageReceived.getPositionsOfTiles(), messageReceived.getColumn())) {
-                        showBoard();
-                        showShelfOfEachPlayer();
                         checkCommonGoalsCompleted();
                         checkBoardRefillRequested();
+                        showGameInformation();
                         if (game.getPlayerByNickname(getActivePlayer()).getShelf().isFull()) {
                             setGameState(GameState.LAST_LAP);
                             game.getPlayerByNickname(getActivePlayer()).setEndGameToken();
@@ -126,6 +126,10 @@ public class GameController{
         }
     }
 
+    /**
+     *
+     * @param message
+     */
     private void lastLapStateManager (Message message) {
         VirtualView currentVirtualView = virtualViewMap.get(getActivePlayer());
         if (message.getMessageType() == MessageType.PICK_TILES_REPLY) {
@@ -135,8 +139,7 @@ public class GameController{
                 if (game.getPlayerByNickname(getActivePlayer()).getShelf().freeCellsOnColumn(messageReceived.getColumn()) >= messageReceived.getPositionsOfTiles().size()) {
                     // Vi sono sufficienti celle nella shelf. A questo punto controllo che le posizioni coincidano con tessere valide.
                     if (insertTilesInShelf(messageReceived.getPositionsOfTiles(), messageReceived.getColumn())) {
-                        showBoard();
-                        showShelfOfEachPlayer();
+                        showGameInformation();
                         checkCommonGoalsCompleted();
                         checkBoardRefillRequested();
                         if (game.getPlayerByNickname(getNextPlayer()).isFirstPlayer()) {
@@ -174,6 +177,26 @@ public class GameController{
                 player.addScore(1);     // Points from the end game token
             }
         }
+
+        Map <String, Integer> scoreMap = new HashMap<>();
+        Map <String, Integer> sortedScoreMap = new LinkedHashMap<>();
+        List <Integer> scoreList = new ArrayList<>();
+
+        for (Player player : game.getPlayers()) {
+            scoreMap.put(player.getNickname(), player.getScore());
+        }
+        for (Map.Entry<String, Integer> entry : scoreMap.entrySet()) {
+            scoreList.add(entry.getValue());
+        }
+        Collections.sort(scoreList, Collections.reverseOrder());
+        for (int num : scoreList) {
+            for (Map.Entry<String, Integer> entry : scoreMap.entrySet()) {
+                if (entry.getValue().equals(num)) {
+                    sortedScoreMap.put(entry.getKey(), num);
+                }
+            }
+        }
+        System.out.println(sortedScoreMap);
 
         /*
          * Poi, cerca il giocatore con punteggio più alto:
@@ -258,7 +281,7 @@ public class GameController{
      */
     private void newTurn () {
         setActivePlayer(getNextPlayer());
-        showGameInformation();
+        // showGameInformation();
         broadcastGenericMessage("Turn of " + getActivePlayer());
         askActivePlayerColumnAndPosition();
     }
@@ -409,6 +432,15 @@ public class GameController{
     }
 
     /**
+     * This method returns the nickname of the player that has got the highest score.
+     * @return The nickname of the player with the highest score.
+     */
+    private String declareWinner () {
+        // TODO: implementare il metodo
+        return null;
+    }
+
+    /**
      * This method sends a text message to each client.
      * @param messageString The text message to be sent.
      */
@@ -454,6 +486,7 @@ public class GameController{
     private void checkCommonGoalsCompleted () {
         Player activePlayerModel = game.getPlayerByNickname(getActivePlayer());
         CommonGoalCard commonGoalCard = game.getCommonGoalCards().get(0);
+        VirtualView virtualView = virtualViewMap.get(activePlayer);
         int score = 0;
 
         // Controllo del primo obiettivo comune
@@ -461,6 +494,7 @@ public class GameController{
             activePlayerModel.setFirstCommonGoalReached();
             try {
                 score = commonGoalCard.popScoringToken().getScore();
+                virtualView.showGenericMessage("You earned " + score + " points completing the first common goal!");
                 activePlayerModel.addScore(score);
             } catch (NoScoringTokenAvailableException e) {
                 System.out.println(e.getMessage());
@@ -473,6 +507,7 @@ public class GameController{
             activePlayerModel.setSecondCommonGoalReached();
             try {
                 score = commonGoalCard.popScoringToken().getScore();
+                virtualView.showGenericMessage("You earned " + score + " points completing the second common goal!");
                 activePlayerModel.addScore(score);
             } catch (NoScoringTokenAvailableException e) {
                 System.out.println(e.getMessage());
@@ -487,19 +522,7 @@ public class GameController{
         if (game.getBoard().fillingRequired()) {
             game.refillBoardFromBag();
             broadcastGenericMessage("Proceeding with board refill...");
-            // TODO: mostrare a tutti i client la board aggiornata.
+            showBoard();
         }
-    }
-
-    public void addScore (String nickname, Integer finalScore) {
-        this.scoreMap.put(nickname, finalScore);
-    }
-
-    public void removeScore (String nickname, Integer finalScore){
-        this.scoreMap.remove(nickname, finalScore);
-    }
-
-    public Map<String, Integer> getScoreMap() {
-        return scoreMap;
     }
 }

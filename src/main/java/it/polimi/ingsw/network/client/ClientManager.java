@@ -109,7 +109,6 @@ public class ClientManager {
                 GenericMessage genericMessage = (GenericMessage) message;
                 view.showGenericMessage(genericMessage.getGenericMessage());
             }
-            // ...
             // TODO: completare il metodo
         }
     }
