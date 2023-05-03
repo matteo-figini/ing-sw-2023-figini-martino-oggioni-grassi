@@ -55,4 +55,8 @@ public abstract class PersonalGoalCard implements Serializable {
         scoreMap.put(6, 12);
         return scoreMap.get(goals);
     }
+
+    public Map<Position, ItemTileType> getSchema() {
+        return schema;
+    }
 }

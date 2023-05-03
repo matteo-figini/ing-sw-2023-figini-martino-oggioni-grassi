@@ -2,6 +2,8 @@ package it.polimi.ingsw.view;
 
 import it.polimi.ingsw.model.BoardCell;
 import it.polimi.ingsw.model.ShelfCell;
+import it.polimi.ingsw.model.commongoals.CommonGoalCard;
+import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
 import it.polimi.ingsw.network.message.*;
 import it.polimi.ingsw.network.server.ClientHandler;
 
@@ -52,6 +54,15 @@ public class VirtualView implements View {
         clientHandler.sendMessage(new ShelfContent(shelfContent, player));
     }
 
+    @Override
+    public void showCommonGoalCard(CommonGoalCard commonGoalCard) {
+        clientHandler.sendMessage(new CommonGoalCardMessage(commonGoalCard));
+    }
+
+    @Override
+    public void showPersonalGoalCard(PersonalGoalCard personalGoalCard) {
+        clientHandler.sendMessage(new PersonalGoalCardMessage(personalGoalCard));
+    }
 
 
     //TODO: implementare tutti i metodi show();

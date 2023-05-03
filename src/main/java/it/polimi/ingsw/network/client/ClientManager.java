@@ -1,6 +1,7 @@
 package it.polimi.ingsw.network.client;
 
 import it.polimi.ingsw.model.Position;
+import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
 import it.polimi.ingsw.network.message.*;
 import it.polimi.ingsw.view.View;
 
@@ -95,6 +96,14 @@ public class ClientManager {
             case SHELF_CONTENT -> {
                 ShelfContent shelfMessage = (ShelfContent) message;
                 view.showShelfContent(shelfMessage.getShelfContent(), shelfMessage.getPlayer());
+            }
+            case COMMON_GOAL_CARD -> {
+                CommonGoalCardMessage commonGoalCardMessage = (CommonGoalCardMessage) message;
+                view.showCommonGoalCard(commonGoalCardMessage.getCommonGoalCard());
+            }
+            case PERSONAL_GOAL_CARD -> {
+                PersonalGoalCardMessage personalGoalCardMessage = (PersonalGoalCardMessage) message;
+                view.showPersonalGoalCard(personalGoalCardMessage.getPersonalGoalCard());
             }
             case GENERIC_MESSAGE -> {
                 GenericMessage genericMessage = (GenericMessage) message;

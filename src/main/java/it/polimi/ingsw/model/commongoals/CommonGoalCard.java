@@ -55,4 +55,8 @@ public abstract class CommonGoalCard implements Serializable {
      * @return true if the shelf passed as parameter satisfies the condition, false if it doesn't.
      */
     public abstract boolean checkPattern (Shelf shelf);
+
+    public String getDescription() {
+        return description;
+    }
 }

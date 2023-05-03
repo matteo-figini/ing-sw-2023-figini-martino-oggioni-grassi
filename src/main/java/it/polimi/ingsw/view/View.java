@@ -2,6 +2,8 @@ package it.polimi.ingsw.view;
 
 import it.polimi.ingsw.model.BoardCell;
 import it.polimi.ingsw.model.ShelfCell;
+import it.polimi.ingsw.model.commongoals.CommonGoalCard;
+import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
 
 /**
  * This interface represents all the methods for the specific views. Every type of view (CLI, GUI with Swing/JavaFX,
@@ -49,5 +51,17 @@ public interface View {
      * @param nickname The nickname to which the shelf content belongs to.
      */
     void showShelfContent (ShelfCell[][] shelfContent, String nickname);
+
+    /**
+     * Show the common goal card passed as parameter.
+     * @param commonGoalCard The common goal card to be shown.
+     */
+    void showCommonGoalCard (CommonGoalCard commonGoalCard);
+
+    /**
+     * Show the personal goal card passed as parameter.
+     * @param personalGoalCard The personal goal card to be shown.
+     */
+    void showPersonalGoalCard (PersonalGoalCard personalGoalCard);
 
 }

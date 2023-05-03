@@ -365,6 +365,8 @@ public class GameController{
     private void showGameInformation () {
         showBoard();
         showShelfOfEachPlayer();
+        showCommonGoalCards();
+        showPersonalGoalCards();
     }
 
     /**
@@ -386,6 +388,23 @@ public class GameController{
             for (Player playerShelf : game.getPlayers()) {
                 virtualView.showShelfContent(playerShelf.getShelf().getShelfContentCopy(), playerShelf.getNickname());
             }
+        }
+    }
+
+    private void showCommonGoalCards () {
+        for (Player player : game.getPlayers()) {
+            VirtualView virtualView = virtualViewMap.get(player.getNickname());
+            for (CommonGoalCard commonGoalCard : game.getCommonGoalCards()) {
+                virtualView.showGenericMessage("Common Goal Card description: " + commonGoalCard.getDescription());
+            }
+        }
+    }
+
+    private void showPersonalGoalCards () {
+        for (Player player : game.getPlayers()) {
+            VirtualView virtualView = virtualViewMap.get(player.getNickname());
+            virtualView.showGenericMessage("Personal goal card of " + player.getNickname() + ": ");
+            virtualView.showPersonalGoalCard(player.getPersonalGoalCard());
         }
     }
 

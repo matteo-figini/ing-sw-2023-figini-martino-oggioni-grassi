@@ -15,7 +15,8 @@ public enum MessageType {
     PICK_TILES_REPLY,
     SHELF_CONTENT,
     BOARD_CONTENT,
-
+    COMMON_GOAL_CARD,
+    PERSONAL_GOAL_CARD,
 
     // Utility
     GENERIC_MESSAGE,

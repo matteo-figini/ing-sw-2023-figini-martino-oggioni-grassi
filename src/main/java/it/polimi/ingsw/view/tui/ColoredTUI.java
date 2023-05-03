@@ -1,9 +1,6 @@
 package it.polimi.ingsw.view.tui;
 
-import it.polimi.ingsw.model.Board;
-import it.polimi.ingsw.model.BoardCell;
-import it.polimi.ingsw.model.Shelf;
-import it.polimi.ingsw.model.ShelfCell;
+import it.polimi.ingsw.model.*;
 
 /**
  * This class extends the {@code TUI} class in order to handle a better text user interface using ANSI escape
@@ -34,15 +31,7 @@ public class ColoredTUI extends TUI {
                     System.out.print(i + " | ");
                 if (boardContent[i][j].isPlayable()) {
                     if (!boardContent[i][j].isFree()) {
-                        switch (boardContent[i][j].getItemTile().getItemTileType()) {
-                            case GREEN -> System.out.print(ANSI_GREEN_BACKGROUND + "   " + ANSI_RESET);
-                            case WHITE -> System.out.print(ANSI_WHITE_BACKGROUND + "   " + ANSI_RESET);
-                            case YELLOW -> System.out.print(ANSI_YELLOW_BACKGROUND + "   " + ANSI_RESET);
-                            case BLUE -> System.out.print(ANSI_BLUE_BACKGROUND + "   " + ANSI_RESET);
-                            case LIGHTBLUE -> System.out.print(ANSI_LIGHTBLUE_BACKGROUND + "   " + ANSI_RESET);
-                            case PINK -> System.out.print(ANSI_PINK_BACKGROUND + "   " + ANSI_RESET);
-                            default -> System.out.print(ANSI_RED_TEXT + "?  " + ANSI_RESET);
-                        }
+                        drawItemTile(boardContent[i][j].getItemTile());
                         System.out.print(" ");
                     } else {
                         System.out.print("-   ");
@@ -51,6 +40,7 @@ public class ColoredTUI extends TUI {
                     System.out.print("x   ");
                 }
             }
+            System.out.println();
             System.out.println();
         }
     }
@@ -69,15 +59,8 @@ public class ColoredTUI extends TUI {
                 if (j == 0)
                     System.out.print(i + " | ");
                 if (!shelfContent[i][j].isFree()) {
-                    switch (shelfContent[i][j].getTile().getItemTileType()) {
-                        case GREEN -> System.out.print("G ");
-                        case WHITE -> System.out.print("W ");
-                        case YELLOW -> System.out.print("Y ");
-                        case BLUE -> System.out.print("B ");
-                        case LIGHTBLUE -> System.out.print("L ");
-                        case PINK -> System.out.print("P ");
-                        default -> System.out.print("? ");
-                    }
+                    drawItemTile(shelfContent[i][j].getTile());
+                    System.out.print(" ");
                 } else {
                     System.out.print("- ");
                 }
@@ -85,4 +68,18 @@ public class ColoredTUI extends TUI {
             System.out.println();
         }
     }
+
+    private void drawItemTile (ItemTile itemTile) {
+        switch (itemTile.getItemTileType()) {
+            case GREEN -> System.out.print(ANSI_GREEN_BACKGROUND + "   " + ANSI_RESET);
+            case WHITE -> System.out.print(ANSI_WHITE_BACKGROUND + "   " + ANSI_RESET);
+            case YELLOW -> System.out.print(ANSI_YELLOW_BACKGROUND + "   " + ANSI_RESET);
+            case BLUE -> System.out.print(ANSI_BLUE_BACKGROUND + "   " + ANSI_RESET);
+            case LIGHTBLUE -> System.out.print(ANSI_LIGHTBLUE_BACKGROUND + "   " + ANSI_RESET);
+            case PINK -> System.out.print(ANSI_PINK_BACKGROUND + "   " + ANSI_RESET);
+            default -> System.out.print(ANSI_RED_TEXT + "?  " + ANSI_RESET);
+        }
+    }
+
+    // TODO: override del metodo che mostra le carte obiettivo personale
 }

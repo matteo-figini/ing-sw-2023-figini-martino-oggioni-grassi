@@ -1,14 +1,14 @@
 package it.polimi.ingsw.view.tui;
 
 import it.polimi.ingsw.model.*;
+import it.polimi.ingsw.model.commongoals.CommonGoalCard;
+import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
 import it.polimi.ingsw.network.client.ClientManager;
 import it.polimi.ingsw.network.message.GenericMessage;
 import it.polimi.ingsw.network.server.Server;
 import it.polimi.ingsw.view.View;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class TUI implements View {
     private ClientManager clientManager;
@@ -158,6 +158,43 @@ public class TUI implements View {
                     System.out.print(i + " | ");
                 if (!shelfContent[i][j].isFree()) {
                     switch (shelfContent[i][j].getTile().getItemTileType()) {
+                        case GREEN -> System.out.print("G ");
+                        case WHITE -> System.out.print("W ");
+                        case YELLOW -> System.out.print("Y ");
+                        case BLUE -> System.out.print("B ");
+                        case LIGHTBLUE -> System.out.print("L ");
+                        case PINK -> System.out.print("P ");
+                        default -> System.out.print("? ");
+                    }
+                } else {
+                    System.out.print("- ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    @Override
+    public void showCommonGoalCard(CommonGoalCard commonGoalCard) {
+        System.out.print("Description: \"" + commonGoalCard.getDescription() + "\"\n");
+    }
+
+    @Override
+    public void showPersonalGoalCard(PersonalGoalCard personalGoalCard) {
+        Map<Position, ItemTileType> copySchema = new HashMap<>(personalGoalCard.getSchema());
+
+        System.out.print("  | ");
+        for (int i = 0; i < Shelf.COLUMNS; i++) {
+            System.out.print(i + " ");
+        }
+        System.out.println("\n--------------");
+        for (int i = 0; i < Shelf.ROWS; i++) {
+            for (int j = 0; j < Shelf.COLUMNS; j++) {
+                if (j == 0)
+                    System.out.print(i + " | ");
+                Position position = new Position(i, j);
+                if (copySchema.containsKey(position)) {
+                    switch (copySchema.get(position)) {
                         case GREEN -> System.out.print("G ");
                         case WHITE -> System.out.print("W ");
                         case YELLOW -> System.out.print("Y ");
