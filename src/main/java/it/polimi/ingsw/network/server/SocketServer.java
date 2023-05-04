@@ -13,7 +13,6 @@ import it.polimi.ingsw.network.message.Message;
 public class SocketServer implements Runnable {
     private final int port;
     public static final int SOCKET_SERVER_PORT = 5000;
-    private boolean serverState = false;
     private final Server server;
     private ServerSocket serverSocket;
 
@@ -34,7 +33,6 @@ public class SocketServer implements Runnable {
         try {
             this.serverSocket = new ServerSocket(this.port);
             System.out.println("Socket server running on port " + this.port);
-            this.serverState = true;
         } catch (IOException e) {
             System.out.println(e.getMessage());
             System.out.println("Unable to start socket server.");
@@ -59,29 +57,12 @@ public class SocketServer implements Runnable {
         server.onClientDisconnection(clientHandler);
     }
 
-    public void addClient(String nickname, ClientHandler clientHandler) {
+    public void addClient (String nickname, ClientHandler clientHandler) {
         server.addClient(nickname, clientHandler);
     }
 
     public void onMessageReceived(Message message) {
         server.onMessageReceived(message);
-    }
-
-    /* ---------- GETTERS & SETTERS ---------- */
-    /**
-     * This method returns the current state of the Server.
-     * @return A boolean indicating the current status of the server.
-     */
-    public boolean isActive(){
-        return this.serverState;
-    }
-
-    /**
-     * This method sets the current state of the Server
-     * @param state
-     */
-    public void setState(boolean state){
-        this.serverState = state;
     }
 }
 

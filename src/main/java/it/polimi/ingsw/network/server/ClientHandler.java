@@ -20,8 +20,7 @@ public interface ClientHandler {
     /**
      * This method disconnects the specified client from the server, e.g. due to ping timeout or not valid information.
      */
-    public void disconnect () throws IOException;
-    // La connessione con il client è gestita esplicitamente dal server!
+    public void disconnect ();
 
     /**
      * This method indicates if the client handled by the client handler is connected to the server.

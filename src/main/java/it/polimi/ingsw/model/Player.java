@@ -3,13 +3,20 @@ package it.polimi.ingsw.model;
 import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
 
 /**
- * This class represents the player and all his attributes
+ * This class represents the player and all his attributes.
  */
 public class Player  {
-    private Shelf shelf;
-    private PersonalGoalCard personalGoalCard;
-    private String nickname;
 
+    /** Player's personal shelf. */
+    private final Shelf shelf;
+
+    /** Player's personal goal card. */
+    private PersonalGoalCard personalGoalCard;
+
+    /** Player's nickname. */
+    private final String nickname;
+
+    /** Player's score. */
     private int score = 0;
 
     private boolean firstPlayer = false;

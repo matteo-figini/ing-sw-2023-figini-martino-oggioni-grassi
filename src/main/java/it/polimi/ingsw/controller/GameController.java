@@ -77,7 +77,7 @@ public class GameController {
     /**
      * Take actions based on a message arrived in {@code LOBBY_STATE} state.
      * @param message The message received. Requires that the number of the players is between {@code Game.MIN_PLAYERS}
-     *                and {@code Game.MAX_PLAYERS}.
+     *                and {@code Game.MAX_PLAYERS} parameters.
      */
     private void lobbyStateManager (Message message) {
         if (message.getMessageType() == MessageType.PLAYERSNUMBER_REPLY) {
@@ -88,10 +88,6 @@ public class GameController {
             System.out.println("ERROR: Wrong message type (expected: PLAYERS_NUMBER_REPLY, actual: " + message.getMessageType().toString() + ")");
         }
     }
-    /*
-     * TODO (Problema di concorrenza): potrebbe creare problemi il fatto che nuovi giocatori si connettano mentre il primo giocatore sta ancora decidendo il numero di giocatori?
-     *  Spoiler: sì, crea problemi. Si potrebbe agire lato server mettendo in mutua esclusione la connessione al server con i giocatori che accedono.
-     */
 
     /**
      * Take actions based on a message arrived in {@code IN_GAME} state.
@@ -123,6 +119,7 @@ public class GameController {
                     }
                 } else {
                     currentVirtualView.showGenericMessage("There aren't enough free cells on the selected column!");
+                    askActivePlayerColumnAndPosition();
                 }
 
             } else {
@@ -163,6 +160,7 @@ public class GameController {
                     }
                 } else {
                     currentVirtualView.showGenericMessage("There aren't enough free cells on the selected column!");
+                    askActivePlayerColumnAndPosition();
                 }
 
             } else {
@@ -249,9 +247,9 @@ public class GameController {
             if (gameSuspended) {
                 addVirtualView(nickname, virtualView);
                 game.getPlayerByNickname(nickname).setOnlinePlayer(true);
-                gameSuspended = false;
                 broadcastGenericMessage("New player reconnected: " + nickname);
                 if (getOnlinePlayers().size() == game.getChosenPlayersNumber()) {
+                    gameSuspended = false;
                     broadcastGenericMessage("All the players are connected.");
                     newTurn();
                 }
@@ -343,7 +341,7 @@ public class GameController {
 
     /* ---------- UTILITY METHODS ---------- */
     /**
-     * This method starts the game...
+     * This method starts the game.
      */
     private void startGame () {
         setGameState(GameState.IN_GAME);
@@ -352,7 +350,8 @@ public class GameController {
         showGameInformation();
         broadcastGenericMessage("Game Started");
 
-        setActivePlayer(chooseRandomPlayer());  // Choose the first player
+        setActivePlayer(chooseRandomPlayer());                          // Choose the first player
+        game.getPlayerByNickname(getActivePlayer()).setFirstPlayer();   // Set the active player as the first one.
         broadcastGenericMessage("Turn of " + getActivePlayer());
         askActivePlayerColumnAndPosition();
     }
@@ -429,7 +428,7 @@ public class GameController {
      * This method sends a text message to each client.
      * @param messageString The text message to be sent.
      */
-    private void broadcastGenericMessage (String messageString) {
+    public void broadcastGenericMessage (String messageString) {
         for (VirtualView virtualView : virtualViewMap.values()) {
             virtualView.showGenericMessage(messageString);
         }
@@ -513,7 +512,9 @@ public class GameController {
 
     public void setPlayerOffline (String nickname) {
         virtualViewMap.remove(nickname);
-        game.getPlayerByNickname(nickname).setOnlinePlayer(false);
+        if (game.getPlayerByNickname(nickname) != null)
+            game.getPlayerByNickname(nickname).setOnlinePlayer(false);
+
         if (game.getOnlinePlayersNumber() == 1) {
             gameSuspended = true;
             broadcastGenericMessage("Game suspended: there's only " + game.getOnlinePlayersNumber() + " player connected.");

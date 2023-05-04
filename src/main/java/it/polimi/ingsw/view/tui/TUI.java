@@ -121,8 +121,15 @@ public class TUI implements View {
     }
 
     @Override
-    public void showLoginResponse(boolean validNickname, boolean connectionEstablished) {
-
+    public void showLoginResponse (boolean validNickname, boolean connectionEstablished) {
+        if (!connectionEstablished) {
+            System.out.println("For some stuff, it's impossible to establish a connection with the server.");
+            System.exit(-1);
+        } else if (!validNickname) {
+            askNickname();
+        } else {
+            System.out.println("Connection successful.");
+        }
     }
 
     @Override

@@ -92,22 +92,28 @@ public class SocketClientHandler implements ClientHandler, Runnable {
         }
     }
 
+
     @Override
     public void disconnect() {
         if (!isConnected)
             return;
         try {
+            // If the socket for the client is still alive, close it.
             if (!clientSocket.isClosed()) {
                 clientSocket.close();
             }
         } catch (IOException e) {
-            System.out.println("I/O Error.");
+            e.printStackTrace();
         }
         Thread.currentThread().interrupt();
-        //socketServer.closeConnection(this);
         this.isConnected = false;
+        socketServer.onClientDisconnection(this);
     }
 
+    /**
+     * Returns if the current client handler is connected.
+     * @return {@code true} if the client handler is connected, {@code false} otherwise.
+     */
     @Override
     public boolean isConnected() {
         return isConnected;
