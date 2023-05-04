@@ -372,7 +372,7 @@ public class GameController {
     }
 
     /**
-     * This method shows to each player the updated board.
+     * This method shows to each player the updated board content.
      */
     private void showBoard () {
         for (Player player : game.getPlayers()) {
@@ -382,7 +382,7 @@ public class GameController {
     }
 
     /**
-     * This method shows to each player the shelf of every player.
+     * This method shows to each player the shelf content of every player.
      */
     private void showShelfOfEachPlayer () {
         for (Player player : game.getPlayers()) {
@@ -393,6 +393,9 @@ public class GameController {
         }
     }
 
+    /**
+     * Sends a message to each player sending a copy of each {@code CommonGoalCard}.
+     */
     private void showCommonGoalCards () {
         for (Player player : game.getPlayers()) {
             VirtualView virtualView = virtualViewMap.get(player.getNickname());
@@ -402,6 +405,9 @@ public class GameController {
         }
     }
 
+    /**
+     * Sends a message to each player with a copy of the corresponding {@code PersonalGoalCard}.
+     */
     private void showPersonalGoalCards () {
         for (Player player : game.getPlayers()) {
             VirtualView virtualView = virtualViewMap.get(player.getNickname());

@@ -15,22 +15,33 @@ import java.util.Random;
  * It can be useful as an entry point for the controller.
  */
 public class Game {
-    private static Game gameInstance;   // Default instance for the game (singleton pattern applied).
+    /** Default instance for the game (singleton pattern applied). */
+    private static Game gameInstance;
+
+    /** Minimum number of players in the game. */
     final static public int MIN_PLAYERS = 2;
+
+    /** Maximum number of players in the game. */
     final static public int MAX_PLAYERS = 4;
 
-    private int numberOfPlayers;    // This attribute represents the chosen number of players for the game.
-    private boolean lastLap;    // This attribute is 'true' whether the game is at the last lap, 'false' otherwise.
-    private final List<Player> players;   // This list represents the players in the game.
-    private Board board;    // This attribute represents the board of the game.
-    private final Bag bagTiles;    // This attribute represents the bag with the item tiles.
-    private final List<CommonGoalCard> commonGoalCards;   // This list represents the (two) common goal cards in the game.
+    /** Chosen number of players for the current game. */
+    private int numberOfPlayers;
 
-    // TODO: istanziare la board una volta che il numero di giocatori è chiaro!
+    /** List of the players in the game. */
+    private final List<Player> players;
+
+    /** Board of the game. */
+    private Board board;
+
+    /** Bag with the item tiles. */
+    private final Bag bagTiles;
+
+    /** List of the common goal cards in the game. */
+    private final List<CommonGoalCard> commonGoalCards;
 
     /**
-     * This method apply the singleton pattern to this class.
-     * @return The instance of the game.
+     * Applies the singleton pattern to this class.
+     * @return The instance of the game. Ensures that the instance of {@code Game} class is not null.
      */
     public static Game getGameInstance () {
         if (gameInstance == null) {
@@ -39,16 +50,20 @@ public class Game {
         return gameInstance;
     }
 
+    /**
+     * Reset the current game instance.
+     * Ensures that the instance of {@code Game} class is null.
+     */
     public static void resetGameInstance () {
         gameInstance = null;
     }
 
     /**
-     * Default constructor is private due to singleton pattern applied. It instantiates all the necessary elements for
-     * the Game.
+     * Default constructor is private due to singleton pattern applied.
+     * It instantiates all the necessary elements for the Game (except for the Board, because it is instantiated only
+     * when the current number of players is known).
      */
     private Game () {
-        this.lastLap = false;
         this.players = new ArrayList<>();
         this.bagTiles = new Bag();
         this.commonGoalCards = new ArrayList<>();
@@ -102,22 +117,6 @@ public class Game {
     }
 
     /**
-     * This method checks if this turn is the last one because of one player fills completely his shelf.
-     * @return A boolean value indicating if this turn is the last one.
-     */
-    public boolean checkLastLapCondition () {
-        if (!lastLap) {
-            for (Player player : players) {
-                if (player.getShelf().isFull()) {
-                    lastLap = true;
-                    break;
-                }
-            }
-        }
-        return lastLap;
-    }
-
-    /**
      * This method refills the board from the bag. The number of the tiles to move is the minimum value between the number
      * of the free cells on the board and the number of the tiles in the bag.
      * @return The number of the item tiles moved from the bag to the board. A return value of 0 means that a
@@ -146,37 +145,24 @@ public class Game {
         // Genera due numeri casuali compresi tra 1 e 12, che siano diversi tra loro
         List<Integer> numbers = getDifferentRandomNumbersInRange(numCards, 1, 12);
         assert numbers != null;
-        assert numbers.size() == numCards;
         for (Integer num : numbers) {
             CommonGoalCard commonGoalCard;
-            if (num == 1) {
-                commonGoalCard = new TwoSquaresGoalCard(players.size());
-            } else if (num == 2) {
-                commonGoalCard = new TwoColumnsGoalCard(players.size());
-            } else if (num == 3) {
-                commonGoalCard = new FourLinesFourGoalCard(players.size());
-            } else if (num == 4) {
-                commonGoalCard = new SixCouplesGoalCard(players.size());
-            } else if (num == 5) {
-                commonGoalCard = new ThreeColumnsGoalCard(players.size());
-            } else if (num == 6) {
-                commonGoalCard = new TwoRowsGoalCard(players.size());
-            } else if (num == 7) {
-                commonGoalCard = new FourRowsGoalCard(players.size());
-            } else if (num == 8) {
-                commonGoalCard = new FourCornersGoalCard(players.size());
-            } else if (num == 9) {
-                commonGoalCard = new EightEqualsGoalCard(players.size());
-            } else if (num == 10) {
-                commonGoalCard = new CrossGoalCard(players.size());
-            } else if (num == 11) {
-                commonGoalCard = new DiagonalFiveGoalCard(players.size());
-            } else {
-                commonGoalCard = new TriangleGoalCard(players.size());
+            switch (num) {
+                case 1 -> commonGoalCard = new TwoSquaresGoalCard(players.size());
+                case 2 -> commonGoalCard = new TwoColumnsGoalCard(players.size());
+                case 3 -> commonGoalCard = new FourLinesFourGoalCard(players.size());
+                case 4 -> commonGoalCard = new SixCouplesGoalCard(players.size());
+                case 5 -> commonGoalCard = new ThreeColumnsGoalCard(players.size());
+                case 6 -> commonGoalCard = new TwoRowsGoalCard(players.size());
+                case 7 -> commonGoalCard = new FourRowsGoalCard(players.size());
+                case 8 -> commonGoalCard = new FourCornersGoalCard(players.size());
+                case 9 -> commonGoalCard = new EightEqualsGoalCard(players.size());
+                case 10 -> commonGoalCard = new CrossGoalCard(players.size());
+                case 11 -> commonGoalCard = new DiagonalFiveGoalCard(players.size());
+                default -> commonGoalCard = new TriangleGoalCard(players.size());
             }
-            commonGoalCards.add(commonGoalCard);
+            addCommonGoalCard(commonGoalCard);
         }
-        assert commonGoalCards.size() == numCards;
     }
 
     /**
@@ -218,13 +204,11 @@ public class Game {
      */
     private List<Integer> getDifferentRandomNumbersInRange (int howMany, int min, int max) {
         List<Integer> generatedNumbers = new ArrayList<>();
-        Random random = new Random();     // SecureRandom reduce the possibility of generating repeated values.
-
+        Random random = new Random();
         // Se l'intervallo di generazione non è sufficientemente ampio, ritorna errore.
         if ((max - min + 1) < howMany) {
             return null;
         }
-
         // Genera numeri tra loro diversi e inseriscili nella lista
         // Continua questo processo finché la dimensione della lista è minore del numero di numeri specificati (howMany)
         while (generatedNumbers.size() < howMany) {
@@ -237,22 +221,6 @@ public class Game {
     }
 
     /* ---------- GETTERS & SETTERS ---------- */
-    /**
-     * This method indicates if it is the last lap of the match.
-     * @return A boolean indicating if it is the last lap.
-     */
-    public boolean isLastLap() {
-        return lastLap;
-    }
-
-    /**
-     * This method sets the attribute "lastLap" to true, so it means that this is the final lap of the match.
-     * Ensures that isLastLap() returns true.
-     */
-    public void setLastLap () {
-        this.lastLap = true;
-    }
-
     /**
      * This method returns the list of the players in the game.
      * @return The list of the players in the game.

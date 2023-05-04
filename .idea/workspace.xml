@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Updated messages in the demo. Starting &quot;Resilienza alle disconnessioni&quot; feature.">
+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Updated &quot;Resilienza alle disconnessioni&quot; feature.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/controller/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/server/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +79,7 @@
       <recent name="C:\Users\matte\IdeaProjects\ing-sw-2023-figini-martino-oggioni-grassi" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ServerMain">
+  <component name="RunManager" selected="Application.ClientMain">
     <configuration name="ClientMain" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.ClientMain" />
       <module name="PSP18" />
@@ -256,7 +255,9 @@
       <workItem from="1683119748633" duration="884000" />
       <workItem from="1683125957391" duration="52000" />
       <workItem from="1683126112788" duration="5378000" />
-      <workItem from="1683144667776" duration="2647000" />
+      <workItem from="1683144667776" duration="2737000" />
+      <workItem from="1683185043847" duration="683000" />
+      <workItem from="1683197352470" duration="973000" />
     </task>
     <task id="LOCAL-00001" summary="Class Player layout">
       <created>1679754417366</created>
@@ -440,7 +441,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683131474251</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Updated &quot;Resilienza alle disconnessioni&quot; feature.">
+      <created>1683147402570</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1683147402570</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -497,7 +505,8 @@
     <MESSAGE value="New messages for goal cards." />
     <MESSAGE value="First pretty good playable demo!" />
     <MESSAGE value="Updated messages in the demo. Starting &quot;Resilienza alle disconnessioni&quot; feature." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated messages in the demo. Starting &quot;Resilienza alle disconnessioni&quot; feature." />
+    <MESSAGE value="Updated &quot;Resilienza alle disconnessioni&quot; feature." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated &quot;Resilienza alle disconnessioni&quot; feature." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
