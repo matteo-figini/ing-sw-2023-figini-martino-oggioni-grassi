@@ -226,33 +226,34 @@ public class GameController {
      */
     // TODO: change Javadoc!
     public void handleLogin (String nickname, VirtualView virtualView) {
-        if (gameState == GameState.LOBBY_STATE) {
-            if (virtualViewMap.isEmpty()) {
-                // First player to login. The nickname is always correct!
-                addVirtualView(nickname, virtualView);
-                game.addPlayer(nickname);
-                virtualView.askPlayersNumber();
-                virtualView.showGenericMessage("Waiting for other players...");
-            } else if (virtualViewMap.size() < game.getChosenPlayersNumber()) {
-                // The player is not the first one. We suppose here that the nickname is already checked by the server.
-                addVirtualView(nickname, virtualView);
-                game.addPlayer(nickname);
-                System.out.println("Players connected: " + virtualViewMap.size() + "/" + game.getChosenPlayersNumber());
-                if (!gameSuspended && getOnlinePlayers().size() == game.getChosenPlayersNumber()) {
-                    broadcastGenericMessage("All the players are connected.");
-                    startGame();
-                }
+        if (virtualViewMap.isEmpty()) {
+            // First player to login. The nickname is always correct!
+            addVirtualView(nickname, virtualView);
+            game.addPlayer(nickname);
+            virtualView.askPlayersNumber();
+            virtualView.showGenericMessage("Waiting for other players...");
+        } else if (virtualViewMap.size() < game.getChosenPlayersNumber()) {
+            // The player is not the first one. We suppose here that the nickname is already checked by the server.
+            addVirtualView(nickname, virtualView);
+            game.addPlayer(nickname);
+            System.out.println("Players connected: " + virtualViewMap.size() + "/" + game.getChosenPlayersNumber());
+            if (getOnlinePlayers().size() == game.getChosenPlayersNumber()) {
+                broadcastGenericMessage("All the players are connected.");
+                startGame();
             }
-        } else if (gameState == GameState.IN_GAME || gameState == GameState.LAST_LAP) {
-            if (gameSuspended) {
-                addVirtualView(nickname, virtualView);
-                game.getPlayerByNickname(nickname).setOnlinePlayer(true);
-                broadcastGenericMessage("New player reconnected: " + nickname);
-                if (getOnlinePlayers().size() == game.getChosenPlayersNumber()) {
-                    gameSuspended = false;
-                    broadcastGenericMessage("All the players are connected.");
-                    newTurn();
-                }
+        }
+    }
+
+    // TODO: add new javadoc!
+    public void handleReconnection (String nickname, VirtualView virtualView) {
+        if (gameSuspended) {
+            addVirtualView(nickname, virtualView);
+            game.getPlayerByNickname(nickname).setOnlinePlayer(true);
+            broadcastGenericMessage("New player reconnected: " + nickname);
+            if (getOnlinePlayers().size() == game.getChosenPlayersNumber()) {
+                gameSuspended = false;
+                broadcastGenericMessage("All the players are connected.");
+                newTurn();
             }
         }
     }

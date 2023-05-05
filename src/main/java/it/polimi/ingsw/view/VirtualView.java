@@ -35,7 +35,7 @@ public class VirtualView implements View {
     }
 
     @Override
-    public void showLoginResponse(boolean validNickname, boolean connectionEstablished) {
+    public void showLoginResponse (boolean validNickname, boolean connectionEstablished) {
         clientHandler.sendMessage(new LoginReply(validNickname, connectionEstablished));
     }
 

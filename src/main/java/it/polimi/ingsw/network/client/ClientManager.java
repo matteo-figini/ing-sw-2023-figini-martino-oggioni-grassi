@@ -86,6 +86,10 @@ public class ClientManager {
             case PLAYERSNUMBER_REQUEST -> {
                 view.askPlayersNumber();
             }
+            case LOGIN_REPLY -> {
+                LoginReply loginReplyMessage = (LoginReply) message;
+                view.showLoginResponse(loginReplyMessage.isNicknameAccepted(), loginReplyMessage.isConnectionEstablished());
+            }
             case PICK_TILES_REQUEST -> {
                 view.askColumnAndPositions();
             }
