@@ -21,7 +21,6 @@ import java.util.stream.Collectors;
  * - Manage the game logic.
  */
 public class GameController {
-
     /** Entry point for the model. */
     private Game game;
 
@@ -67,7 +66,6 @@ public class GameController {
                 case IN_GAME -> turnController(message);
                 case LAST_LAP -> lastLapStateManager(message);
                 case END_GAME -> endGameStateManager(message);
-                default -> { System.out.println("Unhandled message: " + message.toString()); }
             }
         } else {
             broadcastGenericMessage("Can't receive message since the game is suspended.");
@@ -201,7 +199,7 @@ public class GameController {
         for (Map.Entry<String, Integer> entry : scoreMap.entrySet()) {
             scoreList.add(entry.getValue());
         }
-        Collections.sort(scoreList, Collections.reverseOrder());
+        scoreList.sort(Collections.reverseOrder());
         for (int num : scoreList) {
             for (Map.Entry<String, Integer> entry : scoreMap.entrySet()) {
                 if (entry.getValue().equals(num)) {
@@ -217,14 +215,15 @@ public class GameController {
     }
 
     /* ---------- LOGIN HANDLER ---------- */
+
     /**
-     * This method handles the login of all the clients. Every client is identified by his nickname and has a virtual view.
-     * For each client, it establishes if the client is the first one (and in this case requires the number of the players)
-     * and checks if the desired player number is reached, then starts the game.
-     * @param nickname The nickname of the client to add to the players' list.
-     * @param virtualView The virtual view of the client to add to the virtual views' map.
+     * Handles the login of a new player. Requires to be in {@code LOBBY_STATE} state, so the client connected represents
+     * a new player.
+     * Creates the corresponding player and associates the virtual view and the player to the nickname passed as parameter.
+     * If the players connected are the same number of the chosen players number, starts the game.
+     * @param nickname The nickname of the new player.
+     * @param virtualView The virtual view of the new player.
      */
-    // TODO: change Javadoc!
     public void handleLogin (String nickname, VirtualView virtualView) {
         if (virtualViewMap.isEmpty()) {
             // First player to login. The nickname is always correct!
@@ -236,7 +235,7 @@ public class GameController {
             // The player is not the first one. We suppose here that the nickname is already checked by the server.
             addVirtualView(nickname, virtualView);
             game.addPlayer(nickname);
-            System.out.println("Players connected: " + virtualViewMap.size() + "/" + game.getChosenPlayersNumber());
+            broadcastGenericMessage("Players connected: " + virtualViewMap.size() + "/" + game.getChosenPlayersNumber());
             if (getOnlinePlayers().size() == game.getChosenPlayersNumber()) {
                 broadcastGenericMessage("All the players are connected.");
                 startGame();
@@ -244,19 +243,25 @@ public class GameController {
         }
     }
 
-    // TODO: add new javadoc!
+    /**
+     * Handles the reconnection of a client that was disconnected.
+     * Requires that exists a player with the same nickname and the game state is {@code IN_GAME} or {@code LAST_LAP}.
+     * Associates the nickname passed as parameter with the corresponding virtual view, then: if there are at least
+     * two online players, the game can continue.
+     * @param nickname The nickname of the reconnected player.
+     * @param virtualView The virtual view of the reconnected player.
+     */
     public void handleReconnection (String nickname, VirtualView virtualView) {
-        if (gameSuspended) {
-            addVirtualView(nickname, virtualView);
-            game.getPlayerByNickname(nickname).setOnlinePlayer(true);
-            broadcastGenericMessage("New player reconnected: " + nickname);
-            if (getOnlinePlayers().size() == game.getChosenPlayersNumber()) {
-                gameSuspended = false;
-                broadcastGenericMessage("All the players are connected.");
-                newTurn();
-            }
+        addVirtualView(nickname, virtualView);
+        game.getPlayerByNickname(nickname).setOnlinePlayer(true);
+        broadcastGenericMessage("Player reconnected: " + nickname);
+        if (virtualViewMap.size() == 2) {
+            // Game can continue because there are two online players.
+            gameSuspended = false;
+            newTurn();
         }
     }
+
 
     /**
      * This method checks if the nickname passed as parameter is a valid nickname.
@@ -282,7 +287,6 @@ public class GameController {
      * @return The name of the next active player.
      */
     private String getNextPlayer () {
-        boolean onlinePlayer = false;
         Player player = game.getPlayerByNickname(getActivePlayer());
         int indexOfPlayer = game.getPlayers().indexOf(player);
         do {
@@ -377,7 +381,9 @@ public class GameController {
     private void showBoard () {
         for (Player player : game.getPlayers()) {
             VirtualView virtualView = virtualViewMap.get(player.getNickname());
-            virtualView.showBoardContent(game.getBoard().getBoardContentCopy());
+            if (virtualView != null) {
+                virtualView.showBoardContent(game.getBoard().getBoardContentCopy());
+            }
         }
     }
 
@@ -388,7 +394,9 @@ public class GameController {
         for (Player player : game.getPlayers()) {
             VirtualView virtualView = virtualViewMap.get(player.getNickname());
             for (Player playerShelf : game.getPlayers()) {
-                virtualView.showShelfContent(playerShelf.getShelf().getShelfContentCopy(), playerShelf.getNickname());
+                if (virtualView != null) {
+                    virtualView.showShelfContent(playerShelf.getShelf().getShelfContentCopy(), playerShelf.getNickname());
+                }
             }
         }
     }
@@ -399,8 +407,10 @@ public class GameController {
     private void showCommonGoalCards () {
         for (Player player : game.getPlayers()) {
             VirtualView virtualView = virtualViewMap.get(player.getNickname());
-            for (CommonGoalCard commonGoalCard : game.getCommonGoalCards()) {
-                virtualView.showGenericMessage("Common Goal Card description: " + commonGoalCard.getDescription());
+            if (virtualView != null) {
+                for (CommonGoalCard commonGoalCard : game.getCommonGoalCards()) {
+                    virtualView.showGenericMessage("Common Goal Card description: " + commonGoalCard.getDescription());
+                }
             }
         }
     }
@@ -411,18 +421,11 @@ public class GameController {
     private void showPersonalGoalCards () {
         for (Player player : game.getPlayers()) {
             VirtualView virtualView = virtualViewMap.get(player.getNickname());
-            virtualView.showGenericMessage("Personal goal card of " + player.getNickname() + ": ");
-            virtualView.showPersonalGoalCard(player.getPersonalGoalCard());
+            if (virtualView != null) {
+                virtualView.showGenericMessage("Personal goal card of " + player.getNickname() + ": ");
+                virtualView.showPersonalGoalCard(player.getPersonalGoalCard());
+            }
         }
-    }
-
-    /**
-     * This method returns the nickname of the player that has got the highest score.
-     * @return The nickname of the player with the highest score.
-     */
-    private String declareWinner () {
-        // TODO: implementare il metodo
-        return null;
     }
 
     /**
