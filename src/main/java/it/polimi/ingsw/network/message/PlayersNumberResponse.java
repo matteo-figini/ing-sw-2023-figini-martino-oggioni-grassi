@@ -3,10 +3,10 @@ package it.polimi.ingsw.network.message;
 /**
  * Message sent from the client to the server specifying the number of the player in the game.
  */
-public class PlayersNumberReply extends Message {
+public class PlayersNumberResponse extends Message {
     private final int playersNumber;        // Number of the players in the game.
 
-    public PlayersNumberReply (String nickname, int playersNumber) {
+    public PlayersNumberResponse(String nickname, int playersNumber) {
         super(nickname, MessageType.PLAYERSNUMBER_REPLY);
         this.playersNumber = playersNumber;
     }

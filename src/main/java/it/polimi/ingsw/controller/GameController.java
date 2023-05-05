@@ -7,8 +7,8 @@ import it.polimi.ingsw.model.*;
 import it.polimi.ingsw.model.commongoals.CommonGoalCard;
 import it.polimi.ingsw.network.message.Message;
 import it.polimi.ingsw.network.message.MessageType;
-import it.polimi.ingsw.network.message.PickTilesReply;
-import it.polimi.ingsw.network.message.PlayersNumberReply;
+import it.polimi.ingsw.network.message.PickTilesResponse;
+import it.polimi.ingsw.network.message.PlayersNumberResponse;
 import it.polimi.ingsw.view.VirtualView;
 
 import java.util.*;
@@ -81,7 +81,7 @@ public class GameController {
      */
     private void lobbyStateManager (Message message) {
         if (message.getMessageType() == MessageType.PLAYERSNUMBER_REPLY) {
-            PlayersNumberReply messageReceived = (PlayersNumberReply) message;
+            PlayersNumberResponse messageReceived = (PlayersNumberResponse) message;
             game.setChosenPlayersNumber(messageReceived.getPlayersNumber());
             System.out.println("This game will have " + game.getChosenPlayersNumber() + " players.");
         } else {
@@ -98,7 +98,7 @@ public class GameController {
 
         if (message.getMessageType() == MessageType.PICK_TILES_REPLY) {
             if (message.getNickname().equals(getActivePlayer())) {
-                PickTilesReply messageReceived = (PickTilesReply) message;
+                PickTilesResponse messageReceived = (PickTilesResponse) message;
 
                 if (game.getPlayerByNickname(getActivePlayer()).getShelf().freeCellsOnColumn(messageReceived.getColumn()) >= messageReceived.getPositionsOfTiles().size()) {
                     // Vi sono sufficienti celle nella shelf. A questo punto controllo che le posizioni coincidano con tessere valide.
@@ -138,7 +138,7 @@ public class GameController {
         VirtualView currentVirtualView = virtualViewMap.get(getActivePlayer());
         if (message.getMessageType() == MessageType.PICK_TILES_REPLY) {
             if (message.getNickname().equals(getActivePlayer())) {
-                PickTilesReply messageReceived = (PickTilesReply) message;
+                PickTilesResponse messageReceived = (PickTilesResponse) message;
 
                 if (game.getPlayerByNickname(getActivePlayer()).getShelf().freeCellsOnColumn(messageReceived.getColumn()) >= messageReceived.getPositionsOfTiles().size()) {
                     // Vi sono sufficienti celle nella shelf. A questo punto controllo che le posizioni coincidano con tessere valide.
@@ -513,8 +513,9 @@ public class GameController {
 
     public void setPlayerOffline (String nickname) {
         virtualViewMap.remove(nickname);
-        if (game.getPlayerByNickname(nickname) != null)
+        if (game.getPlayerByNickname(nickname) != null) {
             game.getPlayerByNickname(nickname).setOnlinePlayer(false);
+        }
 
         if (game.getOnlinePlayersNumber() == 1) {
             gameSuspended = true;

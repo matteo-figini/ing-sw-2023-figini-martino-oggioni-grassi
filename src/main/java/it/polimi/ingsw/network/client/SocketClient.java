@@ -47,6 +47,7 @@ public class SocketClient extends Client {
     @Override
     public void sendMessage (Message message) {
         try {
+            // System.out.println("Message sent: " + message);
             this.outputStream.writeObject(message);
             this.outputStream.reset();
         } catch (IOException e) {

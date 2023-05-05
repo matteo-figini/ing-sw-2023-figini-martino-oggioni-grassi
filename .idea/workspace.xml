@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Bug fixes. This should fix #1">
+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Invalid nickname case handled. This should fix #2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/controller/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/client/ClientManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/client/ClientManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/client/SocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/client/SocketClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/message/LoginReply.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/message/LoginResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/message/PickTilesReply.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/message/PickTilesResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/message/PlayersNumberReply.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/message/PlayersNumberResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/server/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/VirtualView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/VirtualView.java" afterDir="false" />
     </list>
@@ -81,7 +85,7 @@
       <recent name="C:\Users\matte\IdeaProjects\ing-sw-2023-figini-martino-oggioni-grassi" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ServerMain">
+  <component name="RunManager" selected="Application.ClientMain">
     <configuration name="ClientMain" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.ClientMain" />
       <module name="PSP18" />
@@ -265,7 +269,10 @@
       <workItem from="1683218198541" duration="706000" />
       <workItem from="1683277627182" duration="602000" />
       <workItem from="1683278314788" duration="434000" />
-      <workItem from="1683283899873" duration="2153000" />
+      <workItem from="1683283899873" duration="2223000" />
+      <workItem from="1683286664389" duration="1122000" />
+      <workItem from="1683290175899" duration="488000" />
+      <workItem from="1683293062425" duration="103000" />
     </task>
     <task id="LOCAL-00001" summary="Class Player layout">
       <created>1679754417366</created>
@@ -463,7 +470,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683218883703</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Invalid nickname case handled. This should fix #2">
+      <created>1683286115393</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1683286115393</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -497,7 +511,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Class Player layout" />
     <MESSAGE value="first project layout" />
     <MESSAGE value="linked classes commit" />
     <MESSAGE value="Game, Shelf, Stack commit" />
@@ -522,7 +535,8 @@
     <MESSAGE value="Updated messages in the demo. Starting &quot;Resilienza alle disconnessioni&quot; feature." />
     <MESSAGE value="Updated &quot;Resilienza alle disconnessioni&quot; feature." />
     <MESSAGE value="Bug fixes. This should fix #1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug fixes. This should fix #1" />
+    <MESSAGE value="Invalid nickname case handled. This should fix #2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Invalid nickname case handled. This should fix #2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

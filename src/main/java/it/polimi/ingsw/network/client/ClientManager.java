@@ -1,7 +1,6 @@
 package it.polimi.ingsw.network.client;
 
 import it.polimi.ingsw.model.Position;
-import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
 import it.polimi.ingsw.network.message.*;
 import it.polimi.ingsw.view.View;
 
@@ -10,9 +9,18 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * This class provides the feature for the client to communicate with the server. It's a "middleware" between the MVC
+ * pattern and the network layer in the client.
+ */
 public class ClientManager {
+    /** Reference to the current {@code View} of the client. */
     private View view;
+
+    /** Reference to the current {@code Client} network interface. */
     private Client client;
+
+    /** Nickname of the player. */
     private String nickname;
 
     /**
@@ -46,6 +54,8 @@ public class ClientManager {
      * @param nickname The nickname of the client.
      */
     public void onUpdateNickname (String nickname) {
+        // Nickname is updated every time the user choose it, no matter if it's valid or not.
+        // But this is not a problem, since the last chosen nickname is always correct!
         this.nickname = nickname;
         client.sendMessage(new LoginRequest(this.nickname));
     }
@@ -55,7 +65,7 @@ public class ClientManager {
      * @param playersNumber The number of the players in the game.
      */
     public void onUpdatePlayersNumber (int playersNumber) {
-        client.sendMessage(new PlayersNumberReply(this.nickname, playersNumber));
+        client.sendMessage(new PlayersNumberResponse(this.nickname, playersNumber));
     }
 
     /**
@@ -64,7 +74,7 @@ public class ClientManager {
      * @param column The column in the shelf.
      */
     public void onUpdateColumnAndPosition (List<Position> positions, int column) {
-        client.sendMessage(new PickTilesReply(this.nickname, positions, column));
+        client.sendMessage(new PickTilesResponse(this.nickname, positions, column));
     }
 
     /**
@@ -87,7 +97,7 @@ public class ClientManager {
                 view.askPlayersNumber();
             }
             case LOGIN_REPLY -> {
-                LoginReply loginReplyMessage = (LoginReply) message;
+                LoginResponse loginReplyMessage = (LoginResponse) message;
                 view.showLoginResponse(loginReplyMessage.isNicknameAccepted(), loginReplyMessage.isConnectionEstablished());
             }
             case PICK_TILES_REQUEST -> {
@@ -112,6 +122,9 @@ public class ClientManager {
             case GENERIC_MESSAGE -> {
                 GenericMessage genericMessage = (GenericMessage) message;
                 view.showGenericMessage(genericMessage.getGenericMessage());
+            }
+            default -> {
+                System.out.println("ERROR: Message unhandled!");
             }
             // TODO: completare il metodo
         }

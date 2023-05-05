@@ -63,6 +63,7 @@ public class Server {
         if (gameController.checkNicknameAvailability(nickname, virtualView)) {
             // Il giocatore si sta aggiungendo alla partita in fase di lobby con un nickname valido.
             clientHandlerMap.put(nickname, clientHandler);
+            virtualView.showLoginResponse(true, true);
             gameController.handleLogin(nickname, virtualView);
         } else {
             // Il giocatore si sta aggiungendo alla partita in fase di lobby con un nickname non valido.
