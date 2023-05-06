@@ -16,7 +16,6 @@ import java.util.Map;
  * Based on the network technology (socket or RMI), a class will extend the functionalities.
  */
 public class Server {
-
     /** Instance of the {@code GameController} class. */
     private final GameController gameController;
 
@@ -66,9 +65,8 @@ public class Server {
             virtualView.showLoginResponse(true, true);
             gameController.handleLogin(nickname, virtualView);
         } else {
-            // Il giocatore si sta aggiungendo alla partita in fase di lobby con un nickname non valido.
-            // Informa il giocatore che il nickname non è valido e ...
-            // TODO: disconnessione del client oppure richiesta del nuovo nickname?
+            // Player is trying to get into the game with an invalid nickname.
+            // Inform the player that the nickname is invalid.
             virtualView.showLoginResponse(false, true);
         }
     }
@@ -108,8 +106,10 @@ public class Server {
     }
 
     /**
-     *
-     * @param clientHandler
+     * Handles the disconnection of the client, removing his references from the {@code ClientHandler} map and the
+     * {@code VirtualView} map. Based on the current status of the game, if it is set to {@code LOBBY_STATE} the client
+     * will be removed also from the player list, otherwise his status change to "offline".
+     * @param clientHandler The {@code ClientHandler} of the disconnected client.
      */
     public void onClientDisconnection (ClientHandler clientHandler) {
         String nicknameOfDisconnectedClient = fromClientHandlerToNickname(clientHandler);
@@ -119,15 +119,16 @@ public class Server {
             gameController.broadcastGenericMessage("Player " + nicknameOfDisconnectedClient + " is disconnected.");
             System.out.println("Client " + clientHandler.toString() + " with name " + nicknameOfDisconnectedClient + " is disconnected.");
             if (gameController.getGameState() == GameState.LOBBY_STATE) {
-                // Rimuovi il giocatore dalla lista dei giocatori (disconnessione "completa")
+                // Remove the player from the players' list.
                 gameController.removePlayer(nicknameOfDisconnectedClient);
             } else {
-                // Il giocatore viene semplicemente messo offline.
+                // Set the status of the player to offline.
                 gameController.setPlayerOffline(nicknameOfDisconnectedClient);
             }
+        } else {
+            System.out.println("Cannot find a player from the specified client handler: " + clientHandler.toString());
         }
     }
-    // TODO: se il giocatore si disconnette nella lobby, va rimosso anche dalla lista dei giocatori.
 
     /**
      * Return the nickname of the client associated with the {@code ClientHandler} specified as parameter.
