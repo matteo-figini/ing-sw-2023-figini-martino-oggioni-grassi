@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Updated &quot;resilienza alle disconnessioni&quot; feature. Minor fixes on GameController.java">
+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="First GUI setup commit">
       <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/ControllerLobby.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GuiMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/Prova" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/lobby.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_2023_10_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_2023_10_00__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -293,7 +287,7 @@
       <workItem from="1683375834800" duration="1711000" />
       <workItem from="1683377624149" duration="633000" />
       <workItem from="1683378267327" duration="649000" />
-      <workItem from="1683378984914" duration="2065000" />
+      <workItem from="1683378984914" duration="2185000" />
     </task>
     <task id="LOCAL-00001" summary="Class Player layout">
       <created>1679754417366</created>
@@ -512,7 +506,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683303304868</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="First GUI setup commit">
+      <created>1683381140389</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1683381140389</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -546,7 +547,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Game, Shelf, Stack commit" />
     <MESSAGE value="PersonalGoalCardTest commit" />
     <MESSAGE value="BoardTest: refillBoardTest commit" />
     <MESSAGE value="Added very very basic skeleton for client and server" />
@@ -571,7 +571,8 @@
     <MESSAGE value="Invalid nickname case handled. This should fix #2" />
     <MESSAGE value="Minor fixes" />
     <MESSAGE value="Updated &quot;resilienza alle disconnessioni&quot; feature. Minor fixes on GameController.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated &quot;resilienza alle disconnessioni&quot; feature. Minor fixes on GameController.java" />
+    <MESSAGE value="First GUI setup commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="First GUI setup commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
