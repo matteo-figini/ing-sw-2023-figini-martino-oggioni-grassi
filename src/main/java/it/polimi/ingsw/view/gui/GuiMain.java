@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class GuiMain extends Application {
 
@@ -17,6 +16,13 @@ public class GuiMain extends Application {
         loader.setLocation(getClass().getResource("/fxml/lobby.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("/css/lobbyStyle.css").toExternalForm());
+        /*
+        Modo alternativo per applicare lo stesso css a più scene
+        String css = this.getClass().getResource("lobbyStyle.css").toExternalForm();
+        scene.getStylesheets().add(css);
+        scene2.getStylesheets().add(css);
+        */
 
         primaryStage.setScene(scene);
         primaryStage.setFullScreen(true);
