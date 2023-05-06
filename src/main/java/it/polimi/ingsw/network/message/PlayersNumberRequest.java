@@ -5,7 +5,7 @@ package it.polimi.ingsw.network.message;
  */
 public class PlayersNumberRequest extends Message {
     public PlayersNumberRequest() {
-        super("SERVER", MessageType.PLAYERSNUMBER_REQUEST);
+        super("SERVER", MessageType.PLAYERS_NUMBER_REQUEST);
     }
 
     @Override

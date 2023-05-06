@@ -118,9 +118,16 @@ public class Server {
             gameController.removeVirtualView(nicknameOfDisconnectedClient, gameController.getVirtualViewMap().get(nicknameOfDisconnectedClient));
             gameController.broadcastGenericMessage("Player " + nicknameOfDisconnectedClient + " is disconnected.");
             System.out.println("Client " + clientHandler.toString() + " with name " + nicknameOfDisconnectedClient + " is disconnected.");
-            gameController.setPlayerOffline(nicknameOfDisconnectedClient);
+            if (gameController.getGameState() == GameState.LOBBY_STATE) {
+                // Rimuovi il giocatore dalla lista dei giocatori (disconnessione "completa")
+                gameController.removePlayer(nicknameOfDisconnectedClient);
+            } else {
+                // Il giocatore viene semplicemente messo offline.
+                gameController.setPlayerOffline(nicknameOfDisconnectedClient);
+            }
         }
     }
+    // TODO: se il giocatore si disconnette nella lobby, va rimosso anche dalla lista dei giocatori.
 
     /**
      * Return the nickname of the client associated with the {@code ClientHandler} specified as parameter.

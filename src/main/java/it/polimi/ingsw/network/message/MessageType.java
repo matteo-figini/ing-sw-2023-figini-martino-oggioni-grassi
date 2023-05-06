@@ -7,7 +7,7 @@ public enum MessageType {
     // Fase iniziale di gioco
     LOGIN_REQUEST,
     LOGIN_REPLY,
-    PLAYERSNUMBER_REQUEST,
+    PLAYERS_NUMBER_REQUEST,
     PLAYERSNUMBER_REPLY,
 
     // Fase di gioco

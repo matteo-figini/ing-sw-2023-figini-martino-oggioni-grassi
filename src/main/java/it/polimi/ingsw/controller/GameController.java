@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
  * This class represents the main class for the controller in the MVC package. Main action of the game controller are:
  * - Receiving the messages from the client and take decisions based on the message type and the game state;
  * - Sending the model updates to all the clients;
- * - Manage the game logic.
+ * - Handle the game logic.
  */
 public class GameController {
     /** Entry point for the model. */
@@ -68,14 +68,14 @@ public class GameController {
                 case END_GAME -> endGameStateManager(message);
             }
         } else {
-            broadcastGenericMessage("Can't receive message since the game is suspended.");
+            System.out.println("Can't receive message since the game is suspended.");
         }
     }
 
     /**
      * Take actions based on a message arrived in {@code LOBBY_STATE} state.
      * @param message The message received. Requires that the number of the players is between {@code Game.MIN_PLAYERS}
-     *                and {@code Game.MAX_PLAYERS} parameters.
+     * and {@code Game.MAX_PLAYERS} parameters.
      */
     private void lobbyStateManager (Message message) {
         if (message.getMessageType() == MessageType.PLAYERSNUMBER_REPLY) {
@@ -89,7 +89,8 @@ public class GameController {
 
     /**
      * Take actions based on a message arrived in {@code IN_GAME} state.
-     * @param message The message received.
+     * @param message The message received. If the message is a {@PICK_TILES_REPLY} check the game logic and proceed with
+     *                the game.
      */
     private void turnController (Message message) {
         VirtualView currentVirtualView = virtualViewMap.get(getActivePlayer());
@@ -208,6 +209,7 @@ public class GameController {
             }
         }
         System.out.println(sortedScoreMap);
+        broadcastGenericMessage(sortedScoreMap.toString());
 
         Game.resetGameInstance();
         broadcastGenericMessage("Game finished! Server ready for a new game...");
@@ -215,7 +217,6 @@ public class GameController {
     }
 
     /* ---------- LOGIN HANDLER ---------- */
-
     /**
      * Handles the login of a new player. Requires to be in {@code LOBBY_STATE} state, so the client connected represents
      * a new player.
@@ -255,6 +256,7 @@ public class GameController {
         addVirtualView(nickname, virtualView);
         game.getPlayerByNickname(nickname).setOnlinePlayer(true);
         broadcastGenericMessage("Player reconnected: " + nickname);
+        showGameInformation();
         if (virtualViewMap.size() == 2) {
             // Game can continue because there are two online players.
             gameSuspended = false;
@@ -590,5 +592,14 @@ public class GameController {
                 .filter(player -> !player.isOnlinePlayer())
                 .map(Player::getNickname)
                 .collect(Collectors.toList());
+    }
+
+    public void removePlayer (String nickname) {
+        Player playerToRemove = game.getPlayerByNickname(nickname);
+        if (playerToRemove != null) {
+            game.getPlayers().remove(playerToRemove);
+        } else {
+            System.out.println("Can't remove the player " + nickname + " because it doesn't exist!");
+        }
     }
 }

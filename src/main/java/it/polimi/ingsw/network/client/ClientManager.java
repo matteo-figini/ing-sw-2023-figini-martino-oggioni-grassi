@@ -93,7 +93,7 @@ public class ClientManager {
      */
     public void update (Message message) {
         switch (message.getMessageType()) {
-            case PLAYERSNUMBER_REQUEST -> {
+            case PLAYERS_NUMBER_REQUEST -> {
                 view.askPlayersNumber();
             }
             case LOGIN_REPLY -> {
