@@ -5,12 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Updated &quot;resilienza alle disconnessioni&quot; feature. Minor fixes on GameController.java">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/ControllerLobby.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GuiMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/Prova" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/lobby.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_2023_10_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_2023_10_00__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/client/ClientManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/client/ClientManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/message/MessageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/message/MessageType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/message/PlayersNumberRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/message/PlayersNumberRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +24,7 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -41,6 +44,13 @@
       <MavenGeneralSettings>
         <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="downloadAnnotationsAutomatically" value="true" />
+        <option name="downloadDocsAutomatically" value="true" />
+        <option name="downloadSourcesAutomatically" value="true" />
+      </MavenImportingSettings>
     </option>
   </component>
   <component name="ProjectId" id="2N0WsRka8BZgmuN1S8dHjOlp7HD" />
@@ -65,33 +75,49 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/mmaes/OneDrive/Desktop/Progetto Ingegneria del Software/ing-sw-2023-figini-martino-oggioni-grassizzzzzzzzzzz",
+    "last_opened_file_path": "C:/Java/javafx-sdk-20.0.1/lib",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.38965517",
-    "settings.editor.selected.configurable": "preferences.JavaFX",
+    "project.structure.side.proportion": "0.33501515",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\fedeg\IdeaProjects\ing-sw-2023-figini-martino-oggioni-grassi\src\main\resources\assets" />
+      <recent name="C:\Users\fedeg\IdeaProjects\ing-sw-2023-figini-martino-oggioni-grassi\src\main\resources" />
+      <recent name="C:\Users\fedeg\IdeaProjects\ing-sw-2023-figini-martino-oggioni-grassi\src\main\resources\fxml" />
       <recent name="C:\Users\matte\IdeaProjects\ing-sw-2023-figini-martino-oggioni-grassi\" />
       <recent name="C:\Users\matte\IdeaProjects\ing-sw-2023-figini-martino-oggioni-grassi\MyShelfie\.idea" />
-      <recent name="C:\Users\matte\IdeaProjects\ing-sw-2023-figini-martino-oggioni-grassi" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ServerMain">
+  <component name="RunManager" selected="Application.GuiMain">
     <configuration name="ClientMain" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.ClientMain" />
       <module name="PSP18" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="it.polimi.ingsw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GuiMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.view.gui.GuiMain" />
+      <module name="PSP18" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Java\javafx-sdk-20.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.polimi.ingsw.view.gui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -108,21 +134,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PersonalGoalCardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="PSP18" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="it.polimi.ingsw.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="it.polimi.ingsw" />
-      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.PersonalGoalCardTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -158,19 +169,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.GuiMain" />
       <item itemvalue="Application.ClientMain" />
       <item itemvalue="Application.ServerMain" />
-      <item itemvalue="JUnit.PersonalGoalCardTest" />
       <item itemvalue="JUnit.PlayerTest" />
       <item itemvalue="JUnit.ShelfTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.GuiMain" />
         <item itemvalue="Application.ClientMain" />
         <item itemvalue="Application.ServerMain" />
         <item itemvalue="JUnit.ShelfTest" />
         <item itemvalue="JUnit.PlayerTest" />
-        <item itemvalue="JUnit.PersonalGoalCardTest" />
       </list>
     </recent_temporary>
   </component>
@@ -278,6 +289,11 @@
       <workItem from="1683302535590" duration="781000" />
       <workItem from="1683363978638" duration="3706000" />
       <workItem from="1683367704569" duration="934000" />
+      <workItem from="1683375755310" duration="70000" />
+      <workItem from="1683375834800" duration="1711000" />
+      <workItem from="1683377624149" duration="633000" />
+      <workItem from="1683378267327" duration="649000" />
+      <workItem from="1683378984914" duration="2065000" />
     </task>
     <task id="LOCAL-00001" summary="Class Player layout">
       <created>1679754417366</created>
