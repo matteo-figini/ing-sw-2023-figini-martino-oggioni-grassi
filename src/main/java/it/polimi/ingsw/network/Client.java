@@ -1,6 +1,6 @@
 package it.polimi.ingsw.network;
 
-import it.polimi.ingsw.network.Socket.client.ClientManager;
+import it.polimi.ingsw.network.socket.client.ClientManager;
 import it.polimi.ingsw.network.message.Message;
 
 /**

@@ -3,7 +3,7 @@ package it.polimi.ingsw.view.tui;
 import it.polimi.ingsw.model.*;
 import it.polimi.ingsw.model.commongoals.CommonGoalCard;
 import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
-import it.polimi.ingsw.network.Socket.client.ClientManager;
+import it.polimi.ingsw.network.socket.client.ClientManager;
 import it.polimi.ingsw.view.View;
 
 import java.util.*;

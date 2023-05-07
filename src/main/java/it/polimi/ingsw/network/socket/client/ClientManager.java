@@ -1,4 +1,4 @@
-package it.polimi.ingsw.network.Socket.client;
+package it.polimi.ingsw.network.socket.client;
 
 import it.polimi.ingsw.model.Position;
 import it.polimi.ingsw.network.Client;
