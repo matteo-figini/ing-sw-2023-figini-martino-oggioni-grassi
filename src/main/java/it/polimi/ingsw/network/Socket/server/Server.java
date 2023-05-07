@@ -1,12 +1,10 @@
-package it.polimi.ingsw.network.server;
+package it.polimi.ingsw.network.Socket.server;
 
 import it.polimi.ingsw.controller.GameController;
 import it.polimi.ingsw.controller.GameState;
-import it.polimi.ingsw.network.client.Client;
 import it.polimi.ingsw.network.message.Message;
 import it.polimi.ingsw.view.VirtualView;
 
-import java.io.IOException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
