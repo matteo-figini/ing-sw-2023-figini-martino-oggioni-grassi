@@ -5,7 +5,9 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
-public class RemoteImplementation extends UnicastRemoteObject implements RemoteInterface  {
-    protected RemoteImplementation() throws RemoteException {
-    }
+/**
+ * This interface defines the methods that will be used by the Client on remote objects.
+ */
+public interface RemoteClient extends Remote {
+
 }

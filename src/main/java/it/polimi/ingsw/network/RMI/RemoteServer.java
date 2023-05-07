@@ -5,9 +5,5 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
-/**
- * This interface defines the methods that will be used by the Client on remote objects.
- */
-public interface RemoteInterface extends Remote {
-
+public interface RemoteServer {
 }
