@@ -5,7 +5,7 @@ import it.polimi.ingsw.model.ShelfCell;
 import it.polimi.ingsw.model.commongoals.CommonGoalCard;
 import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
 import it.polimi.ingsw.network.message.*;
-import it.polimi.ingsw.network.ClientHandler;
+import it.polimi.ingsw.network.socket.server.ClientHandler;
 
 /**
  * This class offer a mirror of a single client view for the server.

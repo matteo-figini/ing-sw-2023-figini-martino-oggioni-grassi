@@ -3,6 +3,7 @@ package it.polimi.ingsw.network;
 import it.polimi.ingsw.controller.GameController;
 import it.polimi.ingsw.controller.GameState;
 import it.polimi.ingsw.network.message.Message;
+import it.polimi.ingsw.network.socket.server.ClientHandler;
 import it.polimi.ingsw.view.VirtualView;
 
 import java.util.Collections;
@@ -13,7 +14,7 @@ import java.util.Map;
  * This class represents the implementation of the Server.
  * Based on the network technology (socket or RMI), a class will extend the functionalities.
  */
-public class Server {
+public class Server{  //extends UnicastRemoteObject (da importare) implements RemoteServer (quando avrò definito tutti i metodi RMI lato Server)
     /** Instance of the {@code GameController} class. */
     private final GameController gameController;
 
