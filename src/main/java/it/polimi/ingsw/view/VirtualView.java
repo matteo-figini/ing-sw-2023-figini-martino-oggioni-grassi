@@ -20,9 +20,7 @@ public class VirtualView implements View {
     }
 
     @Override
-    public void askNickname () {
-        // TODO: implementare il metodo askNickname() per VV
-    }
+    public void askNickname () { }
 
     @Override
     public void askPlayersNumber () {
@@ -63,7 +61,4 @@ public class VirtualView implements View {
     public void showPersonalGoalCard(PersonalGoalCard personalGoalCard) {
         clientHandler.sendMessage(new PersonalGoalCardMessage(personalGoalCard));
     }
-
-
-    //TODO: implementare tutti i metodi show();
 }

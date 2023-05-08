@@ -23,7 +23,6 @@ public class ClientMain {
             ClientManager clientManager = new ClientManager(tuiInterface);
             tuiInterface.setClientManager(clientManager);
             tuiInterface.startView();
-            // TODO: Avviare la comunicazione del client con interfaccia TUI e Socket per la connessione
         } else if (cliRequested && rmiRequested) {
             System.out.println("Unable to manage RMI connection. Client stopped.");
         } else if (!cliRequested && !rmiRequested) {

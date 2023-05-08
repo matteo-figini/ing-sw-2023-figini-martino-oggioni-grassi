@@ -22,7 +22,6 @@ public class ColoredTUI extends TUI {
 
     @Override
     public void showBoardContent (BoardCell[][] boardContent) {
-        // TODO: adapt this method!
         System.out.println("Board:");
         System.out.print("  | ");
         for (int j = 0; j < Board.MAX_COLUMNS; j++) {

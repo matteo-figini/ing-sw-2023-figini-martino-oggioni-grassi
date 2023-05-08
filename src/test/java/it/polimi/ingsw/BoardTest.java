@@ -35,8 +35,6 @@ public class BoardTest {
     Position threefreesides;
     Position fourfreesides;
 
-    //TODO: da completare
-
     @BeforeEach
     void setUpRefillBoardTest(){
         this.board1 = new Board(numPlayer);

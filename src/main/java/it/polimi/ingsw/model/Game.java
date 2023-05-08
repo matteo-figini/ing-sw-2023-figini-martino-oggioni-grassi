@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-// TODO: da revisionare
-
 /**
  * This class represents all the game in terms of player, board and all the model.
  * It can be useful as an entry point for the controller.

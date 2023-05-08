@@ -78,14 +78,6 @@ public class ClientManager {
         client.sendMessage(new PickTilesResponse(this.nickname, positions, column));
     }
 
-    /**
-     * Disconnect the client.
-     * // TODO: è davvero necessario questo metodo? Forse sì, forse no, forse boh...
-     */
-    public void onDisconnection () {
-        client.disconnect();
-    }
-
     /* ---------- FROM SERVER TO CLIENT ---------- */
     // Un unico metodo che, in base al tipo di messaggio ricevuto, invoca un metodo specifico sulla view.
     /**
@@ -127,7 +119,6 @@ public class ClientManager {
             default -> {
                 System.out.println("ERROR: Message unhandled!");
             }
-            // TODO: completare il metodo
         }
     }
 
@@ -159,5 +150,9 @@ public class ClientManager {
      */
     public static boolean isValidPort (int port) {
         return (port >= 1024 && port < 65536);
+    }
+
+    public String getNickname() {
+        return nickname;
     }
 }

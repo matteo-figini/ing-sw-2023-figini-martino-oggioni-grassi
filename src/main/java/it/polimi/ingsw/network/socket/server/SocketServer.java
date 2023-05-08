@@ -5,6 +5,7 @@ import java.net.Socket;
 
 import it.polimi.ingsw.network.Server;
 import it.polimi.ingsw.network.message.Message;
+import it.polimi.ingsw.network.socket.client.SocketClient;
 
 /**
  * This class extends the Server class by Socket network technology.
@@ -41,7 +42,7 @@ public class SocketServer implements Runnable {
             try {
                 Socket clientSocket = serverSocket.accept();    // Wait for a new connection and receives the socket Object
                 System.out.println("New connection request from: " + clientSocket.getInetAddress());
-                clientSocket.setSoTimeout(0);
+                clientSocket.setSoTimeout(SocketClient.SOCKET_TIMEOUT);
                 // Create and start the specific client handler.
                 SocketClientHandler clientHandler = new SocketClientHandler(this, clientSocket);
                 Thread thread = new Thread(clientHandler);

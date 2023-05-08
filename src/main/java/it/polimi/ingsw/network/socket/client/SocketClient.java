@@ -22,10 +22,10 @@ public class SocketClient extends Client {
     private final Socket socket;        // Client socket
     private final ObjectInputStream inputStream;  // Input stream for socket
     private final ObjectOutputStream outputStream;    // Output stream for socket
-    private final int SOCKET_TIMEOUT = 20000;
+    public static final int SOCKET_TIMEOUT = 20000;
 
-    private final ExecutorService readExecutionQueue = Executors.newSingleThreadExecutor();
-    private final ScheduledExecutorService pingSchedule = Executors.newSingleThreadScheduledExecutor();;
+    private final ExecutorService readService = Executors.newSingleThreadExecutor();
+    private final ScheduledExecutorService pingSchedule = Executors.newSingleThreadScheduledExecutor();
 
     /**
      * Default constructor sets the connection to the server.
@@ -38,6 +38,7 @@ public class SocketClient extends Client {
         this.socket.connect(new InetSocketAddress(ipAddress, port), SOCKET_TIMEOUT);
         this.inputStream = new ObjectInputStream(socket.getInputStream());
         this.outputStream = new ObjectOutputStream(socket.getOutputStream());
+        enablePing();
     }
 
     /**
@@ -48,7 +49,6 @@ public class SocketClient extends Client {
     @Override
     public void sendMessage (Message message) {
         try {
-            // System.out.println("Message sent: " + message);
             this.outputStream.writeObject(message);
             this.outputStream.reset();
         } catch (IOException e) {
@@ -59,16 +59,15 @@ public class SocketClient extends Client {
 
     @Override
     public void readMessage() {
-        readExecutionQueue.execute(() -> {
-            while (!readExecutionQueue.isShutdown()) {
+        readService.execute(() -> {
+            while (!readService.isShutdown()) {
                 Message message;
                 try {
                     message = (Message) inputStream.readObject();
-                    // System.out.println("Message received: " + message.toString());
                 } catch (IOException | ClassNotFoundException e) {
                     message = new ErrorMessage(null, "Connection lost with the server.");
                     disconnect();
-                    readExecutionQueue.shutdownNow();
+                    readService.shutdownNow();
                 }
                 clientManager.update(message);
             }
@@ -82,7 +81,8 @@ public class SocketClient extends Client {
     public void disconnect() {
         try {
             if (!socket.isClosed()) {
-                // TODO: Si dovrebbe terminare il thread di readMessage e disabilitare il pinging
+                readService.shutdownNow();
+                disablePing();
                 socket.close();
             }
         } catch (IOException e) {
@@ -92,7 +92,11 @@ public class SocketClient extends Client {
 
     @Override
     public void enablePing () {
-        pingSchedule.scheduleAtFixedRate(() -> sendMessage(new PingMessage()), 0, 1000, TimeUnit.MILLISECONDS);
+        pingSchedule.scheduleAtFixedRate(
+                () -> sendMessage(new PingMessage(clientManager.getNickname())),
+                0,
+                SOCKET_TIMEOUT/2,
+                TimeUnit.MILLISECONDS);
     }
 
     @Override

@@ -92,7 +92,6 @@ public class Server{  //extends UnicastRemoteObject (da importare) implements Re
             // Segnala che l'accesso non è valido e disconnetti il client.
             virtualView.showLoginResponse(true, false);
             clientHandler.disconnect();
-            // TODO: implementare la disconnessione del client.
         }
     }
 

@@ -8,6 +8,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.SocketException;
+import java.net.SocketTimeoutException;
 
 /**
  * This class is used to manage multi-client connection. When a new connection is accepted,
@@ -52,7 +53,8 @@ public class SocketClientHandler implements ClientHandler, Runnable {
                         Message message = null;
                         try {
                             message = (Message) inputStream.readObject();
-                        } catch (SocketException se) {
+                            System.out.println("Received message: " + message.toString());
+                        } catch (SocketException | SocketTimeoutException se) {
                             clientSocket.close();
                             this.isConnected = false;
                             Thread.currentThread().interrupt();
@@ -61,7 +63,6 @@ public class SocketClientHandler implements ClientHandler, Runnable {
                             if (message.getMessageType() == MessageType.LOGIN_REQUEST) {
                                 socketServer.addClient(message.getNickname(), this);
                             } else {
-                                System.out.println("Received message: " + message.toString());
                                 socketServer.onMessageReceived(message);
                             }
                         }

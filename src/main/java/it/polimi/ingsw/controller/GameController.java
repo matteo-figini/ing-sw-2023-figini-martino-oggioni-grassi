@@ -525,12 +525,12 @@ public class GameController {
         if (game.getOnlinePlayersNumber() == 1) {
             gameSuspended = true;
             broadcastGenericMessage("Game suspended: there's only " + game.getOnlinePlayersNumber() + " player connected.");
-        } else if (nickname.equals(activePlayer) && (gameState.equals(GameState.IN_GAME) || gameState.equals(GameState.LAST_LAP))) {
-            // If the player disconnected is not the current player, starts a new turn anyway!
-            broadcastGenericMessage("Since " + nickname + " is disconnected, the next player is: " + getNextPlayer());
-            newTurn();
         } else {
-            // TODO: cosa serve scrivere qui?
+            if (nickname.equals(activePlayer) && (gameState.equals(GameState.IN_GAME) || gameState.equals(GameState.LAST_LAP))) {
+                // If the player disconnected is not the current player, starts a new turn anyway!
+                broadcastGenericMessage("Since " + nickname + " is disconnected, the next player is: " + getNextPlayer());
+                newTurn();
+            }
         }
     }
 
