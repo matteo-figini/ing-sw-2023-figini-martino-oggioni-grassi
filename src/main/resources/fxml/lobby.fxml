@@ -1,11 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <BorderPane prefHeight="559.0" prefWidth="851.0" styleClass="BackGround" stylesheets="@../css/lobbyStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <top>
-      <HBox prefHeight="167.0" prefWidth="851.0" styleClass="Title" BorderPane.alignment="CENTER" />
+      <HBox prefHeight="183.0" prefWidth="851.0" styleClass="Title" BorderPane.alignment="CENTER" />
    </top>
+   <right>
+      <Pane opacity="0.95" prefHeight="200.0" prefWidth="200.0" styleClass="Pane" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <Pane prefHeight="110.0" prefWidth="851.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <center>
+      <VBox alignment="BASELINE_CENTER" opacity="0.95" prefHeight="200.0" prefWidth="100.0" styleClass="Pane" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="219.0" prefWidth="431.0">
+               <children>
+                  <TextField alignment="BOTTOM_CENTER" prefHeight="25.0" prefWidth="308.0" styleClass="Field" />
+               </children>
+            </HBox>
+            <HBox alignment="TOP_CENTER" prefHeight="163.0" prefWidth="429.0">
+               <children>
+                  <TextField prefHeight="25.0" prefWidth="316.0" />
+               </children>
+            </HBox>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+   </center>
+   <left>
+      <VBox opacity="0.95" prefHeight="266.0" prefWidth="297.0" styleClass="Pane" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_RIGHT" prefHeight="212.0" prefWidth="230.0">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Indirizzo IP:" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold Italic" size="28.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox alignment="TOP_RIGHT" opacity="0.95" prefHeight="176.0" prefWidth="230.0">
+               <children>
+                  <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Socket:" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold Italic" size="28.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </left>
 </BorderPane>
