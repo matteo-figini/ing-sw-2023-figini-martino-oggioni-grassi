@@ -17,12 +17,6 @@ public class GuiMain extends Application {
         Parent root = loader.load();
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/css/lobbyStyle.css").toExternalForm());
-        /*
-        Modo alternativo per applicare lo stesso css a più scene
-        String css = this.getClass().getResource("lobbyStyle.css").toExternalForm();
-        scene.getStylesheets().add(css);
-        scene2.getStylesheets().add(css);
-        */
 
         primaryStage.setScene(scene);
         primaryStage.setFullScreen(true);
@@ -33,4 +27,3 @@ public class GuiMain extends Application {
         launch(args);
     }
 }
-
