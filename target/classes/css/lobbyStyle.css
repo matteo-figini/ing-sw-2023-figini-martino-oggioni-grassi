@@ -1,0 +1,18 @@
+.BackGround{
+    -fx-background-image: url("../assets/Publisher%20material/Display_5.jpg");
+    -fx-background-size: stretch;
+}
+
+.Title{
+    -fx-background-image: url("../assets/Publisher%20material/Title%202000x618px.png");
+    -fx-background-size: contain;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+.Pane{
+    -fx-background-color: #b68702;
+    -fx-background-size: contain;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}

@@ -31,7 +31,21 @@ public class TUI implements View {
                 " /==/  / / , / /==/._/             \\==\\ - , //==/, //=/  /==/ ,     //==/ - , ,/==/   \\    /==/. /==/ ,     / \n" +
                 " `--`./  `--`  `--`-`               `--`---' `--`-' `-`--`--`-----`` `--`-----'`--`---'    `--`-``--`-----``  \n");
         System.out.println("Welcome to MyShelfie Game!");
-        this.askServerInformation();
+        this.askConnectionType();
+    }
+
+    public void askConnectionType () {
+        System.out.println("Select between Socket or RMI connection (press 1 for Socket, 2 for RMI): ");
+        int input = Integer.parseInt(scanner.nextLine());
+        switch(input){
+            case 1:
+                askServerInformation();
+            case 2:
+                System.out.println("RMI not available. Starting socket connection.");
+                askServerInformation();
+            default:
+                System.out.println("Input not valid. Press 1 for Socket or 2 for RMI.");
+        }
     }
 
     /**

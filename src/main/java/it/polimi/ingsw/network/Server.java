@@ -14,7 +14,7 @@ import java.util.Map;
  * This class represents the implementation of the Server.
  * Based on the network technology (socket or RMI), a class will extend the functionalities.
  */
-public class Server{  //extends UnicastRemoteObject (da importare) implements RemoteServer (quando avrò definito tutti i metodi RMI lato Server)
+public class Server{
     /** Instance of the {@code GameController} class. */
     private final GameController gameController;
 

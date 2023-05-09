@@ -11,6 +11,13 @@ import java.rmi.RemoteException;
  */
 public interface RemoteServer extends Remote {
     /**
+     * This method is used to check if the connection between Client and Server is established.
+     * @param client the new Client who wants to connect to Server.
+     * @return boolean stating if the connection is established.
+     * @throws RemoteException if an error occurs during Client-Server communication.
+     */
+    public boolean tryConnection(RemoteClient client) throws RemoteException;
+    /**
      * This method allows a Client to join the game on the Server.
      * @param client the Player who wants to join the Game.
      * @throws RemoteException if an error occurs during Client-Server communication.

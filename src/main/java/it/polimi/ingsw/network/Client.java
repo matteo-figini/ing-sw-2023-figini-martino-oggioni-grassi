@@ -7,7 +7,7 @@ import it.polimi.ingsw.network.message.Message;
  * This abstract class represents a general client. It will be extended by subclasses, depending on the technology
  * chosen for networking (e.g. Socket or RMI).
  */
-public abstract class Client { //extends UnicastRemoteObject (da importare) implements RemoteClient (quando avrò definito tutti i metodi RMI lato Client)
+public abstract class Client {
 
     /** The {@code ClientManager} associated to the client. */
     protected ClientManager clientManager;
