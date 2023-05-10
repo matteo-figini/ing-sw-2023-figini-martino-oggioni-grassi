@@ -15,8 +15,8 @@ import java.net.SocketTimeoutException;
  * a new object SocketClientHandler is created and a new thread is started.
  */
 public class SocketClientHandler implements ClientHandler, Runnable {
-    private Socket clientSocket;
-    private SocketServer socketServer;
+    private final Socket clientSocket;
+    private final SocketServer socketServer;
     private ObjectInputStream inputStream;
     private ObjectOutputStream outputStream;
     private boolean isConnected;
@@ -42,6 +42,7 @@ public class SocketClientHandler implements ClientHandler, Runnable {
             System.out.println(e.getMessage());
         }
     }
+
 
     @Override
     public void run () {
@@ -79,6 +80,10 @@ public class SocketClientHandler implements ClientHandler, Runnable {
         }
     }
 
+    /**
+     * Sends a message to the client on the {@code ObjectOutputStream}.
+     * @param message The message to send to the client.
+     */
     @Override
     public void sendMessage (Message message) {
         try {
@@ -93,7 +98,10 @@ public class SocketClientHandler implements ClientHandler, Runnable {
         }
     }
 
-
+    /**
+     * Close the {@code Socket} of the client handled by the {@code ClientHandler}, then interrupts the {@code ClientHandler}
+     * thread and pass the disconnection request to the {@code SocketServer}.
+     */
     @Override
     public void disconnect() {
         if (!isConnected)

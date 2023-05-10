@@ -12,19 +12,19 @@ import java.io.IOException;
 public interface ClientHandler {
 
     /**
-     * This method sends a message to the client handled by the client handler.
+     * Sends a message to the client handled by the {@code ClientHandler}.
      * @param message The message to send to the client.
      */
-    public void sendMessage(Message message);
+    void sendMessage(Message message);
 
     /**
-     * This method disconnects the specified client from the server, e.g. due to ping timeout or not valid information.
+     * Disconnects the specified client from the server, e.g. due to ping timeout or not valid information.
      */
-    public void disconnect ();
+    void disconnect ();
 
     /**
-     * This method indicates if the client handled by the client handler is connected to the server.
+     * Indicates if the client handled by the {@code ClientHandler} is connected to the {@code Server}.
      * @return A boolean indicating if the client is connected or not.
      */
-    public boolean isConnected ();
+    boolean isConnected ();
 }
