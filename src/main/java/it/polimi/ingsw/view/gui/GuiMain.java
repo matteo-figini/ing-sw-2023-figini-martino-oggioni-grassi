@@ -9,7 +9,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class GuiMain extends Application {
-
     @Override
     public void start(Stage primaryStage) throws IOException {
         FXMLLoader loader = new FXMLLoader();
@@ -23,7 +22,7 @@ public class GuiMain extends Application {
         primaryStage.show();
     }
 
-    public static void main(String[] args){
+    /*public static void main(String[] args){
         launch(args);
-    }
+    }*/
 }

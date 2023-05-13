@@ -37,7 +37,7 @@ public class LobbyController {
 
         scene1.getStylesheets().add(getClass().getResource("/css/lobbyStyle.css").toExternalForm());
         stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene1 = new Scene(root1);
+        // scene1 = new Scene(root1);
         stage1.setScene(scene1);
         stage1.show();
     }

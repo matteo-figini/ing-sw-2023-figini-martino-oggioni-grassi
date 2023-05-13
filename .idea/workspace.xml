@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="renamed packages name">
+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="refactor of javadoc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/socket/server/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/socket/server/ClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/socket/server/SocketClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/socket/server/SocketClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/socket/server/SocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/socket/server/SocketServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/socket/server/SocketClientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/socket/server/SocketClientHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/socket/server/SocketServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/socket/server/SocketServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/ClientMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/ClientMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GuiMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GuiMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/LobbyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/LobbyController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,8 +176,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.ClientMain" />
-        <item itemvalue="Application.ServerMain" />
         <item itemvalue="Application.GuiMain" />
+        <item itemvalue="Application.ServerMain" />
         <item itemvalue="JUnit.ShelfTest" />
         <item itemvalue="JUnit.PlayerTest" />
       </list>
@@ -305,7 +303,11 @@
       <workItem from="1683711022279" duration="36000" />
       <workItem from="1683711152922" duration="515000" />
       <workItem from="1683716689756" duration="1232000" />
-      <workItem from="1683717993609" duration="391000" />
+      <workItem from="1683717993609" duration="418000" />
+      <workItem from="1683798458458" duration="539000" />
+      <workItem from="1683878071981" duration="447000" />
+      <workItem from="1683970005185" duration="1128000" />
+      <workItem from="1683971148616" duration="640000" />
     </task>
     <task id="LOCAL-00001" summary="Class Player layout">
       <created>1679754417366</created>
@@ -531,7 +533,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683381140389</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="refactor of javadoc">
+      <created>1683718403740</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1683718403740</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -565,7 +574,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="PersonalGoalCardTest commit" />
     <MESSAGE value="BoardTest: refillBoardTest commit" />
     <MESSAGE value="Added very very basic skeleton for client and server" />
     <MESSAGE value="Updated Board.alignedAndClosePositions method. First skeleton of the MVC classes" />
@@ -590,7 +598,8 @@
     <MESSAGE value="Minor fixes" />
     <MESSAGE value="Updated &quot;resilienza alle disconnessioni&quot; feature. Minor fixes on GameController.java" />
     <MESSAGE value="First GUI setup commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="First GUI setup commit" />
+    <MESSAGE value="refactor of javadoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor of javadoc" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
