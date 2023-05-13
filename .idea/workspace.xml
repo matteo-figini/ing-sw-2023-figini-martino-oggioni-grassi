@@ -6,12 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Moved JavaFX launcher from GUIMain to ClientMain">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/tui/TUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/tui/TUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/lobby.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/lobby.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fxml/lobby.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/lobby.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/ClientMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/ClientMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/ClientMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/ClientMain.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/gui/GuiMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/gui/GuiMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/gui/LobbyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/gui/LobbyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/tui/TUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/tui/TUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/tui/TUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/tui/TUI.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,18 +90,17 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Desktop\Progetto\src\main\resources\assets" />
       <recent name="C:\Users\mmaes\OneDrive\Desktop\Progetto Ingegneria del Software\ing-sw-2023-figini-martino-oggioni-grassi\src\main\resources\assets" />
       <recent name="C:\Users\user\IdeaProjects\ing-sw-2023-figini-martino-oggioni-grassi\src\main\java\it\polimi\ingsw\view\gui" />
       <recent name="C:\Users\fedeg\Desktop\Progetto IdS\ing-sw-2023-figini-martino-oggioni-grassi\src\main\resources\assets" />
       <recent name="C:\Users\user\IdeaProjects\ing-sw-2023-figini-martino-oggioni-grassi\src\main\resources\assets" />
-      <recent name="C:\Users\fedeg\IdeaProjects\ing-sw-2023-figini-martino-oggioni-grassi\src\main\resources\assets" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ServerMain">
+  <component name="RunManager" selected="Application.GuiMain">
     <configuration name="ClientMain" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.ClientMain" />
       <module name="PSP18" />
-      <option name="PROGRAM_PARAMETERS" value="--cli" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="it.polimi.ingsw.*" />
@@ -116,7 +114,7 @@
     <configuration name="GuiMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.view.gui.GuiMain" />
       <module name="PSP18" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files\Java\javafx-sdk-20.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Java\javafx-sdk-20.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="it.polimi.ingsw.view.gui.*" />
@@ -179,9 +177,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ServerMain" />
-        <item itemvalue="Application.ClientMain" />
         <item itemvalue="Application.GuiMain" />
+        <item itemvalue="Application.ClientMain" />
+        <item itemvalue="Application.ServerMain" />
         <item itemvalue="JUnit.ShelfTest" />
         <item itemvalue="JUnit.PlayerTest" />
       </list>
@@ -312,6 +310,9 @@
       <workItem from="1683878071981" duration="447000" />
       <workItem from="1683970005185" duration="1128000" />
       <workItem from="1683971148616" duration="1245000" />
+      <workItem from="1683972591638" duration="99000" />
+      <workItem from="1683972769801" duration="409000" />
+      <workItem from="1683973650111" duration="168000" />
     </task>
     <task id="LOCAL-00001" summary="Class Player layout">
       <created>1679754417366</created>
