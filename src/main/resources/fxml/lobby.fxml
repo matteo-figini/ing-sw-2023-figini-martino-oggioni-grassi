@@ -42,7 +42,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="200.0" prefWidth="851.0" styleClass="Pane">
                <children>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="     Socket:         " wrappingWidth="286.03515625">
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Socket:         " textAlignment="RIGHT" wrappingWidth="286.03515625">
                      <font>
                         <Font name="System Bold Italic" size="40.0" />
                      </font>
