@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -17,6 +18,7 @@ public class GuiMain extends Application {
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/css/lobbyStyle.css").toExternalForm());
 
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/assets/Publisher material/Icon 50x50px.png")));
         primaryStage.setTitle("My Shelfie");
         primaryStage.setScene(scene);
         primaryStage.setFullScreen(true);

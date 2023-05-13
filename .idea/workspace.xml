@@ -4,17 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Moved JavaFX launcher from GUIMain to ClientMain">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/giphy.gif" afterDir="false" />
+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Added waitingRoom GUI">
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GuiGameController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/game.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/LobbyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/LobbyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GuiMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GuiMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/WaitingRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/WaitingRoomController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/lobbyStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/lobbyStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/lobby.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/lobby.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/waitingRoom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/waitingRoom.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/css/lobbyStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/css/lobbyStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/fxml/lobby.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/lobby.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fxml/waitingRoom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/waitingRoom.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/gui/GuiMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/gui/GuiMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/gui/LobbyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/gui/LobbyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/gui/WaitingRoomController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/gui/WaitingRoomController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -557,7 +558,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683971859117</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Added waitingRoom GUI">
+      <created>1683985652823</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1683985652823</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -591,7 +599,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added very very basic skeleton for client and server" />
     <MESSAGE value="Updated Board.alignedAndClosePositions method. First skeleton of the MVC classes" />
     <MESSAGE value="updated pom.xml" />
     <MESSAGE value="refactoring of endGame method" />
@@ -616,7 +623,8 @@
     <MESSAGE value="First GUI setup commit" />
     <MESSAGE value="refactor of javadoc" />
     <MESSAGE value="Moved JavaFX launcher from GUIMain to ClientMain" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved JavaFX launcher from GUIMain to ClientMain" />
+    <MESSAGE value="Added waitingRoom GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added waitingRoom GUI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

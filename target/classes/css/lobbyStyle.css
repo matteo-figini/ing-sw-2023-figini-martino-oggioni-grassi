@@ -16,3 +16,8 @@
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
 }
+
+.GameBackGround{
+    -fx-background-image: url("../assets/misc/sfondo%20parquet.jpg");
+    -fx-background-size: stretch;
+}
