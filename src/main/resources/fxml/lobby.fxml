@@ -24,46 +24,80 @@
       <VBox alignment="BASELINE_CENTER" opacity="0.95" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
             <Pane prefHeight="50.0" prefWidth="851.0" />
-            <HBox alignment="CENTER" prefHeight="200.0" prefWidth="600.0" styleClass="Pane">
+            <HBox alignment="CENTER" prefHeight="125.0" prefWidth="600.0" styleClass="Pane">
                <children>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="IP Address:       ">
                      <font>
                         <Font name="System Bold Italic" size="40.0" />
                      </font>
                      <HBox.margin>
-                        <Insets top="50.0" />
+                        <Insets top="5.0" />
                      </HBox.margin>
                   </Text>
-                  <TextField alignment="BOTTOM_CENTER" prefHeight="30.0" prefWidth="310.0" styleClass="Field">
+                  <TextField fx:id="playerIpAddress" alignment="BOTTOM_CENTER" prefHeight="30.0" prefWidth="310.0" styleClass="Field">
                      <HBox.margin>
-                        <Insets top="60.0" />
+                        <Insets top="5.0" />
                      </HBox.margin></TextField>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="200.0" prefWidth="851.0" styleClass="Pane">
+            <HBox alignment="CENTER" prefHeight="125.0" prefWidth="600.0" styleClass="Pane">
                <children>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Socket:         " textAlignment="RIGHT" wrappingWidth="286.03515625">
                      <font>
                         <Font name="System Bold Italic" size="40.0" />
                      </font>
                      <HBox.margin>
-                        <Insets bottom="15.0" />
+                        <Insets />
                      </HBox.margin>
                   </Text>
-                  <TextField prefHeight="30.0" prefWidth="310.0" styleClass="Field">
+                  <TextField fx:id="playerSocket" prefHeight="30.0" prefWidth="310.0" styleClass="Field">
                      <HBox.margin>
-                        <Insets bottom="5.0" />
+                        <Insets />
                      </HBox.margin></TextField>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="200.0" prefWidth="200.0" styleClass="Pane">
+            <HBox alignment="CENTER" prefHeight="125.0" prefWidth="600.0" styleClass="Pane">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Nickname:       " textAlignment="RIGHT" wrappingWidth="286.03515625">
+                     <font>
+                        <Font name="System Bold Italic" size="40.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Text>
+                  <TextField fx:id="playerNickname" prefHeight="30.0" prefWidth="310.0" styleClass="Field">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="125.0" prefWidth="600.0" styleClass="Pane">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Insert player's number:      " visible="${controller.showFrame}">
+                     <font>
+                        <Font name="System Bold Italic" size="40.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="10.0" />
+                     </HBox.margin>
+                  </Text>
+                  <TextField fx:id="numPlayers" alignment="BOTTOM_CENTER" prefHeight="30.0" prefWidth="101.0" styleClass="Field" visible="${controller.showFrame}">
+                     <HBox.margin>
+                        <Insets bottom="5.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="125.0" prefWidth="600.0" styleClass="Pane">
                <children>
                   <Button fx:id="button1" mnemonicParsing="false" onAction="#switchToWaitingRoom" prefHeight="56.0" prefWidth="193.0" text="JOIN THE GAME" textAlignment="CENTER">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                      <HBox.margin>
-                        <Insets bottom="20.0" />
+                        <Insets bottom="30.0" />
                      </HBox.margin>
                   </Button>
                </children>
