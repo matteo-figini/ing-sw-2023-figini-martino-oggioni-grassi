@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 
 public class LobbyController {
 
-    private Stage stage1;
+    private Stage PrimaryStage;
     private Scene scene1;
     private Parent root1;
 
@@ -36,13 +36,14 @@ public class LobbyController {
     public void switchToWaitingRoom(javafx.event.ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/fxml/waitingRoom.fxml"));
-        Parent root1 = loader.load();
-        Scene scene1 = new Scene(root1);
+        Parent root = loader.load();
+        Scene scene1 = new Scene(root);
 
         scene1.getStylesheets().add(getClass().getResource("/css/lobbyStyle.css").toExternalForm());
-        stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        PrimaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         // scene1 = new Scene(root1);
-        stage1.setScene(scene1);
-        stage1.show();
+        PrimaryStage.setScene(scene1);
+        PrimaryStage.setFullScreen(true);
+        PrimaryStage.show();
     }
 }

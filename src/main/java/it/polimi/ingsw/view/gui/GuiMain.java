@@ -17,12 +17,14 @@ public class GuiMain extends Application {
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/css/lobbyStyle.css").toExternalForm());
 
+        primaryStage.setTitle("My Shelfie");
         primaryStage.setScene(scene);
         primaryStage.setFullScreen(true);
+        primaryStage.setFullScreenExitHint("");
         primaryStage.show();
     }
 
-    /*public static void main(String[] args){
+    public static void main(String[] args){
         launch(args);
-    }*/
+    }
 }
