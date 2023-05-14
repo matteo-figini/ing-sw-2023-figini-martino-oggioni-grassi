@@ -7,7 +7,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -22,24 +21,26 @@
    <center>
       <VBox alignment="BASELINE_CENTER" opacity="0.95" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="50.0" prefWidth="851.0" />
-            <HBox alignment="CENTER" prefHeight="125.0" prefWidth="600.0" styleClass="Pane">
+            <HBox prefHeight="62.0" prefWidth="851.0" />
+            <HBox prefHeight="40.0" prefWidth="851.0" styleClass="Pane" />
+            <HBox alignment="CENTER" prefHeight="74.0" prefWidth="851.0" styleClass="Pane">
                <children>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="IP Address:       ">
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="IP Address:   " textAlignment="RIGHT" wrappingWidth="286.03515625">
                      <font>
                         <Font name="System Bold Italic" size="40.0" />
                      </font>
                      <HBox.margin>
-                        <Insets top="5.0" />
+                        <Insets />
                      </HBox.margin>
                   </Text>
-                  <TextField fx:id="playerIpAddress" alignment="BOTTOM_CENTER" prefHeight="30.0" prefWidth="310.0" styleClass="Field">
+                  <TextField fx:id="playerIpAddress" alignment="CENTER" prefHeight="30.0" prefWidth="310.0" styleClass="Field">
                      <HBox.margin>
                         <Insets top="5.0" />
                      </HBox.margin></TextField>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="125.0" prefWidth="600.0" styleClass="Pane">
+            <HBox prefHeight="40.0" prefWidth="851.0" styleClass="Pane" />
+            <HBox alignment="CENTER" prefHeight="89.0" prefWidth="851.0" styleClass="Pane">
                <children>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Socket:         " textAlignment="RIGHT" wrappingWidth="286.03515625">
                      <font>
@@ -49,15 +50,16 @@
                         <Insets />
                      </HBox.margin>
                   </Text>
-                  <TextField fx:id="playerSocket" prefHeight="30.0" prefWidth="310.0" styleClass="Field">
+                  <TextField fx:id="playerSocket" alignment="CENTER" prefHeight="30.0" prefWidth="310.0" styleClass="Field">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin></TextField>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="125.0" prefWidth="600.0" styleClass="Pane">
+            <HBox prefHeight="40.0" prefWidth="851.0" styleClass="Pane" />
+            <HBox alignment="CENTER" prefHeight="0.0" prefWidth="851.0" styleClass="Pane">
                <children>
-                  <Button fx:id="button1" mnemonicParsing="false" onAction="#switchToWaitingRoom" prefHeight="56.0" prefWidth="193.0" text="JOIN THE GAME" textAlignment="CENTER">
+                  <Button fx:id="button1" mnemonicParsing="false" onAction="#switchToPreGameLobby" prefHeight="56.0" prefWidth="193.0" text="JOIN THE GAME" textAlignment="CENTER">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -67,6 +69,7 @@
                   </Button>
                </children>
             </HBox>
+            <HBox prefHeight="40.0" prefWidth="851.0" styleClass="Pane" />
          </children>
          <opaqueInsets>
             <Insets />
@@ -76,17 +79,16 @@
    <bottom>
       <VBox prefHeight="107.0" prefWidth="851.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="100.0" prefWidth="200.0" />
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox prefHeight="23.0" prefWidth="851.0" />
+            <HBox alignment="BOTTOM_CENTER" prefHeight="81.0" prefWidth="851.0">
                <children>
-                  <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="70.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../assets/Publisher%20material/Publisher.png" />
                      </image>
                   </ImageView>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0" />
          </children>
       </VBox>
    </bottom>
