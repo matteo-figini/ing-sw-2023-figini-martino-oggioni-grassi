@@ -57,7 +57,7 @@ public class Player  {
      * @return {@code true} if the first common goal is reached, {@code false} otherwise.
      */
     public boolean isFirstCommonGoalReached() {
-        return (firstCommonGoal != null);
+        return (this.firstCommonGoal != null);
     }
 
     /**
@@ -65,14 +65,14 @@ public class Player  {
      * @param token The token associated to the common goal.
      */
     public void setFirstCommonGoalReached (ScoringToken token) {
-        this.secondCommonGoal = token;
+        this.firstCommonGoal = token;
     }
 
     /**
      * @return {@code true} if the second common goal is reached, {@code false} otherwise.
      */
     public boolean isSecondCommonGoalReached() {
-        return (secondCommonGoal != null);
+        return (this.secondCommonGoal != null);
     }
 
     /**

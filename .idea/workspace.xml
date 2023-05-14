@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Added waitingRoom GUI">
+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Added scoring token from the common goal cards to the player.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/controller/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/css/lobbyStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/css/lobbyStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/gui/WaitingRoomController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/gui/WaitingRoomController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/lobby.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/lobby.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/lobby.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/lobby.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/controller/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/controller/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/Player.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +74,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Program Files/Java/javafx-sdk-20.0.1/lib&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/matte/Desktop/MyShelfie&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -100,6 +101,7 @@
     <configuration name="ClientMain" type="Application" factoryName="Application" singleton="false" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.ClientMain" />
       <module name="PSP18" />
+      <option name="PROGRAM_PARAMETERS" value="--cli" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="it.polimi.ingsw.*" />
@@ -176,8 +178,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.GuiMain" />
         <item itemvalue="Application.ServerMain" />
+        <item itemvalue="Application.GuiMain" />
         <item itemvalue="JUnit.ShelfTest" />
         <item itemvalue="JUnit.PlayerTest" />
       </list>
@@ -312,7 +314,14 @@
       <workItem from="1683972769801" duration="409000" />
       <workItem from="1683973650111" duration="168000" />
       <workItem from="1683980705809" duration="662000" />
-      <workItem from="1684051732545" duration="948000" />
+      <workItem from="1684051732545" duration="968000" />
+      <workItem from="1684052886013" duration="34000" />
+      <workItem from="1684083793652" duration="330000" />
+      <workItem from="1684084166032" duration="11000" />
+      <workItem from="1684087614378" duration="213000" />
+      <workItem from="1684087914696" duration="4000" />
+      <workItem from="1684088287012" duration="9000" />
+      <workItem from="1684088321842" duration="1717000" />
     </task>
     <task id="LOCAL-00001" summary="Class Player layout">
       <created>1679754417366</created>
@@ -559,7 +568,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683985652823</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Added scoring token from the common goal cards to the player.">
+      <created>1684052692123</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1684052692123</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -593,7 +609,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Updated Board.alignedAndClosePositions method. First skeleton of the MVC classes" />
     <MESSAGE value="updated pom.xml" />
     <MESSAGE value="refactoring of endGame method" />
     <MESSAGE value="refactoring of freeCellsOnColumn method" />
@@ -618,7 +633,8 @@
     <MESSAGE value="refactor of javadoc" />
     <MESSAGE value="Moved JavaFX launcher from GUIMain to ClientMain" />
     <MESSAGE value="Added waitingRoom GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added waitingRoom GUI" />
+    <MESSAGE value="Added scoring token from the common goal cards to the player." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added scoring token from the common goal cards to the player." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

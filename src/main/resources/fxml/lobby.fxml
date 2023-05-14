@@ -57,40 +57,6 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="125.0" prefWidth="600.0" styleClass="Pane">
                <children>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Nickname:       " textAlignment="RIGHT" wrappingWidth="286.03515625">
-                     <font>
-                        <Font name="System Bold Italic" size="40.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Text>
-                  <TextField fx:id="playerNickname" prefHeight="30.0" prefWidth="310.0" styleClass="Field">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </TextField>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="125.0" prefWidth="600.0" styleClass="Pane">
-               <children>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Insert player's number:      " visible="${controller.showFrame}">
-                     <font>
-                        <Font name="System Bold Italic" size="40.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets bottom="10.0" />
-                     </HBox.margin>
-                  </Text>
-                  <TextField fx:id="numPlayers" alignment="BOTTOM_CENTER" prefHeight="30.0" prefWidth="101.0" styleClass="Field" visible="${controller.showFrame}">
-                     <HBox.margin>
-                        <Insets bottom="5.0" />
-                     </HBox.margin>
-                  </TextField>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="125.0" prefWidth="600.0" styleClass="Pane">
-               <children>
                   <Button fx:id="button1" mnemonicParsing="false" onAction="#switchToWaitingRoom" prefHeight="56.0" prefWidth="193.0" text="JOIN THE GAME" textAlignment="CENTER">
                      <font>
                         <Font name="System Bold" size="18.0" />
