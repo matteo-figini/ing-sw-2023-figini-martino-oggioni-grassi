@@ -21,9 +21,9 @@ public class Player  {
 
     private boolean firstPlayer = false;
 
-    private boolean firstCommonGoalReached = false;
+    private ScoringToken firstCommonGoal = null;
 
-    private boolean secondCommonGoalReached = false;
+    private ScoringToken secondCommonGoal = null;
 
     private boolean endGameToken = false;
     private boolean onlinePlayer;
@@ -54,33 +54,47 @@ public class Player  {
     }
 
     /**
-     * This method says if the player has reached the goal mentioned in the first Common Goal Card
-     * @return a boolean stating true if the goal is reached
+     * @return {@code true} if the first common goal is reached, {@code false} otherwise.
      */
     public boolean isFirstCommonGoalReached() {
-        return firstCommonGoalReached;
+        return (firstCommonGoal != null);
     }
 
     /**
-     * This method changes the state of the parameter stating if the first Common Goal is reached
+     * Set the first common goal reached passing the corresponding scoring token.
+     * @param token The token associated to the common goal.
      */
-    public void setFirstCommonGoalReached () {
-        this.firstCommonGoalReached = true;
+    public void setFirstCommonGoalReached (ScoringToken token) {
+        this.secondCommonGoal = token;
     }
 
     /**
-     * This method says if the player has reached the goal mentioned in the second Common Goal Card
-     * @return a boolean stating true if the goal is reached
+     * @return {@code true} if the second common goal is reached, {@code false} otherwise.
      */
     public boolean isSecondCommonGoalReached() {
-        return secondCommonGoalReached;
+        return (secondCommonGoal != null);
     }
 
     /**
-     * This method changes the state of the parameter stating if the second Common Goal is reached
+     * Set the second common goal reached passing the corresponding scoring token.
+     * @param token The token associated to the common goal.
      */
-    public void setSecondCommonGoalReached () {
-        this.secondCommonGoalReached = true;
+    public void setSecondCommonGoalReached (ScoringToken token) {
+        this.secondCommonGoal = token;
+    }
+
+    /**
+     * @return The {@code ScoringToken} associated to the first common goal.
+     */
+    public ScoringToken getFirstCommonGoal() {
+        return firstCommonGoal;
+    }
+
+    /**
+     * @return The {@code ScoringToken} associated to the second common goal.
+     */
+    public ScoringToken getSecondCommonGoal() {
+        return secondCommonGoal;
     }
 
     /**

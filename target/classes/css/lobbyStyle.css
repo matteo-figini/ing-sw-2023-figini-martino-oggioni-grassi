@@ -21,3 +21,13 @@
     -fx-background-image: url("../assets/misc/sfondo%20parquet.jpg");
     -fx-background-size: stretch;
 }
+
+.Board{
+    -fx-background-image: url("../assets/boards/livingroom.png");
+    -fx-background-size: stretch;
+}
+
+.Shelf{
+    -fx-background-image: url("../assets/boards/bookshelf.png");
+    -fx-background-size: stretch;
+}

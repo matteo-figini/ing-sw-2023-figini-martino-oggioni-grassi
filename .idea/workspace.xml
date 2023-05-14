@@ -5,16 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Added waitingRoom GUI">
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GuiGameController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/game.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GuiMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GuiMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/WaitingRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/WaitingRoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/lobbyStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/lobbyStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/lobby.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/lobby.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/css/lobbyStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/css/lobbyStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fxml/lobby.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/lobby.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/gui/GuiMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/gui/GuiMain.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/gui/WaitingRoomController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/gui/WaitingRoomController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,8 +96,8 @@
       <recent name="C:\Users\fedeg\Desktop\Progetto IdS\ing-sw-2023-figini-martino-oggioni-grassi\src\main\resources\assets" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.GuiMain">
-    <configuration name="ClientMain" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.ClientMain">
+    <configuration name="ClientMain" type="Application" factoryName="Application" singleton="false" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.ClientMain" />
       <module name="PSP18" />
       <extension name="coverage">
@@ -174,8 +168,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.GuiMain" />
       <item itemvalue="Application.ClientMain" />
+      <item itemvalue="Application.GuiMain" />
       <item itemvalue="Application.ServerMain" />
       <item itemvalue="JUnit.PlayerTest" />
       <item itemvalue="JUnit.ShelfTest" />
@@ -183,7 +177,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.GuiMain" />
-        <item itemvalue="Application.ClientMain" />
         <item itemvalue="Application.ServerMain" />
         <item itemvalue="JUnit.ShelfTest" />
         <item itemvalue="JUnit.PlayerTest" />
@@ -319,6 +312,7 @@
       <workItem from="1683972769801" duration="409000" />
       <workItem from="1683973650111" duration="168000" />
       <workItem from="1683980705809" duration="662000" />
+      <workItem from="1684051732545" duration="948000" />
     </task>
     <task id="LOCAL-00001" summary="Class Player layout">
       <created>1679754417366</created>
@@ -572,15 +566,6 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="RECENT_FILTERS">
       <map>
         <entry key="Branch">
@@ -592,6 +577,15 @@
                 </option>
               </RecentGroup>
             </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
           </value>
         </entry>
       </map>

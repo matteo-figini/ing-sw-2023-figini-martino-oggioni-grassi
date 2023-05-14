@@ -471,20 +471,20 @@ public class GameController {
     /**
      * This method checks if the active player completed a new common goal.
      * For each of the two common goal cards, the condition is that the player didn't reach the common goal before,
-     * and it reach it now; then the score of the player is updated.
+     * and it reach it now; then the score of the player is updated and the related points are associated to the player.
      */
     private void checkCommonGoalsCompleted () {
         Player activePlayerModel = game.getPlayerByNickname(getActivePlayer());
         CommonGoalCard commonGoalCard = game.getCommonGoalCards().get(0);
-        VirtualView virtualView = virtualViewMap.get(activePlayer);
         int score = 0;
 
         // Controllo del primo obiettivo comune
         if (!activePlayerModel.isFirstCommonGoalReached() && commonGoalCard.checkPattern(activePlayerModel.getShelf())) {
-            activePlayerModel.setFirstCommonGoalReached();
             try {
-                score = commonGoalCard.popScoringToken().getScore();
-                virtualView.showGenericMessage("You earned " + score + " points completing the first common goal!");
+                ScoringToken token = commonGoalCard.popScoringToken();
+                activePlayerModel.setFirstCommonGoalReached(token);
+                score = token.getScore();
+                broadcastGenericMessage( activePlayer + " earned " + score + " points completing the first common goal!");
                 activePlayerModel.addScore(score);
             } catch (NoScoringTokenAvailableException e) {
                 System.out.println(e.getMessage());
@@ -494,10 +494,11 @@ public class GameController {
         // Controllo del secondo obiettivo comune
         commonGoalCard = game.getCommonGoalCards().get(1);
         if (!activePlayerModel.isSecondCommonGoalReached() && commonGoalCard.checkPattern(activePlayerModel.getShelf())) {
-            activePlayerModel.setSecondCommonGoalReached();
             try {
-                score = commonGoalCard.popScoringToken().getScore();
-                virtualView.showGenericMessage("You earned " + score + " points completing the second common goal!");
+                ScoringToken token = commonGoalCard.popScoringToken();
+                activePlayerModel.setSecondCommonGoalReached(token);
+                score = token.getScore();
+                broadcastGenericMessage( activePlayer + " earned " + score + " points completing the second common goal!");
                 activePlayerModel.addScore(score);
             } catch (NoScoringTokenAvailableException e) {
                 System.out.println(e.getMessage());
@@ -521,7 +522,6 @@ public class GameController {
         if (game.getPlayerByNickname(nickname) != null) {
             game.getPlayerByNickname(nickname).setOnlinePlayer(false);
         }
-
         if (game.getOnlinePlayersNumber() == 1) {
             gameSuspended = true;
             broadcastGenericMessage("Game suspended: there's only " + game.getOnlinePlayersNumber() + " player connected.");
@@ -594,6 +594,10 @@ public class GameController {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * Remove the player with the nickname passed as parameter from the player's list if it exists.
+     * @param nickname The nickname of the player to be removed.
+     */
     public void removePlayer (String nickname) {
         Player playerToRemove = game.getPlayerByNickname(nickname);
         if (playerToRemove != null) {
