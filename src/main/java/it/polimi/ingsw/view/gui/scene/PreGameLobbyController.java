@@ -1,4 +1,4 @@
-package it.polimi.ingsw.view.gui;
+package it.polimi.ingsw.view.gui.scene;
 
 import java.io.IOException;
 import java.net.URL;
@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -16,7 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class preGameLobbyController {
+public class PreGameLobbyController {
 
     private BooleanProperty showFrame = new SimpleBooleanProperty(false);
     private Stage PrimaryStage;

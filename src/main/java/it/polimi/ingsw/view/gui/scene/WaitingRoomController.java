@@ -1,4 +1,4 @@
-package it.polimi.ingsw.view.gui;
+package it.polimi.ingsw.view.gui.scene;
 
 import java.io.IOException;
 import java.net.URL;
