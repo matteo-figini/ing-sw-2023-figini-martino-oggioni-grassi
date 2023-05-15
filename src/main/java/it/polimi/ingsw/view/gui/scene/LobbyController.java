@@ -1,5 +1,7 @@
 package it.polimi.ingsw.view.gui.scene;
 
+import it.polimi.ingsw.network.socket.client.ClientManager;
+import it.polimi.ingsw.view.View;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.ActionEvent;
@@ -16,11 +18,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LobbyController {
+public class LobbyController{
 
     private Stage PrimaryStage;
     private Scene scene1;
     private Parent root1;
+
+    public ClientManager clientManager;
 
     @FXML
     private ResourceBundle resources;
@@ -29,14 +33,13 @@ public class LobbyController {
     private URL location;
 
     @FXML
-    private Button button1;
-    @FXML
-    private TextField numPlayers;
-    @FXML
-    private TextField playerIpAddress;
+    private Button Submit1;
 
     @FXML
-    private TextField playerNickname;
+    private Button button1;
+
+    @FXML
+    private TextField playerIpAddress;
 
     @FXML
     private TextField playerSocket;
@@ -44,9 +47,7 @@ public class LobbyController {
     @FXML
     void initialize() {
         assert button1 != null : "fx:id=\"button1\" was not injected: check your FXML file 'lobby.fxml'.";
-        assert numPlayers != null : "fx:id=\"numPlayers\" was not injected: check your FXML file 'lobby.fxml'.";
         assert playerIpAddress != null : "fx:id=\"playerIpAddress\" was not injected: check your FXML file 'lobby.fxml'.";
-        assert playerNickname != null : "fx:id=\"playerNickname\" was not injected: check your FXML file 'lobby.fxml'.";
         assert playerSocket != null : "fx:id=\"playerSocket\" was not injected: check your FXML file 'lobby.fxml'.";
     }
 
@@ -72,4 +73,34 @@ public class LobbyController {
         PrimaryStage.setFullScreen(true);
         PrimaryStage.show();
     }
+
+    @FXML
+    public void askServerInformation(javafx.event.ActionEvent event) throws IOException{
+        String ipAddress, defaultIpAddress = "127.0.0.1";
+        int port, defaultPort = 5000;
+        boolean validInput = false;
+
+        // Insert and verify the IP address and the port
+        playerIpAddress.setStyle("-fx-text-fill: red;");
+        playerSocket.setStyle("-fx-text-fill: red;");
+
+        if (getPlayerIpAddress().equalsIgnoreCase(""))
+            ipAddress = defaultIpAddress;
+        else
+            ipAddress = getPlayerIpAddress();
+
+        if (getPlayerSocket().equals(""))
+            port = defaultPort;
+        else
+            port = Integer.parseInt(getPlayerSocket());
+
+        if (ClientManager.isValidIPAddress(getPlayerIpAddress()) && ClientManager.isValidPort(port)) {
+            playerIpAddress.setStyle("-fx-text-fill: green");
+            playerSocket.setStyle("-fx-text-fill: green;");
+
+        }
+
+
+    }
+
 }

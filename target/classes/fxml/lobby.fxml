@@ -53,10 +53,18 @@
                   <TextField fx:id="playerSocket" alignment="CENTER" prefHeight="30.0" prefWidth="310.0" styleClass="Field">
                      <HBox.margin>
                         <Insets />
-                     </HBox.margin></TextField>
+                     </HBox.margin>
+                  </TextField>
                </children>
             </HBox>
-            <HBox prefHeight="40.0" prefWidth="851.0" styleClass="Pane" />
+            <HBox alignment="CENTER" prefHeight="70.0" prefWidth="851.0" styleClass="Pane">
+               <children>
+                  <Button fx:id="Submit1" mnemonicParsing="false" onAction="#askServerInformation" text="Submit">
+                     <font>
+                        <Font name="System Italic" size="13.0" />
+                     </font>
+                  </Button>
+               </children></HBox>
             <HBox alignment="CENTER" prefHeight="0.0" prefWidth="851.0" styleClass="Pane">
                <children>
                   <Button fx:id="button1" mnemonicParsing="false" onAction="#switchToPreGameLobby" prefHeight="39.0" prefWidth="245.0" text="CONNECT TO THE GAME" textAlignment="CENTER">

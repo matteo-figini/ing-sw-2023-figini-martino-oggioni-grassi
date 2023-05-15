@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import it.polimi.ingsw.network.socket.client.ClientManager;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
@@ -21,6 +22,8 @@ public class PreGameLobbyController {
     private Stage PrimaryStage;
     private Scene scene1;
     private Parent root1;
+
+    private ClientManager clientManager;
 
     @FXML
     private ResourceBundle resources;
@@ -61,7 +64,7 @@ public class PreGameLobbyController {
     }
 
     public String getPlayersNumber() {
-        return numPlayers.getText();    //TODO: controllare che il numero di player sia corretto
+        return numPlayers.getText();
     }
 
     public String getPlayerNickname() {
@@ -80,5 +83,22 @@ public class PreGameLobbyController {
         PrimaryStage.setScene(scene1);
         PrimaryStage.setFullScreen(true);
         PrimaryStage.show();
+    }
+
+    @FXML
+    public void askNicknameInformation(javafx.event.ActionEvent event) throws IOException{
+        String nickname;
+        int nPlayers;
+
+        nickname = getPlayerNickname();
+        if (!getPlayersNumber().equalsIgnoreCase("")) {
+            nPlayers = Integer.parseInt(getPlayersNumber());
+            clientManager.onUpdatePlayersNumber(nPlayers);
+        }
+        clientManager.onUpdateNickname(nickname);
+
+
+
+
     }
 }

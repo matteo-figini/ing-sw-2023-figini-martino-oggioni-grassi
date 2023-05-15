@@ -59,7 +59,10 @@
                   </TextField>
                </children>
             </HBox>
-            <HBox prefHeight="40.0" prefWidth="851.0" styleClass="Pane" />
+            <HBox alignment="CENTER" prefHeight="76.0" prefWidth="851.0" styleClass="Pane">
+               <children>
+                  <Button fx:id="Submit2" mnemonicParsing="false" onAction="#askNicknameInformation" text="Submit" />
+               </children></HBox>
             <HBox alignment="CENTER" prefHeight="0.0" prefWidth="851.0" styleClass="Pane">
                <children>
                   <Button fx:id="button2" mnemonicParsing="false" onAction="#switchToWaitingRoom" prefHeight="56.0" prefWidth="193.0" text="JOIN THE GAME" textAlignment="CENTER">

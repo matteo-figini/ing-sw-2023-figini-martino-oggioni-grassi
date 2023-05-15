@@ -1,5 +1,6 @@
 package it.polimi.ingsw.view.gui;
 
+import it.polimi.ingsw.view.View;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -43,8 +44,4 @@ public class GuiMain extends Application {
         primaryStage.show();
     }
 
-    //TODO: Eliminare una volta finito di lavorare sulla GUI
-    public static void main(String[] args){
-        launch(args);
-    }
 }
