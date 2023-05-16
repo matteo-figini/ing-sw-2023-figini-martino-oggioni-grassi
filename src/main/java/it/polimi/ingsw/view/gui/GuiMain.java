@@ -1,6 +1,10 @@
 package it.polimi.ingsw.view.gui;
 
+import it.polimi.ingsw.network.socket.client.ClientManager;
 import it.polimi.ingsw.view.View;
+import it.polimi.ingsw.view.gui.scene.LobbyController;
+import it.polimi.ingsw.view.tui.ColoredTUI;
+import it.polimi.ingsw.view.tui.TUI;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,23 +17,16 @@ import java.io.IOException;
 public class GuiMain extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
-
-        //TODO: Collegare la view di ogni giocatore
-        /*
-        Gui view = new Gui();
-        ClientController clientController = new ClientController(view);
-        view.addObserver(clientController);
-        */
+        GUI guiInterface = new GUI();
+        ClientManager clientManager = new ClientManager(guiInterface);
+        guiInterface.setClientManager(clientManager);
 
         //Load root layout
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/fxml/lobby.fxml"));
         Parent root = loader.load();
-
-        /*
-        MenuSceneController controller = loader.getController();
-        controller.addObserver(clientController);
-        */
+        LobbyController lobbyController = loader.getController();
+        lobbyController.setClientManager(clientManager);
 
         //Set the scene
         Scene scene = new Scene(root);

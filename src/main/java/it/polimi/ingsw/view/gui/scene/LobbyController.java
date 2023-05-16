@@ -1,6 +1,7 @@
 package it.polimi.ingsw.view.gui.scene;
 
 import it.polimi.ingsw.network.socket.client.ClientManager;
+import it.polimi.ingsw.network.socket.server.SocketServer;
 import it.polimi.ingsw.view.View;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -24,7 +25,7 @@ public class LobbyController{
     private Scene scene1;
     private Parent root1;
 
-    public ClientManager clientManager;
+    private ClientManager clientManager;
 
     @FXML
     private ResourceBundle resources;
@@ -77,7 +78,7 @@ public class LobbyController{
     @FXML
     public void askServerInformation(javafx.event.ActionEvent event) throws IOException{
         String ipAddress, defaultIpAddress = "127.0.0.1";
-        int port, defaultPort = 5000;
+        int port, defaultPort = SocketServer.SOCKET_SERVER_PORT;
         boolean validInput = false;
 
         // Insert and verify the IP address and the port
@@ -97,10 +98,15 @@ public class LobbyController{
         if (ClientManager.isValidIPAddress(getPlayerIpAddress()) && ClientManager.isValidPort(port)) {
             playerIpAddress.setStyle("-fx-text-fill: green");
             playerSocket.setStyle("-fx-text-fill: green;");
-
         }
-
-
+        clientManager.onUpdateServerInformation(ipAddress, port);
     }
 
+    public ClientManager getClientManager() {
+        return clientManager;
+    }
+
+    public void setClientManager(ClientManager clientManager) {
+        this.clientManager = clientManager;
+    }
 }
