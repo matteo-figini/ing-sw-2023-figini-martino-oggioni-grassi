@@ -7,12 +7,14 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
 
-public class RemoteServerImpl /*implements Runnable*/{
+public class RemoteServerImpl extends UnicastRemoteObject/*implements Runnable*/{
     private final Server server;
     private boolean isConnected = true;
 
-    public RemoteServerImpl (Server server){
+    public RemoteServerImpl (Server server) throws RemoteException {
+        super();
         this.server = server;
     }
 
