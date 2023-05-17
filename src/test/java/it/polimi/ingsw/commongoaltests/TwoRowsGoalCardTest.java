@@ -12,7 +12,8 @@ import org.junit.jupiter.api.Test;
 public class TwoRowsGoalCardTest {
 
     private Shelf correctShelf;
-    private Shelf uncorrectShelf;
+    private Shelf uncorrectShelf1;
+    private Shelf uncorrectShelf2;
     private TwoRowsGoalCard card = new TwoRowsGoalCard(2);
     private ShelfCell[][] shelfContent;
 
@@ -72,7 +73,7 @@ public class TwoRowsGoalCardTest {
     @BeforeEach
     void setupUncorrectShelf(){
         //setup della shelf scorretta da passare come parametro
-        this.uncorrectShelf = new Shelf();
+        this.uncorrectShelf1 = new Shelf();
         this.shelfContent = new ShelfCell[6][5];
         for(int i=0; i<6; i++){
             for(int j=0; j<5;j++){
@@ -118,7 +119,25 @@ public class TwoRowsGoalCardTest {
         shelfContent[0][1].setTile(new ItemTile(ItemTileType.BLUE));
         shelfContent[0][0].setTile(new ItemTile(ItemTileType.BLUE));
 
-        uncorrectShelf.setShelfContent(shelfContent);
+        uncorrectShelf1.setShelfContent(shelfContent);
+    }
+
+    @BeforeEach
+    void setupUncorrectShelf2(){
+        //setup della shelf scorretta da passare come parametro
+        this.uncorrectShelf2 = new Shelf();
+        this.shelfContent = new ShelfCell[6][5];
+        for(int i=0; i<6; i++){
+            for(int j=0; j<5;j++){
+                shelfContent[i][j] = new ShelfCell();
+            }
+        }
+
+        // Initialize every cell in the matrix
+        shelfContent[5][0].setTile(new ItemTile(ItemTileType.PINK));
+        shelfContent[4][0].setTile(new ItemTile(ItemTileType.LIGHTBLUE));
+
+        uncorrectShelf2.setShelfContent(shelfContent);
     }
 
     //in input una shelf con il pattern corretto da verificare
@@ -130,7 +149,12 @@ public class TwoRowsGoalCardTest {
     //in input una shelf con il pattern incorretto da verificare
     @Test
     void checkPatternTestFalse(){
-        Assertions.assertFalse(card.checkPattern(uncorrectShelf));
+        Assertions.assertFalse(card.checkPattern(uncorrectShelf1));
+    }
+
+    @Test
+    void checkPatternTestFalse2(){
+        Assertions.assertFalse(card.checkPattern(uncorrectShelf2));
     }
 }
 
