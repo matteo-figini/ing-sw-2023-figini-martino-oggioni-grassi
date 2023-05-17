@@ -7,4 +7,6 @@ import java.rmi.RemoteException;
  */
 public interface RemoteClient extends Remote {
 
+    public void startConnection(String serverName);
+
 }

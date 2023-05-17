@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="559.0" prefWidth="851.0" styleClass="BackGround" stylesheets="@../css/lobbyStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polimi.ingsw.view.gui.scene.PreGameLobbyController">
+   <top>
+      <HBox prefHeight="193.0" prefWidth="851.0" styleClass="Title" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets top="20.0" />
+         </BorderPane.margin>
+      </HBox>
+   </top>
+   <center>
+      <VBox alignment="BASELINE_CENTER" opacity="0.95" prefHeight="268.0" prefWidth="851.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="62.0" prefWidth="851.0" />
+            <HBox prefHeight="40.0" prefWidth="851.0" styleClass="Pane" />
+            <HBox alignment="CENTER" prefHeight="74.0" prefWidth="851.0" styleClass="Pane">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Nickname:    " textAlignment="RIGHT" wrappingWidth="248.03515625">
+                     <font>
+                        <Font name="System Bold Italic" size="40.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Text>
+                  <TextField fx:id="playerNickname" alignment="CENTER" prefHeight="30.0" prefWidth="237.0" styleClass="Field">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="851.0" styleClass="Pane" />
+            <HBox alignment="CENTER" prefHeight="89.0" prefWidth="851.0" styleClass="Pane">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player's number:      " visible="${controller.showFrame}" wrappingWidth="386.81640625">
+                     <font>
+                        <Font name="System Bold Italic" size="40.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="10.0" />
+                     </HBox.margin>
+                  </Text>
+                  <TextField fx:id="numPlayers" alignment="CENTER" prefHeight="30.0" prefWidth="101.0" styleClass="Field" visible="${controller.showFrame}">
+                     <HBox.margin>
+                        <Insets bottom="5.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="76.0" prefWidth="851.0" styleClass="Pane">
+               <children>
+                  <Button fx:id="Submit2" mnemonicParsing="false" onAction="#askNicknameInformation" text="Submit" />
+               </children></HBox>
+            <HBox alignment="CENTER" prefHeight="0.0" prefWidth="851.0" styleClass="Pane">
+               <children>
+                  <Button fx:id="button2" mnemonicParsing="false" onAction="#switchToWaitingRoom" prefHeight="56.0" prefWidth="193.0" text="JOIN THE GAME" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="30.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="851.0" styleClass="Pane" />
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+   </center>
+   <bottom>
+      <VBox prefHeight="96.0" prefWidth="851.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="23.0" prefWidth="851.0" />
+            <HBox alignment="BOTTOM_CENTER" prefHeight="81.0" prefWidth="851.0">
+               <children>
+                  <ImageView fitHeight="70.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/Publisher%20material/Publisher.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </bottom>
+</BorderPane>
