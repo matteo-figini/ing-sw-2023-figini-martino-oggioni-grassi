@@ -62,6 +62,6 @@ public interface View {
      * Show the personal goal card passed as parameter.
      * @param personalGoalCard The personal goal card to be shown.
      */
-    void showPersonalGoalCard (PersonalGoalCard personalGoalCard);
+    void showPersonalGoalCard (PersonalGoalCard personalGoalCard, String cardOwner);
 
 }

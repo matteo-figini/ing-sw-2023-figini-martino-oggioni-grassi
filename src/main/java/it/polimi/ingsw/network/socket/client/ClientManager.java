@@ -110,7 +110,7 @@ public class ClientManager {
             }
             case PERSONAL_GOAL_CARD -> {
                 PersonalGoalCardMessage personalGoalCardMessage = (PersonalGoalCardMessage) message;
-                view.showPersonalGoalCard(personalGoalCardMessage.getPersonalGoalCard());
+                view.showPersonalGoalCard(personalGoalCardMessage.getPersonalGoalCard(), personalGoalCardMessage.getCardOwner());
             }
             case GENERIC_MESSAGE -> {
                 GenericMessage genericMessage = (GenericMessage) message;

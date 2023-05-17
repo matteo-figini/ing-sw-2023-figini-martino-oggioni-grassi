@@ -194,12 +194,17 @@ public class TUI implements View {
 
     @Override
     public void showCommonGoalCard(CommonGoalCard commonGoalCard) {
-        System.out.print("Description: \"" + commonGoalCard.getDescription() + "\"\n");
+        List<ScoringToken> tokens = commonGoalCard.getScoringTokens();
+        System.out.print("Common Goal description: \"" + commonGoalCard.getDescription() + "\"\n\t[");
+        for (ScoringToken token : tokens)
+            System.out.print(token.getScore() + " ");
+        System.out.println("]");
     }
 
     @Override
-    public void showPersonalGoalCard(PersonalGoalCard personalGoalCard) {
+    public void showPersonalGoalCard(PersonalGoalCard personalGoalCard, String cardOwner) {
         Map<Position, ItemTileType> copySchema = new HashMap<>(personalGoalCard.getSchema());
+        System.out.println("Personal goal card of " + cardOwner + ":");
 
         System.out.print("  | ");
         for (int i = 0; i < Shelf.COLUMNS; i++) {

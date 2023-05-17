@@ -72,8 +72,9 @@ public class ColoredTUI extends TUI {
     }
 
     @Override
-    public void showPersonalGoalCard (PersonalGoalCard personalGoalCard) {
+    public void showPersonalGoalCard (PersonalGoalCard personalGoalCard, String cardOwner) {
         Map<Position, ItemTileType> copySchema = new HashMap<>(personalGoalCard.getSchema());
+        System.out.println("Personal goal card of " + cardOwner + ":");
 
         System.out.print("  | ");
         for (int i = 0; i < Shelf.COLUMNS; i++) {
