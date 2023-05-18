@@ -8,6 +8,7 @@ import it.polimi.ingsw.network.message.GenericMessage;
 import it.polimi.ingsw.network.socket.client.ClientManager;
 import it.polimi.ingsw.view.View;
 import it.polimi.ingsw.view.gui.controlles.LobbyController;
+import it.polimi.ingsw.view.gui.controlles.PreGameLobbyController;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,7 +23,12 @@ import java.io.IOException;
 
 public class GUI implements View {
     private ClientManager clientManager;
+    private PreGameLobbyController preGameLobbyController;
     private GuiMain guiMain = new GuiMain();
+
+    public void setStage(Stage stage) {
+        guiMain.setPrimaryStage(stage);
+    }
 
     @Override
     public void askNickname() throws IOException {
@@ -38,6 +44,14 @@ public class GUI implements View {
         stage.setFullScreen(true);
         stage.setFullScreenExitHint("");
         stage.show();
+
+        preGameLobbyController = loader.getController();
+        preGameLobbyController.setOnNicknameConfirmedListener(this::onNicknameConfirmed);
+    }
+
+
+    private void onNicknameConfirmed(String nickname) {
+        clientManager.onUpdateNickname(nickname);
     }
 
     @Override
@@ -89,5 +103,8 @@ public class GUI implements View {
         this.clientManager = clientManager;
     }
 
+    public PreGameLobbyController getPreGameLobbyController() {
+        return preGameLobbyController;
+    }
 
 }

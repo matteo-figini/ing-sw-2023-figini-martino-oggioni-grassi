@@ -42,30 +42,9 @@
                </children>
             </HBox>
             <HBox prefHeight="40.0" prefWidth="851.0" styleClass="Pane" />
-            <HBox alignment="CENTER" prefHeight="89.0" prefWidth="851.0" styleClass="Pane">
-               <children>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player's number:      " visible="${controller.showFrame}" wrappingWidth="386.81640625">
-                     <font>
-                        <Font name="System Bold Italic" size="40.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets bottom="10.0" />
-                     </HBox.margin>
-                  </Text>
-                  <TextField fx:id="numPlayers" alignment="CENTER" prefHeight="30.0" prefWidth="101.0" styleClass="Field" visible="${controller.showFrame}">
-                     <HBox.margin>
-                        <Insets bottom="5.0" />
-                     </HBox.margin>
-                  </TextField>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="76.0" prefWidth="851.0" styleClass="Pane">
-               <children>
-                  <Button fx:id="Submit2" mnemonicParsing="false" onAction="#askNicknameInformation" text="Submit" />
-               </children></HBox>
             <HBox alignment="CENTER" prefHeight="0.0" prefWidth="851.0" styleClass="Pane">
                <children>
-                  <Button fx:id="button2" mnemonicParsing="false" onAction="#switchToWaitingRoom" prefHeight="56.0" prefWidth="193.0" text="JOIN THE GAME" textAlignment="CENTER">
+                  <Button fx:id="button2" mnemonicParsing="false" onAction="#askNicknameInformation" prefHeight="56.0" prefWidth="193.0" text="JOIN THE GAME" textAlignment="CENTER">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
