@@ -95,7 +95,7 @@
       <recent name="C:\Users\mmaes\OneDrive\Desktop\Progetto Ingegneria del Software\ing-sw-2023-figini-martino-oggioni-grassi\src\main\resources\assets" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ServerMain">
+  <component name="RunManager" selected="JUnit.TwoRowsGoalCardTest">
     <configuration name="ClientMain" type="Application" factoryName="Application" singleton="false" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.ClientMain" />
       <module name="PSP18" />
@@ -166,15 +166,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TwoRowsGoalCardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PSP18" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.polimi.ingsw.commongoaltests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="it.polimi.ingsw.commongoaltests" />
+      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.commongoaltests.TwoRowsGoalCardTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.ClientMain" />
       <item itemvalue="Application.GuiMain" />
       <item itemvalue="Application.ServerMain" />
+      <item itemvalue="JUnit.TwoRowsGoalCardTest" />
       <item itemvalue="JUnit.PlayerTest" />
       <item itemvalue="JUnit.ShelfTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TwoRowsGoalCardTest" />
         <item itemvalue="Application.ServerMain" />
         <item itemvalue="Application.GuiMain" />
         <item itemvalue="JUnit.ShelfTest" />
