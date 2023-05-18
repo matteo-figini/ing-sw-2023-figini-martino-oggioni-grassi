@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="559.0" prefWidth="851.0" styleClass="BackGround" stylesheets="@../css/lobbyStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polimi.ingsw.view.gui.scene.LobbyController">
+<BorderPane prefHeight="559.0" prefWidth="851.0" styleClass="BackGround" stylesheets="@../css/lobbyStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polimi.ingsw.view.gui.controlles.LobbyController">
    <top>
       <HBox prefHeight="183.0" prefWidth="851.0" styleClass="Title" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -57,17 +57,10 @@
                   </TextField>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="70.0" prefWidth="851.0" styleClass="Pane">
-               <children>
-                  <Button fx:id="Submit1" mnemonicParsing="false" onAction="#askServerInformation" text="Submit">
-                     <font>
-                        <Font name="System Italic" size="13.0" />
-                     </font>
-                  </Button>
-               </children></HBox>
+            <HBox alignment="CENTER" prefHeight="70.0" prefWidth="851.0" styleClass="Pane" />
             <HBox alignment="CENTER" prefHeight="0.0" prefWidth="851.0" styleClass="Pane">
                <children>
-                  <Button fx:id="button1" mnemonicParsing="false" onAction="#switchToPreGameLobby" prefHeight="39.0" prefWidth="245.0" text="CONNECT TO THE GAME" textAlignment="CENTER">
+                  <Button fx:id="button1" mnemonicParsing="false" onAction="#askServerInformation" prefHeight="39.0" prefWidth="245.0" text="CONNECT TO THE GAME" textAlignment="CENTER">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>

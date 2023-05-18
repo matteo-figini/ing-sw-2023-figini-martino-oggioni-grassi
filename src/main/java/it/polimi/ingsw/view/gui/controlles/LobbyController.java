@@ -1,11 +1,7 @@
-package it.polimi.ingsw.view.gui.scene;
+package it.polimi.ingsw.view.gui.controlles;
 
 import it.polimi.ingsw.network.socket.client.ClientManager;
 import it.polimi.ingsw.network.socket.server.SocketServer;
-import it.polimi.ingsw.view.View;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -21,10 +17,6 @@ import java.util.ResourceBundle;
 
 public class LobbyController{
 
-    private Stage PrimaryStage;
-    private Scene scene1;
-    private Parent root1;
-
     private ClientManager clientManager;
 
     @FXML
@@ -32,9 +24,6 @@ public class LobbyController{
 
     @FXML
     private URL location;
-
-    @FXML
-    private Button Submit1;
 
     @FXML
     private Button button1;
@@ -60,20 +49,6 @@ public class LobbyController{
         return playerSocket.getText();
     }
 
-    @FXML
-    public void switchToPreGameLobby(javafx.event.ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/preGameLobby.fxml"));
-        Parent root = loader.load();
-        Scene scene1 = new Scene(root);
-
-        scene1.getStylesheets().add(getClass().getResource("/css/lobbyStyle.css").toExternalForm());
-        PrimaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        // scene1 = new Scene(root1);
-        PrimaryStage.setScene(scene1);
-        PrimaryStage.setFullScreen(true);
-        PrimaryStage.show();
-    }
 
     @FXML
     public void askServerInformation(javafx.event.ActionEvent event) throws IOException{
@@ -98,8 +73,11 @@ public class LobbyController{
         if (ClientManager.isValidIPAddress(getPlayerIpAddress()) && ClientManager.isValidPort(port)) {
             playerIpAddress.setStyle("-fx-text-fill: green");
             playerSocket.setStyle("-fx-text-fill: green;");
+
+            clientManager.onUpdateServerInformation(ipAddress, port);
         }
-        clientManager.onUpdateServerInformation(ipAddress, port);
+
+
     }
 
     public ClientManager getClientManager() {

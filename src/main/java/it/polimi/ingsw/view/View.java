@@ -5,6 +5,8 @@ import it.polimi.ingsw.model.ShelfCell;
 import it.polimi.ingsw.model.commongoals.CommonGoalCard;
 import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
 
+import java.io.IOException;
+
 /**
  * This interface represents all the methods for the specific views. Every type of view (CLI, GUI with Swing/JavaFX,
  * virtual views on the server...) must implement this interface.
@@ -14,7 +16,7 @@ public interface View {
     /**
      * Asks the user to set a nickname.
      */
-    void askNickname ();
+    void askNickname () throws IOException;
 
     /**
      * Asks the first user to set the players number.

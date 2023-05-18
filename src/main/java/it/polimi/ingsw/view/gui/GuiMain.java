@@ -1,10 +1,7 @@
 package it.polimi.ingsw.view.gui;
 
 import it.polimi.ingsw.network.socket.client.ClientManager;
-import it.polimi.ingsw.view.View;
-import it.polimi.ingsw.view.gui.scene.LobbyController;
-import it.polimi.ingsw.view.tui.ColoredTUI;
-import it.polimi.ingsw.view.tui.TUI;
+import it.polimi.ingsw.view.gui.controlles.LobbyController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
