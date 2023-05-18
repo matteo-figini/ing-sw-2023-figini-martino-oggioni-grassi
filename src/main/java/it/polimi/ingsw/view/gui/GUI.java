@@ -76,7 +76,7 @@ public class GUI implements View {
     }
 
     @Override
-    public void showPersonalGoalCard(PersonalGoalCard personalGoalCard) {
+    public void showPersonalGoalCard(PersonalGoalCard personalGoalCard, String cardOwner) {
 
     }
 

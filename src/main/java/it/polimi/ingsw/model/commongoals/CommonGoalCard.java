@@ -49,6 +49,11 @@ public abstract class CommonGoalCard implements Serializable {
         }
     }
 
+    public List<ScoringToken> getScoringTokens() {
+        List<ScoringToken> tokens = new ArrayList<>(this.scoringTokens);
+        return tokens;
+    }
+
     /**
      * Abstract method (that will be overriden in the subclasses) that check the single pattern is satisfied.
      * @param shelf the shelf where there are tails. Requires that shelf is not null.
@@ -56,6 +61,9 @@ public abstract class CommonGoalCard implements Serializable {
      */
     public abstract boolean checkPattern (Shelf shelf);
 
+    /**
+     * @return The common goal card description.
+     */
     public String getDescription() {
         return description;
     }

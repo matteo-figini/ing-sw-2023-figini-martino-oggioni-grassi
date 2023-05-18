@@ -411,7 +411,7 @@ public class GameController {
             VirtualView virtualView = virtualViewMap.get(player.getNickname());
             if (virtualView != null) {
                 for (CommonGoalCard commonGoalCard : game.getCommonGoalCards()) {
-                    virtualView.showGenericMessage("Common Goal Card description: " + commonGoalCard.getDescription());
+                    virtualView.showCommonGoalCard(commonGoalCard);
                 }
             }
         }
@@ -424,8 +424,7 @@ public class GameController {
         for (Player player : game.getPlayers()) {
             VirtualView virtualView = virtualViewMap.get(player.getNickname());
             if (virtualView != null) {
-                virtualView.showGenericMessage("Personal goal card of " + player.getNickname() + ": ");
-                virtualView.showPersonalGoalCard(player.getPersonalGoalCard());
+                virtualView.showPersonalGoalCard(player.getPersonalGoalCard(), player.getNickname());
             }
         }
     }

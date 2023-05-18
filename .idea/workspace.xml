@@ -4,18 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="">
+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Added scoring token from the common goal cards to the player.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GuiMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GuiMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/scene/GuiGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controlles/GuiGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/scene/LobbyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controlles/LobbyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/scene/PreGameLobbyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controlles/PreGameLobbyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/scene/WaitingRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controlles/WaitingRoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/lobby.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/lobby.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/preGameLobby.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/preGameLobby.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fxml/lobby.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/lobby.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/scene/LobbyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/scene/LobbyController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/gui/GuiMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/gui/GuiMain.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -123,7 +116,7 @@
       <option name="VM_PARAMETERS" value="--module-path &quot;C:\Java\javafx-sdk-20.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="it.polimi.ingsw.view.gui.controlles.*" />
+          <option name="PATTERN" value="it.polimi.ingsw.view.gui.scene.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -329,7 +322,6 @@
       <workItem from="1684088321842" duration="1717000" />
       <workItem from="1684092325032" duration="2320000" />
       <workItem from="1684153268138" duration="4226000" />
-      <workItem from="1684236614261" duration="6570000" />
     </task>
     <task id="LOCAL-00001" summary="Class Player layout">
       <created>1679754417366</created>
@@ -583,14 +575,7 @@
       <option name="project" value="LOCAL" />
       <updated>1684052692123</updated>
     </task>
-    <task id="LOCAL-00037" summary="Added ClientManager on GuiMain">
-      <created>1684231245049</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1684231245049</updated>
-    </task>
-    <option name="localTasksCounter" value="38" />
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -624,6 +609,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="updated pom.xml" />
     <MESSAGE value="refactoring of endGame method" />
     <MESSAGE value="refactoring of freeCellsOnColumn method" />
     <MESSAGE value="First implementation of TUI view methods. Added visualization for shelf and board" />
@@ -648,8 +634,7 @@
     <MESSAGE value="Moved JavaFX launcher from GUIMain to ClientMain" />
     <MESSAGE value="Added waitingRoom GUI" />
     <MESSAGE value="Added scoring token from the common goal cards to the player." />
-    <MESSAGE value="Added ClientManager on GuiMain" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added ClientManager on GuiMain" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added scoring token from the common goal cards to the player." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

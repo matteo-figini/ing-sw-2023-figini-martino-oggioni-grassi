@@ -58,7 +58,7 @@ public class VirtualView implements View {
     }
 
     @Override
-    public void showPersonalGoalCard(PersonalGoalCard personalGoalCard) {
-        clientHandler.sendMessage(new PersonalGoalCardMessage(personalGoalCard));
+    public void showPersonalGoalCard(PersonalGoalCard personalGoalCard, String cardOwner) {
+        clientHandler.sendMessage(new PersonalGoalCardMessage(personalGoalCard, cardOwner));
     }
 }
