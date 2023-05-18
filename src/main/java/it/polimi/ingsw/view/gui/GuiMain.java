@@ -12,8 +12,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class GuiMain extends Application {
+    private Stage primaryStage;
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(Stage stage) throws IOException {
+        primaryStage = new Stage();
         GUI guiInterface = new GUI();
         ClientManager clientManager = new ClientManager(guiInterface);
         guiInterface.setClientManager(clientManager);
@@ -38,4 +40,11 @@ public class GuiMain extends Application {
         primaryStage.show();
     }
 
+    public Stage getPrimaryStage() {
+        return primaryStage;
+    }
+
+    public void setPrimaryStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+    }
 }

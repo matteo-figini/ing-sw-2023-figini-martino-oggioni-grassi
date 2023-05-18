@@ -10,7 +10,7 @@ import java.rmi.Remote;
 
 public class  ClientMain {
     public static void main(String[] args) {
-        boolean cliRequested = true;
+        boolean cliRequested = false;
         boolean rmiRequested = false;
 
         for (String param : args) {

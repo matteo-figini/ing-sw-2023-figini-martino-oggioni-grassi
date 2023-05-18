@@ -22,6 +22,7 @@ import java.io.IOException;
 
 public class GUI implements View {
     private ClientManager clientManager;
+    private GuiMain guiMain = new GuiMain();
 
     @Override
     public void askNickname() throws IOException {
@@ -30,13 +31,13 @@ public class GUI implements View {
         Parent root = loader.load();
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/css/lobbyStyle.css").toExternalForm());
-        Stage primaryStage = new Stage();
-        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/assets/Publisher material/Icon 50x50px.png")));
-        primaryStage.setTitle("My Shelfie");
-        primaryStage.setScene(scene);
-        primaryStage.setFullScreen(true);
-        primaryStage.setFullScreenExitHint("");
-        primaryStage.show();
+        Stage stage = guiMain.getPrimaryStage();
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/assets/Publisher material/Icon 50x50px.png")));
+        stage.setTitle("My Shelfie");
+        stage.setScene(scene);
+        stage.setFullScreen(true);
+        stage.setFullScreenExitHint("");
+        stage.show();
     }
 
     @Override
