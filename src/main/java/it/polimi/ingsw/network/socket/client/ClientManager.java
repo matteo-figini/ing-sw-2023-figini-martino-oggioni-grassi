@@ -4,6 +4,7 @@ import it.polimi.ingsw.model.Position;
 import it.polimi.ingsw.network.Client;
 import it.polimi.ingsw.network.message.*;
 import it.polimi.ingsw.view.View;
+import it.polimi.ingsw.view.gui.GUI;
 
 import java.io.IOException;
 import java.util.List;

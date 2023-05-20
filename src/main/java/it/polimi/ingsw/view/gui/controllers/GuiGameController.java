@@ -1,4 +1,4 @@
-package it.polimi.ingsw.view.gui.controlles;
+package it.polimi.ingsw.view.gui.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;

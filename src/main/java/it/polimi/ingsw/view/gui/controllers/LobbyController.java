@@ -1,15 +1,10 @@
-package it.polimi.ingsw.view.gui.controlles;
+package it.polimi.ingsw.view.gui.controllers;
 
 import it.polimi.ingsw.network.socket.client.ClientManager;
 import it.polimi.ingsw.network.socket.server.SocketServer;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
