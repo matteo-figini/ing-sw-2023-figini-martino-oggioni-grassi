@@ -16,8 +16,10 @@ import java.util.List;
 public class ShelfTest {
     private Shelf shelf;
     private Shelf shelf1;
+    private Shelf shelf2;
     private ShelfCell[][] shelfContent;
     private ShelfCell[][] shelfContent1;
+    private ShelfCell[][] shelfContent2;
 
     private List<ItemTile> tilesList;
 
@@ -70,6 +72,60 @@ public class ShelfTest {
         shelfContent[0][0].setTile(new ItemTile(ItemTileType.LIGHTBLUE));
 
         shelf.setShelfContent(shelfContent);
+    }
+
+    @BeforeEach
+    void setUpPointsFromAdjacenciesTest2(){
+        this.shelf2 = new Shelf();
+        this.shelfContent2 = new ShelfCell[6][5];
+        for(int i=0; i<6; i++){
+            for(int j=0; j<5;j++){
+                shelfContent2[i][j] = new ShelfCell();
+            }
+        }
+
+        shelfContent2[5][4].setTile(new ItemTile(ItemTileType.BLUE));
+        shelfContent2[5][3].setTile(new ItemTile(ItemTileType.LIGHTBLUE));
+        shelfContent2[5][2].setTile(new ItemTile(ItemTileType.YELLOW));
+        shelfContent2[5][1].setTile(new ItemTile(ItemTileType.WHITE));
+        shelfContent2[5][0].setTile(new ItemTile(ItemTileType.GREEN));
+
+        shelfContent2[4][4].setTile(new ItemTile(ItemTileType.YELLOW));
+        shelfContent2[4][3].setTile(new ItemTile(ItemTileType.LIGHTBLUE));
+        shelfContent2[4][2].setTile(new ItemTile(ItemTileType.BLUE));
+        shelfContent2[4][1].setTile(new ItemTile(ItemTileType.WHITE));
+        shelfContent2[4][0].setTile(new ItemTile(ItemTileType.GREEN));
+
+        shelfContent2[3][4].setTile(new ItemTile(ItemTileType.WHITE));
+        shelfContent2[3][3].setTile(new ItemTile(ItemTileType.BLUE));
+        shelfContent2[3][2].setTile(new ItemTile(ItemTileType.BLUE));
+        shelfContent2[3][1].setTile(new ItemTile(ItemTileType.GREEN));
+        shelfContent2[3][0].setTile(new ItemTile(ItemTileType.PINK));
+
+        shelfContent2[2][4].setTile(new ItemTile(ItemTileType.YELLOW));
+        shelfContent2[2][3].setTile(new ItemTile(ItemTileType.YELLOW));
+        shelfContent2[2][2].setTile(new ItemTile(ItemTileType.YELLOW));
+        shelfContent2[2][1].setTile(new ItemTile(ItemTileType.GREEN));
+        shelfContent2[2][0].setTile(new ItemTile(ItemTileType.GREEN));
+
+        shelfContent2[1][4].setTile(new ItemTile(ItemTileType.BLUE));
+        shelfContent2[1][3].setTile(new ItemTile(ItemTileType.BLUE));
+        shelfContent2[1][2].setTile(new ItemTile(ItemTileType.YELLOW));
+        shelfContent2[1][1].setTile(new ItemTile(ItemTileType.PINK));
+        shelfContent2[1][0].setTile(new ItemTile(ItemTileType.GREEN));
+
+        shelfContent2[0][4].setTile(new ItemTile(ItemTileType.BLUE));
+        shelfContent2[0][3].setTile(new ItemTile(ItemTileType.BLUE));
+        shelfContent2[0][2].setTile(new ItemTile(ItemTileType.YELLOW));
+        shelfContent2[0][1].setTile(new ItemTile(ItemTileType.YELLOW));
+        // shelfContent2[0][0].setTile(new ItemTile(ItemTileType.LIGHTBLUE));
+
+        shelf2.setShelfContent(shelfContent2);
+    }
+
+    @Test
+    void pointsFromAdjacenciesTest2(){
+        Assertions.assertEquals(16,shelf2.pointsFromAdjacencies());
     }
 
     @Test
