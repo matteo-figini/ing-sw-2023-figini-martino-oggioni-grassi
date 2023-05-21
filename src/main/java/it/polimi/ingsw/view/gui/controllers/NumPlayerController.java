@@ -1,20 +1,13 @@
 package it.polimi.ingsw.view.gui.controllers;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import it.polimi.ingsw.network.socket.client.ClientManager;
 import it.polimi.ingsw.view.gui.GUI;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.stage.Stage;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class NumPlayerController {
     private ClientManager clientManager;
@@ -53,11 +46,12 @@ public class NumPlayerController {
     public void setGUI(GUI gui) {
         this.gui = gui;
     }
+
     @FXML
-    public void askPlayerNumber(javafx.event.ActionEvent event) throws IOException{
+    public void askPlayerNumber (javafx.event.ActionEvent event) {
         //TODO: fare controllo numero giocatore
         int number = getPlayerNumber();
         clientManager.onUpdatePlayersNumber(number);
-        gui.waitingRoom(); //non va avanti
+        gui.switchToWaitingRoom(); //non va avanti
     }
 }

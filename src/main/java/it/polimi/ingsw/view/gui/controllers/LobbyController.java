@@ -10,8 +10,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LobbyController{
-
+public class LobbyController {
     private ClientManager clientManager;
 
     @FXML
@@ -46,7 +45,7 @@ public class LobbyController{
 
 
     @FXML
-    public void askServerInformation(javafx.event.ActionEvent event) throws IOException{
+    public void askServerInformation(javafx.event.ActionEvent event) {
         String ipAddress, defaultIpAddress = "127.0.0.1";
         int port, defaultPort = SocketServer.SOCKET_SERVER_PORT;
         boolean validInput = false;
@@ -68,18 +67,11 @@ public class LobbyController{
         if (ClientManager.isValidIPAddress(getPlayerIpAddress()) && ClientManager.isValidPort(port)) {
             playerIpAddress.setStyle("-fx-text-fill: green");
             playerSocket.setStyle("-fx-text-fill: green;");
-
             clientManager.onUpdateServerInformation(ipAddress, port);
         }
-
-
     }
 
-    public ClientManager getClientManager() {
-        return clientManager;
-    }
-
-    public void setClientManager(ClientManager clientManager) {
+    public void setClientManager (ClientManager clientManager) {
         this.clientManager = clientManager;
     }
 }

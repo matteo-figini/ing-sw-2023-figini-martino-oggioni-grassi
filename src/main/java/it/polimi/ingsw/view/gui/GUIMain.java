@@ -10,23 +10,31 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
-public class GuiMain extends Application {
+/**
+ * Entry point for the JavaFX GUI application.
+ */
+public class GUIMain extends Application {
+    /** Application primary stage. */
     private Stage primaryStage;
 
-    public void setPrimaryStage(Stage primaryStage) {
-        this.primaryStage = primaryStage;
-    }
-
+    /**
+     * Entry point for the JavaFX application
+     * @param stage The {@code Stage} for the class.
+     * @throws IOException Exception that can be raised in the method.
+     */
     @Override
     public void start(Stage stage) throws IOException {
-        primaryStage = new Stage();
+        this.primaryStage = new Stage();
+
+        // Set the GUI class and the ClientManager class
         GUI guiInterface = new GUI();
         ClientManager clientManager = new ClientManager(guiInterface);
         guiInterface.setClientManager(clientManager);
         guiInterface.setStage(primaryStage);
 
-        //Load root layout
+        // Load root layout
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/fxml/lobby.fxml"));
         Parent root = loader.load();
@@ -35,10 +43,10 @@ public class GuiMain extends Application {
 
         //Set the scene
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("/css/lobbyStyle.css").toExternalForm());
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/lobbyStyle.css")).toExternalForm());
 
         //Set the scene on the stage
-        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/assets/Publisher material/Icon 50x50px.png")));
+        primaryStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/Publisher material/Icon 50x50px.png"))));
         primaryStage.setTitle("My Shelfie");
         primaryStage.setScene(scene);
         primaryStage.setFullScreen(true);
@@ -46,8 +54,18 @@ public class GuiMain extends Application {
         primaryStage.show();
     }
 
+    /**
+     * @return A reference to the primary stage.
+     */
     public Stage getPrimaryStage() {
         return primaryStage;
+    }
+
+    /**
+     * @param primaryStage Set the primary stage to the parameter passed.
+     */
+    public void setPrimaryStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
     }
 
 }

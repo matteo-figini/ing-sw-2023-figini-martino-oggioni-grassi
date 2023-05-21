@@ -4,20 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Added game GUI">
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/NumPlayerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/numPlayer.fxml" afterDir="false" />
+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Added a new shelf test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/socket/client/ClientManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/socket/client/ClientManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/ClientMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/ClientMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GuiMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GuiMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controlles/GuiGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/GuiGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controlles/LobbyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/LobbyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controlles/PreGameLobbyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/PreGameLobbyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controlles/WaitingRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/WaitingRoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/lobby.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/lobby.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/preGameLobby.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/preGameLobby.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/waitingRoom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/waitingRoom.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GuiMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GUIMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/LobbyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/LobbyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/NumPlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/NumPlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/WaitingRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/WaitingRoomController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +98,7 @@
       <recent name="C:\Desktop\Progetto\src\main\resources\assets" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ClientMain">
+  <component name="RunManager" selected="Application.ServerMain">
     <configuration name="ClientMain" type="Application" factoryName="Application" singleton="false" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.ClientMain" />
       <module name="PSP18" />
@@ -118,8 +112,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GuiMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.view.gui.GuiMain" />
+    <configuration name="GUIMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.view.gui.GUIMain" />
       <module name="PSP18" />
       <option name="VM_PARAMETERS" value="--module-path &quot;C:\Java\javafx-sdk-20.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
@@ -193,7 +187,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.ClientMain" />
-      <item itemvalue="Application.GuiMain" />
+      <item itemvalue="Application.GUIMain" />
       <item itemvalue="Application.ServerMain" />
       <item itemvalue="JUnit.ShelfTest.pointsFromAdjacenciesTest2" />
       <item itemvalue="JUnit.TwoRowsGoalCardTest" />
@@ -205,7 +199,7 @@
         <item itemvalue="JUnit.ShelfTest" />
         <item itemvalue="JUnit.ShelfTest.pointsFromAdjacenciesTest2" />
         <item itemvalue="JUnit.TwoRowsGoalCardTest" />
-        <item itemvalue="Application.GuiMain" />
+        <item itemvalue="Application.GUIMain" />
       </list>
     </recent_temporary>
   </component>
@@ -354,6 +348,8 @@
       <workItem from="1684507396877" duration="2145000" />
       <workItem from="1684515785222" duration="1142000" />
       <workItem from="1684573412985" duration="703000" />
+      <workItem from="1684609105096" duration="415000" />
+      <workItem from="1684654287473" duration="1875000" />
     </task>
     <task id="LOCAL-00001" summary="Class Player layout">
       <created>1679754417366</created>
@@ -614,15 +610,6 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="RECENT_FILTERS">
       <map>
         <entry key="Branch">
@@ -634,6 +621,15 @@
                 </option>
               </RecentGroup>
             </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
           </value>
         </entry>
       </map>
