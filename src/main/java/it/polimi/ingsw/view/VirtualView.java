@@ -7,6 +7,8 @@ import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
 import it.polimi.ingsw.network.message.*;
 import it.polimi.ingsw.network.ClientHandler;
 
+import java.util.Map;
+
 /**
  * This class offer a mirror of a single client view for the server.
  * It implements the View interface (basically, every method is an invocation to the specific client handler).
@@ -34,7 +36,7 @@ public class VirtualView implements View {
 
     @Override
     public void showLoginResponse (boolean validNickname, boolean connectionEstablished) {
-        clientHandler.sendMessage(new LoginResponse(validNickname, connectionEstablished));
+        clientHandler.sendMessage(new LoginResponseMessage(validNickname, connectionEstablished));
     }
 
     @Override
@@ -60,5 +62,10 @@ public class VirtualView implements View {
     @Override
     public void showPersonalGoalCard(PersonalGoalCard personalGoalCard, String cardOwner) {
         clientHandler.sendMessage(new PersonalGoalCardMessage(personalGoalCard, cardOwner));
+    }
+
+    @Override
+    public void showScoreBoard(Map<String, Integer> scoreBoardMap) {
+        clientHandler.sendMessage(new ScoreBoardMessage(scoreBoardMap));
     }
 }

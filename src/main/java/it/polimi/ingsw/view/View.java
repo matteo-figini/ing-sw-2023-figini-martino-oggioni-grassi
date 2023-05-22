@@ -6,6 +6,7 @@ import it.polimi.ingsw.model.commongoals.CommonGoalCard;
 import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
 
 import java.io.IOException;
+import java.util.Map;
 
 /**
  * This interface represents all the methods for the specific views. Every type of view (CLI, GUI with Swing/JavaFX,
@@ -66,4 +67,9 @@ public interface View {
      */
     void showPersonalGoalCard (PersonalGoalCard personalGoalCard, String cardOwner);
 
+    /**
+     * Show the final sorted score board.
+     * @param scoreBoardMap The {@code Map} containing the score board.
+     */
+    void showScoreBoard (Map<String, Integer> scoreBoardMap);
 }

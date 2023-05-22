@@ -4,7 +4,6 @@ import it.polimi.ingsw.model.Position;
 import it.polimi.ingsw.network.Client;
 import it.polimi.ingsw.network.message.*;
 import it.polimi.ingsw.view.View;
-import it.polimi.ingsw.view.gui.GUI;
 
 import java.io.IOException;
 import java.util.List;
@@ -59,7 +58,7 @@ public class ClientManager {
         // Nickname is updated every time the user choose it, no matter if it's valid or not.
         // But this is not a problem, since the last chosen nickname is always correct!
         this.nickname = nickname;
-        client.sendMessage(new LoginRequest(this.nickname));
+        client.sendMessage(new LoginRequestMessage(this.nickname));
     }
 
     /**
@@ -91,7 +90,7 @@ public class ClientManager {
                 view.askPlayersNumber();
             }
             case LOGIN_REPLY -> {
-                LoginResponse loginReplyMessage = (LoginResponse) message;
+                LoginResponseMessage loginReplyMessage = (LoginResponseMessage) message;
                 view.showLoginResponse(loginReplyMessage.isNicknameAccepted(), loginReplyMessage.isConnectionEstablished());
             }
             case PICK_TILES_REQUEST -> {
@@ -116,6 +115,10 @@ public class ClientManager {
             case GENERIC_MESSAGE -> {
                 GenericMessage genericMessage = (GenericMessage) message;
                 view.showGenericMessage(genericMessage.getGenericMessage());
+            }
+            case SCORE_BOARD -> {
+                ScoreBoardMessage scoreBoardMessage = (ScoreBoardMessage) message;
+                view.showScoreBoard(scoreBoardMessage.getScoreBoardMap());
             }
             default -> {
                 System.out.println("ERROR: Message unhandled!");

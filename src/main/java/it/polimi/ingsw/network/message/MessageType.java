@@ -17,6 +17,7 @@ public enum MessageType {
     BOARD_CONTENT,
     COMMON_GOAL_CARD,
     PERSONAL_GOAL_CARD,
+    SCORE_BOARD,
 
     // Utility
     GENERIC_MESSAGE,

@@ -17,6 +17,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -152,6 +153,11 @@ public class GUI implements View {
 
     @Override
     public void showPersonalGoalCard(PersonalGoalCard personalGoalCard, String cardOwner) {
+
+    }
+
+    @Override
+    public void showScoreBoard(Map<String, Integer> scoreBoardMap) {
 
     }
 

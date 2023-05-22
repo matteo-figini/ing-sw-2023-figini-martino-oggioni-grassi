@@ -234,6 +234,16 @@ public class TUI implements View {
         }
     }
 
+    @Override
+    public void showScoreBoard(Map<String, Integer> scoreBoardMap) {
+        int progressivePosition = 1;
+        System.out.println("CLASSIFICA FINALE: ");
+        for (Map.Entry<String, Integer> entry : scoreBoardMap.entrySet()) {
+            System.out.println(progressivePosition + ") " + entry.getKey() + ": " + entry.getValue() + " points");
+            progressivePosition++;
+        }
+    }
+
     /* ---------- GETTERS & SETTERS ---------- */
     /**
      * @return The client manager associated to the client.

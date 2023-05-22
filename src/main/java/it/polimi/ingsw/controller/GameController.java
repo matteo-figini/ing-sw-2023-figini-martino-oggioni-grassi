@@ -107,11 +107,20 @@ public class GameController {
                         checkBoardRefillRequested();
                         showGameInformation();
                         if (game.getPlayerByNickname(getActivePlayer()).getShelf().isFull()) {
-                            setGameState(GameState.LAST_LAP);
                             game.getPlayerByNickname(getActivePlayer()).setEndGameToken();
-                            broadcastGenericMessage(getActivePlayer() + " completed his shelf. Last lap starts now!");
+                            if (game.getPlayerByNickname(getNextPlayer()).isFirstPlayer()) {
+                                setGameState(GameState.END_GAME);
+                                broadcastMessage(getActivePlayer() + " completed his shelf and " +
+                                        getNextPlayer() + " is the first player: the game ends!");
+                                terminateGame();
+                            } else {
+                                setGameState(GameState.LAST_LAP);
+                                broadcastMessage(getActivePlayer() + " completed his shelf. Last lap starts now!");
+                                newTurn();
+                            }
+                        } else {
+                            newTurn();
                         }
-                        newTurn();
                     } else {
                         currentVirtualView.showGenericMessage("There was a problem during the insertion: maybe " +
                                 "positions are not valid or the column hasn't got enough cells!");
@@ -148,7 +157,7 @@ public class GameController {
                         checkBoardRefillRequested();
                         if (game.getPlayerByNickname(getNextPlayer()).isFirstPlayer()) {
                             setGameState(GameState.END_GAME);
-                            broadcastGenericMessage("Next player has the chair: the game finishes!");
+                            broadcastMessage("Next player has the chair: the game finishes!");
                             terminateGame();
                         } else {
                             newTurn();
@@ -209,11 +218,10 @@ public class GameController {
                 }
             }
         }
-        System.out.println(sortedScoreMap);
-        broadcastGenericMessage(sortedScoreMap.toString());
+        showScoreBoard(sortedScoreMap);
 
         Game.resetGameInstance();
-        broadcastGenericMessage("Game finished! Server ready for a new game...");
+        broadcastMessage("Game finished! Server ready for a new game...");
         initGameController();
     }
 
@@ -237,9 +245,9 @@ public class GameController {
             // The player is not the first one. We suppose here that the nickname is already checked by the server.
             addVirtualView(nickname, virtualView);
             game.addPlayer(nickname);
-            broadcastGenericMessage("Players connected: " + virtualViewMap.size() + "/" + game.getChosenPlayersNumber());
+            broadcastMessage("Players connected: " + virtualViewMap.size() + "/" + game.getChosenPlayersNumber());
             if (getOnlinePlayers().size() == game.getChosenPlayersNumber()) {
-                broadcastGenericMessage("All the players are connected.");
+                broadcastMessage("All the players are connected.");
                 startGame();
             }
         }
@@ -256,7 +264,7 @@ public class GameController {
     public void handleReconnection (String nickname, VirtualView virtualView) {
         addVirtualView(nickname, virtualView);
         game.getPlayerByNickname(nickname).setOnlinePlayer(true);
-        broadcastGenericMessage("Player reconnected: " + nickname);
+        broadcastMessage("Player reconnected: " + nickname);
         showGameInformation();
         if (virtualViewMap.size() == 2) {
             // Game can continue because there are two online players.
@@ -315,7 +323,7 @@ public class GameController {
      */
     private void newTurn () {
         setActivePlayer(getNextPlayer());
-        broadcastGenericMessage("Turn of " + getActivePlayer());
+        broadcastMessage("Turn of " + getActivePlayer());
         askActivePlayerColumnAndPosition();
     }
 
@@ -356,11 +364,11 @@ public class GameController {
         game.startGame();
         System.out.println("Game starting with " + game.getPlayers().size());
         showGameInformation();
-        broadcastGenericMessage("Game Started");
+        broadcastMessage("Game Started");
 
         setActivePlayer(chooseRandomPlayer());                          // Choose the first player
         game.getPlayerByNickname(getActivePlayer()).setFirstPlayer();   // Set the active player as the first one.
-        broadcastGenericMessage("Turn of " + getActivePlayer());
+        broadcastMessage("Turn of " + getActivePlayer());
         askActivePlayerColumnAndPosition();
     }
 
@@ -431,10 +439,23 @@ public class GameController {
     }
 
     /**
+     * Sends a message to each player with the final score board.
+     * @param scoreBoardMap The {@code Map} containing the score board.
+     */
+    private void showScoreBoard (Map<String, Integer> scoreBoardMap) {
+        for (Player player : game.getPlayers()) {
+            VirtualView virtualView = virtualViewMap.get(player.getNickname());
+            if (virtualView != null) {
+                virtualView.showScoreBoard(scoreBoardMap);
+            }
+        }
+    }
+
+    /**
      * This method sends a text message to each client.
      * @param messageString The text message to be sent.
      */
-    public void broadcastGenericMessage (String messageString) {
+    public void broadcastMessage (String messageString) {
         for (VirtualView virtualView : virtualViewMap.values()) {
             virtualView.showGenericMessage(messageString);
         }
@@ -484,7 +505,7 @@ public class GameController {
                 ScoringToken token = commonGoalCard.popScoringToken();
                 activePlayerModel.setFirstCommonGoalReached(token);
                 score = token.getScore();
-                broadcastGenericMessage( activePlayer + " earned " + score + " points completing the first common goal!");
+                broadcastMessage( activePlayer + " earned " + score + " points completing the first common goal!");
                 activePlayerModel.addScore(score);
             } catch (NoScoringTokenAvailableException e) {
                 System.out.println(e.getMessage());
@@ -498,7 +519,7 @@ public class GameController {
                 ScoringToken token = commonGoalCard.popScoringToken();
                 activePlayerModel.setSecondCommonGoalReached(token);
                 score = token.getScore();
-                broadcastGenericMessage( activePlayer + " earned " + score + " points completing the second common goal!");
+                broadcastMessage( activePlayer + " earned " + score + " points completing the second common goal!");
                 activePlayerModel.addScore(score);
             } catch (NoScoringTokenAvailableException e) {
                 System.out.println(e.getMessage());
@@ -512,7 +533,7 @@ public class GameController {
     private void checkBoardRefillRequested () {
         if (game.getBoard().fillingRequired()) {
             game.refillBoardFromBag();
-            broadcastGenericMessage("Proceeding with board refill...");
+            broadcastMessage("Proceeding with board refill...");
             showBoard();
         }
     }
@@ -524,11 +545,11 @@ public class GameController {
         }
         if (game.getOnlinePlayersNumber() == 1) {
             gameSuspended = true;
-            broadcastGenericMessage("Game suspended: there's only " + game.getOnlinePlayersNumber() + " player connected.");
+            broadcastMessage("Game suspended: there's only " + game.getOnlinePlayersNumber() + " player connected.");
         } else {
             if (nickname.equals(activePlayer) && (gameState.equals(GameState.IN_GAME) || gameState.equals(GameState.LAST_LAP))) {
                 // If the player disconnected is not the current player, starts a new turn anyway!
-                broadcastGenericMessage("Since " + nickname + " is disconnected, the next player is: " + getNextPlayer());
+                broadcastMessage("Since " + nickname + " is disconnected, the next player is: " + getNextPlayer());
                 newTurn();
             }
         }

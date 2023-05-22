@@ -113,7 +113,7 @@ public class Server{
         if (nicknameOfDisconnectedClient != null) {
             clientHandlerMap.remove(nicknameOfDisconnectedClient);
             gameController.removeVirtualView(nicknameOfDisconnectedClient, gameController.getVirtualViewMap().get(nicknameOfDisconnectedClient));
-            gameController.broadcastGenericMessage("Player " + nicknameOfDisconnectedClient + " is disconnected.");
+            gameController.broadcastMessage("Player " + nicknameOfDisconnectedClient + " is disconnected.");
             System.out.println("Client " + clientHandler.toString() + " with name " + nicknameOfDisconnectedClient + " is disconnected.");
             if (gameController.getGameState() == GameState.LOBBY_STATE) {
                 // Remove the player from the players' list.
