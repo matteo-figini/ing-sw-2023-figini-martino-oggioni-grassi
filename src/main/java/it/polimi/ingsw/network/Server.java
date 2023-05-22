@@ -3,7 +3,6 @@ package it.polimi.ingsw.network;
 import it.polimi.ingsw.controller.GameController;
 import it.polimi.ingsw.controller.GameState;
 import it.polimi.ingsw.network.message.Message;
-import it.polimi.ingsw.network.socket.server.ClientHandler;
 import it.polimi.ingsw.view.VirtualView;
 
 import java.util.Collections;

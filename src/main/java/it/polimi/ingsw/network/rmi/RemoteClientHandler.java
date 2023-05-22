@@ -1,24 +1,39 @@
 package it.polimi.ingsw.network.rmi;
 
+import it.polimi.ingsw.network.ClientHandler;
 import it.polimi.ingsw.network.message.Message;
-import it.polimi.ingsw.network.socket.server.ClientHandler;
 
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.rmi.Remote;
+import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.Scanner;
 
-public class RemoteClientHandler implements ClientHandler/*, Runnable*/ {
-    private RemoteServerImpl remoteServer;
-    private ObjectInputStream inputStream;
-    private ObjectOutputStream outputStream;
 
-    protected RemoteClientHandler(RemoteServerImpl server) throws RemoteException {
-        this.remoteServer = server;
+//l'idea è che per ogni clienthandler vengono utilizzati i metodi dell'interfaccia remota
+//del Server, per questo motivo estende UnicastRemoteObject così posso recuperare il riferimento al server.
+public class RemoteClientHandler extends UnicastRemoteObject implements ClientHandler, Runnable{
+
+    private Message msg; //messaggio su cui verrà messo un lock
+
+    public RemoteClientHandler (RemoteServerImpl server) throws RemoteException {
+        super();
+        boolean isConnected = true;
     }
 
+    public void doJob(String serverHost) throws Exception{
+
+        // take a reference of the server from the registry
+        RemoteServerImpl remoteServer = (RemoteServerImpl) Naming.lookup("rmi://" + serverHost + "/ChatServer");
+
+        //(nel Socket vengono salvati in due variabili di tipo Object)
+    }
+    @Override
+    public void run() {
+        System.out.println("Established new client connection.");
+        while (!Thread.currentThread().isInterrupted()){
+            //leggi il messaggio con metodo di RemoteServer e chiama
+            //i metodi di RemoteServerImpl per passarne il contenuto al server.
+        }
+    }
     @Override
     public void sendMessage(Message message) {
 
@@ -33,4 +48,5 @@ public class RemoteClientHandler implements ClientHandler/*, Runnable*/ {
     public boolean isConnected() {
         return false;
     }
+
 }
