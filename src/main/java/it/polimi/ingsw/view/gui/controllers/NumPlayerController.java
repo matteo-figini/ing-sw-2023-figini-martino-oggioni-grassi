@@ -1,5 +1,6 @@
 package it.polimi.ingsw.view.gui.controllers;
 
+import it.polimi.ingsw.model.Game;
 import it.polimi.ingsw.network.socket.client.ClientManager;
 import it.polimi.ingsw.view.gui.GUI;
 import javafx.fxml.FXML;
@@ -49,9 +50,9 @@ public class NumPlayerController {
 
     @FXML
     public void askPlayerNumber (javafx.event.ActionEvent event) {
-        //TODO: fare controllo numero giocatore
-        int number = getPlayerNumber();
+        int number;
+        number = getPlayerNumber();
         clientManager.onUpdatePlayersNumber(number);
-        gui.switchToWaitingRoom(); //non va avanti
+        gui.switchToWaitingRoom();
     }
 }

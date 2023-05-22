@@ -34,10 +34,10 @@ public class GUI implements View {
 
     @Override
     public void askNickname() throws IOException {
+        //change scene to preGameLobby
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/fxml/preGameLobby.fxml"));
         Parent root = loader.load();
-
         Scene scene = new Scene(root);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/lobbyStyle.css")).toExternalForm());
         Stage stage = guiMain.getPrimaryStage();
@@ -58,30 +58,31 @@ public class GUI implements View {
 
     @Override
     public void askPlayersNumber() {
-        try{
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/fxml/numPlayer.fxml"));
-            Parent root = loader.load();
+            try{
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("/fxml/numPlayer.fxml"));
+                Parent root = loader.load();
 
-            NumPlayerController controller = loader.getController();
-            controller.setClientManager(clientManager);
-            controller.setGUI(this);
+                NumPlayerController controller = loader.getController();
+                controller.setClientManager(clientManager);
+                controller.setGUI(this);
 
-            Scene scene = new Scene(root);
-            scene.getStylesheets().add(getClass().getResource("/css/lobbyStyle.css").toExternalForm());
+                Scene scene = new Scene(root);
+                scene.getStylesheets().add(getClass().getResource("/css/lobbyStyle.css").toExternalForm());
 
-            Platform.runLater(() -> {
-                Stage stage = guiMain.getPrimaryStage();
-                stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/Publisher material/Icon 50x50px.png"))));
-                stage.setTitle("My Shelfie");
-                stage.setScene(scene);
-                stage.setFullScreen(true);
-                stage.setFullScreenExitHint("");
-                stage.show();
-            });
-        } catch(IOException e){
-            System.out.println("Error");
-        }
+                Platform.runLater(() -> {
+                    Stage stage = guiMain.getPrimaryStage();
+                    stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/Publisher material/Icon 50x50px.png"))));
+                    stage.setTitle("My Shelfie");
+                    stage.setScene(scene);
+                    stage.setFullScreen(true);
+                    stage.setFullScreenExitHint("");
+                    stage.show();
+                });
+            } catch(IOException e){
+                System.out.println("Error");
+            }
+
     }
 
     public void switchToWaitingRoom () {
