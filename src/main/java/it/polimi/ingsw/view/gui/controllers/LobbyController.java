@@ -10,7 +10,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * This class represents the first login scene, where the user inserts the IP address of the server and the port.
+ */
 public class LobbyController {
+    /** Reference to the {@code ClientManager}. */
     private ClientManager clientManager;
 
     @FXML
@@ -43,7 +47,11 @@ public class LobbyController {
         return playerSocket.getText();
     }
 
-
+    /**
+     * Method activated by the ActionEvent on the button.
+     * Try to connect to the server.
+     * @param event The event on the button.
+     */
     @FXML
     public void askServerInformation(javafx.event.ActionEvent event) {
         String ipAddress, defaultIpAddress = "127.0.0.1";

@@ -61,6 +61,7 @@ public class GameController {
      */
     public void onMessageReceived (Message message) {
         if (!gameSuspended) {
+            System.out.println(gameState.toString());
             switch (gameState) {
                 case LOBBY_STATE -> lobbyStateManager(message);
                 case IN_GAME -> turnController(message);

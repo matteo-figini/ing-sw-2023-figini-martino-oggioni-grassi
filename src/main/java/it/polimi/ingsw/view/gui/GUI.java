@@ -19,25 +19,36 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * This class implements the {@code View} interface in order to provide all the functionalities for the graphical view
+ * of the MVC pattern.
+ */
 public class GUI implements View {
-    private ClientManager clientManager;        // Observer of View events
-    private PreGameLobbyController preGameLobbyController;      // TODO: why is it declared here?
+
+    /** Reference to the current {@code ClientManager} of the specified client. */
+    private ClientManager clientManager;
+
+    /** Reference to the {@code GUIMain} class. */
     private GUIMain guiMain;
 
-    public GUI () {
-        this.guiMain = new GUIMain();
-    }
-
-    public void setStage(Stage stage) {
-        guiMain.setPrimaryStage(stage);
+    /**
+     * This constructor takes in input the reference to the current {@code GUIMain} object.
+     * @param guiMainReference The reference to the current {@code GUIMain} object.
+     */
+    public GUI (GUIMain guiMainReference) {
+        this.guiMain = guiMainReference;
     }
 
     @Override
     public void askNickname() throws IOException {
-        //change scene to preGameLobby
+        // When the server requires the client nickname, switch to the preGameLobby state.
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/fxml/preGameLobby.fxml"));
         Parent root = loader.load();
+
+        PreGameLobbyController preGameLobbyController = loader.getController();
+        preGameLobbyController.setOnNicknameConfirmedListener(this::onNicknameConfirmed);
+
         Scene scene = new Scene(root);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/lobbyStyle.css")).toExternalForm());
         Stage stage = guiMain.getPrimaryStage();
@@ -47,42 +58,38 @@ public class GUI implements View {
         stage.setFullScreen(true);
         stage.setFullScreenExitHint("");
         stage.show();
-
-        preGameLobbyController = loader.getController();
-        preGameLobbyController.setOnNicknameConfirmedListener(this::onNicknameConfirmed);
     }
 
-    private void onNicknameConfirmed(String nickname) {
+    private void onNicknameConfirmed (String nickname) {
         clientManager.onUpdateNickname(nickname);
     }
 
     @Override
     public void askPlayersNumber() {
-            try{
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("/fxml/numPlayer.fxml"));
-                Parent root = loader.load();
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/fxml/numPlayer.fxml"));
+            Parent root = loader.load();
 
-                NumPlayerController controller = loader.getController();
-                controller.setClientManager(clientManager);
-                controller.setGUI(this);
+            NumPlayerController controller = loader.getController();
+            controller.setClientManager(clientManager);
+            controller.setGUI(this);
 
-                Scene scene = new Scene(root);
-                scene.getStylesheets().add(getClass().getResource("/css/lobbyStyle.css").toExternalForm());
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/css/lobbyStyle.css").toExternalForm());
 
-                Platform.runLater(() -> {
-                    Stage stage = guiMain.getPrimaryStage();
-                    stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/Publisher material/Icon 50x50px.png"))));
-                    stage.setTitle("My Shelfie");
-                    stage.setScene(scene);
-                    stage.setFullScreen(true);
-                    stage.setFullScreenExitHint("");
-                    stage.show();
-                });
-            } catch(IOException e){
-                System.out.println("Error");
-            }
-
+            Platform.runLater(() -> {
+                Stage stage = guiMain.getPrimaryStage();
+                stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/Publisher material/Icon 50x50px.png"))));
+                stage.setTitle("My Shelfie");
+                stage.setScene(scene);
+                stage.setFullScreen(true);
+                stage.setFullScreenExitHint("");
+                stage.show();
+            });
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public void switchToWaitingRoom () {
@@ -148,20 +155,8 @@ public class GUI implements View {
 
     }
 
-    public ClientManager getClientManager() {
-        return clientManager;
-    }
-
     public void setClientManager(ClientManager clientManager) {
         this.clientManager = clientManager;
-    }
-
-    public GUIMain getGuiMain() {
-        return guiMain;
-    }
-
-    public PreGameLobbyController getPreGameLobbyController() {
-        return preGameLobbyController;
     }
 
 }

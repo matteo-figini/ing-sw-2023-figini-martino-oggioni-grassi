@@ -1,8 +1,10 @@
 package it.polimi.ingsw.view.gui;
 
+import it.polimi.ingsw.model.Player;
 import it.polimi.ingsw.network.socket.client.ClientManager;
 import it.polimi.ingsw.view.gui.controllers.LobbyController;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -29,10 +31,9 @@ public class GUIMain extends Application {
         this.primaryStage = new Stage();
 
         // Set the GUI class and the ClientManager class
-        GUI guiInterface = new GUI();
+        GUI guiInterface = new GUI(this);
         ClientManager clientManager = new ClientManager(guiInterface);
         guiInterface.setClientManager(clientManager);
-        guiInterface.setStage(primaryStage);
 
         // Load root layout
         FXMLLoader loader = new FXMLLoader();
@@ -55,17 +56,18 @@ public class GUIMain extends Application {
     }
 
     /**
+     * Stop the process when clicking on the top-right 'X' button.
+     */
+    @Override
+    public void stop () {
+        Platform.exit();
+        System.exit(0);
+    }
+
+    /**
      * @return A reference to the primary stage.
      */
     public Stage getPrimaryStage() {
         return primaryStage;
     }
-
-    /**
-     * @param primaryStage Set the primary stage to the parameter passed.
-     */
-    public void setPrimaryStage(Stage primaryStage) {
-        this.primaryStage = primaryStage;
-    }
-
 }

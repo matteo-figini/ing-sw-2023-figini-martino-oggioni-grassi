@@ -27,7 +27,7 @@ public class ServerMain {
         if (rmiConnection) {
             //System.out.println("Unable to manage RMI connection. Server closing.");
             RemoteServerImpl remoteServer = new RemoteServerImpl(server);
-            remoteServer.startServerConnection(); //will be replaced by thread.run
+            // remoteServer.startServerConnection(); //will be replaced by thread.run
             //Thread thread = new Thread (remoteServer);
             //thread.start();
         } else {

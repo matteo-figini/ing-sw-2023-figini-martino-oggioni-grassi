@@ -10,10 +10,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+/**
+ * This class represents the controller for the scene where the nickname is asked.
+ */
 public class PreGameLobbyController {
     private Consumer<String> onNicknameConfirmedListener;
-
-    private GUI gui;
 
     @FXML
     private ResourceBundle resources;
@@ -31,15 +32,6 @@ public class PreGameLobbyController {
     void initialize() {
         assert button2 != null : "fx:id=\"button2\" was not injected: check your FXML file 'preGameLobby.fxml'.";
         assert playerNickname != null : "fx:id=\"playerNickname\" was not injected: check your FXML file 'preGameLobby.fxml'.";
-
-    }
-
-    public GUI getGUI() {
-        return gui;
-    }
-
-    public void setGUI(GUI gui) {
-        this.gui = gui;
     }
 
     public void setOnNicknameConfirmedListener(Consumer<String> listener) {
@@ -56,6 +48,5 @@ public class PreGameLobbyController {
         if (onNicknameConfirmedListener != null) {
             onNicknameConfirmedListener.accept(nickname);
         }
-
     }
 }
