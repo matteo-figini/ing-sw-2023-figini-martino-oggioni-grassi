@@ -81,6 +81,16 @@ public class TUI implements View {
     }
 
     @Override
+    public void waitingRoom() {
+
+    }
+
+    @Override
+    public void gameRoom() {
+
+    }
+
+    @Override
     public void askColumnAndPositions () {
         int numOfPositions, column, row, col;
         List<Position> positions = new ArrayList<>();

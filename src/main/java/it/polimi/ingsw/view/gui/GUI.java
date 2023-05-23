@@ -6,6 +6,7 @@ import it.polimi.ingsw.model.commongoals.CommonGoalCard;
 import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
 import it.polimi.ingsw.network.socket.client.ClientManager;
 import it.polimi.ingsw.view.View;
+import it.polimi.ingsw.view.gui.controllers.GuiGameController;
 import it.polimi.ingsw.view.gui.controllers.PreGameLobbyController;
 import it.polimi.ingsw.view.gui.controllers.NumPlayerController;
 import it.polimi.ingsw.view.gui.controllers.WaitingRoomController;
@@ -93,6 +94,33 @@ public class GUI implements View {
         }
     }
 
+    @Override
+    public void waitingRoom() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/fxml/waitingRoom.fxml"));
+            Parent root = loader.load();
+
+            WaitingRoomController controller = loader.getController();
+            controller.setClientManager(clientManager);
+
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/lobbyStyle.css")).toExternalForm());
+
+            Platform.runLater(() -> {
+                Stage stage = guiMain.getPrimaryStage();
+                stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/Publisher material/Icon 50x50px.png"))));
+                stage.setTitle("My Shelfie");
+                stage.setScene(scene);
+                stage.setFullScreen(true);
+                stage.setFullScreenExitHint("");
+                stage.show();
+            });
+        } catch(IOException e) {
+            System.out.println("Error");
+        }
+    }
+
     public void switchToWaitingRoom () {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -101,7 +129,33 @@ public class GUI implements View {
 
             WaitingRoomController controller = loader.getController();
             controller.setClientManager(clientManager);
-            // controller.setGUI(this);
+
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/lobbyStyle.css")).toExternalForm());
+
+            Platform.runLater(() -> {
+                Stage stage = guiMain.getPrimaryStage();
+                stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/Publisher material/Icon 50x50px.png"))));
+                stage.setTitle("My Shelfie");
+                stage.setScene(scene);
+                stage.setFullScreen(true);
+                stage.setFullScreenExitHint("");
+                stage.show();
+            });
+        } catch(IOException e) {
+            System.out.println("Error");
+        }
+    }
+
+    @Override
+    public void gameRoom(){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/fxml/game.fxml"));
+            Parent root = loader.load();
+
+            GuiGameController controller = loader.getController();
+            controller.setClientManager(clientManager);
 
             Scene scene = new Scene(root);
             scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/lobbyStyle.css")).toExternalForm());

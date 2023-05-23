@@ -245,6 +245,7 @@ public class GameController {
             // The player is not the first one. We suppose here that the nickname is already checked by the server.
             addVirtualView(nickname, virtualView);
             game.addPlayer(nickname);
+            virtualView.waitingRoom();
             broadcastMessage("Players connected: " + virtualViewMap.size() + "/" + game.getChosenPlayersNumber());
             if (getOnlinePlayers().size() == game.getChosenPlayersNumber()) {
                 broadcastMessage("All the players are connected.");
@@ -360,6 +361,10 @@ public class GameController {
      * This method starts the game.
      */
     private void startGame () {
+        for(Map.Entry<String, VirtualView> entry : virtualViewMap.entrySet()){
+            entry.getValue().gameRoom();
+        }
+
         setGameState(GameState.IN_GAME);
         game.startGame();
         System.out.println("Game starting with " + game.getPlayers().size());

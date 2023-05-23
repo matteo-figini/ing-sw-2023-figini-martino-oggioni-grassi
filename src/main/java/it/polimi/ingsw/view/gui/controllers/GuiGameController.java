@@ -2,9 +2,12 @@ package it.polimi.ingsw.view.gui.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import it.polimi.ingsw.network.socket.client.ClientManager;
 import javafx.fxml.FXML;
 
 public class GuiGameController {
+    private ClientManager clientManager;
 
     @FXML
     private ResourceBundle resources;
@@ -14,7 +17,14 @@ public class GuiGameController {
 
     @FXML
     void initialize() {
+    }
 
+    public ClientManager getClientManager() {
+        return clientManager;
+    }
+
+    public void setClientManager(ClientManager clientManager) {
+        this.clientManager = clientManager;
     }
 
 }

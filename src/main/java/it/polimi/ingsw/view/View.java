@@ -25,6 +25,16 @@ public interface View {
     void askPlayersNumber ();
 
     /**
+     * Send a message to open waiting room scene
+     */
+    void waitingRoom();
+
+    /**
+     * Send a message to open game room scene
+     */
+    void gameRoom();
+
+    /**
      * Asks the user a column on his shelf and a list of positions on which to draw the tiles from the board.
      */
     void askColumnAndPositions ();

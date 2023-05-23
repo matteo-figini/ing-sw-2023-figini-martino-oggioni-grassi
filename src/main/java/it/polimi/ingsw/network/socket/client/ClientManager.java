@@ -89,6 +89,12 @@ public class ClientManager {
             case PLAYERS_NUMBER_REQUEST -> {
                 view.askPlayersNumber();
             }
+            case WAITING_ROOM_REQUEST -> {
+                view.waitingRoom();
+            }
+            case GAME_ROOM_REQUEST -> {
+                view.gameRoom();
+            }
             case LOGIN_REPLY -> {
                 LoginResponseMessage loginReplyMessage = (LoginResponseMessage) message;
                 view.showLoginResponse(loginReplyMessage.isNicknameAccepted(), loginReplyMessage.isConnectionEstablished());

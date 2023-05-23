@@ -30,6 +30,16 @@ public class VirtualView implements View {
     }
 
     @Override
+    public void waitingRoom() {
+        clientHandler.sendMessage((new WaitingRoomRequest()));
+    }
+
+    @Override
+    public void gameRoom(){
+        clientHandler.sendMessage((new GameRoomRequest()));
+    }
+
+    @Override
     public void askColumnAndPositions() {
         clientHandler.sendMessage(new PickTilesRequest());
     }

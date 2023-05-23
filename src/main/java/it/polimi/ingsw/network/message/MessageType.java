@@ -8,6 +8,8 @@ public enum MessageType {
     LOGIN_REQUEST,
     LOGIN_REPLY,
     PLAYERS_NUMBER_REQUEST,
+    WAITING_ROOM_REQUEST,
+    GAME_ROOM_REQUEST,
     PLAYERSNUMBER_REPLY,
 
     // Fase di gioco

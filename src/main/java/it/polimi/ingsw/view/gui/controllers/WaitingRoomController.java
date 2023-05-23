@@ -25,7 +25,6 @@ public class WaitingRoomController {
 
     @FXML
     void initialize() {
-
     }
 
     public ClientManager getClientManager() {
