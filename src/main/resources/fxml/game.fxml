@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -9,15 +12,17 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="559.0" prefWidth="851.0" styleClass="GameBackGround" stylesheets="@../css/lobbyStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polimi.ingsw.view.gui.controllers.GuiGameController">
+<BorderPane prefHeight="870.0" prefWidth="1547.0" styleClass="GameBackGround" stylesheets="@../css/lobbyStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polimi.ingsw.view.gui.controllers.GuiGameController">
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="327.0" prefWidth="851.0">
+            <HBox prefHeight="478.0" prefWidth="1790.0">
                <children>
-                  <Pane prefHeight="200.0" prefWidth="62.0" />
-                  <StackPane prefHeight="329.0" prefWidth="344.0" styleClass="Board">
+                  <Pane prefHeight="469.0" prefWidth="39.0" />
+                  <StackPane prefHeight="478.0" prefWidth="478.0" styleClass="Board">
                      <children>
                         <GridPane prefHeight="334.0" prefWidth="334.0">
                           <columnConstraints>
@@ -48,41 +53,117 @@
                         </GridPane>
                      </children>
                   </StackPane>
-                  <Pane prefHeight="313.0" prefWidth="74.0" />
-                  <StackPane prefHeight="313.0" prefWidth="298.0" styleClass="Shelf">
+                  <Pane prefHeight="469.0" prefWidth="30.0" />
+                  <VBox prefHeight="469.0" prefWidth="374.0">
                      <children>
-                        <GridPane prefHeight="150.0" prefWidth="105.0">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <padding>
-                              <Insets bottom="50.0" left="35.0" right="35.0" top="22.0" />
-                           </padding>
-                        </GridPane>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player1" textAlignment="CENTER" wrappingWidth="380.53674507141113">
+                           <font>
+                              <Font name="Bauhaus 93" size="20.0" />
+                           </font>
+                        </Text>
+                        <StackPane prefHeight="478.0" prefWidth="406.0" styleClass="Shelf">
+                           <children>
+                              <GridPane prefHeight="526.0" prefWidth="496.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <padding>
+                                    <Insets bottom="50.0" left="35.0" right="35.0" top="22.0" />
+                                 </padding>
+                              </GridPane>
+                           </children>
+                        </StackPane>
                      </children>
-                  </StackPane>
-                  <Pane prefHeight="200.0" prefWidth="62.0" />
+                  </VBox>
+                  <Pane prefHeight="469.0" prefWidth="38.0" />
+                  <HBox prefHeight="469.0" prefWidth="551.0">
+                     <children>
+                        <VBox prefHeight="469.0" prefWidth="302.0">
+                           <children>
+                              <Pane prefHeight="34.0" prefWidth="318.0" />
+                              <ImageView fitHeight="188.0" fitWidth="289.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/common%20goal%20cards/2.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Pane prefHeight="50.0" prefWidth="311.0" />
+                              <ImageView fitHeight="188.0" fitWidth="289.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/common%20goal%20cards/3.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </VBox>
+                        <Pane prefHeight="469.0" prefWidth="22.0" />
+                        <VBox prefHeight="469.0" prefWidth="212.0">
+                           <children>
+                              <Pane prefHeight="136.0" prefWidth="214.0" />
+                              <ImageView fitHeight="324.0" fitWidth="311.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/personal%20goal%20cards/Personal_Goals.png" />
+                                 </image>
+                              </ImageView>
+                              <Pane prefHeight="104.0" prefWidth="200.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
                </children>
             </HBox>
-            <HBox prefHeight="43.0" prefWidth="851.0" />
-            <HBox prefHeight="163.0" prefWidth="851.0">
+            <HBox prefHeight="62.0" prefWidth="1547.0">
                <children>
-                  <Pane prefHeight="150.0" prefWidth="45.0" />
-                  <VBox prefHeight="150.0" prefWidth="140.0">
+                  <Pane prefHeight="53.0" prefWidth="56.0" />
+                  <VBox alignment="CENTER_RIGHT" prefHeight="61.0" prefWidth="217.0">
                      <children>
-                        <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="Shelf">
+                        <Pane prefHeight="34.0" prefWidth="218.0" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player2" textAlignment="CENTER" wrappingWidth="212.53674507141113">
+                           <font>
+                              <Font name="Bauhaus 93" size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
+                  <Pane prefHeight="53.0" prefWidth="90.0" />
+                  <VBox prefHeight="61.0" prefWidth="215.0">
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player3" textAlignment="CENTER" wrappingWidth="239.73669624328613">
+                           <font>
+                              <Font name="Bauhaus 93" size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
+                  <Pane prefHeight="53.0" prefWidth="73.0" />
+                  <VBox prefHeight="53.0" prefWidth="197.0">
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player4" textAlignment="CENTER" wrappingWidth="230.13672065734863">
+                           <font>
+                              <Font name="Bauhaus 93" size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
+               </children></HBox>
+            <HBox prefHeight="274.0" prefWidth="1547.0">
+               <children>
+                  <Pane prefHeight="266.0" prefWidth="44.0" />
+                  <VBox prefHeight="291.0" prefWidth="250.0">
+                     <children>
+                        <StackPane prefHeight="345.0" prefWidth="250.0" styleClass="Shelf">
                            <children>
                               <GridPane prefHeight="150.0" prefWidth="105.0">
                                 <columnConstraints>
@@ -108,10 +189,10 @@
                         </StackPane>
                      </children>
                   </VBox>
-                  <Pane prefHeight="150.0" prefWidth="28.0" />
-                  <VBox prefHeight="200.0" prefWidth="140.0" styleClass="Shelf">
+                  <Pane prefHeight="356.0" prefWidth="62.0" />
+                  <VBox prefHeight="291.0" prefWidth="250.0">
                      <children>
-                        <StackPane prefHeight="150.0" prefWidth="200.0">
+                        <StackPane prefHeight="345.0" prefWidth="250.0" styleClass="Shelf">
                            <children>
                               <GridPane prefHeight="150.0" prefWidth="105.0">
                                  <columnConstraints>
@@ -137,10 +218,10 @@
                         </StackPane>
                      </children>
                   </VBox>
-                  <Pane prefHeight="150.0" prefWidth="28.0" />
-                  <VBox prefHeight="163.0" prefWidth="140.0" styleClass="Shelf">
+                  <Pane layoutX="343.0" layoutY="10.0" prefHeight="356.0" prefWidth="62.0" />
+                  <VBox layoutX="405.0" layoutY="10.0" prefHeight="291.0" prefWidth="250.0">
                      <children>
-                        <StackPane prefHeight="150.0" prefWidth="200.0">
+                        <StackPane prefHeight="346.0" prefWidth="250.0" styleClass="Shelf">
                            <children>
                               <GridPane prefHeight="150.0" prefWidth="105.0">
                                  <columnConstraints>
@@ -164,6 +245,23 @@
                               </GridPane>
                            </children>
                         </StackPane>
+                     </children>
+                  </VBox>
+                  <Pane prefHeight="266.0" prefWidth="33.0" />
+                  <VBox prefHeight="266.0" prefWidth="564.0">
+                     <children>
+                        <StackPane prefHeight="190.0" prefWidth="564.0" styleClass="Chat">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="546.9367866516113" />
+                           </children>
+                        </StackPane>
+                        <HBox alignment="BOTTOM_CENTER" prefHeight="81.0" prefWidth="564.0">
+                           <children>
+                              <Pane prefHeight="100.0" prefWidth="213.0" />
+                              <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="153.0" text="Button" />
+                              <Pane prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
                </children>
@@ -172,7 +270,7 @@
       </VBox>
    </center>
    <top>
-      <Pane prefHeight="37.0" prefWidth="851.0" BorderPane.alignment="CENTER" />
+      <Pane prefHeight="53.0" prefWidth="1547.0" BorderPane.alignment="CENTER" />
    </top>
    <bottom>
       <Pane prefHeight="30.0" prefWidth="851.0" BorderPane.alignment="CENTER" />

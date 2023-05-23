@@ -31,3 +31,10 @@
     -fx-background-image: url("../assets/boards/bookshelf.png");
     -fx-background-size: stretch;
 }
+
+.Chat{
+    -fx-background-image: url("../assets/misc/base_pagina2.jpg");
+    -fx-background-size: stretch;
+    -fx-border-color: black;
+    -fx-border-width: 5;
+}
