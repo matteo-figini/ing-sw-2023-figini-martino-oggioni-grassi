@@ -44,6 +44,13 @@
             <artifactId>javafx-graphics</artifactId>
             <version>19</version>
         </dependency>
+        <!--  Gson: Java to JSON conversion -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10.1</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>
