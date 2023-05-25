@@ -7,7 +7,7 @@ import java.io.Serializable;
  * Every item tile has got an item tile type (enumeration) that represents the type.
  */
 public class ItemTile implements Serializable {
-    private ItemTileType type;
+    private final ItemTileType type;
 
     /**
      * This constructor creates a new Item Tile based on the specified type passed as parameter.

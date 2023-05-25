@@ -10,7 +10,6 @@ import java.util.List;
 public class Board implements Serializable {
     private BoardCell[][] boardContent;
     private int freeCellsOnBoard;
-
     final public static int MAX_ROWS = 9;
     final public static int MAX_COLUMNS = 9;
 
@@ -18,7 +17,7 @@ public class Board implements Serializable {
      * This constructor creates all the board cells depending on how many players are there.
      * @param numPlayer the number of the players in the game.
      */
-    public Board (int numPlayer){
+    public Board (int numPlayer) {
         boardContent = new BoardCell[MAX_ROWS][MAX_COLUMNS];
         for (int i = 0; i < MAX_ROWS; i++) {
             for (int j = 0; j < MAX_COLUMNS; j++) {
@@ -114,6 +113,10 @@ public class Board implements Serializable {
         return boardCopy;
     }
 
+    /**
+     * Set the board content to the specified board content passed as parameter.
+     * @param boardContent The matrix of {@code BoardCell} containing the board.
+     */
     public void setBoardContent(BoardCell[][] boardContent) {
         this.boardContent = boardContent;
     }
@@ -206,8 +209,8 @@ public class Board implements Serializable {
 
     /**
      * This method checks the number of the free (and playable) sides around the cell specified by the parameter.
-     * @param position
-     * @return
+     * @param position The position on the board to check.
+     * @return The number of free sides around the position passed as parameter.
      */
     private int freeSides (Position position) {
         int sides = 0;

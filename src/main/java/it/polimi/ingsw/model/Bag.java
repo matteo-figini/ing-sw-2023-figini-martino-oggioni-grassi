@@ -1,44 +1,34 @@
 package it.polimi.ingsw.model;
 import it.polimi.ingsw.exception.WrongNumberOfCardsException;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 /**
- * This class represents the bag containing the tiles.
+ * This class represents the bag containing the item tiles.
  */
-public class Bag {
-    private List<ItemTile> itemTileList = new ArrayList<>();
-    private final int cardForType = 22;
-    private final int typesOfCards = 6;
+public class Bag implements Serializable {
+    /** List of {@code ItemTile}. */
+    private final List<ItemTile> itemTileList = new ArrayList<>();
 
     /**
      * The default constructor fills the list of the item tiles with 22 cards for each one of the 6 types.
      * After the initialization, cards are shuffled.
      */
     public Bag () {
+        int typesOfCards = 6;
         for (int i = 0; i < typesOfCards; i++) {
+            int cardForType = 22;
             for (int j = 0; j < cardForType; j++) {
                 switch (i) {
-                    case 0:
-                        itemTileList.add(new ItemTile(ItemTileType.GREEN));
-                        break;
-                    case 1:
-                        itemTileList.add(new ItemTile(ItemTileType.BLUE));
-                        break;
-                    case 2:
-                        itemTileList.add(new ItemTile(ItemTileType.PINK));
-                        break;
-                    case 3:
-                        itemTileList.add(new ItemTile(ItemTileType.LIGHTBLUE));
-                        break;
-                    case 4:
-                        itemTileList.add(new ItemTile(ItemTileType.WHITE));
-                        break;
-                    case 5:
-                        itemTileList.add(new ItemTile(ItemTileType.YELLOW));
-                        break;
+                    case 0 -> itemTileList.add(new ItemTile(ItemTileType.GREEN));
+                    case 1 -> itemTileList.add(new ItemTile(ItemTileType.BLUE));
+                    case 2 -> itemTileList.add(new ItemTile(ItemTileType.PINK));
+                    case 3 -> itemTileList.add(new ItemTile(ItemTileType.LIGHTBLUE));
+                    case 4 -> itemTileList.add(new ItemTile(ItemTileType.WHITE));
+                    case 5 -> itemTileList.add(new ItemTile(ItemTileType.YELLOW));
                 }
 
             }

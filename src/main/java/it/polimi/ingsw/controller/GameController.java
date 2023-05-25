@@ -60,7 +60,7 @@ public class GameController {
      * @param message The message received from the client over the network layer.
      */
     public void onMessageReceived (Message message) {
-        if (!gameSuspended) {
+        if (!isGameSuspended()) {
             System.out.println(gameState.toString());
             switch (gameState) {
                 case LOBBY_STATE -> lobbyStateManager(message);
@@ -90,7 +90,7 @@ public class GameController {
 
     /**
      * Take actions based on a message arrived in {@code IN_GAME} state.
-     * @param message The message received. If the message is a {@PICK_TILES_REPLY} check the game logic and proceed with
+     * @param message The message received. If the message is a {@code PICK_TILES_REPLY} check the game logic and proceed with
      *                the game.
      */
     private void turnController (Message message) {
@@ -502,14 +502,14 @@ public class GameController {
     private void checkCommonGoalsCompleted () {
         Player activePlayerModel = game.getPlayerByNickname(getActivePlayer());
         CommonGoalCard commonGoalCard = game.getCommonGoalCards().get(0);
-        int score = 0;
+        int score;
 
         // Controllo del primo obiettivo comune
         if (!activePlayerModel.isFirstCommonGoalReached() && commonGoalCard.checkPattern(activePlayerModel.getShelf())) {
             try {
                 ScoringToken token = commonGoalCard.popScoringToken();
                 activePlayerModel.setFirstCommonGoalReached(token);
-                score = token.getScore();
+                score = token.score();
                 broadcastMessage( activePlayer + " earned " + score + " points completing the first common goal!");
                 activePlayerModel.addScore(score);
             } catch (NoScoringTokenAvailableException e) {
@@ -523,7 +523,7 @@ public class GameController {
             try {
                 ScoringToken token = commonGoalCard.popScoringToken();
                 activePlayerModel.setSecondCommonGoalReached(token);
-                score = token.getScore();
+                score = token.score();
                 broadcastMessage( activePlayer + " earned " + score + " points completing the second common goal!");
                 activePlayerModel.addScore(score);
             } catch (NoScoringTokenAvailableException e) {

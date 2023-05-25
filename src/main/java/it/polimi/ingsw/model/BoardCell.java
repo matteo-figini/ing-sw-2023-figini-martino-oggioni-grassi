@@ -7,7 +7,7 @@ import java.io.Serializable;
  * a reference to the item tile contained if an item tile is contained, otherwise the type is null.
  */
 public class BoardCell implements Serializable {
-    private BoardCellType type;
+    private final BoardCellType type;
     private ItemTile itemTile;
 
     /**
