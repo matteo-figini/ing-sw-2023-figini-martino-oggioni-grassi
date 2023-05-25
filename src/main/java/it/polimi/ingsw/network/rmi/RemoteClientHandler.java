@@ -12,7 +12,7 @@ import java.rmi.server.UnicastRemoteObject;
 //del Server, per questo motivo estende UnicastRemoteObject così posso recuperare il riferimento al server.
 public class RemoteClientHandler extends UnicastRemoteObject implements ClientHandler, Runnable{
 
-    private Message msg; //messaggio su cui verrà messo un lock
+    private RemoteClient remoteClient;
 
     public RemoteClientHandler (RemoteServerImpl server) throws RemoteException {
         super();
@@ -26,6 +26,7 @@ public class RemoteClientHandler extends UnicastRemoteObject implements ClientHa
 
         //(nel Socket vengono salvati in due variabili di tipo Object)
     }
+
     @Override
     public void run() {
         System.out.println("Established new client connection.");

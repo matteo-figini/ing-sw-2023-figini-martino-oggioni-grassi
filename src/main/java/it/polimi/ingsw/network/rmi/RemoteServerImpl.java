@@ -50,18 +50,13 @@ public class RemoteServerImpl extends UnicastRemoteObject implements RemoteServe
     }
 
     @Override
-    public void sendPing() throws RemoteException {
-        //implementa il metodo
-    }
-
-    @Override
-    public void messageToServer(Message msg) throws RemoteException {
-        //implementa il metodo
-    }
-
-    @Override
     public void addClient() throws RemoteException {
         //implementa il metodo
+    }
+
+    @Override
+    public void msgToServer() throws RemoteException {
+
     }
 
 

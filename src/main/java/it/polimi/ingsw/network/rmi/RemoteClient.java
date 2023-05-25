@@ -7,4 +7,10 @@ import java.rmi.RemoteException;
  */
 public interface RemoteClient extends Remote {
 
+    /**
+     * This method receives messages from the Server and forwards them to the ClientManager
+     * @throws RemoteException
+     */
+    public void messageReceived() throws RemoteException;
+
 }

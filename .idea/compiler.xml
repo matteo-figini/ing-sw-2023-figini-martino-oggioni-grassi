@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="PSP18" />
+        <module name="ing-sw-2023-figini-martino-oggioni-grassi" />
       </profile>
     </annotationProcessing>
   </component>
