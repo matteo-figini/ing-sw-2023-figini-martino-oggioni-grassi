@@ -50,9 +50,12 @@ public class NumPlayerController {
 
     @FXML
     public void askPlayerNumber (javafx.event.ActionEvent event) {
-        int number;
-        number = getPlayerNumber();
-        clientManager.onUpdatePlayersNumber(number);
-        gui.switchToWaitingRoom();
+        int number = getPlayerNumber();
+        if (number < Game.MIN_PLAYERS || number > Game.MAX_PLAYERS) {
+            numPlayers.setText("");
+        } else {
+            clientManager.onUpdatePlayersNumber(number);
+            gui.switchToWaitingRoom();
+        }
     }
 }

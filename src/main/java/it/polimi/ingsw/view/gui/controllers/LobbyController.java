@@ -56,7 +56,6 @@ public class LobbyController {
     public void askServerInformation(javafx.event.ActionEvent event) {
         String ipAddress, defaultIpAddress = "127.0.0.1";
         int port, defaultPort = SocketServer.SOCKET_SERVER_PORT;
-        boolean validInput = false;
 
         // Insert and verify the IP address and the port
         playerIpAddress.setStyle("-fx-text-fill: red;");
@@ -72,10 +71,13 @@ public class LobbyController {
         else
             port = Integer.parseInt(getPlayerSocket());
 
-        if (ClientManager.isValidIPAddress(getPlayerIpAddress()) && ClientManager.isValidPort(port)) {
+        if (ClientManager.isValidIPAddress(ipAddress) && ClientManager.isValidPort(port)) {
             playerIpAddress.setStyle("-fx-text-fill: green");
             playerSocket.setStyle("-fx-text-fill: green;");
             clientManager.onUpdateServerInformation(ipAddress, port);
+        } else {
+            playerIpAddress.setText("");
+            playerSocket.setText("");
         }
     }
 

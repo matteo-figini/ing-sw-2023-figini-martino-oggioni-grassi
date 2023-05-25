@@ -43,7 +43,7 @@ public class PreGameLobbyController {
     }
 
     @FXML
-    public void askNicknameInformation(javafx.event.ActionEvent event) throws IOException{
+    public void askNicknameInformation(javafx.event.ActionEvent event) {
         String nickname = getPlayerNickname();
         if (onNicknameConfirmedListener != null) {
             onNicknameConfirmedListener.accept(nickname);
