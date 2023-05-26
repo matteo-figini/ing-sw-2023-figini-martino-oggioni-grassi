@@ -1,8 +1,9 @@
-package it.polimi.ingsw.network.socket.client;
+package it.polimi.ingsw.network;
 
 import it.polimi.ingsw.model.Position;
 import it.polimi.ingsw.network.Client;
 import it.polimi.ingsw.network.message.*;
+import it.polimi.ingsw.network.socket.client.SocketClient;
 import it.polimi.ingsw.view.View;
 
 import java.io.IOException;

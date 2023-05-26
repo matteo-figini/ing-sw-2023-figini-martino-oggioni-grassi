@@ -8,13 +8,12 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 
-public class RemoteClientHandler extends UnicastRemoteObject implements ClientHandler, Runnable{
+public class RemoteClientHandler implements ClientHandler, Runnable{
 
     private RemoteClient remoteClient;
 
     public RemoteClientHandler (RemoteServerImpl server) throws RemoteException {
         super();
-        boolean isConnected = true;
     }
 
     @Override
@@ -24,7 +23,11 @@ public class RemoteClientHandler extends UnicastRemoteObject implements ClientHa
     }
     @Override
     public void sendMessage(Message message) {
-
+        try {
+            remoteClient.msgToClient(message);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

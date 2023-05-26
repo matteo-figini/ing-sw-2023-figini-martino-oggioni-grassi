@@ -1,6 +1,8 @@
 package it.polimi.ingsw.network.rmi;
 
 import it.polimi.ingsw.network.Client;
+import it.polimi.ingsw.network.ClientHandler;
+import it.polimi.ingsw.network.ClientManager;
 import it.polimi.ingsw.network.message.Message;
 
 import java.io.IOException;
@@ -13,6 +15,9 @@ import java.rmi.registry.Registry;
 
 public class RemoteClientImpl extends Client implements RemoteClient, Runnable{
 
+    public RemoteClientImpl(ClientManager manager){
+        setClientManager(manager);
+    }
     @Override
     public void run() {
         try {
@@ -25,24 +30,32 @@ public class RemoteClientImpl extends Client implements RemoteClient, Runnable{
     public RemoteServer getReference() throws Exception{
         //Locate the Registry
         Registry registry = LocateRegistry.getRegistry("127.0.0.1", 1099);
-        //Get the reference of the exported object from RMI registry
-        RemoteServer server = (RemoteServer) registry.lookup("server");
-        return server;
+        //Get and return the reference of the exported object from RMI registry
+        return (RemoteServer) registry.lookup("server");
     }
 
     @Override
     public void sendMessage(Message message) {
         try {
             RemoteServer server = getReference();
+            server.msgToServer(message);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        //TODO chiama metodo remoto (da implementare)
+    }
+
+    public void connectClient(String nickname, ClientHandler clientHandler) throws RemoteException{
+        try {
+            RemoteServer server = getReference();
+            server.addClient(nickname, clientHandler);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
-    public void messageReceived() throws RemoteException {
-        //TODO implement
+    public void msgToClient(Message message) throws RemoteException {
+        clientManager.update(message);
     }
 
     @Override

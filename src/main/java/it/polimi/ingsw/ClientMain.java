@@ -1,5 +1,5 @@
 package it.polimi.ingsw;
-import it.polimi.ingsw.network.socket.client.ClientManager;
+import it.polimi.ingsw.network.ClientManager;
 import it.polimi.ingsw.view.gui.GUIMain;
 import it.polimi.ingsw.view.tui.ColoredTUI;
 import it.polimi.ingsw.view.tui.TUI;

@@ -50,14 +50,19 @@ public class RemoteServerImpl implements RemoteServer, Runnable {
 
     }
 
+
+    /**
+     * This method is used to add new clients, the Server will establish if it is a new connection or a reconnection.
+     * @throws RemoteException if an exception with the Remote object occurs.
+     */
     @Override
-    public void addClient() throws RemoteException {
-        //TODO implement
+    public void addClient(String nickname, ClientHandler clientHandler) throws RemoteException {
+        server.addClient(nickname, clientHandler);
     }
 
     @Override
     public void msgToServer(Message message) throws RemoteException {
-        //TODO implement
+        server.onMessageReceived(message);
     }
 
 }
