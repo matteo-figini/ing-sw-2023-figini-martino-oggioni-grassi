@@ -1,6 +1,7 @@
 package it.polimi.ingsw.network.socket.client;
 
 import it.polimi.ingsw.network.Client;
+import it.polimi.ingsw.network.ClientManager;
 import it.polimi.ingsw.network.message.ErrorMessage;
 import it.polimi.ingsw.network.message.Message;
 import it.polimi.ingsw.network.message.PingMessage;

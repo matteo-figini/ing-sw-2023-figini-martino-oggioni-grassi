@@ -2,16 +2,19 @@ package it.polimi.ingsw;
 
 import it.polimi.ingsw.controller.GameController;
 import it.polimi.ingsw.network.Server;
+import it.polimi.ingsw.network.rmi.RemoteServer;
 import it.polimi.ingsw.network.rmi.RemoteServerImpl;
 import it.polimi.ingsw.network.socket.server.SocketServer;
 
 import java.rmi.AlreadyBoundException;
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
 
 public class ServerMain {
-    public static void main(String[] args) throws RemoteException {
+    public static void main(String[] args){
         boolean rmiConnection = false;
 
         for (String param : args) {
@@ -25,8 +28,7 @@ public class ServerMain {
         Server server = new Server(gameController);
 
         if (rmiConnection) {
-            //System.out.println("Unable to manage RMI connection. Server closing.");
-            RemoteServerImpl remoteServer = new RemoteServerImpl(server);
+
             // remoteServer.startServerConnection(); //will be replaced by thread.run
             //Thread thread = new Thread (remoteServer);
             //thread.start();

@@ -3,7 +3,7 @@ package it.polimi.ingsw.view.gui.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import it.polimi.ingsw.network.socket.client.ClientManager;
+import it.polimi.ingsw.network.ClientManager;
 import javafx.fxml.FXML;
 
 public class GuiGameController {

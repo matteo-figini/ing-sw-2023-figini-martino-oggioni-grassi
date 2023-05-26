@@ -1,12 +1,11 @@
 package it.polimi.ingsw.view.gui.controllers;
 
-import it.polimi.ingsw.network.socket.client.ClientManager;
+import it.polimi.ingsw.network.ClientManager;
 import it.polimi.ingsw.network.socket.server.SocketServer;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 

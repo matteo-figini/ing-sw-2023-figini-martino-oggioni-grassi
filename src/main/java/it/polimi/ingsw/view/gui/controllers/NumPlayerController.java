@@ -1,7 +1,7 @@
 package it.polimi.ingsw.view.gui.controllers;
 
 import it.polimi.ingsw.model.Game;
-import it.polimi.ingsw.network.socket.client.ClientManager;
+import it.polimi.ingsw.network.ClientManager;
 import it.polimi.ingsw.view.gui.GUI;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

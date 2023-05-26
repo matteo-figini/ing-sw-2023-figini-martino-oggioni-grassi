@@ -4,7 +4,7 @@ import it.polimi.ingsw.model.BoardCell;
 import it.polimi.ingsw.model.ShelfCell;
 import it.polimi.ingsw.model.commongoals.CommonGoalCard;
 import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
-import it.polimi.ingsw.network.socket.client.ClientManager;
+import it.polimi.ingsw.network.ClientManager;
 import it.polimi.ingsw.view.View;
 import it.polimi.ingsw.view.gui.controllers.GuiGameController;
 import it.polimi.ingsw.view.gui.controllers.PreGameLobbyController;

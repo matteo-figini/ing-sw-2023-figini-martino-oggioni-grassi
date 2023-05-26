@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Started Client-side RMI implementation">
+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Added methods implementation for RMI message exchange and client connection features">
       <change afterPath="$PROJECT_DIR$/target/classes/assets/Prova" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/target/classes/css/lobbyStyle.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/target/classes/fxml/game.fxml" afterDir="false" />
@@ -124,16 +124,7 @@
       <change afterPath="$PROJECT_DIR$/target/test-classes/it/polimi/ingsw/commongoaltests/TwoRowsGoalCardTest.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/target/test-classes/it/polimi/ingsw/commongoaltests/TwoSquaresGoalCardTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/ClientMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/ClientMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/ServerMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/ServerMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteClientImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteServerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/socket/client/ClientManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/ClientManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/socket/client/SocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/socket/client/SocketClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GUIMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GUIMain.java" afterDir="false" />
@@ -490,7 +481,7 @@
       <workItem from="1685035248097" duration="1814000" />
       <workItem from="1685046602373" duration="311000" />
       <workItem from="1685049496381" duration="4992000" />
-      <workItem from="1685089374405" duration="3201000" />
+      <workItem from="1685089374405" duration="3667000" />
     </task>
     <task id="LOCAL-00001" summary="Class Player layout">
       <created>1679754417366</created>
@@ -772,7 +763,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685054778825</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Added methods implementation for RMI message exchange and client connection features">
+      <created>1685092672909</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1685092672909</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -806,7 +804,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="First implementation of TUI view methods. Added server info requests." />
     <MESSAGE value="added isValidIPAddress method" />
     <MESSAGE value="added some useful methods in Board.java and Shelf.java" />
     <MESSAGE value="Complete refactoring of Personal Goal cards" />
@@ -831,7 +828,8 @@
     <MESSAGE value="linked all GUI scenes" />
     <MESSAGE value="Restored pom.xml" />
     <MESSAGE value="Started Client-side RMI implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started Client-side RMI implementation" />
+    <MESSAGE value="Added methods implementation for RMI message exchange and client connection features" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added methods implementation for RMI message exchange and client connection features" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
