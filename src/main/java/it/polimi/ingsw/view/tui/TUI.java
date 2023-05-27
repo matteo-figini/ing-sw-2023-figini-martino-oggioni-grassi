@@ -148,6 +148,14 @@ public class TUI implements View {
     }
 
     @Override
+    public void showPlayersList(List<String> players) {
+        System.out.println("Player's list: ");
+        for (String nickname : players) {
+            System.out.println(nickname);
+        }
+    }
+
+    @Override
     public void showBoardContent (BoardCell[][] boardContent) {
         System.out.println("Actual board:");
         for (int i = 0; i < Board.MAX_ROWS; i++) {
@@ -205,9 +213,9 @@ public class TUI implements View {
     }
 
     @Override
-    public void showCommonGoalCard(CommonGoalCard commonGoalCard) {
+    public void showCommonGoalCard(CommonGoalCard commonGoalCard, Integer progressiveCard) {
         List<ScoringToken> tokens = commonGoalCard.getScoringTokens();
-        System.out.print("Common Goal description: \"" + commonGoalCard.getDescription() + "\"\n\t[");
+        System.out.print(progressiveCard + ") Common Goal description: \"" + commonGoalCard.getDescription() + "\"\n\t[");
         for (ScoringToken token : tokens)
             System.out.print(token.score() + " ");
         System.out.println("]");

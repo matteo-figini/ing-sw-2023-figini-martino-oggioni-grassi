@@ -367,7 +367,8 @@ public class GameController {
 
         setGameState(GameState.IN_GAME);
         game.startGame();
-        System.out.println("Game starting with " + game.getPlayers().size());
+        System.out.println("Game starting with " + game.getPlayers().size() + " players.");
+        showPlayersNicknames();
         showGameInformation();
         broadcastMessage("Game Started");
 
@@ -375,6 +376,21 @@ public class GameController {
         game.getPlayerByNickname(getActivePlayer()).setFirstPlayer();   // Set the active player as the first one.
         broadcastMessage("Turn of " + getActivePlayer());
         askActivePlayerColumnAndPosition();
+    }
+
+    private void showPlayersNicknames () {
+        for (Player player : game.getPlayers()) {
+            VirtualView virtualView = virtualViewMap.get(player.getNickname());
+            if (virtualView != null) {
+                virtualView.showPlayersList(getNicknameOfAllPlayer());
+            }
+        }
+    }
+
+    private List<String> getNicknameOfAllPlayer () {
+        return game.getPlayers().stream()
+                .map(Player::getNickname)
+                .collect(Collectors.toList());
     }
 
     /**
@@ -425,7 +441,7 @@ public class GameController {
             VirtualView virtualView = virtualViewMap.get(player.getNickname());
             if (virtualView != null) {
                 for (CommonGoalCard commonGoalCard : game.getCommonGoalCards()) {
-                    virtualView.showCommonGoalCard(commonGoalCard);
+                    virtualView.showCommonGoalCard(commonGoalCard, game.getCommonGoalCards().indexOf(commonGoalCard) + 1);
                 }
             }
         }

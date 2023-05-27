@@ -24,5 +24,6 @@ public enum MessageType {
     // Utility
     GENERIC_MESSAGE,
     ERROR_MESSAGE,
-    PING_MESSAGE
+    PING_MESSAGE,
+    PLAYERS_LIST
 }

@@ -6,6 +6,7 @@ import it.polimi.ingsw.model.commongoals.CommonGoalCard;
 import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -53,6 +54,12 @@ public interface View {
     void showGenericMessage (String genericMessage);
 
     /**
+     * Show a list of string containing the nickname of the players.
+     * @param players {@code List} of nicknames.
+     */
+    void showPlayersList (List<String> players);
+
+    /**
      * Show a matrix representing the board cells.
      * @param boardContent A matrix representing the board cells.
      */
@@ -68,8 +75,9 @@ public interface View {
     /**
      * Show the common goal card passed as parameter.
      * @param commonGoalCard The common goal card to be shown.
+     * @param progressiveCard A progressive number indicating if the card is the first or the second one in the game.
      */
-    void showCommonGoalCard (CommonGoalCard commonGoalCard);
+    void showCommonGoalCard (CommonGoalCard commonGoalCard, Integer progressiveCard);
 
     /**
      * Show the personal goal card passed as parameter.

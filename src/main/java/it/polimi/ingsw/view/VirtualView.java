@@ -7,6 +7,7 @@ import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
 import it.polimi.ingsw.network.message.*;
 import it.polimi.ingsw.network.ClientHandler;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -55,6 +56,11 @@ public class VirtualView implements View {
     }
 
     @Override
+    public void showPlayersList(List<String> players) {
+        clientHandler.sendMessage(new PlayersListMessage(players));
+    }
+
+    @Override
     public void showBoardContent(BoardCell[][] boardContent) {
         clientHandler.sendMessage(new BoardContent(boardContent));
     }
@@ -65,8 +71,8 @@ public class VirtualView implements View {
     }
 
     @Override
-    public void showCommonGoalCard(CommonGoalCard commonGoalCard) {
-        clientHandler.sendMessage(new CommonGoalCardMessage(commonGoalCard));
+    public void showCommonGoalCard(CommonGoalCard commonGoalCard, Integer progressiveCard) {
+        clientHandler.sendMessage(new CommonGoalCardMessage(commonGoalCard, progressiveCard));
     }
 
     @Override

@@ -113,7 +113,7 @@ public class ClientManager {
             }
             case COMMON_GOAL_CARD -> {
                 CommonGoalCardMessage commonGoalCardMessage = (CommonGoalCardMessage) message;
-                view.showCommonGoalCard(commonGoalCardMessage.getCommonGoalCard());
+                view.showCommonGoalCard(commonGoalCardMessage.getCommonGoalCard(), commonGoalCardMessage.getProgressiveCard());
             }
             case PERSONAL_GOAL_CARD -> {
                 PersonalGoalCardMessage personalGoalCardMessage = (PersonalGoalCardMessage) message;
@@ -126,6 +126,10 @@ public class ClientManager {
             case SCORE_BOARD -> {
                 ScoreBoardMessage scoreBoardMessage = (ScoreBoardMessage) message;
                 view.showScoreBoard(scoreBoardMessage.getScoreBoardMap());
+            }
+            case PLAYERS_LIST -> {
+                PlayersListMessage playersListMessage = (PlayersListMessage) message;
+                view.showPlayersList(playersListMessage.getPlayers());
             }
             default -> {
                 System.out.println("ERROR: Message unhandled!");

@@ -200,6 +200,11 @@ public class GUI implements View {
     }
 
     @Override
+    public void showPlayersList(List<String> players) {
+        // Qui viene invocato il metodo che necessita dei nickname dei giocatori...
+    }
+
+    @Override
     public void showBoardContent(BoardCell[][] boardContent) {
 
     }
@@ -210,7 +215,7 @@ public class GUI implements View {
     }
 
     @Override
-    public void showCommonGoalCard(CommonGoalCard commonGoalCard) {
+    public void showCommonGoalCard(CommonGoalCard commonGoalCard, Integer progressiveCard) {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/fxml/game.fxml"));
         try {
