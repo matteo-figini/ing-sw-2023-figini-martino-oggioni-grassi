@@ -4,6 +4,7 @@ import it.polimi.ingsw.model.ItemTileType;
 import it.polimi.ingsw.model.Position;
 
 public class PersonalGC7 extends PersonalGoalCard {
+    private int number = 7;
     public PersonalGC7 () {
         super();
         schema.put(new Position(4, 4), ItemTileType.YELLOW);
@@ -12,5 +13,8 @@ public class PersonalGC7 extends PersonalGoalCard {
         schema.put(new Position(5, 2), ItemTileType.WHITE);
         schema.put(new Position(2, 1), ItemTileType.PINK);
         schema.put(new Position(3, 0), ItemTileType.LIGHTBLUE);
+    }
+    public int getNumber() {
+        return number;
     }
 }

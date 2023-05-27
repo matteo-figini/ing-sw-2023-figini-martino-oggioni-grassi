@@ -14,6 +14,7 @@ import java.util.Map;
  * Every instance of the enumeration reimplements the method that check how many goals are satisfied.
  */
 public abstract class PersonalGoalCard implements Serializable {
+    private int number;
     protected Map <Position, ItemTileType> schema;
 
     /**
@@ -58,5 +59,9 @@ public abstract class PersonalGoalCard implements Serializable {
 
     public Map<Position, ItemTileType> getSchema() {
         return schema;
+    }
+
+    public int getNumber() {
+        return number;
     }
 }

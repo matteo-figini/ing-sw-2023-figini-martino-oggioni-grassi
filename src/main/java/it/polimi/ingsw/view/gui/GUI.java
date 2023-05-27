@@ -158,8 +158,8 @@ public class GUI implements View {
             loader.setLocation(getClass().getResource("/fxml/game.fxml"));
             Parent root = loader.load();
 
-            GuiGameController controller = loader.getController();
-            controller.setClientManager(clientManager);
+            this.guiGameController = loader.getController();
+            this.guiGameController.setClientManager(clientManager);
 
             Scene scene = new Scene(root);
             scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/lobbyStyle.css")).toExternalForm());
@@ -206,74 +206,30 @@ public class GUI implements View {
 
     @Override
     public void showBoardContent(BoardCell[][] boardContent) {
-
+        Platform.runLater(() -> {
+            guiGameController.updateBoardContent(boardContent);
+        });
     }
 
     @Override
     public void showShelfContent(ShelfCell[][] shelfContent, String nickname) {
-
+        Platform.runLater(() -> {
+            guiGameController.updateShelfContent(shelfContent, nickname);
+        });
     }
 
     @Override
     public void showCommonGoalCard(CommonGoalCard commonGoalCard, Integer progressiveCard) {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/game.fxml"));
-        try {
-            Parent root = loader.load();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        ImageView commomGoalCard1 = (ImageView) loader.getNamespace().get("CommomGoalCard1");
-        Image image = null;
-        System.out.println(commonGoalCard.getNumber());
-        List<ScoringToken> tokens = commonGoalCard.getScoringTokens();
-        switch(commonGoalCard.getNumber()){
-            case 1:
-                image = new Image(getClass().getResourceAsStream("/assets/common goal cards/1.jpg"));
-                break;
-            case 2:
-                image = new Image(getClass().getResourceAsStream("/assets/common goal cards/2.jpg"));
-                break;
-            case 3:
-                image = new Image(getClass().getResourceAsStream("/assets/common goal cards/3.jpg"));
-                break;
-            case 4:
-                image = new Image(getClass().getResourceAsStream("/assets/common goal cards/4.jpg"));
-                break;
-            case 5:
-                image = new Image(getClass().getResourceAsStream("/assets/common goal cards/5.jpg"));
-                break;
-            case 6:
-                image = new Image(getClass().getResourceAsStream("/assets/common goal cards/6.jpg"));
-                break;
-            case 7:
-                image = new Image(getClass().getResourceAsStream("/assets/common goal cards/7.jpg"));
-                break;
-            case 8:
-                image = new Image(getClass().getResourceAsStream("/assets/common goal cards/8.jpg"));
-                break;
-            case 9:
-                image = new Image(getClass().getResourceAsStream("/assets/common goal cards/9.jpg"));
-                break;
-            case 10:
-                image = new Image(getClass().getResourceAsStream("/assets/common goal cards/10.jpg"));
-                break;
-            case 11:
-                image = new Image(getClass().getResourceAsStream("/assets/common goal cards/11.jpg"));
-                break;
-            case 12:
-                image = new Image(getClass().getResourceAsStream("/assets/common goal cards/12.jpg"));
-                break;
-            default:
-                break;
-        }
-        commomGoalCard1.setImage(image);
+        Platform.runLater(() -> {
+            guiGameController.updateCommonGoalCard(commonGoalCard);
+        });
     }
 
     @Override
     public void showPersonalGoalCard(PersonalGoalCard personalGoalCard, String cardOwner) {
-
+        Platform.runLater(() -> {
+            guiGameController.updatePersonalGoalCard(personalGoalCard);
+        });
     }
 
     @Override
