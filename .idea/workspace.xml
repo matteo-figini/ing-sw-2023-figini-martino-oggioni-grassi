@@ -4,135 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Added methods implementation for RMI message exchange and client connection features">
-      <change afterPath="$PROJECT_DIR$/target/classes/assets/Prova" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/css/lobbyStyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/fxml/game.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/fxml/lobby.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/fxml/numPlayer.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/fxml/preGameLobby.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/fxml/waitingRoom.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/images/giphy.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/ClientMain.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/ServerMain.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/controller/GameController$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/controller/GameController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/controller/GameState.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/exception/NoScoringTokenAvailableException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/exception/NotEnoughCellsException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/exception/WrongNumberOfCardsException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/exception/WrongPositionsException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/Bag.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/Board.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/BoardCell.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/BoardCellType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/Game.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/ItemTile.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/ItemTileType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/Player.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/Position.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/ScoringToken.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/Shelf.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/ShelfCell.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/commongoals/CommonGoalCard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/commongoals/CrossGoalCard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/commongoals/DiagonalFiveGoalCard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/commongoals/EightEqualsGoalCard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/commongoals/FourCornersGoalCard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/commongoals/FourLinesFourGoalCard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/commongoals/FourRowsGoalCard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/commongoals/SixCouplesGoalCard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/commongoals/ThreeColumnsGoalCard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/commongoals/TriangleGoalCard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/commongoals/TwoColumnsGoalCard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/commongoals/TwoRowsGoalCard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/commongoals/TwoSquaresGoalCard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/personalgoals/PersonalGC1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/personalgoals/PersonalGC10.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/personalgoals/PersonalGC11.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/personalgoals/PersonalGC12.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/personalgoals/PersonalGC2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/personalgoals/PersonalGC3.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/personalgoals/PersonalGC4.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/personalgoals/PersonalGC5.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/personalgoals/PersonalGC6.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/personalgoals/PersonalGC7.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/personalgoals/PersonalGC8.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/personalgoals/PersonalGC9.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/model/personalgoals/PersonalGoalCard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/Client.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/ClientHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/Server.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/message/BoardContent.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/message/CommonGoalCardMessage.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/message/ErrorMessage.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/message/GameRoomRequest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/message/GenericMessage.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/message/LoginRequestMessage.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/message/LoginResponseMessage.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/message/Message.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/message/MessageType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/message/PersonalGoalCardMessage.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/message/PickTilesRequest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/message/PickTilesResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/message/PingMessage.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/message/PlayersNumberRequest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/message/PlayersNumberResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/message/ScoreBoardMessage.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/message/ShelfContent.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/message/WaitingRoomRequest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/rmi/RemoteClient.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/rmi/RemoteClientHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/rmi/RemoteServer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/rmi/RemoteServerImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/socket/client/ClientManager$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/socket/client/ClientManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/socket/client/SocketClient.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/socket/server/SocketClientHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/network/socket/server/SocketServer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/observer/Observable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/observer/Observer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/persistence/Persistence.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/View.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/VirtualView.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/gui/GUI.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/gui/GUIMain.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/gui/controllers/GuiGameController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/gui/controllers/LobbyController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/gui/controllers/NumPlayerController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/gui/controllers/PreGameLobbyController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/gui/controllers/WaitingRoomController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/tui/ColoredTUI$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/tui/ColoredTUI.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/tui/TUI$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/it/polimi/ingsw/view/tui/TUI.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/it/polimi/ingsw/BagTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/it/polimi/ingsw/BoardTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/it/polimi/ingsw/PersonalGoalCardTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/it/polimi/ingsw/PlayerTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/it/polimi/ingsw/ShelfTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/it/polimi/ingsw/commongoaltests/CrossGoalCardTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/it/polimi/ingsw/commongoaltests/DiagonalFiveGoalCardTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/it/polimi/ingsw/commongoaltests/EightEqualsGoalCardTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/it/polimi/ingsw/commongoaltests/FourCornersGoalCardTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/it/polimi/ingsw/commongoaltests/FourLinesFourGoalCardTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/it/polimi/ingsw/commongoaltests/FourRowsGoalCardTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/it/polimi/ingsw/commongoaltests/SixCouplesGoalCardTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/it/polimi/ingsw/commongoaltests/ThreeColumnsGoalCardTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/it/polimi/ingsw/commongoaltests/TriangleGoalCardTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/it/polimi/ingsw/commongoaltests/TwoColumnsGoalCardTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/it/polimi/ingsw/commongoaltests/TwoRowsGoalCardTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/it/polimi/ingsw/commongoaltests/TwoSquaresGoalCardTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/ServerMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/ServerMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/socket/client/SocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/socket/client/SocketClient.java" afterDir="false" />
+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Updated GUI Game Scene">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/CommonGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/CommonGoalCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/CrossGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/CrossGoalCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/DiagonalFiveGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/DiagonalFiveGoalCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/EightEqualsGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/EightEqualsGoalCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/FourCornersGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/FourCornersGoalCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/FourLinesFourGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/FourLinesFourGoalCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/FourRowsGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/FourRowsGoalCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/SixCouplesGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/SixCouplesGoalCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/ThreeColumnsGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/ThreeColumnsGoalCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/TriangleGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/TriangleGoalCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/TwoColumnsGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/TwoColumnsGoalCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/TwoRowsGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/TwoRowsGoalCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/TwoSquaresGoalCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/model/commongoals/TwoSquaresGoalCard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GUIMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GUIMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/GuiGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/GuiGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/LobbyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/LobbyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/NumPlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/NumPlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/WaitingRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/WaitingRoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/tui/TUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/tui/TUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/game.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,35 +71,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "TODO_SCOPE": "All Places",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "jdk.selected.JAVA_MODULE": "19",
-    "last_opened_file_path": "C:/Users/mmaes/OneDrive/Desktop/rmi",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.33501515",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;19&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mmaes/OneDrive/Desktop/rmi&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.33501515&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\user\IdeaProjects\ing-sw-2023-figini-martino-oggioni-grassi\src\main\resources\assets" />
@@ -225,7 +114,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="19" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.ClientMain" />
-      <module name="ing-sw-2023-figini-martino-oggioni-grassi" />
+      <module name="PSP18" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="it.polimi.ingsw.*" />
@@ -254,7 +143,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="19" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.ServerMain" />
-      <module name="ing-sw-2023-figini-martino-oggioni-grassi" />
+      <module name="PSP18" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="it.polimi.ingsw.*" />

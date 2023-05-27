@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ThreeColumnsGoalCard extends CommonGoalCard {
+    private int number = 5;
     /**
      * Constructor that takes in input the number of the players and set the specific stack for scoring tokens.
      * @param numPlayers The number of the players; depending on the value of this parameter, a different scoring token stack is initialized.
@@ -51,5 +52,8 @@ public class ThreeColumnsGoalCard extends CommonGoalCard {
         }
 
         return validColumns >= 3;
+    }
+    public int getNumber() {
+        return number;
     }
 }

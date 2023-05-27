@@ -3,6 +3,7 @@ package it.polimi.ingsw.model.commongoals;
 import it.polimi.ingsw.model.Shelf;
 
 public class FourLinesFourGoalCard extends CommonGoalCard {
+    private int number = 3;
     /**
      * Constructor that takes in input the number of the players and set the specific stack for scoring tokens.
      * @param numPlayers The number of the players; depending on the value of this parameter, a different scoring token stack is initialized.
@@ -58,5 +59,8 @@ public class FourLinesFourGoalCard extends CommonGoalCard {
         }
 
         return (groupsFound >= 4);
+    }
+    public int getNumber() {
+        return number;
     }
 }

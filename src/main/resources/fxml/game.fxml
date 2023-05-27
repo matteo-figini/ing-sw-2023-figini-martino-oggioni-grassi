@@ -56,7 +56,7 @@
                   <Pane prefHeight="469.0" prefWidth="30.0" />
                   <VBox prefHeight="469.0" prefWidth="374.0">
                      <children>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player1" textAlignment="CENTER" wrappingWidth="380.53674507141113">
+                        <Text fx:id="Player1Name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player1" textAlignment="CENTER" wrappingWidth="380.53674507141113">
                            <font>
                               <Font name="Bauhaus 93" size="20.0" />
                            </font>
@@ -93,24 +93,16 @@
                         <VBox prefHeight="469.0" prefWidth="302.0">
                            <children>
                               <Pane prefHeight="34.0" prefWidth="318.0" />
-                              <ImageView fitHeight="188.0" fitWidth="289.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/common%20goal%20cards/2.jpg" />
-                                 </image>
-                              </ImageView>
+                              <ImageView fx:id="CommomGoalCard1" fitHeight="188.0" fitWidth="289.0" pickOnBounds="true" preserveRatio="true" />
                               <Pane prefHeight="50.0" prefWidth="311.0" />
-                              <ImageView fitHeight="188.0" fitWidth="289.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/common%20goal%20cards/3.jpg" />
-                                 </image>
-                              </ImageView>
+                              <ImageView fx:id="CommomGoalCard2" fitHeight="188.0" fitWidth="289.0" pickOnBounds="true" preserveRatio="true" />
                            </children>
                         </VBox>
                         <Pane prefHeight="469.0" prefWidth="22.0" />
                         <VBox prefHeight="469.0" prefWidth="212.0">
                            <children>
                               <Pane prefHeight="136.0" prefWidth="214.0" />
-                              <ImageView fitHeight="324.0" fitWidth="311.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="PersonalGoalCard" fitHeight="324.0" fitWidth="311.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../assets/personal%20goal%20cards/Personal_Goals.png" />
                                  </image>
@@ -128,7 +120,7 @@
                   <VBox alignment="CENTER_RIGHT" prefHeight="61.0" prefWidth="217.0">
                      <children>
                         <Pane prefHeight="34.0" prefWidth="218.0" />
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player2" textAlignment="CENTER" wrappingWidth="212.53674507141113">
+                        <Text fx:id="Player2Name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player2" textAlignment="CENTER" wrappingWidth="212.53674507141113">
                            <font>
                               <Font name="Bauhaus 93" size="20.0" />
                            </font>
@@ -139,7 +131,7 @@
                   <VBox prefHeight="61.0" prefWidth="215.0">
                      <children>
                         <Pane prefHeight="200.0" prefWidth="200.0" />
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player3" textAlignment="CENTER" wrappingWidth="239.73669624328613">
+                        <Text fx:id="Player3Name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player3" textAlignment="CENTER" wrappingWidth="239.73669624328613">
                            <font>
                               <Font name="Bauhaus 93" size="20.0" />
                            </font>
@@ -150,7 +142,7 @@
                   <VBox prefHeight="53.0" prefWidth="197.0">
                      <children>
                         <Pane prefHeight="200.0" prefWidth="200.0" />
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player4" textAlignment="CENTER" wrappingWidth="230.13672065734863">
+                        <Text fx:id="Player4Name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player4" textAlignment="CENTER" wrappingWidth="230.13672065734863">
                            <font>
                               <Font name="Bauhaus 93" size="20.0" />
                            </font>
@@ -252,13 +244,16 @@
                      <children>
                         <StackPane prefHeight="190.0" prefWidth="564.0" styleClass="Chat">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="546.9367866516113" />
+                              <Text fx:id="Chat" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="546.9367866516113">
+                                 <font>
+                                    <Font name="Bauhaus 93" size="12.0" />
+                                 </font></Text>
                            </children>
                         </StackPane>
                         <HBox alignment="BOTTOM_CENTER" prefHeight="81.0" prefWidth="564.0">
                            <children>
                               <Pane prefHeight="100.0" prefWidth="213.0" />
-                              <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="153.0" text="Button" />
+                              <Button fx:id="ExitButton" mnemonicParsing="false" prefHeight="59.0" prefWidth="153.0" text="EXIT THE GAME" />
                               <Pane prefHeight="200.0" prefWidth="200.0" />
                            </children>
                         </HBox>
