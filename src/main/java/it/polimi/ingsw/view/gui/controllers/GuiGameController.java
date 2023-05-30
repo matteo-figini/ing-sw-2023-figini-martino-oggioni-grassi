@@ -1,22 +1,27 @@
 package it.polimi.ingsw.view.gui.controllers;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-import it.polimi.ingsw.model.BoardCell;
-import it.polimi.ingsw.model.ItemTileType;
-import it.polimi.ingsw.model.ScoringToken;
-import it.polimi.ingsw.model.ShelfCell;
+import it.polimi.ingsw.model.*;
 import it.polimi.ingsw.model.commongoals.CommonGoalCard;
 import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
 import it.polimi.ingsw.network.ClientManager;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.effect.BlurType;
+import javafx.scene.effect.Effect;
+import javafx.scene.effect.InnerShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
 public class GuiGameController {
@@ -27,6 +32,26 @@ public class GuiGameController {
 
     @FXML
     private URL location;
+
+    int numOfPositions=0;
+
+    List<Position> positions = new ArrayList<>();
+
+    @FXML
+    private Button button1;
+
+    @FXML
+    private Button button2;
+
+    @FXML
+    private Button button3;
+
+    @FXML
+    private Button button4;
+
+    @FXML
+    private Button button5;
+
     @FXML
     private ImageView Board00;
 
@@ -268,6 +293,97 @@ public class GuiGameController {
 
     @FXML
     private ImageView Board88;
+
+    @FXML
+    private ImageView P1shelf00;
+
+    @FXML
+    private ImageView P1shelf01;
+
+    @FXML
+    private ImageView P1shelf02;
+
+    @FXML
+    private ImageView P1shelf03;
+
+    @FXML
+    private ImageView P1shelf04;
+
+    @FXML
+    private ImageView P1shelf10;
+
+    @FXML
+    private ImageView P1shelf11;
+
+    @FXML
+    private ImageView P1shelf12;
+
+    @FXML
+    private ImageView P1shelf13;
+
+    @FXML
+    private ImageView P1shelf14;
+
+    @FXML
+    private ImageView P1shelf20;
+
+    @FXML
+    private ImageView P1shelf21;
+
+    @FXML
+    private ImageView P1shelf22;
+
+    @FXML
+    private ImageView P1shelf23;
+
+    @FXML
+    private ImageView P1shelf24;
+
+    @FXML
+    private ImageView P1shelf30;
+
+    @FXML
+    private ImageView P1shelf31;
+
+    @FXML
+    private ImageView P1shelf32;
+
+    @FXML
+    private ImageView P1shelf33;
+
+    @FXML
+    private ImageView P1shelf34;
+
+    @FXML
+    private ImageView P1shelf40;
+
+    @FXML
+    private ImageView P1shelf41;
+
+    @FXML
+    private ImageView P1shelf42;
+
+    @FXML
+    private ImageView P1shelf43;
+
+    @FXML
+    private ImageView P1shelf44;
+
+    @FXML
+    private ImageView P1shelf50;
+
+    @FXML
+    private ImageView P1shelf51;
+
+    @FXML
+    private ImageView P1shelf52;
+
+    @FXML
+    private ImageView P1shelf53;
+
+    @FXML
+    private ImageView P1shelf54;
+
     @FXML
     private Text Chat;
 
@@ -468,6 +584,62 @@ public class GuiGameController {
     }
 
     public void updateShelfContent(ShelfCell[][] shelfContent, String nickname) {
+        ImageView[][] cellImageViews = new ImageView[6][5];
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 5; j++) {
+                cellImageViews[i][j] = new ImageView();
+            }
+        }
+        for(int i=0; i<6; i++){
+            for(int j=0; j<5 ; j++){
+                if(!shelfContent[i][j].isFree()) {
+                    ItemTileType itemTileType = shelfContent[i][j].getTile().getItemTileType();
+                    Image image = null;
+                    switch (itemTileType) {
+                        case GREEN -> image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/item tiles/Gatti1.1.png")));
+                        case WHITE -> image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/item tiles/Libri1.1.png")));
+                        case YELLOW -> image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/item tiles/Giochi1.2.png")));
+                        case BLUE -> image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/item tiles/Cornici1.3.png")));
+                        case LIGHTBLUE -> image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/item tiles/Trofei1.3.png")));
+                        case PINK -> image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/item tiles/Piante1.1.png")));
+                        default -> {
+                        }
+                    }
+                    cellImageViews[i][j].setImage(image);
+                }
+            }
+        }
+
+        P1shelf00.setImage(cellImageViews[0][0].getImage());
+        P1shelf01.setImage(cellImageViews[0][1].getImage());
+        P1shelf02.setImage(cellImageViews[0][2].getImage());
+        P1shelf03.setImage(cellImageViews[0][3].getImage());
+        P1shelf04.setImage(cellImageViews[0][4].getImage());
+        P1shelf10.setImage(cellImageViews[1][0].getImage());
+        P1shelf11.setImage(cellImageViews[1][1].getImage());
+        P1shelf12.setImage(cellImageViews[1][2].getImage());
+        P1shelf13.setImage(cellImageViews[1][3].getImage());
+        P1shelf14.setImage(cellImageViews[1][4].getImage());
+        P1shelf20.setImage(cellImageViews[2][0].getImage());
+        P1shelf21.setImage(cellImageViews[2][1].getImage());
+        P1shelf22.setImage(cellImageViews[2][2].getImage());
+        P1shelf23.setImage(cellImageViews[2][3].getImage());
+        P1shelf24.setImage(cellImageViews[2][4].getImage());
+        P1shelf30.setImage(cellImageViews[3][0].getImage());
+        P1shelf31.setImage(cellImageViews[3][1].getImage());
+        P1shelf32.setImage(cellImageViews[3][2].getImage());
+        P1shelf33.setImage(cellImageViews[3][3].getImage());
+        P1shelf34.setImage(cellImageViews[3][4].getImage());
+        P1shelf40.setImage(cellImageViews[4][0].getImage());
+        P1shelf41.setImage(cellImageViews[4][1].getImage());
+        P1shelf42.setImage(cellImageViews[4][2].getImage());
+        P1shelf43.setImage(cellImageViews[4][3].getImage());
+        P1shelf44.setImage(cellImageViews[4][4].getImage());
+        P1shelf50.setImage(cellImageViews[5][0].getImage());
+        P1shelf51.setImage(cellImageViews[5][1].getImage());
+        P1shelf52.setImage(cellImageViews[5][2].getImage());
+        P1shelf53.setImage(cellImageViews[5][3].getImage());
+        P1shelf54.setImage(cellImageViews[5][4].getImage());
 
     }
 
@@ -544,6 +716,52 @@ public class GuiGameController {
 
     public void setClientManager(ClientManager clientManager) {
         this.clientManager = clientManager;
+    }
+
+    @FXML
+    void PickUpFromBoard(MouseEvent event) {
+        if(numOfPositions < 5) {
+            Node tile = (Node) event.getTarget();
+            int row = GridPane.getRowIndex(tile);
+            int column = GridPane.getColumnIndex(tile);
+            positions.add(new Position(row, column));
+            tile.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, new Color(0.4, 1, 0.36, 1), 10, 0.9, -1, 0));
+            numOfPositions++;
+        }
+    }
+
+    @FXML
+    void SendTiles1(ActionEvent event) {
+        clientManager.onUpdateColumnAndPosition(positions, 1);
+        positions.clear();
+    }
+
+    @FXML
+    void SendTiles2(ActionEvent event) {
+        clientManager.onUpdateColumnAndPosition(positions, 2);
+        positions.clear();
+        numOfPositions = 0;
+    }
+
+    @FXML
+    void SendTiles3(ActionEvent event) {
+        clientManager.onUpdateColumnAndPosition(positions, 3);
+        positions.clear();
+        numOfPositions = 0;
+    }
+
+    @FXML
+    void SendTiles4(ActionEvent event) {
+        clientManager.onUpdateColumnAndPosition(positions, 4);
+        positions.clear();
+        numOfPositions = 0;
+    }
+
+    @FXML
+    void SendTiles5(ActionEvent event) {
+        clientManager.onUpdateColumnAndPosition(positions, 5);
+        positions.clear();
+        numOfPositions = 0;
     }
 
 

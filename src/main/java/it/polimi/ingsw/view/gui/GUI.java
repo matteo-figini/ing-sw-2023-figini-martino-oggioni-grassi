@@ -20,6 +20,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -185,6 +186,8 @@ public class GUI implements View {
 
     @Override
     public void askColumnAndPositions() {
+        //qui mettiamo le istruzioni per prendere e mandare le tiles al server
+
 
     }
 
