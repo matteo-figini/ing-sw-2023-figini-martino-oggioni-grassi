@@ -37,6 +37,7 @@ public class GUI implements View {
     /** Reference to the {@code GUIMain} class. */
     private GUIMain guiMain;
     private GuiGameController guiGameController;
+    private List<String> nicknameList;
 
     /**
      * This constructor takes in input the reference to the current {@code GUIMain} object.
@@ -173,12 +174,8 @@ public class GUI implements View {
                 stage.setFullScreen(true);
                 stage.setFullScreenExitHint("");
                 stage.show();
-
-                Text player1Name = (Text) loader.getNamespace().get("Player1Name");
-                String nomePrimoGiocatore = clientManager.getNickname();
-                player1Name.setText(nomePrimoGiocatore);
-
             });
+
         } catch(IOException e) {
             System.out.println("Error");
         }
@@ -204,7 +201,7 @@ public class GUI implements View {
 
     @Override
     public void showPlayersList(List<String> players) {
-        // Qui viene invocato il metodo che necessita dei nickname dei giocatori...
+        nicknameList = new ArrayList<>(players);
     }
 
     @Override
@@ -224,12 +221,14 @@ public class GUI implements View {
     @Override
     public void showCommonGoalCard(CommonGoalCard commonGoalCard, Integer progressiveCard) {
         Platform.runLater(() -> {
-            guiGameController.updateCommonGoalCard(commonGoalCard);
+            guiGameController.updateCommonGoalCard(commonGoalCard, progressiveCard);
         });
     }
 
     @Override
     public void showPersonalGoalCard(PersonalGoalCard personalGoalCard, String cardOwner) {
+        guiGameController.hideShelf(nicknameList.size());
+        guiGameController.showShelfNicknames(nicknameList);
         Platform.runLater(() -> {
             guiGameController.updatePersonalGoalCard(personalGoalCard);
         });
