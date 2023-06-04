@@ -36,6 +36,11 @@ public class GuiGameController {
 
     int numOfPositions=0;
 
+    private int indexP1 = -1;
+    private int cont = 0;
+    private int P2done = 0;
+    private int P3done = 0;
+
     List<Position> positions = new ArrayList<>();
     List<Image> tilesImages = new ArrayList<>();
 
@@ -480,6 +485,190 @@ public class GuiGameController {
 
     @FXML
     private ImageView P2shelf54;
+    @FXML
+    private GridPane P3Shelf;
+
+    @FXML
+    private ImageView P3shelf00;
+
+    @FXML
+    private ImageView P3shelf01;
+
+    @FXML
+    private ImageView P3shelf02;
+
+    @FXML
+    private ImageView P3shelf03;
+
+    @FXML
+    private ImageView P3shelf04;
+
+    @FXML
+    private ImageView P3shelf10;
+
+    @FXML
+    private ImageView P3shelf11;
+
+    @FXML
+    private ImageView P3shelf12;
+
+    @FXML
+    private ImageView P3shelf13;
+
+    @FXML
+    private ImageView P3shelf14;
+
+    @FXML
+    private ImageView P3shelf20;
+
+    @FXML
+    private ImageView P3shelf21;
+
+    @FXML
+    private ImageView P3shelf22;
+
+    @FXML
+    private ImageView P3shelf23;
+
+    @FXML
+    private ImageView P3shelf24;
+
+    @FXML
+    private ImageView P3shelf30;
+
+    @FXML
+    private ImageView P3shelf31;
+
+    @FXML
+    private ImageView P3shelf32;
+
+    @FXML
+    private ImageView P3shelf33;
+
+    @FXML
+    private ImageView P3shelf34;
+
+    @FXML
+    private ImageView P3shelf40;
+
+    @FXML
+    private ImageView P3shelf41;
+
+    @FXML
+    private ImageView P3shelf42;
+
+    @FXML
+    private ImageView P3shelf43;
+
+    @FXML
+    private ImageView P3shelf44;
+
+    @FXML
+    private ImageView P3shelf50;
+
+    @FXML
+    private ImageView P3shelf51;
+
+    @FXML
+    private ImageView P3shelf52;
+
+    @FXML
+    private ImageView P3shelf53;
+
+    @FXML
+    private ImageView P3shelf54;
+    @FXML
+    private GridPane P4Shelf;
+
+    @FXML
+    private ImageView P4shelf00;
+
+    @FXML
+    private ImageView P4shelf01;
+
+    @FXML
+    private ImageView P4shelf02;
+
+    @FXML
+    private ImageView P4shelf03;
+
+    @FXML
+    private ImageView P4shelf04;
+
+    @FXML
+    private ImageView P4shelf10;
+
+    @FXML
+    private ImageView P4shelf11;
+
+    @FXML
+    private ImageView P4shelf12;
+
+    @FXML
+    private ImageView P4shelf13;
+
+    @FXML
+    private ImageView P4shelf14;
+
+    @FXML
+    private ImageView P4shelf20;
+
+    @FXML
+    private ImageView P4shelf21;
+
+    @FXML
+    private ImageView P4shelf22;
+
+    @FXML
+    private ImageView P4shelf23;
+
+    @FXML
+    private ImageView P4shelf24;
+
+    @FXML
+    private ImageView P4shelf30;
+
+    @FXML
+    private ImageView P4shelf31;
+
+    @FXML
+    private ImageView P4shelf32;
+
+    @FXML
+    private ImageView P4shelf33;
+
+    @FXML
+    private ImageView P4shelf34;
+
+    @FXML
+    private ImageView P4shelf40;
+
+    @FXML
+    private ImageView P4shelf41;
+
+    @FXML
+    private ImageView P4shelf42;
+
+    @FXML
+    private ImageView P4shelf43;
+
+    @FXML
+    private ImageView P4shelf44;
+
+    @FXML
+    private ImageView P4shelf50;
+
+    @FXML
+    private ImageView P4shelf51;
+
+    @FXML
+    private ImageView P4shelf52;
+
+    @FXML
+    private ImageView P4shelf53;
+
+    @FXML
+    private ImageView P4shelf54;
 
     @FXML
     private Text Chat;
@@ -644,6 +833,73 @@ public class GuiGameController {
         assert P2shelf54 != null : "fx:id=\"P2shelf54\" was not injected: check your FXML file 'game.fxml'.";
         assert stackPaneP3 != null : "fx:id=\"stackPaneP3\" was not injected: check your FXML file 'game.fxml'.";
         assert stackPaneP4 != null : "fx:id=\"stackPaneP4\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3Shelf != null : "fx:id=\"P3Shelf\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf00 != null : "fx:id=\"P3shelf00\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf01 != null : "fx:id=\"P3shelf01\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf02 != null : "fx:id=\"P3shelf02\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf03 != null : "fx:id=\"P3shelf03\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf04 != null : "fx:id=\"P3shelf04\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf10 != null : "fx:id=\"P3shelf10\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf11 != null : "fx:id=\"P3shelf11\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf12 != null : "fx:id=\"P3shelf12\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf13 != null : "fx:id=\"P3shelf13\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf14 != null : "fx:id=\"P3shelf14\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf20 != null : "fx:id=\"P3shelf20\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf21 != null : "fx:id=\"P3shelf21\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf22 != null : "fx:id=\"P3shelf22\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf23 != null : "fx:id=\"P3shelf23\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf24 != null : "fx:id=\"P3shelf24\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf30 != null : "fx:id=\"P3shelf30\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf31 != null : "fx:id=\"P3shelf31\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf32 != null : "fx:id=\"P3shelf32\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf33 != null : "fx:id=\"P3shelf33\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf34 != null : "fx:id=\"P3shelf34\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf40 != null : "fx:id=\"P3shelf40\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf41 != null : "fx:id=\"P3shelf41\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf42 != null : "fx:id=\"P3shelf42\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf43 != null : "fx:id=\"P3shelf43\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf44 != null : "fx:id=\"P3shelf44\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf50 != null : "fx:id=\"P3shelf50\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf51 != null : "fx:id=\"P3shelf51\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf52 != null : "fx:id=\"P3shelf52\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf53 != null : "fx:id=\"P3shelf53\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3shelf54 != null : "fx:id=\"P3shelf54\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4Shelf != null : "fx:id=\"P4Shelf\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf00 != null : "fx:id=\"P4shelf00\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf01 != null : "fx:id=\"P4shelf01\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf02 != null : "fx:id=\"P4shelf02\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf03 != null : "fx:id=\"P4shelf03\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf04 != null : "fx:id=\"P4shelf04\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf10 != null : "fx:id=\"P4shelf10\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf11 != null : "fx:id=\"P4shelf11\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf12 != null : "fx:id=\"P4shelf12\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf13 != null : "fx:id=\"P4shelf13\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf14 != null : "fx:id=\"P4shelf14\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf20 != null : "fx:id=\"P4shelf20\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf21 != null : "fx:id=\"P4shelf21\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf22 != null : "fx:id=\"P4shelf22\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf23 != null : "fx:id=\"P4shelf23\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf24 != null : "fx:id=\"P4shelf24\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf30 != null : "fx:id=\"P4shelf30\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf31 != null : "fx:id=\"P4shelf31\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf32 != null : "fx:id=\"P4shelf32\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf33 != null : "fx:id=\"P4shelf33\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf34 != null : "fx:id=\"P4shelf34\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf40 != null : "fx:id=\"P4shelf40\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf41 != null : "fx:id=\"P4shelf41\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf42 != null : "fx:id=\"P4shelf42\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf43 != null : "fx:id=\"P4shelf43\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf44 != null : "fx:id=\"P4shelf44\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf50 != null : "fx:id=\"P4shelf50\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf51 != null : "fx:id=\"P4shelf51\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf52 != null : "fx:id=\"P4shelf52\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf53 != null : "fx:id=\"P4shelf53\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4shelf54 != null : "fx:id=\"P4shelf54\" was not injected: check your FXML file 'game.fxml'.";
+        assert button1 != null : "fx:id=\"button1\" was not injected: check your FXML file 'game.fxml'.";
+        assert button2 != null : "fx:id=\"button2\" was not injected: check your FXML file 'game.fxml'.";
+        assert button3 != null : "fx:id=\"button3\" was not injected: check your FXML file 'game.fxml'.";
+        assert button4 != null : "fx:id=\"button4\" was not injected: check your FXML file 'game.fxml'.";
+        assert button5 != null : "fx:id=\"button5\" was not injected: check your FXML file 'game.fxml'.";
     }
 
     public void updateBoardContent(BoardCell[][] boardContent) {
@@ -802,7 +1058,7 @@ public class GuiGameController {
         }
     }
 
-    public void updateShelfContent(ShelfCell[][] shelfContent, String nickname) {
+    public void updateShelfContent(ShelfCell[][] shelfContent, String nickname, List<String> nicknameList) {
         ImageView[][] cellImageViews = new ImageView[6][5];
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 5; j++) {
@@ -829,7 +1085,80 @@ public class GuiGameController {
             }
         }
 
+        if(indexP1 == -1){
+            indexP1 = getPlayerShelfIndex(nickname, nicknameList);
+        }
+        if(nicknameList.size()==2 && cont<2){
+            if(nickname.equals(nicknameList.get(indexP1))){
+                updateP1ShelfImages(cellImageViews);
+                cont++;
+            }
+            else{
+                updateP2ShelfImages(cellImageViews);
+                cont++;
+            }
+            if(cont == 2){
+                cont = 0;
+                indexP1 = -1;
+            }
+        }
 
+        if(nicknameList.size()==3 && cont<3){
+            if(nickname.equals(nicknameList.get(indexP1))){
+                updateP1ShelfImages(cellImageViews);
+                cont++;
+            }
+            else{
+                if(P2done == 0){
+                    updateP2ShelfImages(cellImageViews);
+                    P2done = 1;
+                    cont++;
+                }
+                else{
+                    updateP3ShelfImages(cellImageViews);
+                    cont++;
+                }
+            }
+            if(cont == 3){
+                cont = 0;
+                P2done = 0;
+                indexP1 = -1;
+            }
+        }
+
+        if(nicknameList.size()==4 && cont<4){
+            if(nickname.equals(nicknameList.get(indexP1))){
+                updateP1ShelfImages(cellImageViews);
+                cont++;
+            }
+            else{
+                if(P2done == 0){
+                    updateP2ShelfImages(cellImageViews);
+                    P2done = 1;
+                    cont++;
+                }
+                else{
+                    if(P3done == 0){
+                        updateP3ShelfImages(cellImageViews);
+                        P3done = 1;
+                        cont++;
+                    }
+                    else{
+                        updateP4ShelfImages(cellImageViews);
+                        cont++;
+                    }
+                }
+            }
+            if(cont == 4){
+                cont = 0;
+                P2done = 0;
+                P3done = 0;
+                indexP1 = -1;
+            }
+        }
+    }
+
+    private void updateP1ShelfImages(ImageView[][] cellImageViews) {
         P1shelf00.setImage(cellImageViews[0][0].getImage());
         P1shelf01.setImage(cellImageViews[0][1].getImage());
         P1shelf02.setImage(cellImageViews[0][2].getImage());
@@ -860,7 +1189,113 @@ public class GuiGameController {
         P1shelf52.setImage(cellImageViews[5][2].getImage());
         P1shelf53.setImage(cellImageViews[5][3].getImage());
         P1shelf54.setImage(cellImageViews[5][4].getImage());
+    }
 
+    private void updateP2ShelfImages(ImageView[][] cellImageViews) {
+        P2shelf00.setImage(cellImageViews[0][0].getImage());
+        P2shelf01.setImage(cellImageViews[0][1].getImage());
+        P2shelf02.setImage(cellImageViews[0][2].getImage());
+        P2shelf03.setImage(cellImageViews[0][3].getImage());
+        P2shelf04.setImage(cellImageViews[0][4].getImage());
+        P2shelf10.setImage(cellImageViews[1][0].getImage());
+        P2shelf11.setImage(cellImageViews[1][1].getImage());
+        P2shelf12.setImage(cellImageViews[1][2].getImage());
+        P2shelf13.setImage(cellImageViews[1][3].getImage());
+        P2shelf14.setImage(cellImageViews[1][4].getImage());
+        P2shelf20.setImage(cellImageViews[2][0].getImage());
+        P2shelf21.setImage(cellImageViews[2][1].getImage());
+        P2shelf22.setImage(cellImageViews[2][2].getImage());
+        P2shelf23.setImage(cellImageViews[2][3].getImage());
+        P2shelf24.setImage(cellImageViews[2][4].getImage());
+        P2shelf30.setImage(cellImageViews[3][0].getImage());
+        P2shelf31.setImage(cellImageViews[3][1].getImage());
+        P2shelf32.setImage(cellImageViews[3][2].getImage());
+        P2shelf33.setImage(cellImageViews[3][3].getImage());
+        P2shelf34.setImage(cellImageViews[3][4].getImage());
+        P2shelf40.setImage(cellImageViews[4][0].getImage());
+        P2shelf41.setImage(cellImageViews[4][1].getImage());
+        P2shelf42.setImage(cellImageViews[4][2].getImage());
+        P2shelf43.setImage(cellImageViews[4][3].getImage());
+        P2shelf44.setImage(cellImageViews[4][4].getImage());
+        P2shelf50.setImage(cellImageViews[5][0].getImage());
+        P2shelf51.setImage(cellImageViews[5][1].getImage());
+        P2shelf52.setImage(cellImageViews[5][2].getImage());
+        P2shelf53.setImage(cellImageViews[5][3].getImage());
+        P2shelf54.setImage(cellImageViews[5][4].getImage());
+    }
+
+    private void updateP3ShelfImages(ImageView[][] cellImageViews) {
+        P3shelf00.setImage(cellImageViews[0][0].getImage());
+        P3shelf01.setImage(cellImageViews[0][1].getImage());
+        P3shelf02.setImage(cellImageViews[0][2].getImage());
+        P3shelf03.setImage(cellImageViews[0][3].getImage());
+        P3shelf04.setImage(cellImageViews[0][4].getImage());
+        P3shelf10.setImage(cellImageViews[1][0].getImage());
+        P3shelf11.setImage(cellImageViews[1][1].getImage());
+        P3shelf12.setImage(cellImageViews[1][2].getImage());
+        P3shelf13.setImage(cellImageViews[1][3].getImage());
+        P3shelf14.setImage(cellImageViews[1][4].getImage());
+        P3shelf20.setImage(cellImageViews[2][0].getImage());
+        P3shelf21.setImage(cellImageViews[2][1].getImage());
+        P3shelf22.setImage(cellImageViews[2][2].getImage());
+        P3shelf23.setImage(cellImageViews[2][3].getImage());
+        P3shelf24.setImage(cellImageViews[2][4].getImage());
+        P3shelf30.setImage(cellImageViews[3][0].getImage());
+        P3shelf31.setImage(cellImageViews[3][1].getImage());
+        P3shelf32.setImage(cellImageViews[3][2].getImage());
+        P3shelf33.setImage(cellImageViews[3][3].getImage());
+        P3shelf34.setImage(cellImageViews[3][4].getImage());
+        P3shelf40.setImage(cellImageViews[4][0].getImage());
+        P3shelf41.setImage(cellImageViews[4][1].getImage());
+        P3shelf42.setImage(cellImageViews[4][2].getImage());
+        P3shelf43.setImage(cellImageViews[4][3].getImage());
+        P3shelf44.setImage(cellImageViews[4][4].getImage());
+        P3shelf50.setImage(cellImageViews[5][0].getImage());
+        P3shelf51.setImage(cellImageViews[5][1].getImage());
+        P3shelf52.setImage(cellImageViews[5][2].getImage());
+        P3shelf53.setImage(cellImageViews[5][3].getImage());
+        P3shelf54.setImage(cellImageViews[5][4].getImage());
+    }
+    private void updateP4ShelfImages(ImageView[][] cellImageViews) {
+        P4shelf00.setImage(cellImageViews[0][0].getImage());
+        P4shelf01.setImage(cellImageViews[0][1].getImage());
+        P4shelf02.setImage(cellImageViews[0][2].getImage());
+        P4shelf03.setImage(cellImageViews[0][3].getImage());
+        P4shelf04.setImage(cellImageViews[0][4].getImage());
+        P4shelf10.setImage(cellImageViews[1][0].getImage());
+        P4shelf11.setImage(cellImageViews[1][1].getImage());
+        P4shelf12.setImage(cellImageViews[1][2].getImage());
+        P4shelf13.setImage(cellImageViews[1][3].getImage());
+        P4shelf14.setImage(cellImageViews[1][4].getImage());
+        P4shelf20.setImage(cellImageViews[2][0].getImage());
+        P4shelf21.setImage(cellImageViews[2][1].getImage());
+        P4shelf22.setImage(cellImageViews[2][2].getImage());
+        P4shelf23.setImage(cellImageViews[2][3].getImage());
+        P4shelf24.setImage(cellImageViews[2][4].getImage());
+        P4shelf30.setImage(cellImageViews[3][0].getImage());
+        P4shelf31.setImage(cellImageViews[3][1].getImage());
+        P4shelf32.setImage(cellImageViews[3][2].getImage());
+        P4shelf33.setImage(cellImageViews[3][3].getImage());
+        P4shelf34.setImage(cellImageViews[3][4].getImage());
+        P4shelf40.setImage(cellImageViews[4][0].getImage());
+        P4shelf41.setImage(cellImageViews[4][1].getImage());
+        P4shelf42.setImage(cellImageViews[4][2].getImage());
+        P4shelf43.setImage(cellImageViews[4][3].getImage());
+        P4shelf44.setImage(cellImageViews[4][4].getImage());
+        P4shelf50.setImage(cellImageViews[5][0].getImage());
+        P4shelf51.setImage(cellImageViews[5][1].getImage());
+        P4shelf52.setImage(cellImageViews[5][2].getImage());
+        P4shelf53.setImage(cellImageViews[5][3].getImage());
+        P4shelf54.setImage(cellImageViews[5][4].getImage());
+    }
+
+    private int getPlayerShelfIndex(String nickname, List<String> nicknameList) {
+        for (int i = 0; i < nicknameList.size(); i++) {
+            if (nicknameList.get(i).equals(nickname)) {
+                return i;  // Restituisce l'indice della griglia corrispondente al giocatore
+            }
+        }
+        return -1;  // Giocatore non trovato
     }
 
     public void updatePersonalGoalCard(PersonalGoalCard personalGoalCard) {
@@ -1007,7 +1442,4 @@ public class GuiGameController {
     void SendTiles5(ActionEvent event) {
         clientManager.onUpdateColumnAndPosition(positions, 4);
     }
-
-
-
 }

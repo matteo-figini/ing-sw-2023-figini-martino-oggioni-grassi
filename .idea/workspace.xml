@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="added updateBoardContent, updatePersonalGoalCard and updateCommonGoalCard">
+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="GUI: added second CommonGoalCard, PickUpFromBoard method, player nicknames and hideShelf method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/GuiGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/GuiGameController.java" afterDir="false" />
@@ -360,7 +360,9 @@
       <workItem from="1685089374405" duration="3667000" />
       <workItem from="1685439399623" duration="9048000" />
       <workItem from="1685453016483" duration="2259000" />
-      <workItem from="1685536066769" duration="13870000" />
+      <workItem from="1685536066769" duration="14292000" />
+      <workItem from="1685568036285" duration="218000" />
+      <workItem from="1685869204286" duration="8122000" />
     </task>
     <task id="LOCAL-00001" summary="Class Player layout">
       <created>1679754417366</created>
@@ -649,7 +651,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685092672909</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="GUI: added second CommonGoalCard, PickUpFromBoard method, player nicknames and hideShelf method">
+      <created>1685551048028</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1685551048028</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -683,7 +692,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added isValidIPAddress method" />
     <MESSAGE value="added some useful methods in Board.java and Shelf.java" />
     <MESSAGE value="Complete refactoring of Personal Goal cards" />
     <MESSAGE value="first implementation of the client network part" />
@@ -708,7 +716,8 @@
     <MESSAGE value="Restored pom.xml" />
     <MESSAGE value="Started Client-side RMI implementation" />
     <MESSAGE value="Added methods implementation for RMI message exchange and client connection features" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added methods implementation for RMI message exchange and client connection features" />
+    <MESSAGE value="GUI: added second CommonGoalCard, PickUpFromBoard method, player nicknames and hideShelf method" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI: added second CommonGoalCard, PickUpFromBoard method, player nicknames and hideShelf method" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
