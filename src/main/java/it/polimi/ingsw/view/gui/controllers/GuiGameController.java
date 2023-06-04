@@ -1058,7 +1058,7 @@ public class GuiGameController {
         }
     }
 
-    public void updateShelfContent(ShelfCell[][] shelfContent, String nickname, List<String> nicknameList) {
+    public void updateShelfContent(ShelfCell[][] shelfContent, String nickname) {
         ImageView[][] cellImageViews = new ImageView[6][5];
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 5; j++) {
@@ -1085,76 +1085,17 @@ public class GuiGameController {
             }
         }
 
-        if(indexP1 == -1){
-            indexP1 = getPlayerShelfIndex(nickname, nicknameList);
+        if(nickname.equals(Player1Name.getText())){
+            updateP1ShelfImages(cellImageViews);
         }
-        if(nicknameList.size()==2 && cont<2){
-            if(nickname.equals(nicknameList.get(indexP1))){
-                updateP1ShelfImages(cellImageViews);
-                cont++;
-            }
-            else{
-                updateP2ShelfImages(cellImageViews);
-                cont++;
-            }
-            if(cont == 2){
-                cont = 0;
-                indexP1 = -1;
-            }
+        if(nickname.equals(Player2Name.getText())){
+            updateP2ShelfImages(cellImageViews);
         }
-
-        if(nicknameList.size()==3 && cont<3){
-            if(nickname.equals(nicknameList.get(indexP1))){
-                updateP1ShelfImages(cellImageViews);
-                cont++;
-            }
-            else{
-                if(P2done == 0){
-                    updateP2ShelfImages(cellImageViews);
-                    P2done = 1;
-                    cont++;
-                }
-                else{
-                    updateP3ShelfImages(cellImageViews);
-                    cont++;
-                }
-            }
-            if(cont == 3){
-                cont = 0;
-                P2done = 0;
-                indexP1 = -1;
-            }
+        if(nickname.equals(Player3Name.getText())){
+            updateP3ShelfImages(cellImageViews);
         }
-
-        if(nicknameList.size()==4 && cont<4){
-            if(nickname.equals(nicknameList.get(indexP1))){
-                updateP1ShelfImages(cellImageViews);
-                cont++;
-            }
-            else{
-                if(P2done == 0){
-                    updateP2ShelfImages(cellImageViews);
-                    P2done = 1;
-                    cont++;
-                }
-                else{
-                    if(P3done == 0){
-                        updateP3ShelfImages(cellImageViews);
-                        P3done = 1;
-                        cont++;
-                    }
-                    else{
-                        updateP4ShelfImages(cellImageViews);
-                        cont++;
-                    }
-                }
-            }
-            if(cont == 4){
-                cont = 0;
-                P2done = 0;
-                P3done = 0;
-                indexP1 = -1;
-            }
+        if(nickname.equals(Player4Name.getText())){
+            updateP4ShelfImages(cellImageViews);
         }
     }
 

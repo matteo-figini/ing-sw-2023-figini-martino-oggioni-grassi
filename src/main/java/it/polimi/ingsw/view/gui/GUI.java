@@ -214,7 +214,7 @@ public class GUI implements View {
     @Override
     public void showShelfContent(ShelfCell[][] shelfContent, String nickname) {
         Platform.runLater(() -> {
-            guiGameController.updateShelfContent(shelfContent, nickname, nicknameList);
+            guiGameController.updateShelfContent(shelfContent, nickname);
         });
     }
 
