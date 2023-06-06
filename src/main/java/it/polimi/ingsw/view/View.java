@@ -91,9 +91,4 @@ public interface View {
      * @param scoreBoardMap The {@code Map} containing the score board.
      */
     void showScoreBoard (Map<String, Integer> scoreBoardMap);
-
-    /**
-     * Show chat on guiGame scene
-     */
-    void showUpdateChat(String message);
 }

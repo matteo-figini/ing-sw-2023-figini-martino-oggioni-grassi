@@ -14,14 +14,16 @@ import java.util.Map;
  * Every instance of the enumeration reimplements the method that check how many goals are satisfied.
  */
 public abstract class PersonalGoalCard implements Serializable {
-    private int number;
+
+    protected int serialNumber;
     protected Map <Position, ItemTileType> schema;
 
     /**
      * The default constructor initializes the Map containing positions of goals.
      */
-    public PersonalGoalCard () {
+    public PersonalGoalCard (int serialNumber) {
         schema = new HashMap<>();
+        this.serialNumber = serialNumber;
     }
 
     /**
@@ -57,11 +59,17 @@ public abstract class PersonalGoalCard implements Serializable {
         return scoreMap.get(goals);
     }
 
+    /**
+     * @return A {@code Map <Position, ItemTileType>} containing the schema of the personal goal card.
+     */
     public Map<Position, ItemTileType> getSchema() {
         return schema;
     }
 
-    public int getNumber() {
-        return number;
+    /**
+     * @return The serial number of the card, from 1 to 12.
+     */
+    public int getSerialNumber() {
+        return this.serialNumber;
     }
 }

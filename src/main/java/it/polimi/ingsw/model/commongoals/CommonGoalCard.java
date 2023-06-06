@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class CommonGoalCard implements Serializable {
-    private int number;
+    protected int serialNumber;
     private final List<ScoringToken> scoringTokens;   // Stack with the scoring tokens.
 
     protected String description;
@@ -33,6 +33,11 @@ public abstract class CommonGoalCard implements Serializable {
     public CommonGoalCard (int numPlayers, String description) {
         this(numPlayers);
         this.description = description;
+    }
+
+    public CommonGoalCard (int numPlayers, String description, int serialNumber) {
+        this(numPlayers, description);
+        this.serialNumber = serialNumber;
     }
 
     /**
@@ -69,7 +74,7 @@ public abstract class CommonGoalCard implements Serializable {
         return description;
     }
 
-    public int getNumber() {
-        return number;
+    public int getSerialNumber() {
+        return this.serialNumber;
     }
 }

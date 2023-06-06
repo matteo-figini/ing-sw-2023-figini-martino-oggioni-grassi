@@ -1,0 +1,832 @@
+{
+  "game": {
+    "numberOfPlayers": 2,
+    "players": [
+      {
+        "shelf": {
+          "shelfContent": [
+            [
+              {},
+              {},
+              {},
+              {},
+              {}
+            ],
+            [
+              {},
+              {},
+              {},
+              {},
+              {}
+            ],
+            [
+              {},
+              {},
+              {},
+              {},
+              {}
+            ],
+            [
+              {},
+              {},
+              {},
+              {},
+              {}
+            ],
+            [
+              {},
+              {},
+              {},
+              {},
+              {}
+            ],
+            [
+              {
+                "tile": {
+                  "type": "YELLOW"
+                }
+              },
+              {},
+              {},
+              {},
+              {}
+            ]
+          ]
+        },
+        "personalGoalCard": {
+          "serialNumber": 5,
+          "schema": {
+            "Position{x\u003d3, y\u003d2}": "WHITE",
+            "Position{x\u003d4, y\u003d4}": "PINK",
+            "Position{x\u003d1, y\u003d1}": "LIGHTBLUE",
+            "Position{x\u003d5, y\u003d0}": "YELLOW",
+            "Position{x\u003d3, y\u003d1}": "BLUE",
+            "Position{x\u003d5, y\u003d3}": "GREEN"
+          }
+        },
+        "nickname": "p1",
+        "score": 0,
+        "firstPlayer": true,
+        "endGameToken": false,
+        "onlinePlayer": true
+      },
+      {
+        "shelf": {
+          "shelfContent": [
+            [
+              {},
+              {},
+              {},
+              {},
+              {}
+            ],
+            [
+              {},
+              {},
+              {},
+              {},
+              {}
+            ],
+            [
+              {},
+              {},
+              {},
+              {},
+              {}
+            ],
+            [
+              {},
+              {},
+              {},
+              {},
+              {}
+            ],
+            [
+              {},
+              {},
+              {},
+              {},
+              {}
+            ],
+            [
+              {},
+              {
+                "tile": {
+                  "type": "WHITE"
+                }
+              },
+              {},
+              {},
+              {}
+            ]
+          ]
+        },
+        "personalGoalCard": {
+          "serialNumber": 4,
+          "schema": {
+            "Position{x\u003d2, y\u003d2}": "BLUE",
+            "Position{x\u003d3, y\u003d3}": "PINK",
+            "Position{x\u003d0, y\u003d4}": "YELLOW",
+            "Position{x\u003d4, y\u003d1}": "WHITE",
+            "Position{x\u003d4, y\u003d2}": "GREEN",
+            "Position{x\u003d2, y\u003d0}": "LIGHTBLUE"
+          }
+        },
+        "nickname": "p2",
+        "score": 0,
+        "firstPlayer": false,
+        "endGameToken": false,
+        "onlinePlayer": true
+      }
+    ],
+    "board": {
+      "boardContent": [
+        [
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          }
+        ],
+        [
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "PLAYABLE",
+            "itemTile": {
+              "type": "YELLOW"
+            }
+          },
+          {
+            "type": "PLAYABLE",
+            "itemTile": {
+              "type": "BLUE"
+            }
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          }
+        ],
+        [
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "PLAYABLE",
+            "itemTile": {
+              "type": "YELLOW"
+            }
+          },
+          {
+            "type": "PLAYABLE",
+            "itemTile": {
+              "type": "YELLOW"
+            }
+          },
+          {
+            "type": "PLAYABLE",
+            "itemTile": {
+              "type": "WHITE"
+            }
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          }
+        ],
+        [
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "PLAYABLE",
+            "itemTile": {
+              "type": "YELLOW"
+            }
+          },
+          {
+            "type": "PLAYABLE",
+            "itemTile": {
+              "type": "BLUE"
+            }
+          },
+          {
+            "type": "PLAYABLE",
+            "itemTile": {
+              "type": "WHITE"
+            }
+          },
+          {
+            "type": "PLAYABLE",
+            "itemTile": {
+              "type": "YELLOW"
+            }
+          },
+          {
+            "type": "PLAYABLE",
+            "itemTile": {
+              "type": "LIGHTBLUE"
+            }
+          },
+          {
+            "type": "PLAYABLE",
+            "itemTile": {
+              "type": "YELLOW"
+            }
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          }
+        ],
+        [
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "PLAYABLE",
+            "itemTile": {
+              "type": "BLUE"
+            }
+          },
+          {
+            "type": "PLAYABLE",
+            "itemTile": {
+              "type": "LIGHTBLUE"
+            }
+          },
+          {
+            "type": "PLAYABLE",
+            "itemTile": {
+              "type": "GREEN"
+            }
+          },
+          {
+            "type": "PLAYABLE",
+            "itemTile": {
+              "type": "LIGHTBLUE"
+            }
+          },
+          {
+            "type": "PLAYABLE",
+            "itemTile": {
+              "type": "LIGHTBLUE"
+            }
+          },
+          {
+            "type": "PLAYABLE",
+            "itemTile": {
+              "type": "WHITE"
+            }
+          },
+          {
+            "type": "PLAYABLE",
+            "itemTile": {
+              "type": "BLUE"
+            }
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          }
+        ],
+        [
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "PLAYABLE"
+          },
+          {
+            "type": "PLAYABLE",
+            "itemTile": {
+              "type": "GREEN"
+            }
+          },
+          {
+            "type": "PLAYABLE",
+            "itemTile": {
+              "type": "GREEN"
+            }
+          },
+          {
+            "type": "PLAYABLE",
+            "itemTile": {
+              "type": "PINK"
+            }
+          },
+          {
+            "type": "PLAYABLE",
+            "itemTile": {
+              "type": "BLUE"
+            }
+          },
+          {
+            "type": "PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          }
+        ],
+        [
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "PLAYABLE",
+            "itemTile": {
+              "type": "LIGHTBLUE"
+            }
+          },
+          {
+            "type": "PLAYABLE",
+            "itemTile": {
+              "type": "PINK"
+            }
+          },
+          {
+            "type": "PLAYABLE",
+            "itemTile": {
+              "type": "LIGHTBLUE"
+            }
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          }
+        ],
+        [
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "PLAYABLE",
+            "itemTile": {
+              "type": "LIGHTBLUE"
+            }
+          },
+          {
+            "type": "PLAYABLE",
+            "itemTile": {
+              "type": "BLUE"
+            }
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          }
+        ],
+        [
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          },
+          {
+            "type": "NOT_PLAYABLE"
+          }
+        ]
+      ],
+      "freeCellsOnBoard": 29
+    },
+    "bagTiles": {
+      "itemTileList": [
+        {
+          "type": "BLUE"
+        },
+        {
+          "type": "BLUE"
+        },
+        {
+          "type": "PINK"
+        },
+        {
+          "type": "GREEN"
+        },
+        {
+          "type": "PINK"
+        },
+        {
+          "type": "YELLOW"
+        },
+        {
+          "type": "GREEN"
+        },
+        {
+          "type": "LIGHTBLUE"
+        },
+        {
+          "type": "PINK"
+        },
+        {
+          "type": "BLUE"
+        },
+        {
+          "type": "BLUE"
+        },
+        {
+          "type": "BLUE"
+        },
+        {
+          "type": "WHITE"
+        },
+        {
+          "type": "LIGHTBLUE"
+        },
+        {
+          "type": "BLUE"
+        },
+        {
+          "type": "GREEN"
+        },
+        {
+          "type": "WHITE"
+        },
+        {
+          "type": "YELLOW"
+        },
+        {
+          "type": "BLUE"
+        },
+        {
+          "type": "GREEN"
+        },
+        {
+          "type": "PINK"
+        },
+        {
+          "type": "PINK"
+        },
+        {
+          "type": "GREEN"
+        },
+        {
+          "type": "GREEN"
+        },
+        {
+          "type": "WHITE"
+        },
+        {
+          "type": "WHITE"
+        },
+        {
+          "type": "PINK"
+        },
+        {
+          "type": "YELLOW"
+        },
+        {
+          "type": "BLUE"
+        },
+        {
+          "type": "BLUE"
+        },
+        {
+          "type": "LIGHTBLUE"
+        },
+        {
+          "type": "WHITE"
+        },
+        {
+          "type": "GREEN"
+        },
+        {
+          "type": "GREEN"
+        },
+        {
+          "type": "LIGHTBLUE"
+        },
+        {
+          "type": "WHITE"
+        },
+        {
+          "type": "YELLOW"
+        },
+        {
+          "type": "GREEN"
+        },
+        {
+          "type": "YELLOW"
+        },
+        {
+          "type": "YELLOW"
+        },
+        {
+          "type": "PINK"
+        },
+        {
+          "type": "BLUE"
+        },
+        {
+          "type": "BLUE"
+        },
+        {
+          "type": "GREEN"
+        },
+        {
+          "type": "WHITE"
+        },
+        {
+          "type": "PINK"
+        },
+        {
+          "type": "WHITE"
+        },
+        {
+          "type": "GREEN"
+        },
+        {
+          "type": "PINK"
+        },
+        {
+          "type": "LIGHTBLUE"
+        },
+        {
+          "type": "YELLOW"
+        },
+        {
+          "type": "BLUE"
+        },
+        {
+          "type": "WHITE"
+        },
+        {
+          "type": "PINK"
+        },
+        {
+          "type": "GREEN"
+        },
+        {
+          "type": "LIGHTBLUE"
+        },
+        {
+          "type": "WHITE"
+        },
+        {
+          "type": "GREEN"
+        },
+        {
+          "type": "YELLOW"
+        },
+        {
+          "type": "BLUE"
+        },
+        {
+          "type": "GREEN"
+        },
+        {
+          "type": "YELLOW"
+        },
+        {
+          "type": "WHITE"
+        },
+        {
+          "type": "WHITE"
+        },
+        {
+          "type": "WHITE"
+        },
+        {
+          "type": "GREEN"
+        },
+        {
+          "type": "WHITE"
+        },
+        {
+          "type": "PINK"
+        },
+        {
+          "type": "GREEN"
+        },
+        {
+          "type": "BLUE"
+        },
+        {
+          "type": "LIGHTBLUE"
+        },
+        {
+          "type": "LIGHTBLUE"
+        },
+        {
+          "type": "LIGHTBLUE"
+        },
+        {
+          "type": "PINK"
+        },
+        {
+          "type": "WHITE"
+        },
+        {
+          "type": "WHITE"
+        },
+        {
+          "type": "LIGHTBLUE"
+        },
+        {
+          "type": "WHITE"
+        },
+        {
+          "type": "GREEN"
+        },
+        {
+          "type": "PINK"
+        },
+        {
+          "type": "WHITE"
+        },
+        {
+          "type": "YELLOW"
+        },
+        {
+          "type": "PINK"
+        },
+        {
+          "type": "PINK"
+        },
+        {
+          "type": "LIGHTBLUE"
+        },
+        {
+          "type": "PINK"
+        },
+        {
+          "type": "LIGHTBLUE"
+        },
+        {
+          "type": "PINK"
+        },
+        {
+          "type": "YELLOW"
+        },
+        {
+          "type": "BLUE"
+        },
+        {
+          "type": "YELLOW"
+        },
+        {
+          "type": "LIGHTBLUE"
+        },
+        {
+          "type": "LIGHTBLUE"
+        },
+        {
+          "type": "PINK"
+        },
+        {
+          "type": "PINK"
+        },
+        {
+          "type": "YELLOW"
+        },
+        {
+          "type": "PINK"
+        },
+        {
+          "type": "GREEN"
+        },
+        {
+          "type": "YELLOW"
+        },
+        {
+          "type": "LIGHTBLUE"
+        },
+        {
+          "type": "BLUE"
+        },
+        {
+          "type": "YELLOW"
+        },
+        {
+          "type": "GREEN"
+        }
+      ]
+    },
+    "commonGoalCards": [
+      {
+        "serialNumber": 7,
+        "scoringTokens": [
+          {
+            "score": 8
+          },
+          {
+            "score": 4
+          }
+        ],
+        "description": "Quattro righe formate ciascuna da 5 tessere di uno, due o tre tipi differenti. Righe diverse possono avere combinazioni diverse di tipi di tessere."
+      },
+      {
+        "serialNumber": 9,
+        "scoringTokens": [
+          {
+            "score": 8
+          },
+          {
+            "score": 4
+          }
+        ],
+        "description": "Otto tessere dello stesso tipo. Non ci sono restrizioni sulla posizione di queste tessere."
+      }
+    ]
+  },
+  "gameState": "IN_GAME",
+  "activePlayer": "p1",
+  "gameSuspended": false
+}

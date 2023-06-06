@@ -265,11 +265,6 @@ public class TUI implements View {
         }
     }
 
-    @Override
-    public void showUpdateChat(String message) {
-
-    }
-
     /* ---------- GETTERS & SETTERS ---------- */
     /**
      * @return The client manager associated to the client.

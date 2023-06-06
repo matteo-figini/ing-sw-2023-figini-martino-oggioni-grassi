@@ -84,9 +84,4 @@ public class VirtualView implements View {
     public void showScoreBoard(Map<String, Integer> scoreBoardMap) {
         clientHandler.sendMessage(new ScoreBoardMessage(scoreBoardMap));
     }
-
-    @Override
-    public void showUpdateChat(String message) {
-
-    }
 }

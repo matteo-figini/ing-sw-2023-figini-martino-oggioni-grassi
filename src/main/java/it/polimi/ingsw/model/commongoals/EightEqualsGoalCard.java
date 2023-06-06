@@ -7,13 +7,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class EightEqualsGoalCard extends CommonGoalCard {
-    private int number = 9;
     /**
      * Constructor that takes in input the number of the players and set the specific stack for scoring tokens.
      * @param numPlayers The number of the players; depending on the value of this parameter, a different scoring token stack is initialized.
      */
     public EightEqualsGoalCard(int numPlayers) {
-        super(numPlayers, "Otto tessere dello stesso tipo. Non ci sono restrizioni sulla posizione di queste tessere.");
+        super(numPlayers, "Otto tessere dello stesso tipo. Non ci sono restrizioni sulla posizione di queste tessere.", 9);
     }
 
     @Override
@@ -41,8 +40,5 @@ public class EightEqualsGoalCard extends CommonGoalCard {
             }
         }
         return false;
-    }
-    public int getNumber() {
-        return number;
     }
 }

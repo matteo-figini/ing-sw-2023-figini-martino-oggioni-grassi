@@ -3,14 +3,13 @@ package it.polimi.ingsw.model.commongoals;
 import it.polimi.ingsw.model.Shelf;
 
 public class FourLinesFourGoalCard extends CommonGoalCard {
-    private int number = 3;
     /**
      * Constructor that takes in input the number of the players and set the specific stack for scoring tokens.
      * @param numPlayers The number of the players; depending on the value of this parameter, a different scoring token stack is initialized.
      */
     public FourLinesFourGoalCard(int numPlayers) {
-        super(numPlayers , "Quattro gruppi separati formati ciascuno da quattro tessere adiacenti dello stesso tipo, disposte " + "" +
-                "in orizzontale oppure in verticale. Le tessere di un gruppo possono essere diverse da quelle di un altro gruppo.");
+        super(numPlayers , "Quattro gruppi separati formati ciascuno da quattro tessere adiacenti dello stesso tipo, disposte " +
+                "in orizzontale oppure in verticale. Le tessere di un gruppo possono essere diverse da quelle di un altro gruppo.", 3);
     }
 
     @Override
@@ -59,8 +58,5 @@ public class FourLinesFourGoalCard extends CommonGoalCard {
         }
 
         return (groupsFound >= 4);
-    }
-    public int getNumber() {
-        return number;
     }
 }

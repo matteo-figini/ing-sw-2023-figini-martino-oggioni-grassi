@@ -11,6 +11,7 @@ import it.polimi.ingsw.network.message.PickTilesResponse;
 import it.polimi.ingsw.network.message.PlayersNumberResponse;
 import it.polimi.ingsw.view.VirtualView;
 
+import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -20,7 +21,7 @@ import java.util.stream.Collectors;
  * - Sending the model updates to all the clients;
  * - Handle the game logic.
  */
-public class GameController {
+public class GameController implements Serializable {
     /** Entry point for the model. */
     private Game game;
 
@@ -31,7 +32,7 @@ public class GameController {
     private String activePlayer;
 
     /** Map of the virtual views (key: player's nickname, value: {@code VirtualView}). */
-    private Map<String, VirtualView> virtualViewMap;    // Map of the virtual views.
+    private transient Map<String, VirtualView> virtualViewMap;    // Map of the virtual views.
 
     /** {@code true} if the game is currently suspended, {@code false} otherwise (default situation) */
     private boolean gameSuspended;
@@ -325,6 +326,10 @@ public class GameController {
     private void newTurn () {
         setActivePlayer(getNextPlayer());
         broadcastMessage("Turn of " + getActivePlayer());
+
+        Persistence persistence = new Persistence(this);
+        persistence.store();
+
         askActivePlayerColumnAndPosition();
     }
 

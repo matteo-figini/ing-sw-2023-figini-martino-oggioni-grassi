@@ -7,14 +7,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ThreeColumnsGoalCard extends CommonGoalCard {
-    private int number = 5;
     /**
      * Constructor that takes in input the number of the players and set the specific stack for scoring tokens.
      * @param numPlayers The number of the players; depending on the value of this parameter, a different scoring token stack is initialized.
      */
     public ThreeColumnsGoalCard(int numPlayers) {
         super(numPlayers, "Tre colonne formate ciascuna da 6 tessere di uno, due o tre tipi differenti. " +
-                "Colonne diverse possono avere combinazioni diverse di tipi di tessere.");
+                "Colonne diverse possono avere combinazioni diverse di tipi di tessere.", 5);
     }
 
     @Override
@@ -52,8 +51,5 @@ public class ThreeColumnsGoalCard extends CommonGoalCard {
         }
 
         return validColumns >= 3;
-    }
-    public int getNumber() {
-        return number;
     }
 }

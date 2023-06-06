@@ -4,17 +4,17 @@ import it.polimi.ingsw.model.ItemTileType;
 import it.polimi.ingsw.model.Position;
 
 public class PersonalGC4 extends PersonalGoalCard {
-    private int number = 4;
+
+    /**
+     * Construct the schema for the fourth {@code PersonalGoalCard}.
+     */
     public PersonalGC4 () {
-        super();
+        super(4);
         schema.put(new Position(0, 4), ItemTileType.YELLOW);
         schema.put(new Position(2, 2), ItemTileType.BLUE);
         schema.put(new Position(4, 2), ItemTileType.GREEN);
         schema.put(new Position(4, 1), ItemTileType.WHITE);
         schema.put(new Position(3, 3), ItemTileType.PINK);
         schema.put(new Position(2, 0), ItemTileType.LIGHTBLUE);
-    }
-    public int getNumber() {
-        return number;
     }
 }

@@ -10,13 +10,11 @@ import it.polimi.ingsw.model.*;
 import it.polimi.ingsw.model.commongoals.CommonGoalCard;
 import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
 import it.polimi.ingsw.network.ClientManager;
-import it.polimi.ingsw.network.message.Message;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.effect.BlurType;
-import javafx.scene.effect.Effect;
 import javafx.scene.effect.InnerShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -1242,72 +1240,19 @@ public class GuiGameController {
 
     public void updatePersonalGoalCard(PersonalGoalCard personalGoalCard) {
         Image image = null;
-        switch (personalGoalCard.getNumber()) {
-            case 1 ->
-                    image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/personal goal cards/Personal_Goals.png")));
-            case 2 ->
-                    image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/personal goal cards/Personal_Goals2.png")));
-            case 3 ->
-                    image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/personal goal cards/Personal_Goals3.png")));
-            case 4 ->
-                    image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/personal goal cards/Personal_Goals4.png")));
-            case 5 ->
-                    image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/personal goal cards/Personal_Goals5.png")));
-            case 6 ->
-                    image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/personal goal cards/Personal_Goals6.png")));
-            case 7 ->
-                    image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/personal goal cards/Personal_Goals7.png")));
-            case 8 ->
-                    image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/personal goal cards/Personal_Goals8.png")));
-            case 9 ->
-                    image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/personal goal cards/Personal_Goals9.png")));
-            case 10 ->
-                    image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/personal goal cards/Personal_Goals10.png")));
-            case 11 ->
-                    image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/personal goal cards/Personal_Goals11.png")));
-            case 12 ->
-                    image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/personal goal cards/Personal_Goals12.png")));
-            default -> {
-            }
-        }
+        if (personalGoalCard.getSerialNumber() == 1)
+            image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/personal goal cards/Personal_Goals.png")));
+        else
+            image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/personal goal cards/Personal_Goals" + personalGoalCard.getSerialNumber() + ".png")));
         PersonalGoalCard.setImage(image);
     }
 
     public void updateCommonGoalCard(CommonGoalCard commonGoalCard, Integer progressiveCard) {
-        Image image = null;
+        Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/common goal cards/" + commonGoalCard.getSerialNumber() + ".jpg")));
         List<ScoringToken> tokens = commonGoalCard.getScoringTokens();
-        switch (commonGoalCard.getNumber()) {
-            case 1 ->
-                    image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/common goal cards/1.jpg")));
-            case 2 ->
-                    image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/common goal cards/2.jpg")));
-            case 3 ->
-                    image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/common goal cards/3.jpg")));
-            case 4 ->
-                    image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/common goal cards/4.jpg")));
-            case 5 ->
-                    image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/common goal cards/5.jpg")));
-            case 6 ->
-                    image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/common goal cards/6.jpg")));
-            case 7 ->
-                    image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/common goal cards/7.jpg")));
-            case 8 ->
-                    image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/common goal cards/8.jpg")));
-            case 9 ->
-                    image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/common goal cards/9.jpg")));
-            case 10 ->
-                    image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/common goal cards/10.jpg")));
-            case 11 ->
-                    image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/common goal cards/11.jpg")));
-            case 12 ->
-                    image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/common goal cards/12.jpg")));
-            default -> {
-            }
-        }
-        if(progressiveCard == 1){
+        if (progressiveCard == 1) {
             CommonGoalCard1.setImage(image);
-        }
-        if(progressiveCard == 2){
+        } else {
             CommonGoalCard2.setImage(image);
         }
     }

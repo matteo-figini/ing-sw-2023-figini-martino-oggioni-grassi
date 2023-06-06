@@ -7,13 +7,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TwoColumnsGoalCard extends CommonGoalCard {
-    private int number = 2;
     /**
      * Constructor that takes in input the number of the players and set the specific stack for scoring tokens.
      * @param numPlayers The number of the players; depending on the value of this parameter, a different scoring token stack is initialized.
      */
     public TwoColumnsGoalCard(int numPlayers) {
-        super(numPlayers, "Due colonne formate ciascuna da 6 diversi tipi di tessere.");
+        super(numPlayers, "Due colonne formate ciascuna da 6 diversi tipi di tessere.", 2);
     }
 
     @Override
@@ -78,8 +77,5 @@ public class TwoColumnsGoalCard extends CommonGoalCard {
         }
 
         return columnValid;
-    }
-    public int getNumber() {
-        return number;
     }
 }

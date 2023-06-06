@@ -243,7 +243,6 @@ public class GUI implements View {
 
     }
 
-    @Override
     public void showUpdateChat(String message) {
         guiGameController.updateChat(message);
     }
