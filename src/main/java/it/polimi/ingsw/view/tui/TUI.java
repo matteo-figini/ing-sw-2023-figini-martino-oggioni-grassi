@@ -4,6 +4,7 @@ import it.polimi.ingsw.model.*;
 import it.polimi.ingsw.model.commongoals.CommonGoalCard;
 import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
 import it.polimi.ingsw.network.ClientManager;
+import it.polimi.ingsw.network.message.Message;
 import it.polimi.ingsw.view.View;
 
 import java.util.*;
@@ -262,6 +263,11 @@ public class TUI implements View {
             System.out.println(progressivePosition + ") " + entry.getKey() + ": " + entry.getValue() + " points");
             progressivePosition++;
         }
+    }
+
+    @Override
+    public void showUpdateChat(String message) {
+
     }
 
     /* ---------- GETTERS & SETTERS ---------- */

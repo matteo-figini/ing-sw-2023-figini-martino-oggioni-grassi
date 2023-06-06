@@ -375,6 +375,7 @@ public class GameController {
         setActivePlayer(chooseRandomPlayer());                          // Choose the first player
         game.getPlayerByNickname(getActivePlayer()).setFirstPlayer();   // Set the active player as the first one.
         broadcastMessage("Turn of " + getActivePlayer());
+
         askActivePlayerColumnAndPosition();
     }
 

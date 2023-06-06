@@ -4,6 +4,7 @@ import it.polimi.ingsw.model.BoardCell;
 import it.polimi.ingsw.model.ShelfCell;
 import it.polimi.ingsw.model.commongoals.CommonGoalCard;
 import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
+import it.polimi.ingsw.network.message.Message;
 
 import java.io.IOException;
 import java.util.List;
@@ -90,4 +91,9 @@ public interface View {
      * @param scoreBoardMap The {@code Map} containing the score board.
      */
     void showScoreBoard (Map<String, Integer> scoreBoardMap);
+
+    /**
+     * Show chat on guiGame scene
+     */
+    void showUpdateChat(String message);
 }

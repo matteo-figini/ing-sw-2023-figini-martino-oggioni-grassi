@@ -10,6 +10,7 @@ import it.polimi.ingsw.model.*;
 import it.polimi.ingsw.model.commongoals.CommonGoalCard;
 import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
 import it.polimi.ingsw.network.ClientManager;
+import it.polimi.ingsw.network.message.Message;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -1383,4 +1384,9 @@ public class GuiGameController {
     void SendTiles5(ActionEvent event) {
         clientManager.onUpdateColumnAndPosition(positions, 4);
     }
+
+    public void updateChat(String message){
+        Chat.setText(message);
+    }
+
 }

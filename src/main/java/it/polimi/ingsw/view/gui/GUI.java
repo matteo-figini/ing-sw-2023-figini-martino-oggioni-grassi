@@ -4,6 +4,7 @@ import it.polimi.ingsw.model.*;
 import it.polimi.ingsw.model.commongoals.CommonGoalCard;
 import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
 import it.polimi.ingsw.network.ClientManager;
+import it.polimi.ingsw.network.message.Message;
 import it.polimi.ingsw.view.View;
 import it.polimi.ingsw.view.gui.controllers.GuiGameController;
 import it.polimi.ingsw.view.gui.controllers.PreGameLobbyController;
@@ -197,6 +198,9 @@ public class GUI implements View {
     public void showGenericMessage(String genericMessage) {
         // TODO: modificare la stampa del messaggio
         System.out.println(genericMessage);
+        if(guiGameController!=null) {
+            showUpdateChat(genericMessage);
+        }
     }
 
     @Override
@@ -237,6 +241,11 @@ public class GUI implements View {
     @Override
     public void showScoreBoard(Map<String, Integer> scoreBoardMap) {
 
+    }
+
+    @Override
+    public void showUpdateChat(String message) {
+        guiGameController.updateChat(message);
     }
 
     public void setClientManager(ClientManager clientManager) {
