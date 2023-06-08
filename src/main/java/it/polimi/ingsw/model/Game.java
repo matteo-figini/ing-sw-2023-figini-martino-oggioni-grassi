@@ -16,7 +16,7 @@ import java.util.Random;
  */
 public class Game implements Serializable {
     @Serial
-    private static final long serialVersionUID = 1683424174378943L;
+    private static final long serialVersionUID = 1683424174378944L;
 
     /** Default instance for the game (singleton pattern applied). */
     private static Game gameInstance;

@@ -11,6 +11,7 @@ import it.polimi.ingsw.network.message.PickTilesResponse;
 import it.polimi.ingsw.network.message.PlayersNumberResponse;
 import it.polimi.ingsw.view.VirtualView;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -22,6 +23,10 @@ import java.util.stream.Collectors;
  * - Handle the game logic.
  */
 public class GameController implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 34793873212834L;
+
     /** Entry point for the model. */
     private Game game;
 
@@ -276,6 +281,7 @@ public class GameController implements Serializable {
         this.gameState = previousGame.gameState;
         this.activePlayer = previousGame.activePlayer;
         this.gameSuspended = previousGame.gameSuspended;
+        System.out.println("Game State: " + this.gameState + ", active player: " + this.activePlayer + ", susp: " + this.gameSuspended);
 
         this.game.restorePreviousGame(previousGame.game.getBoard(),
                 previousGame.game.getBagTiles(),
