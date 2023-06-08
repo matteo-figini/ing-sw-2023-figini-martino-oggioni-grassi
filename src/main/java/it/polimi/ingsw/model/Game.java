@@ -40,7 +40,7 @@ public class Game implements Serializable {
     private Bag bagTiles;
 
     /** List of the common goal cards in the game. */
-    private final List<CommonGoalCard> commonGoalCards;
+    private List<CommonGoalCard> commonGoalCards;
 
     /**
      * Applies the singleton pattern to this class.
@@ -285,10 +285,11 @@ public class Game implements Serializable {
         return Math.toIntExact(players.stream().filter(Player::isOnlinePlayer).count());
     }
 
-    public void restorePreviousGame (Board board, Bag bag, List<Player> players, int numberOfPlayers) {
-        this.board = board;
-        this.players = players;
-        this.bagTiles = bag;
-        this.numberOfPlayers = numberOfPlayers;
+    public void restorePreviousGame (Game previousGame) {
+        this.board = previousGame.getBoard();
+        this.players = previousGame.getPlayers();
+        this.bagTiles = previousGame.getBagTiles();
+        this.numberOfPlayers = previousGame.getChosenPlayersNumber();
+        this.commonGoalCards = previousGame.getCommonGoalCards();
     }
 }

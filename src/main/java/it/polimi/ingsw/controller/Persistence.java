@@ -47,24 +47,6 @@ public class Persistence {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-        // Crea l'oggetto JSON
-        /* GsonBuilder builder = new GsonBuilder();
-        builder.setPrettyPrinting();
-        Gson gson = builder.create();
-
-        // Crea la stringa con l'oggetto serializzato
-        String gameControllerString = gson.toJson(this.gameController);
-        System.out.println(gameControllerString);
-
-        try {
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(SAVED_MATCH_FILENAME));
-            bufferedWriter.write(gameControllerString);
-            bufferedWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
     }
 
     /**
@@ -73,19 +55,6 @@ public class Persistence {
      * @return A reference to the {@code GameController} attribute: if the read failed, it returns {@code null} value.
      */
     public GameController restore () {
-        // TODO: testare il metodo
-
-        /*Gson gson = new Gson();
-        try {
-            Reader reader = Files.newBufferedReader(Paths.get(SAVED_MATCH_FILENAME));
-            this.gameController = gson.fromJson(reader, GameController.class);
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-            this.gameController = null;
-        }
-        return this.gameController;*/
-
         try {
             FileInputStream fileInputStream = new FileInputStream(SAVED_MATCH_FILENAME);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
@@ -93,7 +62,10 @@ public class Persistence {
             objectInputStream.close();
 
             return this.getGameController();
-        } catch (IOException | ClassNotFoundException e) {
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found: a new game will be created.");
+        }
+        catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return null;

@@ -130,8 +130,12 @@ public class ClientManager {
                 PlayersListMessage playersListMessage = (PlayersListMessage) message;
                 view.showPlayersList(playersListMessage.getPlayers());
             }
+            case ERROR_MESSAGE -> {
+                ErrorMessage errorMessage = (ErrorMessage) message;
+                view.showGenericMessage(errorMessage.getErrorDescription());
+            }
             default -> {
-                System.out.println("ERROR: Message unhandled!");
+                System.out.println("ERROR: Message unhandled! Type of message: " + message.getMessageType());
             }
         }
     }

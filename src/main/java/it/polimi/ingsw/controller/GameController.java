@@ -265,7 +265,12 @@ public class GameController implements Serializable {
                     System.out.println("Restoring match from \"" + Persistence.SAVED_MATCH_FILENAME + "\"");
                     restorePreviousGame(savedGameController);
                     showGameInformation();
-                    newTurn();
+
+                    System.out.println("From the saved game, active player is " + savedGameController.activePlayer);
+
+                    setActivePlayer(savedGameController.getActivePlayer());
+                    broadcastMessage("Turn of " + getActivePlayer());
+                    askActivePlayerColumnAndPosition();
                 } else {
                     startGame();
                 }
@@ -275,18 +280,15 @@ public class GameController implements Serializable {
 
     private void restorePreviousGame (GameController previousGame) {
         // Ripristino:
-        // In GameController: gameState, activePlayer, gameSuspended
-        // In Game: numberOfPlayers, listOfPlayers (con tutte le carte comuni), board, bag
+        // [OK] In GameController: gameState, activePlayer, gameSuspended
+        // In Game: numberOfPlayers, listOfPlayers, board, bag, cgc
         // In Player: shelf, pgc, nickname, score, firstplayer, fcgc, scgc, endGameToken, onlinePlayer
         this.gameState = previousGame.gameState;
         this.activePlayer = previousGame.activePlayer;
         this.gameSuspended = previousGame.gameSuspended;
         System.out.println("Game State: " + this.gameState + ", active player: " + this.activePlayer + ", susp: " + this.gameSuspended);
 
-        this.game.restorePreviousGame(previousGame.game.getBoard(),
-                previousGame.game.getBagTiles(),
-                previousGame.game.getPlayers(),
-                previousGame.game.getChosenPlayersNumber());
+        this.game.restorePreviousGame(previousGame.game);
     }
 
     /**

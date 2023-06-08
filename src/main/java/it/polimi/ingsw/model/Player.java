@@ -9,6 +9,8 @@ import java.io.Serializable;
  */
 public class Player implements Serializable {
 
+
+
     /** Player's personal shelf. */
     private final Shelf shelf;
 
