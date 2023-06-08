@@ -4,6 +4,8 @@ import it.polimi.ingsw.exception.WrongNumberOfCardsException;
 import it.polimi.ingsw.model.commongoals.*;
 import it.polimi.ingsw.model.personalgoals.*;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -12,7 +14,10 @@ import java.util.Random;
  * This class represents all the game in terms of player, board and all the model.
  * It can be useful as an entry point for the controller.
  */
-public class Game {
+public class Game implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1683424174378943L;
+
     /** Default instance for the game (singleton pattern applied). */
     private static Game gameInstance;
 
@@ -26,13 +31,13 @@ public class Game {
     private int numberOfPlayers;
 
     /** List of the players in the game. */
-    private final List<Player> players;
+    private List<Player> players;
 
     /** Board of the game. */
     private Board board;
 
     /** Bag with the item tiles. */
-    private final Bag bagTiles;
+    private Bag bagTiles;
 
     /** List of the common goal cards in the game. */
     private final List<CommonGoalCard> commonGoalCards;
@@ -278,5 +283,12 @@ public class Game {
 
     public Integer getOnlinePlayersNumber () {
         return Math.toIntExact(players.stream().filter(Player::isOnlinePlayer).count());
+    }
+
+    public void restorePreviousGame (Board board, Bag bag, List<Player> players, int numberOfPlayers) {
+        this.board = board;
+        this.players = players;
+        this.bagTiles = bag;
+        this.numberOfPlayers = numberOfPlayers;
     }
 }

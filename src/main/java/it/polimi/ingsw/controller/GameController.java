@@ -250,9 +250,37 @@ public class GameController implements Serializable {
             broadcastMessage("Players connected: " + virtualViewMap.size() + "/" + game.getChosenPlayersNumber());
             if (getOnlinePlayers().size() == game.getChosenPlayersNumber()) {
                 broadcastMessage("All the players are connected.");
-                startGame();
+
+                Persistence persistence = new Persistence();
+                GameController savedGameController = persistence.restore();
+
+                if (savedGameController != null &&
+                        this.getNicknameOfAllPlayer().containsAll(savedGameController.getNicknameOfAllPlayer()) &&
+                        savedGameController.getNicknameOfAllPlayer().containsAll(this.getNicknameOfAllPlayer())) {
+                    System.out.println("Restoring match from \"" + Persistence.SAVED_MATCH_FILENAME + "\"");
+                    restorePreviousGame(savedGameController);
+                    showGameInformation();
+                    newTurn();
+                } else {
+                    startGame();
+                }
             }
         }
+    }
+
+    private void restorePreviousGame (GameController previousGame) {
+        // Ripristino:
+        // In GameController: gameState, activePlayer, gameSuspended
+        // In Game: numberOfPlayers, listOfPlayers (con tutte le carte comuni), board, bag
+        // In Player: shelf, pgc, nickname, score, firstplayer, fcgc, scgc, endGameToken, onlinePlayer
+        this.gameState = previousGame.gameState;
+        this.activePlayer = previousGame.activePlayer;
+        this.gameSuspended = previousGame.gameSuspended;
+
+        this.game.restorePreviousGame(previousGame.game.getBoard(),
+                previousGame.game.getBagTiles(),
+                previousGame.game.getPlayers(),
+                previousGame.game.getChosenPlayersNumber());
     }
 
     /**

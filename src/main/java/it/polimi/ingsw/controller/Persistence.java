@@ -17,7 +17,7 @@ public class Persistence {
     private GameController gameController;
 
     /** Name of the file containing the current status of the game. */
-    public static final String SAVED_MATCH_FILENAME = "match.json";
+    public static final String SAVED_MATCH_FILENAME = "match.data";
 
     /**
      * Constructs the {@code Persistence} class with a new {@code GameController}.
@@ -39,8 +39,18 @@ public class Persistence {
      * SAVED_MATCH_FILENAME.
      */
     public void store () {
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(SAVED_MATCH_FILENAME);
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            objectOutputStream.writeObject(this.gameController);
+            objectOutputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
         // Crea l'oggetto JSON
-        GsonBuilder builder = new GsonBuilder();
+        /* GsonBuilder builder = new GsonBuilder();
         builder.setPrettyPrinting();
         Gson gson = builder.create();
 
@@ -54,7 +64,7 @@ public class Persistence {
             bufferedWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     /**
@@ -64,7 +74,8 @@ public class Persistence {
      */
     public GameController restore () {
         // TODO: testare il metodo
-        Gson gson = new Gson();
+
+        /*Gson gson = new Gson();
         try {
             Reader reader = Files.newBufferedReader(Paths.get(SAVED_MATCH_FILENAME));
             this.gameController = gson.fromJson(reader, GameController.class);
@@ -73,7 +84,19 @@ public class Persistence {
             e.printStackTrace();
             this.gameController = null;
         }
-        return this.gameController;
+        return this.gameController;*/
+
+        try {
+            FileInputStream fileInputStream = new FileInputStream(SAVED_MATCH_FILENAME);
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            this.gameController = (GameController) objectInputStream.readObject();
+            objectInputStream.close();
+
+            return this.getGameController();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     /**

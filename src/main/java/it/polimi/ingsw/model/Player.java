@@ -2,10 +2,12 @@ package it.polimi.ingsw.model;
 
 import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
 
+import java.io.Serializable;
+
 /**
  * This class represents the player and all his attributes.
  */
-public class Player  {
+public class Player implements Serializable {
 
     /** Player's personal shelf. */
     private final Shelf shelf;
