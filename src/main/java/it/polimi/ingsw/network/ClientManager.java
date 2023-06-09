@@ -93,7 +93,7 @@ public class ClientManager {
                 view.waitingRoom();
             }
             case GAME_ROOM_REQUEST -> {
-                view.gameRoom();
+                view.switchToGameRoom();
             }
             case LOGIN_REPLY -> {
                 LoginResponseMessage loginReplyMessage = (LoginResponseMessage) message;

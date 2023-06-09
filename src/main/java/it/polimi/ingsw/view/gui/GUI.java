@@ -155,7 +155,7 @@ public class GUI implements View {
     }
 
     @Override
-    public void gameRoom(){
+    public void switchToGameRoom(){
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/fxml/game.fxml"));

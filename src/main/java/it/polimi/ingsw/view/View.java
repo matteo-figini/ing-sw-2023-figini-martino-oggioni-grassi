@@ -4,7 +4,6 @@ import it.polimi.ingsw.model.BoardCell;
 import it.polimi.ingsw.model.ShelfCell;
 import it.polimi.ingsw.model.commongoals.CommonGoalCard;
 import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
-import it.polimi.ingsw.network.message.Message;
 
 import java.io.IOException;
 import java.util.List;
@@ -34,7 +33,7 @@ public interface View {
     /**
      * Send a message to open game room scene
      */
-    void gameRoom();
+    void switchToGameRoom();
 
     /**
      * Asks the user a column on his shelf and a list of positions on which to draw the tiles from the board.

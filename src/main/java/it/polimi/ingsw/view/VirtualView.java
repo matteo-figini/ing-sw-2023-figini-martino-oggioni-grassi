@@ -36,7 +36,7 @@ public class VirtualView implements View {
     }
 
     @Override
-    public void gameRoom(){
+    public void switchToGameRoom(){
         clientHandler.sendMessage((new GameRoomRequest()));
     }
 

@@ -263,6 +263,10 @@ public class GameController implements Serializable {
                 if (savedGameController != null &&
                         this.getNicknameOfAllPlayer().containsAll(savedGameController.getNicknameOfAllPlayer()) &&
                         savedGameController.getNicknameOfAllPlayer().containsAll(this.getNicknameOfAllPlayer())) {
+                    for (Map.Entry<String, VirtualView> entry : virtualViewMap.entrySet()){
+                        entry.getValue().switchToGameRoom();
+                    }
+                    showPlayersNicknames();
                     System.out.println("Restoring match from \"" + Persistence.SAVED_MATCH_FILENAME + "\"");
                     restorePreviousGame(savedGameController);
                     showGameInformation();
@@ -403,8 +407,8 @@ public class GameController implements Serializable {
      * This method starts the game.
      */
     private void startGame () {
-        for(Map.Entry<String, VirtualView> entry : virtualViewMap.entrySet()){
-            entry.getValue().gameRoom();
+        for (Map.Entry<String, VirtualView> entry : virtualViewMap.entrySet()){
+            entry.getValue().switchToGameRoom();
         }
 
         setGameState(GameState.IN_GAME);

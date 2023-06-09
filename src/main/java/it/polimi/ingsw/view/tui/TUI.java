@@ -89,7 +89,7 @@ public class TUI implements View {
     }
 
     @Override
-    public void gameRoom() {
+    public void switchToGameRoom() {
 
     }
 
