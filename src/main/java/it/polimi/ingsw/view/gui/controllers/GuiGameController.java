@@ -33,14 +33,15 @@ public class GuiGameController {
     @FXML
     private URL location;
 
-    int numOfPositions=0;
+    int numOfPositions;
+    boolean pickUpEnabled = false;
 
     private int indexP1 = -1;
     private int cont = 0;
     private int P2done = 0;
     private int P3done = 0;
 
-    List<Position> positions = new ArrayList<>();
+    List<Position> positions;
     List<Image> tilesImages = new ArrayList<>();
 
     @FXML
@@ -670,7 +671,7 @@ public class GuiGameController {
     private ImageView P4shelf54;
 
     @FXML
-    private Text Chat;
+    private Text messageBox;
 
     @FXML
     private ImageView CommonGoalCard1;
@@ -788,7 +789,7 @@ public class GuiGameController {
         assert Board86 != null : "fx:id=\"Board86\" was not injected: check your FXML file 'game.fxml'.";
         assert Board87 != null : "fx:id=\"Board87\" was not injected: check your FXML file 'game.fxml'.";
         assert Board88 != null : "fx:id=\"Board88\" was not injected: check your FXML file 'game.fxml'.";
-        assert Chat != null : "fx:id=\"Chat\" was not injected: check your FXML file 'game.fxml'.";
+        assert messageBox != null : "fx:id=\"messageBox\" was not injected: check your FXML file 'game.fxml'.";
         assert CommonGoalCard1 != null : "fx:id=\"CommonGoalCard1\" was not injected: check your FXML file 'game.fxml'.";
         assert CommonGoalCard2 != null : "fx:id=\"CommonGoalCard2\" was not injected: check your FXML file 'game.fxml'.";
         assert ExitButton != null : "fx:id=\"ExitButton\" was not injected: check your FXML file 'game.fxml'.";
@@ -902,15 +903,15 @@ public class GuiGameController {
     }
 
     public void updateBoardContent(BoardCell[][] boardContent) {
-        ImageView[][] cellImageViews = new ImageView[9][9];
+        ImageView[][] cellImageViews = new ImageView[Board.MAX_ROWS][Board.MAX_COLUMNS];
         Image image;
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
+        for (int i = 0; i < Board.MAX_ROWS; i++) {
+            for (int j = 0; j < Board.MAX_COLUMNS; j++) {
                 cellImageViews[i][j] = new ImageView();
             }
         }
-        for(int i=0; i<9; i++){
-            for(int j=0; j<9 ; j++){
+        for(int i = 0; i < Board.MAX_ROWS; i++){
+            for(int j = 0; j < Board.MAX_COLUMNS; j++){
                 if(!boardContent[i][j].isFree()) {
                     ItemTileType itemTileType = boardContent[i][j].getItemTile().getItemTileType();
                     image = null;
@@ -929,7 +930,7 @@ public class GuiGameController {
             }
         }
 
-        for (Position position : positions) {
+        /*for (Position position : positions) {
             int row = position.getX();
             int col = position.getY();
             cellImageViews[row][col].setImage(null);
@@ -937,7 +938,7 @@ public class GuiGameController {
 
         positions.clear();
         tilesImages.clear();
-        numOfPositions = 0;
+        numOfPositions = 0;*/
 
         Board03.setImage(cellImageViews[0][3].getImage());
         Board04.setImage(cellImageViews[0][4].getImage());
@@ -987,31 +988,31 @@ public class GuiGameController {
     }
 
     public void showShelfNicknames(List<String> nicknameList) {
-        String nomePrimoGiocatore = clientManager.getNickname();
-        Player1Name.setText(nomePrimoGiocatore);
+        String firstPlayerName = clientManager.getNickname();
+        Player1Name.setText(firstPlayerName);
 
         if (nicknameList.size() >= 2) {
+            String secondPlayerName;
             if (!nicknameList.get(0).equals(clientManager.getNickname())) {
-                String nomeSecondoGiocatore = nicknameList.get(0);
-                Player2Name.setText(nomeSecondoGiocatore);
+                secondPlayerName = nicknameList.get(0);
             } else {
-                String nomeSecondoGiocatore = nicknameList.get(1);
-                Player2Name.setText(nomeSecondoGiocatore);
+                secondPlayerName = nicknameList.get(1);
             }
+            Player2Name.setText(secondPlayerName);
         }
 
         if (nicknameList.size() >= 3) {
             if (!nicknameList.get(0).equals(clientManager.getNickname())) {
-                String nomeSecondoGiocatore = nicknameList.get(0);
-                Player2Name.setText(nomeSecondoGiocatore);
+                String secondPlayerName = nicknameList.get(0);
+                Player2Name.setText(secondPlayerName);
 
+                String thirdPlayerName;
                 if (!nicknameList.get(1).equals(clientManager.getNickname())) {
-                    String nomeTerzoGiocatore = nicknameList.get(1);
-                    Player3Name.setText(nomeTerzoGiocatore);
+                    thirdPlayerName = nicknameList.get(1);
                 } else {
-                    String nomeTerzoGiocatore = nicknameList.get(2);
-                    Player3Name.setText(nomeTerzoGiocatore);
+                    thirdPlayerName = nicknameList.get(2);
                 }
+                Player3Name.setText(thirdPlayerName);
             } else {
                 String nomeSecondoGiocatore = nicknameList.get(1);
                 Player2Name.setText(nomeSecondoGiocatore);
@@ -1266,24 +1267,36 @@ public class GuiGameController {
     }
 
     @FXML
-    void PickUpFromBoard(MouseEvent event) {
-        if(numOfPositions < 5) {
+    void PickUpFromBoard (MouseEvent event) {
+        if (pickUpEnabled && numOfPositions < 3) {
             Node tile = (Node) event.getTarget();
             int row = GridPane.getRowIndex(tile);
             int column = GridPane.getColumnIndex(tile);
-            positions.add(new Position(row, column));
-            tile.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, new Color(0.4, 1, 0.36, 1), 10, 0.9, -1, 0));
-            Image image = getImageFromGrid(gridPane, row, column);
-            if (image != null) {
-                tilesImages.add(image);
+            Position position = new Position(row, column);
+            if (!positions.contains(position)) {
+                positions.add(position);
+                tile.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, new Color(0.4, 1, 0.36, 1), 10, 0.9, -1, 0));
+                Image image = getImageFromGrid(gridPane, row, column);
+                if (image != null) {
+                    tilesImages.add(image);
+                }
+                numOfPositions++;
             }
-            numOfPositions++;
         }
+    }
+
+    public void enablePickingUp () {
+        this.positions = new ArrayList<>();
+        this.pickUpEnabled = true;
+        this.numOfPositions = 0;
     }
 
     private Image getImageFromGrid(GridPane grid, int row, int column) {
         for (Node node : grid.getChildren()) {
-            if (GridPane.getRowIndex(node) == row && GridPane.getColumnIndex(node) == column) {
+            if (GridPane.getRowIndex(node) != null &&
+                    GridPane.getColumnIndex(node) != null &&
+                    GridPane.getRowIndex(node) == row &&
+                    GridPane.getColumnIndex(node) == column) {
                 if (node instanceof ImageView imageView) {
                     return imageView.getImage();
                 }
@@ -1292,46 +1305,53 @@ public class GuiGameController {
         return null;
     }
 
-    public void hideShelf(int numPlayers){
-        if(numPlayers == 2){
-            Player3Name.setVisible(false);
-            Player4Name.setVisible(false);
-            stackPaneP3.setVisible(false);
-            stackPaneP4.setVisible(false);
-        }
-        if(numPlayers == 3){
-            Player4Name.setVisible(false);
-            stackPaneP4.setVisible(false);
+    public void hideShelf (int numPlayers) {
+        switch (numPlayers) {
+            case 2 -> {
+                Player3Name.setVisible(false);
+                Player4Name.setVisible(false);
+                stackPaneP3.setVisible(false);
+                stackPaneP4.setVisible(false);
+            }
+            case 3 -> {
+                Player4Name.setVisible(false);
+                stackPaneP4.setVisible(false);
+            }
         }
     }
 
     @FXML
     void SendTiles1(ActionEvent event) {
         clientManager.onUpdateColumnAndPosition(positions, 0);
+        this.pickUpEnabled = false;
     }
 
     @FXML
     void SendTiles2(ActionEvent event) {
         clientManager.onUpdateColumnAndPosition(positions, 1);
+        this.pickUpEnabled = false;
     }
 
     @FXML
     void SendTiles3(ActionEvent event) {
         clientManager.onUpdateColumnAndPosition(positions, 2);
+        this.pickUpEnabled = false;
     }
 
     @FXML
     void SendTiles4(ActionEvent event) {
         clientManager.onUpdateColumnAndPosition(positions, 3);
+        this.pickUpEnabled = false;
     }
 
     @FXML
     void SendTiles5(ActionEvent event) {
         clientManager.onUpdateColumnAndPosition(positions, 4);
+        this.pickUpEnabled = false;
     }
 
     public void updateChat(String message){
-        Chat.setText(message);
+        messageBox.setText(messageBox.getText() + "\n" + message);
     }
 
 }

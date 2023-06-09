@@ -184,9 +184,9 @@ public class GUI implements View {
 
     @Override
     public void askColumnAndPositions() {
-        //qui mettiamo le istruzioni per prendere e mandare le tiles al server
-
-
+        if (guiGameController != null) {
+            guiGameController.enablePickingUp();
+        }
     }
 
     @Override

@@ -130,6 +130,7 @@ public class GameController implements Serializable {
                     } else {
                         currentVirtualView.showGenericMessage("There was a problem during the insertion: maybe " +
                                 "positions are not valid or the column hasn't got enough cells!");
+                        showGameInformation(getActivePlayer());
                         askActivePlayerColumnAndPosition();
                     }
                 } else {
@@ -449,6 +450,14 @@ public class GameController implements Serializable {
         showPersonalGoalCards();
     }
 
+    private void showGameInformation (String nickname) {
+        VirtualView virtualView = virtualViewMap.get(nickname);
+        showBoard(virtualView);
+        showShelfOfEachPlayer(virtualView);
+        showCommonGoalCards(virtualView);
+        showPersonalGoalCards(nickname);
+    }
+
     /**
      * This method shows to each player the updated board content.
      */
@@ -462,6 +471,16 @@ public class GameController implements Serializable {
     }
 
     /**
+     * Show to the player with the specified {@code VirtualView} passed as parameter the Board
+     * @param virtualView
+     */
+    private void showBoard (VirtualView virtualView) {
+        if (virtualView != null) {
+            virtualView.showBoardContent(game.getBoard().getBoardContentCopy());
+        }
+    }
+
+    /**
      * This method shows to each player the shelf content of every player.
      */
     private void showShelfOfEachPlayer () {
@@ -471,6 +490,14 @@ public class GameController implements Serializable {
                 if (virtualView != null) {
                     virtualView.showShelfContent(playerShelf.getShelf().getShelfContentCopy(), playerShelf.getNickname());
                 }
+            }
+        }
+    }
+
+    private void showShelfOfEachPlayer (VirtualView virtualView) {
+        if (virtualView != null) {
+            for (Player playerShelf : game.getPlayers()) {
+                virtualView.showShelfContent(playerShelf.getShelf().getShelfContentCopy(), playerShelf.getNickname());
             }
         }
     }
@@ -490,6 +517,18 @@ public class GameController implements Serializable {
     }
 
     /**
+     *
+     * @param virtualView
+     */
+    private void showCommonGoalCards (VirtualView virtualView) {
+        if (virtualView != null) {
+            for (CommonGoalCard commonGoalCard : game.getCommonGoalCards()) {
+                virtualView.showCommonGoalCard(commonGoalCard, game.getCommonGoalCards().indexOf(commonGoalCard) + 1);
+            }
+        }
+    }
+
+    /**
      * Sends a message to each player with a copy of the corresponding {@code PersonalGoalCard}.
      */
     private void showPersonalGoalCards () {
@@ -498,6 +537,14 @@ public class GameController implements Serializable {
             if (virtualView != null) {
                 virtualView.showPersonalGoalCard(player.getPersonalGoalCard(), player.getNickname());
             }
+        }
+    }
+
+    private void showPersonalGoalCards (String nickname) {
+        Player player = game.getPlayerByNickname(nickname);
+        VirtualView virtualView = virtualViewMap.get(nickname);
+        if (player != null && virtualView != null) {
+            virtualView.showPersonalGoalCard(player.getPersonalGoalCard(), player.getNickname());
         }
     }
 
