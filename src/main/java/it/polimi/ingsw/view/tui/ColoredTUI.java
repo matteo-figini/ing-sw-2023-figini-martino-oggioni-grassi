@@ -49,8 +49,8 @@ public class ColoredTUI extends TUI {
     }
 
     @Override
-    public void showShelfContent (ShelfCell[][] shelfContent, String nickname) {
-        System.out.println("Shelf of " + nickname + ":");
+    public void showPlayerInformation(String player, ShelfCell[][] shelfContent, ScoringToken firstCommonGoal, ScoringToken secondCommonGoal, boolean hasEndGameToken) {
+        System.out.println("Shelf of " + player + ":");
         System.out.print("  | ");
         for (int i = 0; i < Shelf.COLUMNS; i++)
             System.out.print(i + "   ");
@@ -67,8 +67,8 @@ public class ColoredTUI extends TUI {
                 }
             }
             System.out.println();
-            // System.out.println();
         }
+        showTokensInformation(firstCommonGoal, secondCommonGoal, hasEndGameToken);
     }
 
     @Override

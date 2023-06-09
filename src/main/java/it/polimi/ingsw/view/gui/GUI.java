@@ -4,20 +4,16 @@ import it.polimi.ingsw.model.*;
 import it.polimi.ingsw.model.commongoals.CommonGoalCard;
 import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
 import it.polimi.ingsw.network.ClientManager;
-import it.polimi.ingsw.network.message.Message;
 import it.polimi.ingsw.view.View;
 import it.polimi.ingsw.view.gui.controllers.GuiGameController;
 import it.polimi.ingsw.view.gui.controllers.PreGameLobbyController;
 import it.polimi.ingsw.view.gui.controllers.NumPlayerController;
 import it.polimi.ingsw.view.gui.controllers.WaitingRoomController;
 import javafx.application.Platform;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -216,9 +212,9 @@ public class GUI implements View {
     }
 
     @Override
-    public void showShelfContent(ShelfCell[][] shelfContent, String nickname) {
+    public void showPlayerInformation(String player, ShelfCell[][] shelfContent, ScoringToken firstCommonGoal, ScoringToken secondCommonGoal, boolean hasEndGameToken) {
         Platform.runLater(() -> {
-            guiGameController.updateShelfContent(shelfContent, nickname);
+            guiGameController.updateShelfContent(shelfContent, player);
         });
     }
 
@@ -244,7 +240,7 @@ public class GUI implements View {
     }
 
     public void showUpdateChat(String message) {
-        guiGameController.updateChat(message);
+        guiGameController.updateMessageBox(message);
     }
 
     public void setClientManager(ClientManager clientManager) {

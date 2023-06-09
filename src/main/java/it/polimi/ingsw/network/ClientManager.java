@@ -106,9 +106,14 @@ public class ClientManager {
                 BoardContent boardMessage = (BoardContent) message;
                 view.showBoardContent(boardMessage.getBoardContent());
             }
-            case SHELF_CONTENT -> {
-                ShelfContent shelfMessage = (ShelfContent) message;
-                view.showShelfContent(shelfMessage.getShelfContent(), shelfMessage.getPlayer());
+            case PLAYER_INFORMATION -> {
+                PlayerInformation shelfMessage = (PlayerInformation) message;
+                view.showPlayerInformation(
+                        shelfMessage.getPlayer(),
+                        shelfMessage.getShelfContent(),
+                        shelfMessage.getFirstCommonGoal(),
+                        shelfMessage.getSecondCommonGoal(),
+                        shelfMessage.isHasEndGameToken());
             }
             case COMMON_GOAL_CARD -> {
                 CommonGoalCardMessage commonGoalCardMessage = (CommonGoalCardMessage) message;

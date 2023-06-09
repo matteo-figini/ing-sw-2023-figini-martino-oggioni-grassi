@@ -184,8 +184,8 @@ public class TUI implements View {
     }
 
     @Override
-    public void showShelfContent (ShelfCell[][] shelfContent, String nickname) {
-        System.out.println("Shelf of " + nickname + ":");
+    public void showPlayerInformation(String player, ShelfCell[][] shelfContent, ScoringToken firstCommonGoal, ScoringToken secondCommonGoal, boolean hasEndGameToken) {
+        System.out.println("Shelf of " + player + ":");
         System.out.print("  | ");
         for (int i = 0; i < Shelf.COLUMNS; i++) {
             System.out.print(i + " ");
@@ -211,6 +211,22 @@ public class TUI implements View {
             }
             System.out.println();
         }
+        showTokensInformation(firstCommonGoal, secondCommonGoal, hasEndGameToken);
+    }
+
+    protected void showTokensInformation(ScoringToken firstCommonGoal, ScoringToken secondCommonGoal, boolean hasEndGameToken) {
+        System.out.print("Points from scoring token obtained: ");
+        if (firstCommonGoal != null)
+            System.out.print(firstCommonGoal.score() + " ");
+        if (secondCommonGoal != null)
+            System.out.print(secondCommonGoal.score() + " ");
+        System.out.println();
+        System.out.print("The player " );
+        if (hasEndGameToken)
+            System.out.print("has ");
+        else
+            System.out.print("doesn't have ");
+        System.out.println("the end game token.");
     }
 
     @Override

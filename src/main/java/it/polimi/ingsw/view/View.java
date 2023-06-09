@@ -1,6 +1,7 @@
 package it.polimi.ingsw.view;
 
 import it.polimi.ingsw.model.BoardCell;
+import it.polimi.ingsw.model.ScoringToken;
 import it.polimi.ingsw.model.ShelfCell;
 import it.polimi.ingsw.model.commongoals.CommonGoalCard;
 import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
@@ -66,11 +67,14 @@ public interface View {
     void showBoardContent (BoardCell[][] boardContent);
 
     /**
-     * Show a matrix representing the shelf cells.
-     * @param shelfContent A matrix representing the shelf cells.
-     * @param nickname The nickname to which the shelf content belongs to.
+     *
+     * @param player
+     * @param shelfContent
+     * @param firstCommonGoal
+     * @param secondCommonGoal
+     * @param hasEndGameToken
      */
-    void showShelfContent (ShelfCell[][] shelfContent, String nickname);
+    void showPlayerInformation(String player, ShelfCell[][] shelfContent, ScoringToken firstCommonGoal, ScoringToken secondCommonGoal, boolean hasEndGameToken);
 
     /**
      * Show the common goal card passed as parameter.

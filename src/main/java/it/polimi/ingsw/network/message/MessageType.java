@@ -15,7 +15,7 @@ public enum MessageType {
     // Fase di gioco
     PICK_TILES_REQUEST,
     PICK_TILES_REPLY,
-    SHELF_CONTENT,
+    PLAYER_INFORMATION,
     BOARD_CONTENT,
     COMMON_GOAL_CARD,
     PERSONAL_GOAL_CARD,

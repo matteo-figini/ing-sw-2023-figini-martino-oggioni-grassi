@@ -492,16 +492,30 @@ public class GameController implements Serializable {
             VirtualView virtualView = virtualViewMap.get(player.getNickname());
             for (Player playerShelf : game.getPlayers()) {
                 if (virtualView != null) {
-                    virtualView.showShelfContent(playerShelf.getShelf().getShelfContentCopy(), playerShelf.getNickname());
+                    virtualView.showPlayerInformation(
+                            playerShelf.getNickname(),
+                            playerShelf.getShelf().getShelfContentCopy(),
+                            playerShelf.getFirstCommonGoal(),
+                            playerShelf.getSecondCommonGoal(),
+                            playerShelf.hasEndGameToken());
                 }
             }
         }
     }
 
+    /**
+     *
+     * @param virtualView
+     */
     private void showShelfOfEachPlayer (VirtualView virtualView) {
         if (virtualView != null) {
             for (Player playerShelf : game.getPlayers()) {
-                virtualView.showShelfContent(playerShelf.getShelf().getShelfContentCopy(), playerShelf.getNickname());
+                virtualView.showPlayerInformation(
+                        playerShelf.getNickname(),
+                        playerShelf.getShelf().getShelfContentCopy(),
+                        playerShelf.getFirstCommonGoal(),
+                        playerShelf.getSecondCommonGoal(),
+                        playerShelf.hasEndGameToken());
             }
         }
     }

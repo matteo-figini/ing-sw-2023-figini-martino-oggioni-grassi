@@ -1,6 +1,7 @@
 package it.polimi.ingsw.view;
 
 import it.polimi.ingsw.model.BoardCell;
+import it.polimi.ingsw.model.ScoringToken;
 import it.polimi.ingsw.model.ShelfCell;
 import it.polimi.ingsw.model.commongoals.CommonGoalCard;
 import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
@@ -66,8 +67,8 @@ public class VirtualView implements View {
     }
 
     @Override
-    public void showShelfContent(ShelfCell[][] shelfContent, String player) {
-        clientHandler.sendMessage(new ShelfContent(shelfContent, player));
+    public void showPlayerInformation(String player, ShelfCell[][] shelfContent, ScoringToken firstCommonGoal, ScoringToken secondCommonGoal, boolean hasEndGameToken) {
+        clientHandler.sendMessage(new PlayerInformation(player, shelfContent, firstCommonGoal, secondCommonGoal, hasEndGameToken));
     }
 
     @Override
