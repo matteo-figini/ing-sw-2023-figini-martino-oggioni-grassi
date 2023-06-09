@@ -25,6 +25,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
 public class GuiGameController {
+    /** Reference to the {@code ClientManager} instance of the client. */
     private ClientManager clientManager;
 
     @FXML
@@ -36,13 +37,10 @@ public class GuiGameController {
     int numOfPositions;
     boolean pickUpEnabled = false;
 
-    private int indexP1 = -1;
-    private int cont = 0;
-    private int P2done = 0;
-    private int P3done = 0;
-
     List<Position> positions;
     List<Image> tilesImages = new ArrayList<>();
+
+    List<Node> blurredNodes = new ArrayList<>();
 
     @FXML
     private Button button1;
@@ -930,16 +928,6 @@ public class GuiGameController {
             }
         }
 
-        /*for (Position position : positions) {
-            int row = position.getX();
-            int col = position.getY();
-            cellImageViews[row][col].setImage(null);
-        }
-
-        positions.clear();
-        tilesImages.clear();
-        numOfPositions = 0;*/
-
         Board03.setImage(cellImageViews[0][3].getImage());
         Board04.setImage(cellImageViews[0][4].getImage());
         Board13.setImage(cellImageViews[1][3].getImage());
@@ -1230,17 +1218,8 @@ public class GuiGameController {
         P4shelf54.setImage(cellImageViews[5][4].getImage());
     }
 
-    private int getPlayerShelfIndex(String nickname, List<String> nicknameList) {
-        for (int i = 0; i < nicknameList.size(); i++) {
-            if (nicknameList.get(i).equals(nickname)) {
-                return i;  // Restituisce l'indice della griglia corrispondente al giocatore
-            }
-        }
-        return -1;  // Giocatore non trovato
-    }
-
     public void updatePersonalGoalCard(PersonalGoalCard personalGoalCard) {
-        Image image = null;
+        Image image;
         if (personalGoalCard.getSerialNumber() == 1)
             image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/personal goal cards/Personal_Goals.png")));
         else
@@ -1276,6 +1255,7 @@ public class GuiGameController {
             if (!positions.contains(position)) {
                 positions.add(position);
                 tile.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, new Color(0.4, 1, 0.36, 1), 10, 0.9, -1, 0));
+                this.blurredNodes.add(tile);
                 Image image = getImageFromGrid(gridPane, row, column);
                 if (image != null) {
                     tilesImages.add(image);
@@ -1289,6 +1269,7 @@ public class GuiGameController {
         this.positions = new ArrayList<>();
         this.pickUpEnabled = true;
         this.numOfPositions = 0;
+        this.blurredNodes = new ArrayList<>();
     }
 
     private Image getImageFromGrid(GridPane grid, int row, int column) {
@@ -1320,37 +1301,45 @@ public class GuiGameController {
         }
     }
 
+    private void terminatePickingUp() {
+        this.pickUpEnabled = false;
+        for (Node tile : this.blurredNodes) {
+            tile.setEffect(null);
+        }
+        this.blurredNodes.clear();
+    }
+
     @FXML
     void SendTiles1(ActionEvent event) {
         clientManager.onUpdateColumnAndPosition(positions, 0);
-        this.pickUpEnabled = false;
+        terminatePickingUp();
     }
 
     @FXML
     void SendTiles2(ActionEvent event) {
         clientManager.onUpdateColumnAndPosition(positions, 1);
-        this.pickUpEnabled = false;
+        terminatePickingUp();
     }
 
     @FXML
     void SendTiles3(ActionEvent event) {
         clientManager.onUpdateColumnAndPosition(positions, 2);
-        this.pickUpEnabled = false;
+        terminatePickingUp();
     }
 
     @FXML
     void SendTiles4(ActionEvent event) {
         clientManager.onUpdateColumnAndPosition(positions, 3);
-        this.pickUpEnabled = false;
+        terminatePickingUp();
     }
 
     @FXML
     void SendTiles5(ActionEvent event) {
         clientManager.onUpdateColumnAndPosition(positions, 4);
-        this.pickUpEnabled = false;
+        terminatePickingUp();
     }
 
-    public void updateChat(String message){
+    public void updateMessageBox (String message){
         messageBox.setText(messageBox.getText() + "\n" + message);
     }
 
