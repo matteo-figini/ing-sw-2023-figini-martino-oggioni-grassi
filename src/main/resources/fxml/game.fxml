@@ -138,14 +138,23 @@
                   <Pane prefHeight="469.0" prefWidth="30.0" />
                   <VBox prefHeight="469.0" prefWidth="374.0">
                      <children>
-                        <Text fx:id="Player1Name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player1" textAlignment="CENTER" wrappingWidth="380.53674507141113">
-                           <font>
-                              <Font name="Bauhaus 93" size="20.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </Text>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Text fx:id="Player1Name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player1" textAlignment="CENTER" wrappingWidth="213.33674812316895">
+                                 <font>
+                                    <Font name="Bauhaus 93" size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Text>
+                              <ImageView fx:id="P1Common1Token" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+                              <Pane prefHeight="24.0" prefWidth="20.0" />
+                              <ImageView fx:id="P1Common2Token" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+                              <Pane prefHeight="24.0" prefWidth="20.0" />
+                              <ImageView fx:id="P1CompleteShelfToken" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </HBox>
                         <StackPane prefHeight="478.0" prefWidth="406.0" styleClass="Shelf">
                            <children>
                               <VBox prefHeight="200.0" prefWidth="100.0">
@@ -341,23 +350,71 @@
                         <Insets bottom="25.0" top="40.0" />
                      </padding>
                   </VBox>
-                  <Pane prefHeight="469.0" prefWidth="38.0" />
+                  <Pane prefHeight="478.0" prefWidth="58.0" />
                   <HBox prefHeight="469.0" prefWidth="551.0">
                      <children>
-                        <VBox prefHeight="469.0" prefWidth="302.0">
+                        <VBox alignment="BOTTOM_LEFT" prefHeight="469.0" prefWidth="302.0">
                            <children>
-                              <Pane prefHeight="34.0" prefWidth="318.0" />
-                              <ImageView fx:id="CommonGoalCard1" fitHeight="188.0" fitWidth="289.0" pickOnBounds="true" preserveRatio="true" />
-                              <Pane prefHeight="50.0" prefWidth="311.0" />
-                              <ImageView fx:id="CommonGoalCard2" fitHeight="188.0" fitWidth="289.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="CommonGoalCard1" fitHeight="175.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true" />
+                              <Pane prefHeight="10.0" prefWidth="290.0" />
+                              <HBox prefHeight="40.0" prefWidth="290.0">
+                                 <children>
+                                    <Pane prefHeight="40.0" prefWidth="50.0" />
+                                    <ImageView fx:id="Common1Token1" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                                    <ImageView fx:id="Common1Token2" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                                    <ImageView fx:id="Common1Token3" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                                    <ImageView fx:id="Common1Token4" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Pane prefHeight="40.0" prefWidth="90.0" />
+                                 </children>
+                              </HBox>
+                              <Pane prefHeight="15.0" prefWidth="290.0" />
+                              <HBox prefHeight="40.0" prefWidth="290.0">
+                                 <children>
+                                    <Pane prefHeight="40.0" prefWidth="50.0" />
+                                    <ImageView fx:id="Common2Token1" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                                    <ImageView fx:id="Common2Token2" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                                    <ImageView fx:id="Common2Token3" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                                    <ImageView fx:id="Common2Token4" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Pane prefHeight="40.0" prefWidth="90.0" />
+                                 </children>
+                              </HBox>
+                              <Pane prefHeight="10.0" prefWidth="200.0" />
+                              <ImageView fx:id="CommonGoalCard2" fitHeight="175.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true" />
                            </children>
                         </VBox>
-                        <Pane prefHeight="469.0" prefWidth="22.0" />
-                        <VBox prefHeight="469.0" prefWidth="212.0">
+                        <Pane prefHeight="478.0" prefWidth="19.0" />
+                        <VBox alignment="BOTTOM_LEFT" prefHeight="469.0" prefWidth="212.0">
                            <children>
-                              <Pane prefHeight="136.0" prefWidth="214.0" />
-                              <ImageView fx:id="PersonalGoalCard" fitHeight="324.0" fitWidth="311.0" pickOnBounds="true" preserveRatio="true" />
-                              <Pane prefHeight="104.0" prefWidth="200.0" />
+                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="ExitButton" mnemonicParsing="false" prefHeight="59.0" prefWidth="153.0" text="EXIT THE GAME" textAlignment="CENTER" textFill="RED" underline="true">
+                                       <font>
+                                          <Font name="Impact" size="21.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="8.0" top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <Pane prefHeight="35.0" prefWidth="212.0" />
+                              <HBox alignment="CENTER" prefHeight="40.0" prefWidth="212.0">
+                                 <children>
+                                    <ImageView fx:id="CompleteShelfToken" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                       <HBox.margin>
+                                          <Insets right="33.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </HBox>
+                              <Pane prefHeight="17.0" prefWidth="212.0" />
+                              <ImageView fx:id="PersonalGoalCard" fitHeight="270.0" fitWidth="185.0" pickOnBounds="true" preserveRatio="true" />
                            </children>
                         </VBox>
                      </children>
@@ -366,37 +423,67 @@
             </HBox>
             <HBox prefHeight="62.0" prefWidth="1547.0">
                <children>
-                  <Pane prefHeight="53.0" prefWidth="56.0" />
-                  <VBox alignment="CENTER_RIGHT" prefHeight="61.0" prefWidth="217.0">
+                  <Pane prefHeight="53.0" prefWidth="32.0" />
+                  <VBox alignment="CENTER_RIGHT" prefHeight="53.0" prefWidth="266.0">
                      <children>
-                        <Pane prefHeight="34.0" prefWidth="218.0" />
-                        <Text fx:id="Player2Name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player2" textAlignment="CENTER" wrappingWidth="212.53674507141113">
-                           <font>
-                              <Font name="Bauhaus 93" size="20.0" />
-                           </font>
-                        </Text>
+                        <Pane prefHeight="39.0" prefWidth="218.0" />
+                        <HBox alignment="BOTTOM_LEFT" prefHeight="24.0" prefWidth="232.0">
+                           <children>
+                              <Text fx:id="Player2Name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player2" textAlignment="CENTER" wrappingWidth="150.13675117492676">
+                                 <font>
+                                    <Font name="Bauhaus 93" size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Text>
+                              <ImageView fx:id="P2Common1Token" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+                              <Pane prefHeight="24.0" prefWidth="10.0" />
+                              <ImageView fx:id="P2Common2Token" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+                              <Pane prefHeight="24.0" prefWidth="10.0" />
+                              <ImageView fx:id="P2CompleteShelfToken" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
-                  <Pane prefHeight="53.0" prefWidth="90.0" />
-                  <VBox prefHeight="61.0" prefWidth="215.0">
+                  <Pane prefHeight="53.0" prefWidth="46.0" />
+                  <VBox alignment="BOTTOM_LEFT" prefHeight="53.0" prefWidth="263.0">
                      <children>
                         <Pane prefHeight="200.0" prefWidth="200.0" />
-                        <Text fx:id="Player3Name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player3" textAlignment="CENTER" wrappingWidth="239.73669624328613">
-                           <font>
-                              <Font name="Bauhaus 93" size="20.0" />
-                           </font>
-                        </Text>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Text fx:id="Player3Name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player3" textAlignment="CENTER" wrappingWidth="145.33667159080505">
+                                 <font>
+                                    <Font name="Bauhaus 93" size="20.0" />
+                                 </font>
+                              </Text>
+                              <ImageView fx:id="P3Common1Token" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+                              <Pane prefHeight="24.0" prefWidth="10.0" />
+                              <ImageView fx:id="P3Common2Token" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+                              <Pane prefHeight="24.0" prefWidth="10.0" />
+                              <ImageView fx:id="P3CompleteShelfToken" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
-                  <Pane prefHeight="53.0" prefWidth="73.0" />
-                  <VBox prefHeight="53.0" prefWidth="197.0">
+                  <Pane prefHeight="53.0" prefWidth="51.0" />
+                  <VBox alignment="BOTTOM_LEFT" prefHeight="53.0" prefWidth="264.0">
                      <children>
                         <Pane prefHeight="200.0" prefWidth="200.0" />
-                        <Text fx:id="Player4Name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player4" textAlignment="CENTER" wrappingWidth="230.13672065734863">
-                           <font>
-                              <Font name="Bauhaus 93" size="20.0" />
-                           </font>
-                        </Text>
+                        <HBox prefHeight="23.0" prefWidth="188.0">
+                           <children>
+                              <Text fx:id="Player4Name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player4" textAlignment="CENTER" wrappingWidth="152.53668403625488">
+                                 <font>
+                                    <Font name="Bauhaus 93" size="20.0" />
+                                 </font>
+                              </Text>
+                              <ImageView fx:id="P4Common1Token" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+                              <Pane prefHeight="24.0" prefWidth="10.0" />
+                              <ImageView fx:id="P4Common2Token" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+                              <Pane prefHeight="24.0" prefWidth="10.0" />
+                              <ImageView fx:id="P4CompleteShelfToken" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
                </children></HBox>
@@ -948,7 +1035,7 @@
                   <Pane prefHeight="266.0" prefWidth="33.0" />
                   <VBox prefHeight="266.0" prefWidth="564.0">
                      <children>
-                        <StackPane prefHeight="190.0" prefWidth="564.0" styleClass="Chat">
+                        <StackPane prefHeight="282.0" prefWidth="564.0" styleClass="Chat">
                            <children>
                               <Text fx:id="messageBox" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="546.9367866516113">
                                  <font>
@@ -956,13 +1043,6 @@
                                  </font></Text>
                            </children>
                         </StackPane>
-                        <HBox alignment="BOTTOM_CENTER" prefHeight="81.0" prefWidth="564.0">
-                           <children>
-                              <Pane prefHeight="100.0" prefWidth="213.0" />
-                              <Button fx:id="ExitButton" mnemonicParsing="false" prefHeight="59.0" prefWidth="153.0" text="EXIT THE GAME" />
-                              <Pane prefHeight="200.0" prefWidth="200.0" />
-                           </children>
-                        </HBox>
                      </children>
                   </VBox>
                </children>
@@ -971,9 +1051,9 @@
       </VBox>
    </center>
    <top>
-      <Pane prefHeight="53.0" prefWidth="1547.0" BorderPane.alignment="CENTER" />
+      <Pane prefHeight="34.0" prefWidth="1547.0" BorderPane.alignment="CENTER" />
    </top>
    <bottom>
-      <Pane prefHeight="30.0" prefWidth="851.0" BorderPane.alignment="CENTER" />
+      <Pane prefHeight="18.0" prefWidth="1547.0" BorderPane.alignment="CENTER" />
    </bottom>
 </BorderPane>

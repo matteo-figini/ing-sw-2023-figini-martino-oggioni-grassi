@@ -43,6 +43,63 @@ public class GuiGameController {
     List<Node> blurredNodes = new ArrayList<>();
 
     @FXML
+    private ImageView Common1Token1;
+
+    @FXML
+    private ImageView Common1Token2;
+
+    @FXML
+    private ImageView Common1Token3;
+
+    @FXML
+    private ImageView Common1Token4;
+
+    @FXML
+    private ImageView Common2Token1;
+
+    @FXML
+    private ImageView Common2Token2;
+
+    @FXML
+    private ImageView Common2Token3;
+
+    @FXML
+    private ImageView Common2Token4;
+    @FXML
+    private ImageView CompleteShelfToken;
+    @FXML
+    private ImageView P1Common1Token;
+
+    @FXML
+    private ImageView P1Common2Token;
+
+    @FXML
+    private ImageView P1CompleteShelfToken;
+    @FXML
+    private ImageView P2Common1Token;
+
+    @FXML
+    private ImageView P2Common2Token;
+
+    @FXML
+    private ImageView P2CompleteShelfToken;
+    @FXML
+    private ImageView P3Common1Token;
+
+    @FXML
+    private ImageView P3Common2Token;
+
+    @FXML
+    private ImageView P3CompleteShelfToken;
+    @FXML
+    private ImageView P4Common1Token;
+
+    @FXML
+    private ImageView P4Common2Token;
+
+    @FXML
+    private ImageView P4CompleteShelfToken;
+    @FXML
     private Button button1;
 
     @FXML
@@ -898,6 +955,27 @@ public class GuiGameController {
         assert button3 != null : "fx:id=\"button3\" was not injected: check your FXML file 'game.fxml'.";
         assert button4 != null : "fx:id=\"button4\" was not injected: check your FXML file 'game.fxml'.";
         assert button5 != null : "fx:id=\"button5\" was not injected: check your FXML file 'game.fxml'.";
+        assert Common1Token1 != null : "fx:id=\"Common1Token1\" was not injected: check your FXML file 'game.fxml'.";
+        assert Common1Token2 != null : "fx:id=\"Common1Token2\" was not injected: check your FXML file 'game.fxml'.";
+        assert Common1Token3 != null : "fx:id=\"Common1Token3\" was not injected: check your FXML file 'game.fxml'.";
+        assert Common1Token4 != null : "fx:id=\"Common1Token4\" was not injected: check your FXML file 'game.fxml'.";
+        assert Common2Token1 != null : "fx:id=\"Common2Token1\" was not injected: check your FXML file 'game.fxml'.";
+        assert Common2Token2 != null : "fx:id=\"Common2Token2\" was not injected: check your FXML file 'game.fxml'.";
+        assert Common2Token3 != null : "fx:id=\"Common2Token3\" was not injected: check your FXML file 'game.fxml'.";
+        assert Common2Token4 != null : "fx:id=\"Common2Token4\" was not injected: check your FXML file 'game.fxml'.";
+        assert CompleteShelfToken != null : "fx:id=\"CompleteShelfToken\" was not injected: check your FXML file 'game.fxml'.";
+        assert P1Common1Token != null : "fx:id=\"P1Common1Token\" was not injected: check your FXML file 'game.fxml'.";
+        assert P1Common2Token != null : "fx:id=\"P1Common2Token\" was not injected: check your FXML file 'game.fxml'.";
+        assert P1CompleteShelfToken != null : "fx:id=\"P1CompleteShelfToken\" was not injected: check your FXML file 'game.fxml'.";
+        assert P2Common1Token != null : "fx:id=\"P2Common1Token\" was not injected: check your FXML file 'game.fxml'.";
+        assert P2Common2Token != null : "fx:id=\"P2Common2Token\" was not injected: check your FXML file 'game.fxml'.";
+        assert P2CompleteShelfToken != null : "fx:id=\"P2CompleteShelfToken\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3Common1Token != null : "fx:id=\"P3Common1Token\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3Common2Token != null : "fx:id=\"P3Common2Token\" was not injected: check your FXML file 'game.fxml'.";
+        assert P3CompleteShelfToken != null : "fx:id=\"P3CompleteShelfToken\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4Common1Token != null : "fx:id=\"P4Common1Token\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4Common2Token != null : "fx:id=\"P4Common2Token\" was not injected: check your FXML file 'game.fxml'.";
+        assert P4CompleteShelfToken != null : "fx:id=\"P4CompleteShelfToken\" was not injected: check your FXML file 'game.fxml'.";
     }
 
     public void updateBoardContent(BoardCell[][] boardContent) {
