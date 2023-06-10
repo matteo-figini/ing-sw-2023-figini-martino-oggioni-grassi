@@ -214,7 +214,7 @@ public class GUI implements View {
     @Override
     public void showPlayerInformation(String player, ShelfCell[][] shelfContent, ScoringToken firstCommonGoal, ScoringToken secondCommonGoal, boolean hasEndGameToken) {
         Platform.runLater(() -> {
-            guiGameController.updateShelfContent(shelfContent, player);
+            guiGameController.updateShelfContent(player, shelfContent, firstCommonGoal, secondCommonGoal, hasEndGameToken);
         });
     }
 

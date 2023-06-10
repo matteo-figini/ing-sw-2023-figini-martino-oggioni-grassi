@@ -1124,15 +1124,15 @@ public class GuiGameController {
         }
     }
 
-    public void updateShelfContent(ShelfCell[][] shelfContent, String nickname) {
-        ImageView[][] cellImageViews = new ImageView[6][5];
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 5; j++) {
+    public void updateShelfContent(String nickname, ShelfCell[][] shelfContent, ScoringToken cgc1, ScoringToken cgc2, boolean egt) {
+        ImageView[][] cellImageViews = new ImageView[Shelf.ROWS][Shelf.COLUMNS];
+        for (int i = 0; i < Shelf.ROWS; i++) {
+            for (int j = 0; j < Shelf.COLUMNS; j++) {
                 cellImageViews[i][j] = new ImageView();
             }
         }
-        for(int i=0; i<6; i++){
-            for(int j=0; j<5 ; j++){
+        for(int i = 0; i < Shelf.ROWS; i++){
+            for(int j = 0; j < Shelf.COLUMNS; j++){
                 if(!shelfContent[i][j].isFree()) {
                     ItemTileType itemTileType = shelfContent[i][j].getTile().getItemTileType();
                     Image image = null;
@@ -1151,17 +1151,41 @@ public class GuiGameController {
             }
         }
 
-        if(nickname.equals(Player1Name.getText())){
+        if (nickname.equals(Player1Name.getText())){
             updateP1ShelfImages(cellImageViews);
+            if (cgc1 != null)
+                P1Common1Token.setImage(updateScoringTokenImage(cgc1));
+            if (cgc2 != null)
+                P1Common2Token.setImage(updateScoringTokenImage(cgc2));
+            if (egt)
+                P1CompleteShelfToken.setImage(new Image("/assets/scoring tokens/end game.jpg"));
         }
         if(nickname.equals(Player2Name.getText())){
             updateP2ShelfImages(cellImageViews);
+            if (cgc1 != null)
+                P2Common1Token.setImage(updateScoringTokenImage(cgc1));
+            if (cgc2 != null)
+                P2Common2Token.setImage(updateScoringTokenImage(cgc2));
+            if (egt)
+                P2CompleteShelfToken.setImage(new Image("/assets/scoring tokens/end game.jpg"));
         }
         if(nickname.equals(Player3Name.getText())){
             updateP3ShelfImages(cellImageViews);
+            if (cgc1 != null)
+                P3Common1Token.setImage(updateScoringTokenImage(cgc1));
+            if (cgc2 != null)
+                P3Common2Token.setImage(updateScoringTokenImage(cgc2));
+            if (egt)
+                P3CompleteShelfToken.setImage(new Image("/assets/scoring tokens/end game.jpg"));
         }
         if(nickname.equals(Player4Name.getText())){
             updateP4ShelfImages(cellImageViews);
+            if (cgc1 != null)
+                P4Common1Token.setImage(updateScoringTokenImage(cgc1));
+            if (cgc2 != null)
+                P4Common2Token.setImage(updateScoringTokenImage(cgc2));
+            if (egt)
+                P4CompleteShelfToken.setImage(new Image("/assets/scoring tokens/end game.jpg"));
         }
     }
 
@@ -1310,9 +1334,30 @@ public class GuiGameController {
         List<ScoringToken> tokens = commonGoalCard.getScoringTokens();
         if (progressiveCard == 1) {
             CommonGoalCard1.setImage(image);
+            if (tokens.size() >= 1)
+                Common1Token1.setImage(updateScoringTokenImage(tokens.get(0)));
+            if (tokens.size() >= 2)
+                Common1Token2.setImage(updateScoringTokenImage(tokens.get(1)));
+            if (tokens.size() >= 3)
+                Common1Token3.setImage(updateScoringTokenImage(tokens.get(2)));
+            if (tokens.size() >= 4)
+                Common1Token4.setImage(updateScoringTokenImage(tokens.get(3)));
         } else {
             CommonGoalCard2.setImage(image);
+            if (tokens.size() >= 1)
+                Common2Token1.setImage(updateScoringTokenImage(tokens.get(0)));
+            if (tokens.size() >= 2)
+                Common2Token2.setImage(updateScoringTokenImage(tokens.get(1)));
+            if (tokens.size() >= 3)
+                Common2Token3.setImage(updateScoringTokenImage(tokens.get(2)));
+            if (tokens.size() >= 4)
+                Common2Token4.setImage(updateScoringTokenImage(tokens.get(3)));
         }
+    }
+
+    private Image updateScoringTokenImage (ScoringToken token) {
+        Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/scoring tokens/scoring_" + token.score() + ".jpg")));
+        return image;
     }
 
     public ClientManager getClientManager() {
@@ -1418,7 +1463,7 @@ public class GuiGameController {
     }
 
     public void updateMessageBox (String message){
-        messageBox.setText(messageBox.getText() + "\n" + message);
+        messageBox.setText(/*messageBox.getText() + "\n" + */message);
     }
 
 }
