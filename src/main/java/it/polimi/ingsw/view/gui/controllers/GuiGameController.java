@@ -1334,6 +1334,10 @@ public class GuiGameController {
         List<ScoringToken> tokens = commonGoalCard.getScoringTokens();
         if (progressiveCard == 1) {
             CommonGoalCard1.setImage(image);
+            Common1Token1.setImage(null);
+            Common1Token2.setImage(null);
+            Common1Token3.setImage(null);
+            Common1Token4.setImage(null);
             if (tokens.size() >= 1)
                 Common1Token1.setImage(updateScoringTokenImage(tokens.get(0)));
             if (tokens.size() >= 2)
@@ -1344,6 +1348,10 @@ public class GuiGameController {
                 Common1Token4.setImage(updateScoringTokenImage(tokens.get(3)));
         } else {
             CommonGoalCard2.setImage(image);
+            Common2Token1.setImage(null);
+            Common2Token2.setImage(null);
+            Common2Token3.setImage(null);
+            Common2Token4.setImage(null);
             if (tokens.size() >= 1)
                 Common2Token1.setImage(updateScoringTokenImage(tokens.get(0)));
             if (tokens.size() >= 2)

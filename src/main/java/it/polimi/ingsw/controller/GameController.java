@@ -199,6 +199,10 @@ public class GameController implements Serializable {
      * This method ends the game, calculating the points for each player.
      */
     private void terminateGame () {
+        // Delete the stored matcj
+        Persistence persistence = new Persistence();
+        persistence.delete();
+
         for (Player player : game.getPlayers()) {
             player.addScore(player.getShelf().pointsFromAdjacencies());     // Aggiungi i punti delle adiacenze
             player.addScore(player.getPersonalGoalCard().pointsFromGoals(player.getPersonalGoalCard().goalsSatisfied(player.getShelf())));  // Aggiungi gli obiettivi personali

@@ -29,6 +29,7 @@ assets/*
 
 # Generated files
 .idea/**/contentModel.xml
+match.data
 
 # Sensitive or high-churn files
 .idea/**/dataSources/
