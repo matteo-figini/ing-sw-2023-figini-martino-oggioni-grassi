@@ -236,7 +236,9 @@ public class GUI implements View {
 
     @Override
     public void showScoreBoard(Map<String, Integer> scoreBoardMap) {
-
+        if (guiGameController != null) {
+            guiGameController.updateFinalScoreBoard(scoreBoardMap);
+        }
     }
 
     public void showUpdateChat(String message) {

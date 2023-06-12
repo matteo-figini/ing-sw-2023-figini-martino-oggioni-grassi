@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -23,7 +24,7 @@
                   <Pane prefHeight="469.0" prefWidth="39.0" />
                   <StackPane prefHeight="478.0" prefWidth="478.0" styleClass="Board">
                      <children>
-                        <GridPane fx:id="gridPane" onMouseClicked="#PickUpFromBoard" prefHeight="384.0" prefWidth="384.0">
+                        <GridPane fx:id="gridPane" onMouseClicked="#pickUpFromBoard" prefHeight="384.0" prefWidth="384.0">
                           <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -50,51 +51,51 @@
                               <Insets bottom="25.0" left="20.0" right="21.0" top="20.0" />
                            </padding>
                            <children>
-                              <ImageView fx:id="Board13" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                              <ImageView fx:id="Board03" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
-                              <ImageView fx:id="Board04" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" />
-                              <ImageView fx:id="Board14" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                              <ImageView fx:id="Board15" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                              <ImageView fx:id="Board22" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                              <ImageView fx:id="Board23" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                              <ImageView fx:id="Board24" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-                              <ImageView fx:id="Board25" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-                              <ImageView fx:id="Board26" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="2" />
-                              <ImageView fx:id="Board31" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <ImageView fx:id="Board32" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                              <ImageView fx:id="Board33" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                              <ImageView fx:id="Board34" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-                              <ImageView fx:id="Board35" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-                              <ImageView fx:id="Board36" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="3" />
-                              <ImageView fx:id="Board37" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="3" />
-                              <ImageView fx:id="Board38" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="3" />
-                              <ImageView fx:id="Board40" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4" />
-                              <ImageView fx:id="Board41" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <ImageView fx:id="Board42" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                              <ImageView fx:id="Board43" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-                              <ImageView fx:id="Board44" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-                              <ImageView fx:id="Board45" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="4" />
-                              <ImageView fx:id="Board46" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="4" />
-                              <ImageView fx:id="Board47" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="4" />
-                              <ImageView fx:id="Board48" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="4" />
-                              <ImageView fx:id="Board50" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5" />
-                              <ImageView fx:id="Board51" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                              <ImageView fx:id="Board52" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                              <ImageView fx:id="Board53" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-                              <ImageView fx:id="Board54" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="5" />
-                              <ImageView fx:id="Board55" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="5" />
-                              <ImageView fx:id="Board56" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="5" />
-                              <ImageView fx:id="Board57" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="5" />
-                              <ImageView fx:id="Board62" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                              <ImageView fx:id="Board63" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-                              <ImageView fx:id="Board64" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="6" />
-                              <ImageView fx:id="Board65" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="6" />
-                              <ImageView fx:id="Board66" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="6" />
-                              <ImageView fx:id="Board73" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="7" />
-                              <ImageView fx:id="Board74" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="7" />
-                              <ImageView fx:id="Board75" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="7" />
-                              <ImageView fx:id="Board84" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="8" />
-                              <ImageView fx:id="Board85" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#PickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="8" />
+                              <ImageView fx:id="Board13" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <ImageView fx:id="Board03" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
+                              <ImageView fx:id="Board04" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" />
+                              <ImageView fx:id="Board14" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                              <ImageView fx:id="Board15" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                              <ImageView fx:id="Board22" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <ImageView fx:id="Board23" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <ImageView fx:id="Board24" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                              <ImageView fx:id="Board25" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                              <ImageView fx:id="Board26" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                              <ImageView fx:id="Board31" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <ImageView fx:id="Board32" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <ImageView fx:id="Board33" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                              <ImageView fx:id="Board34" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                              <ImageView fx:id="Board35" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                              <ImageView fx:id="Board36" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+                              <ImageView fx:id="Board37" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+                              <ImageView fx:id="Board38" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="3" />
+                              <ImageView fx:id="Board40" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4" />
+                              <ImageView fx:id="Board41" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <ImageView fx:id="Board42" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                              <ImageView fx:id="Board43" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                              <ImageView fx:id="Board44" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                              <ImageView fx:id="Board45" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                              <ImageView fx:id="Board46" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+                              <ImageView fx:id="Board47" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+                              <ImageView fx:id="Board48" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+                              <ImageView fx:id="Board50" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5" />
+                              <ImageView fx:id="Board51" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <ImageView fx:id="Board52" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                              <ImageView fx:id="Board53" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                              <ImageView fx:id="Board54" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                              <ImageView fx:id="Board55" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+                              <ImageView fx:id="Board56" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+                              <ImageView fx:id="Board57" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="5" />
+                              <ImageView fx:id="Board62" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                              <ImageView fx:id="Board63" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                              <ImageView fx:id="Board64" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                              <ImageView fx:id="Board65" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+                              <ImageView fx:id="Board66" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="6" />
+                              <ImageView fx:id="Board73" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                              <ImageView fx:id="Board74" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+                              <ImageView fx:id="Board75" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+                              <ImageView fx:id="Board84" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+                              <ImageView fx:id="Board85" fitHeight="46.0" fitWidth="46.0" onMouseClicked="#pickUpFromBoard" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="8" />
                               <ImageView fx:id="Board00" fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true" />
                               <ImageView fx:id="Board01" fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
                               <ImageView fx:id="Board02" fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
@@ -138,9 +139,9 @@
                   <Pane prefHeight="469.0" prefWidth="30.0" />
                   <VBox prefHeight="469.0" prefWidth="374.0">
                      <children>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
+                        <HBox prefHeight="34.0" prefWidth="374.0">
                            <children>
-                              <Text fx:id="Player1Name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player1" textAlignment="CENTER" wrappingWidth="213.33674812316895">
+                              <Text fx:id="Player1Name" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Player1" textAlignment="CENTER" wrappingWidth="212.53669929504395">
                                  <font>
                                     <Font name="Bauhaus 93" size="20.0" />
                                  </font>
@@ -309,30 +310,65 @@
                                     </GridPane>
                                     <HBox prefHeight="63.0" prefWidth="381.0">
                                        <children>
-                                          <Button fx:id="button1" mnemonicParsing="false" onAction="#SendTiles1" text="Button">
+                                          <Button fx:id="button1" mnemonicParsing="false" onAction="#SendTiles1" prefHeight="26.0" prefWidth="51.0">
                                              <HBox.margin>
                                                 <Insets right="8.0" top="5.0" />
                                              </HBox.margin>
+                                             <graphic>
+                                                <ImageView fitHeight="25.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../images/arrow.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
                                           </Button>
-                                          <Button fx:id="button2" mnemonicParsing="false" onAction="#SendTiles2" text="Button">
+                                          <Button fx:id="button2" mnemonicParsing="false" onAction="#SendTiles2" prefHeight="34.0" prefWidth="52.0">
                                              <HBox.margin>
                                                 <Insets right="8.0" top="5.0" />
                                              </HBox.margin>
+                                             <graphic>
+                                                <ImageView fitHeight="25.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../images/arrow.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
                                           </Button>
-                                          <Button fx:id="button3" mnemonicParsing="false" onAction="#SendTiles3" text="Button">
+                                          <Button fx:id="button3" mnemonicParsing="false" onAction="#SendTiles3" prefHeight="34.0" prefWidth="50.0">
                                              <HBox.margin>
                                                 <Insets right="8.0" top="5.0" />
                                              </HBox.margin>
+                                             <graphic>
+                                                <ImageView fitHeight="25.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../images/arrow.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
                                           </Button>
-                                          <Button fx:id="button4" mnemonicParsing="false" onAction="#SendTiles4" text="Button">
+                                          <Button fx:id="button4" mnemonicParsing="false" onAction="#SendTiles4" prefHeight="34.0" prefWidth="48.0">
                                              <HBox.margin>
                                                 <Insets right="8.0" top="5.0" />
                                              </HBox.margin>
+                                             <graphic>
+                                                <ImageView fitHeight="25.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../images/arrow.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
                                           </Button>
-                                          <Button fx:id="button5" mnemonicParsing="false" onAction="#SendTiles5" text="Button">
+                                          <Button fx:id="button5" mnemonicParsing="false" onAction="#SendTiles5" prefHeight="34.0" prefWidth="51.0">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
-                                             </HBox.margin></Button>
+                                             </HBox.margin>
+                                             <graphic>
+                                                <ImageView fitHeight="25.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../images/arrow.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic></Button>
                                        </children>
                                        <padding>
                                           <Insets left="45.0" />

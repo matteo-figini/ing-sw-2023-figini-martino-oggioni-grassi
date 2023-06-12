@@ -114,13 +114,18 @@ public class Server{
             clientHandlerMap.remove(nicknameOfDisconnectedClient);
             gameController.removeVirtualView(nicknameOfDisconnectedClient, gameController.getVirtualViewMap().get(nicknameOfDisconnectedClient));
             gameController.broadcastMessage("Player " + nicknameOfDisconnectedClient + " is disconnected.");
-            System.out.println("Client " + clientHandler.toString() + " with name " + nicknameOfDisconnectedClient + " is disconnected.");
+            System.out.println("Client with name " + nicknameOfDisconnectedClient + " is disconnected.");
             if (gameController.getGameState() == GameState.LOBBY_STATE) {
                 // Remove the player from the players' list.
                 gameController.removePlayer(nicknameOfDisconnectedClient);
             } else {
                 // Set the status of the player to offline.
                 gameController.setPlayerOffline(nicknameOfDisconnectedClient);
+            }
+            // System.out.println(clientHandlerMap);
+            if (clientHandlerMap.isEmpty()) {
+                System.out.println("There aren't players connected: game finishes!");
+                System.exit(0);
             }
         } else {
             System.out.println("Cannot find a player from the specified client handler: " + clientHandler.toString());

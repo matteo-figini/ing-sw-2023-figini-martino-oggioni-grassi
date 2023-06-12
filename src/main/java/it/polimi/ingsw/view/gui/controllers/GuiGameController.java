@@ -1,10 +1,7 @@
 package it.polimi.ingsw.view.gui.controllers;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import java.util.*;
 
 import it.polimi.ingsw.model.*;
 import it.polimi.ingsw.model.commongoals.CommonGoalCard;
@@ -980,17 +977,16 @@ public class GuiGameController {
 
     public void updateBoardContent(BoardCell[][] boardContent) {
         ImageView[][] cellImageViews = new ImageView[Board.MAX_ROWS][Board.MAX_COLUMNS];
-        Image image;
         for (int i = 0; i < Board.MAX_ROWS; i++) {
             for (int j = 0; j < Board.MAX_COLUMNS; j++) {
                 cellImageViews[i][j] = new ImageView();
             }
         }
-        for(int i = 0; i < Board.MAX_ROWS; i++){
-            for(int j = 0; j < Board.MAX_COLUMNS; j++){
-                if(!boardContent[i][j].isFree()) {
+        for (int i = 0; i < Board.MAX_ROWS; i++){
+            for (int j = 0; j < Board.MAX_COLUMNS; j++){
+                if (!boardContent[i][j].isFree()) {
                     ItemTileType itemTileType = boardContent[i][j].getItemTile().getItemTileType();
-                    image = null;
+                    Image image = null;
                     switch (itemTileType) {
                         case GREEN -> image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/item tiles/Gatti1.1.png")));
                         case WHITE -> image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/item tiles/Libri1.1.png")));
@@ -1053,73 +1049,51 @@ public class GuiGameController {
         Board85.setImage(cellImageViews[8][5].getImage());
     }
 
-    public void showShelfNicknames(List<String> nicknameList) {
+    public void showShelfNicknames (List<String> nicknameList) {
         String firstPlayerName = clientManager.getNickname();
         Player1Name.setText(firstPlayerName);
 
         if (nicknameList.size() >= 2) {
-            String secondPlayerName;
             if (!nicknameList.get(0).equals(clientManager.getNickname())) {
-                secondPlayerName = nicknameList.get(0);
+                Player2Name.setText(nicknameList.get(0));
             } else {
-                secondPlayerName = nicknameList.get(1);
+                Player2Name.setText(nicknameList.get(1));
             }
-            Player2Name.setText(secondPlayerName);
         }
 
         if (nicknameList.size() >= 3) {
             if (!nicknameList.get(0).equals(clientManager.getNickname())) {
-                String secondPlayerName = nicknameList.get(0);
-                Player2Name.setText(secondPlayerName);
-
-                String thirdPlayerName;
+                Player2Name.setText(nicknameList.get(0));
                 if (!nicknameList.get(1).equals(clientManager.getNickname())) {
-                    thirdPlayerName = nicknameList.get(1);
+                    Player3Name.setText(nicknameList.get(1));
                 } else {
-                    thirdPlayerName = nicknameList.get(2);
+                    Player3Name.setText(nicknameList.get(2));
                 }
-                Player3Name.setText(thirdPlayerName);
             } else {
-                String nomeSecondoGiocatore = nicknameList.get(1);
-                Player2Name.setText(nomeSecondoGiocatore);
-
-                String nomeTerzoGiocatore = nicknameList.get(2);
-                Player3Name.setText(nomeTerzoGiocatore);
+                Player2Name.setText(nicknameList.get(1));
+                Player3Name.setText(nicknameList.get(2));
             }
         }
 
         if (nicknameList.size() >= 4) {
             if (!nicknameList.get(0).equals(clientManager.getNickname())) {
-                String nomeSecondoGiocatore = nicknameList.get(0);
-                Player2Name.setText(nomeSecondoGiocatore);
+                Player2Name.setText(nicknameList.get(0));
 
                 if (!nicknameList.get(1).equals(clientManager.getNickname())) {
-                    String nomeTerzoGiocatore = nicknameList.get(1);
-                    Player3Name.setText(nomeTerzoGiocatore);
-
+                    Player3Name.setText(nicknameList.get(1));
                     if (!nicknameList.get(2).equals(clientManager.getNickname())) {
-                        String nomeQuartoGiocatore = nicknameList.get(2);
-                        Player4Name.setText(nomeQuartoGiocatore);
+                        Player4Name.setText(nicknameList.get(2));
                     } else {
-                        String nomeQuartoGiocatore = nicknameList.get(3);
-                        Player4Name.setText(nomeQuartoGiocatore);
+                        Player4Name.setText(nicknameList.get(3));
                     }
                 } else {
-                    String nomeTerzoGiocatore = nicknameList.get(2);
-                    Player3Name.setText(nomeTerzoGiocatore);
-
-                    String nomeQuartoGiocatore = nicknameList.get(3);
-                    Player4Name.setText(nomeQuartoGiocatore);
+                    Player3Name.setText(nicknameList.get(2));
+                    Player4Name.setText(nicknameList.get(3));
                 }
             } else {
-                String nomeSecondoGiocatore = nicknameList.get(1);
-                Player2Name.setText(nomeSecondoGiocatore);
-
-                String nomeTerzoGiocatore = nicknameList.get(2);
-                Player3Name.setText(nomeTerzoGiocatore);
-
-                String nomeQuartoGiocatore = nicknameList.get(3);
-                Player4Name.setText(nomeQuartoGiocatore);
+                Player2Name.setText(nicknameList.get(1));
+                Player3Name.setText(nicknameList.get(2));
+                Player4Name.setText(nicknameList.get(3));
             }
         }
     }
@@ -1364,8 +1338,7 @@ public class GuiGameController {
     }
 
     private Image updateScoringTokenImage (ScoringToken token) {
-        Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/scoring tokens/scoring_" + token.score() + ".jpg")));
-        return image;
+        return new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/scoring tokens/scoring_" + token.score() + ".jpg")));
     }
 
     public ClientManager getClientManager() {
@@ -1377,7 +1350,7 @@ public class GuiGameController {
     }
 
     @FXML
-    void PickUpFromBoard (MouseEvent event) {
+    void pickUpFromBoard(MouseEvent event) {
         if (pickUpEnabled && numOfPositions < 3) {
             Node tile = (Node) event.getTarget();
             int row = GridPane.getRowIndex(tile);
@@ -1392,7 +1365,11 @@ public class GuiGameController {
                     tilesImages.add(image);
                 }
                 numOfPositions++;
-            }
+            } /*else {
+                positions.remove(position);
+                tile.setEffect(null);
+                this.blurredNodes.remove(tile);
+            }*/
         }
     }
 
@@ -1471,7 +1448,20 @@ public class GuiGameController {
     }
 
     public void updateMessageBox (String message){
-        messageBox.setText(/*messageBox.getText() + "\n" + */message);
+        if (message.equalsIgnoreCase("Connection lost with the server.")) {
+            messageBox.setText(messageBox.getText() + "\n" + message);
+        } else {
+            messageBox.setText(message);
+        }
+    }
+
+    public void updateFinalScoreBoard (Map<String, Integer> scoreBoardMap) {
+        StringBuilder scoreBoardMessage;
+        scoreBoardMessage = new StringBuilder("FINAL SCOREBOARD\n");
+        for (Map.Entry<String, Integer> entry : scoreBoardMap.entrySet()) {
+            scoreBoardMessage.append(entry.getKey()).append(": ").append(entry.getValue()).append(" points");
+        }
+        updateMessageBox(scoreBoardMessage.toString());
     }
 
 }

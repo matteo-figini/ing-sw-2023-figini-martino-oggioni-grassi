@@ -23,11 +23,10 @@ import java.util.stream.Collectors;
  * - Handle the game logic.
  */
 public class GameController implements Serializable {
-
     @Serial
     private static final long serialVersionUID = 34793873212834L;
 
-    /** Entry point for the model. */
+    /** Entry class {@code Game} for the model. */
     private Game game;
 
     /** State of the game. */
@@ -192,17 +191,15 @@ public class GameController implements Serializable {
      * @param message The message received.
      */
     private void endGameStateManager (Message message) {
-
+        // TODO: this method doesn't have a body: fill it or delete it.
     }
 
     /**
-     * This method ends the game, calculating the points for each player.
+     * This method terminates the game: for each player total score is computed and after that sends a message
+     * to all the players containing the score board. After this, the game is resetted to the initial state, the
+     * file containing the stored match is deleted and a message is sent to all the clients.
      */
     private void terminateGame () {
-        // Delete the stored matcj
-        Persistence persistence = new Persistence();
-        persistence.delete();
-
         for (Player player : game.getPlayers()) {
             player.addScore(player.getShelf().pointsFromAdjacencies());     // Aggiungi i punti delle adiacenze
             player.addScore(player.getPersonalGoalCard().pointsFromGoals(player.getPersonalGoalCard().goalsSatisfied(player.getShelf())));  // Aggiungi gli obiettivi personali
@@ -232,8 +229,19 @@ public class GameController implements Serializable {
         showScoreBoard(sortedScoreMap);
 
         Game.resetGameInstance();
-        broadcastMessage("Game finished! Server ready for a new game...");
-        initGameController();
+        // Delete the stored match
+        Persistence persistence = new Persistence();
+        persistence.delete();
+
+        broadcastMessage("Game finished! Thanks for playing with us.");
+        System.exit(0);
+        // sendExitMessage();
+    }
+
+    private void sendExitMessage () {
+        for (Map.Entry<String, VirtualView> entry : virtualViewMap.entrySet()) {
+
+        }
     }
 
     /* ---------- LOGIN HANDLER ---------- */
