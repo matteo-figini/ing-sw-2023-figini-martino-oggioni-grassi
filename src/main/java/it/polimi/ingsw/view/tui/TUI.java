@@ -53,11 +53,15 @@ public class TUI implements View {
             if (ipAddress.equalsIgnoreCase(""))
                 ipAddress = defaultIpAddress;
             System.out.print("Please insert the port of the server (default: " + defaultPort + "): ");
-            input = scanner.nextLine();
-            if (input.equals(""))
+            try {
+                input = scanner.nextLine();
+                if (input.equals(""))
+                    port = defaultPort;
+                else
+                    port = Integer.parseInt(input);
+            } catch (NumberFormatException e) {
                 port = defaultPort;
-            else
-                port = Integer.parseInt(input);
+            }
 
             if (ClientManager.isValidIPAddress(ipAddress) && ClientManager.isValidPort(port))
                 validInput = true;
@@ -78,7 +82,7 @@ public class TUI implements View {
         int numOfPlayers;           // Default players number
         do {
             System.out.print("How many players do you want to play with (between 2 and 4)? ");
-            numOfPlayers = Integer.parseInt(scanner.nextLine());
+            numOfPlayers = readIntegerNumber();
         } while (numOfPlayers < Game.MIN_PLAYERS || numOfPlayers > Game.MAX_PLAYERS);
         clientManager.onUpdatePlayersNumber(numOfPlayers);
     }
@@ -101,7 +105,7 @@ public class TUI implements View {
         // Number of positions
         do {
             System.out.print("How many tiles do you want to pick up from the board (min. 1, max. 3)? ");
-            numOfPositions = Integer.parseInt(scanner.nextLine());
+            numOfPositions = readIntegerNumber();
         } while (numOfPositions < 1 || numOfPositions > 3);
 
         // Positions
@@ -111,13 +115,13 @@ public class TUI implements View {
             // Row
             do {
                 System.out.print("Row: ");
-                row = Integer.parseInt(scanner.nextLine());
+                row = readIntegerNumber();
             } while (row < 0 || row >= Board.MAX_ROWS);
 
             // Column
             do {
                 System.out.print("Column: ");
-                col = Integer.parseInt(scanner.nextLine());
+                col = readIntegerNumber();
             } while (col < 0 || col >= Board.MAX_COLUMNS);
             positions.add(new Position(row, col));
         }
@@ -125,7 +129,7 @@ public class TUI implements View {
         // Column
         do {
             System.out.print("What column in your shelf do you want to insert the " + numOfPositions + " tiles? ");
-            column = Integer.parseInt(scanner.nextLine());
+            column = readIntegerNumber();
         } while (column < 0 || column >= Shelf.COLUMNS);
 
         clientManager.onUpdateColumnAndPosition(positions, column);
@@ -279,6 +283,16 @@ public class TUI implements View {
             System.out.println(progressivePosition + ") " + entry.getKey() + ": " + entry.getValue() + " points");
             progressivePosition++;
         }
+    }
+
+    private int readIntegerNumber () {
+        int number = 0;
+        try {
+            number = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException ignored) {
+            number = 0;
+        }
+        return number;
     }
 
     /* ---------- GETTERS & SETTERS ---------- */

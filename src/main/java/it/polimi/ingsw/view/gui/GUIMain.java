@@ -1,7 +1,7 @@
 package it.polimi.ingsw.view.gui;
 
 import it.polimi.ingsw.network.ClientManager;
-import it.polimi.ingsw.view.gui.controllers.LobbyController;
+import it.polimi.ingsw.view.gui.controllers.ConnectionInfoSceneController;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -36,10 +36,10 @@ public class GUIMain extends Application {
 
         // Load root layout
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/lobby.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/ConnectionInfoScene.fxml"));
         Parent root = loader.load();
-        LobbyController lobbyController = loader.getController();
-        lobbyController.setClientManager(clientManager);
+        ConnectionInfoSceneController connectionInfoSceneController = loader.getController();
+        connectionInfoSceneController.setClientManager(clientManager);
 
         //Set the scene
         Scene scene = new Scene(root);

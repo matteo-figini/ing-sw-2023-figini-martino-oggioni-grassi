@@ -11,22 +11,21 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="559.0" prefWidth="851.0" styleClass="BackGround" stylesheets="@../css/lobbyStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polimi.ingsw.view.gui.controllers.PreGameLobbyController">
+<BorderPane prefHeight="559.0" prefWidth="851.0" styleClass="BackGround" stylesheets="@../css/lobbyStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polimi.ingsw.view.gui.controllers.ConnectionInfoSceneController">
    <top>
-      <HBox prefHeight="193.0" prefWidth="851.0" styleClass="Title" BorderPane.alignment="CENTER">
+      <HBox prefHeight="183.0" prefWidth="851.0" styleClass="Title" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets top="20.0" />
-         </BorderPane.margin>
-      </HBox>
+         </BorderPane.margin></HBox>
    </top>
    <center>
-      <VBox alignment="BASELINE_CENTER" opacity="0.95" prefHeight="268.0" prefWidth="851.0" BorderPane.alignment="CENTER">
+      <VBox alignment="BASELINE_CENTER" opacity="0.95" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
             <HBox prefHeight="62.0" prefWidth="851.0" />
             <HBox prefHeight="40.0" prefWidth="851.0" styleClass="Pane" />
             <HBox alignment="CENTER" prefHeight="74.0" prefWidth="851.0" styleClass="Pane">
                <children>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Nickname:    " textAlignment="RIGHT" wrappingWidth="248.03515625">
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="IP Address:   " textAlignment="RIGHT" wrappingWidth="286.03515625">
                      <font>
                         <Font name="System Bold Italic" size="40.0" />
                      </font>
@@ -34,17 +33,34 @@
                         <Insets />
                      </HBox.margin>
                   </Text>
-                  <TextField fx:id="playerNickname" alignment="CENTER" prefHeight="30.0" prefWidth="237.0" styleClass="Field">
+                  <TextField fx:id="playerIpAddress" alignment="CENTER" prefHeight="30.0" prefWidth="310.0" styleClass="Field">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin></TextField>
+               </children>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="851.0" styleClass="Pane" />
+            <HBox alignment="CENTER" prefHeight="89.0" prefWidth="851.0" styleClass="Pane">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Socket:         " textAlignment="RIGHT" wrappingWidth="286.03515625">
+                     <font>
+                        <Font name="System Bold Italic" size="40.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Text>
+                  <TextField fx:id="playerSocket" alignment="CENTER" prefHeight="30.0" prefWidth="310.0" styleClass="Field">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </TextField>
                </children>
             </HBox>
-            <HBox prefHeight="40.0" prefWidth="851.0" styleClass="Pane" />
+            <HBox alignment="CENTER" prefHeight="70.0" prefWidth="851.0" styleClass="Pane" />
             <HBox alignment="CENTER" prefHeight="0.0" prefWidth="851.0" styleClass="Pane">
                <children>
-                  <Button fx:id="button2" mnemonicParsing="false" onAction="#askNicknameInformation" prefHeight="56.0" prefWidth="193.0" text="JOIN THE GAME" textAlignment="CENTER">
+                  <Button fx:id="button1" mnemonicParsing="false" onAction="#askServerInformation" prefHeight="39.0" prefWidth="245.0" text="CONNECT TO THE GAME" textAlignment="CENTER">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -62,14 +78,14 @@
       </VBox>
    </center>
    <bottom>
-      <VBox prefHeight="96.0" prefWidth="851.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="107.0" prefWidth="851.0" BorderPane.alignment="CENTER">
          <children>
             <HBox prefHeight="23.0" prefWidth="851.0" />
             <HBox alignment="BOTTOM_CENTER" prefHeight="81.0" prefWidth="851.0">
                <children>
                   <ImageView fitHeight="70.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../assets/Publisher%20material/Publisher.png" />
+                        <Image url="@../assets/Publisher material/Publisher.png" />
                      </image>
                   </ImageView>
                </children>

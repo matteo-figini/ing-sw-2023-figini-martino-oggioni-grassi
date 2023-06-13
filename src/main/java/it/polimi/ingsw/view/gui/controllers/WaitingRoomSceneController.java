@@ -6,7 +6,7 @@ import java.util.ResourceBundle;
 import it.polimi.ingsw.network.ClientManager;
 import javafx.fxml.FXML;
 
-public class WaitingRoomController {
+public class WaitingRoomSceneController {
 
     private ClientManager clientManager;
 

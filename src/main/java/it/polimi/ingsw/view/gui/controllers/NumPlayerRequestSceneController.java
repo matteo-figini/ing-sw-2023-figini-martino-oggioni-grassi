@@ -10,7 +10,7 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class NumPlayerController {
+public class NumPlayerRequestSceneController {
     private ClientManager clientManager;
     private GUI gui;
 
@@ -28,12 +28,17 @@ public class NumPlayerController {
 
     @FXML
     void initialize() {
-        assert button3 != null : "fx:id=\"button3\" was not injected: check your FXML file 'numPlayer.fxml'.";
-        assert numPlayers != null : "fx:id=\"numPlayers\" was not injected: check your FXML file 'numPlayer.fxml'.";
+        assert button3 != null : "fx:id=\"button3\" was not injected: check your FXML file 'NumPlayerRequestScene.fxml'.";
+        assert numPlayers != null : "fx:id=\"numPlayers\" was not injected: check your FXML file 'NumPlayerRequestScene.fxml'.";
     }
 
     public int getPlayerNumber() {
-        return Integer.parseInt(numPlayers.getText());
+        int playerNumber = 0;
+        try {
+            playerNumber = Integer.parseInt(numPlayers.getText());
+        } catch (NumberFormatException ignored) {
+        }
+        return playerNumber;
     }
 
     public void setClientManager(ClientManager clientManager) {

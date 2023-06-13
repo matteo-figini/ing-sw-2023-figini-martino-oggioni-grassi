@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="559.0" prefWidth="851.0" styleClass="BackGround" stylesheets="@../css/lobbyStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polimi.ingsw.view.gui.controllers.NumPlayerController">
+<BorderPane prefHeight="559.0" prefWidth="851.0" styleClass="BackGround" stylesheets="@../css/lobbyStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polimi.ingsw.view.gui.controllers.NumPlayerRequestSceneController">
     <top>
         <HBox prefHeight="193.0" prefWidth="851.0" styleClass="Title" BorderPane.alignment="CENTER">
             <BorderPane.margin>
@@ -69,7 +69,7 @@
                     <children>
                         <ImageView fitHeight="70.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../assets/Publisher%20material/Publisher.png" />
+                                <Image url="@../assets/Publisher material/Publisher.png" />
                             </image>
                         </ImageView>
                     </children>

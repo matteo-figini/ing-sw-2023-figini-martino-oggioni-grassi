@@ -5,10 +5,10 @@ import it.polimi.ingsw.model.commongoals.CommonGoalCard;
 import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
 import it.polimi.ingsw.network.ClientManager;
 import it.polimi.ingsw.view.View;
-import it.polimi.ingsw.view.gui.controllers.GuiGameController;
-import it.polimi.ingsw.view.gui.controllers.PreGameLobbyController;
-import it.polimi.ingsw.view.gui.controllers.NumPlayerController;
-import it.polimi.ingsw.view.gui.controllers.WaitingRoomController;
+import it.polimi.ingsw.view.gui.controllers.GameSceneController;
+import it.polimi.ingsw.view.gui.controllers.NicknameRequestSceneController;
+import it.polimi.ingsw.view.gui.controllers.NumPlayerRequestSceneController;
+import it.polimi.ingsw.view.gui.controllers.WaitingRoomSceneController;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -27,13 +27,13 @@ import java.util.Objects;
  * of the MVC pattern.
  */
 public class GUI implements View {
-
     /** Reference to the current {@code ClientManager} of the specified client. */
     private ClientManager clientManager;
 
     /** Reference to the {@code GUIMain} class. */
     private GUIMain guiMain;
-    private GuiGameController guiGameController;
+    private NicknameRequestSceneController nicknameRequestSceneController;
+    private GameSceneController gameSceneController;
     private List<String> nicknameList;
 
     /**
@@ -46,23 +46,25 @@ public class GUI implements View {
 
     @Override
     public void askNickname() throws IOException {
-        // When the server requires the client nickname, switch to the preGameLobby state.
+        // When the server requires the client nickname, switch to the Nickname Request scene.
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/preGameLobby.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/NicknameRequestScene.fxml"));
         Parent root = loader.load();
 
-        PreGameLobbyController preGameLobbyController = loader.getController();
-        preGameLobbyController.setOnNicknameConfirmedListener(this::onNicknameConfirmed);
+        nicknameRequestSceneController = loader.getController();
+        nicknameRequestSceneController.setOnNicknameConfirmedListener(this::onNicknameConfirmed);
 
         Scene scene = new Scene(root);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/lobbyStyle.css")).toExternalForm());
-        Stage stage = guiMain.getPrimaryStage();
-        stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/Publisher material/Icon 50x50px.png"))));
-        stage.setTitle("My Shelfie");
-        stage.setScene(scene);
-        stage.setFullScreen(true);
-        stage.setFullScreenExitHint("");
-        stage.show();
+        Platform.runLater(() -> {
+            Stage stage = guiMain.getPrimaryStage();
+            stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/Publisher material/Icon 50x50px.png"))));
+            stage.setTitle("My Shelfie");
+            stage.setScene(scene);
+            stage.setFullScreen(true);
+            stage.setFullScreenExitHint("");
+            stage.show();
+        });
     }
 
     private void onNicknameConfirmed (String nickname) {
@@ -73,10 +75,10 @@ public class GUI implements View {
     public void askPlayersNumber() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/fxml/numPlayer.fxml"));
+            loader.setLocation(getClass().getResource("/fxml/NumPlayerRequestScene.fxml"));
             Parent root = loader.load();
 
-            NumPlayerController controller = loader.getController();
+            NumPlayerRequestSceneController controller = loader.getController();
             controller.setClientManager(clientManager);
             controller.setGUI(this);
 
@@ -101,10 +103,10 @@ public class GUI implements View {
     public void waitingRoom() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/fxml/waitingRoom.fxml"));
+            loader.setLocation(getClass().getResource("/fxml/WaitingRoomScene.fxml"));
             Parent root = loader.load();
 
-            WaitingRoomController controller = loader.getController();
+            WaitingRoomSceneController controller = loader.getController();
             controller.setClientManager(clientManager);
 
             Scene scene = new Scene(root);
@@ -127,10 +129,10 @@ public class GUI implements View {
     public void switchToWaitingRoom () {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/fxml/waitingRoom.fxml"));
+            loader.setLocation(getClass().getResource("/fxml/WaitingRoomScene.fxml"));
             Parent root = loader.load();
 
-            WaitingRoomController controller = loader.getController();
+            WaitingRoomSceneController controller = loader.getController();
             controller.setClientManager(clientManager);
 
             Scene scene = new Scene(root);
@@ -154,11 +156,11 @@ public class GUI implements View {
     public void switchToGameRoom(){
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/fxml/game.fxml"));
+            loader.setLocation(getClass().getResource("/fxml/GameScene.fxml"));
             Parent root = loader.load();
 
-            this.guiGameController = loader.getController();
-            this.guiGameController.setClientManager(clientManager);
+            this.gameSceneController = loader.getController();
+            this.gameSceneController.setClientManager(clientManager);
 
             Scene scene = new Scene(root);
             scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/lobbyStyle.css")).toExternalForm());
@@ -180,21 +182,26 @@ public class GUI implements View {
 
     @Override
     public void askColumnAndPositions() {
-        if (guiGameController != null) {
-            guiGameController.enablePickingUp();
+        if (gameSceneController != null) {
+            gameSceneController.enablePickingUp();
         }
     }
 
     @Override
-    public void showLoginResponse(boolean validNickname, boolean connectionEstablished) {
-
+    public void showLoginResponse (boolean validNickname, boolean connectionEstablished) {
+        if (nicknameRequestSceneController != null && !validNickname) {
+            Platform.runLater(() -> {
+                nicknameRequestSceneController.setInformationMessage("Invalid nickname, please try again");
+                nicknameRequestSceneController.resetPlayerNickname();
+            });
+        }
     }
 
     @Override
     public void showGenericMessage(String genericMessage) {
         // TODO: modificare la stampa del messaggio
         System.out.println(genericMessage);
-        if(guiGameController!=null) {
+        if(gameSceneController !=null) {
             showUpdateChat(genericMessage);
         }
     }
@@ -206,43 +213,39 @@ public class GUI implements View {
 
     @Override
     public void showBoardContent(BoardCell[][] boardContent) {
-        Platform.runLater(() -> {
-            guiGameController.updateBoardContent(boardContent);
-        });
+        Platform.runLater(() -> gameSceneController.updateBoardContent(boardContent));
     }
 
     @Override
     public void showPlayerInformation(String player, ShelfCell[][] shelfContent, ScoringToken firstCommonGoal, ScoringToken secondCommonGoal, boolean hasEndGameToken) {
-        Platform.runLater(() -> {
-            guiGameController.updateShelfContent(player, shelfContent, firstCommonGoal, secondCommonGoal, hasEndGameToken);
-        });
+        Platform.runLater(() -> gameSceneController.updateShelfContent(player, shelfContent, firstCommonGoal, secondCommonGoal, hasEndGameToken));
     }
 
     @Override
     public void showCommonGoalCard(CommonGoalCard commonGoalCard, Integer progressiveCard) {
         Platform.runLater(() -> {
-            guiGameController.updateCommonGoalCard(commonGoalCard, progressiveCard);
+            gameSceneController.updateCommonGoalCard(commonGoalCard, progressiveCard);
         });
     }
 
     @Override
     public void showPersonalGoalCard(PersonalGoalCard personalGoalCard, String cardOwner) {
-        guiGameController.hideShelf(nicknameList.size());
-        guiGameController.showShelfNicknames(nicknameList);
+        gameSceneController.hideShelf(nicknameList.size());
+        gameSceneController.showShelfNicknames(nicknameList);
         Platform.runLater(() -> {
-            guiGameController.updatePersonalGoalCard(personalGoalCard);
+            gameSceneController.updatePersonalGoalCard(personalGoalCard);
         });
     }
 
     @Override
     public void showScoreBoard(Map<String, Integer> scoreBoardMap) {
-        if (guiGameController != null) {
-            guiGameController.updateFinalScoreBoard(scoreBoardMap);
+        if (gameSceneController != null) {
+            gameSceneController.updateFinalScoreBoard(scoreBoardMap);
         }
     }
 
     public void showUpdateChat(String message) {
-        guiGameController.updateMessageBox(message);
+        gameSceneController.updateMessageBox(message);
     }
 
     public void setClientManager(ClientManager clientManager) {

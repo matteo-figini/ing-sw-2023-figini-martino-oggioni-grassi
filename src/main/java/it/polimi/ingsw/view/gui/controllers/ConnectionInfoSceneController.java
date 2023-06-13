@@ -12,7 +12,7 @@ import java.util.ResourceBundle;
 /**
  * This class represents the first login scene, where the user inserts the IP address of the server and the port.
  */
-public class LobbyController {
+public class ConnectionInfoSceneController {
     /** Reference to the {@code ClientManager}. */
     private ClientManager clientManager;
 
@@ -33,9 +33,9 @@ public class LobbyController {
 
     @FXML
     void initialize() {
-        assert button1 != null : "fx:id=\"button1\" was not injected: check your FXML file 'lobby.fxml'.";
-        assert playerIpAddress != null : "fx:id=\"playerIpAddress\" was not injected: check your FXML file 'lobby.fxml'.";
-        assert playerSocket != null : "fx:id=\"playerSocket\" was not injected: check your FXML file 'lobby.fxml'.";
+        assert button1 != null : "fx:id=\"button1\" was not injected: check your FXML file 'ConnectionInfoScene.fxml'.";
+        assert playerIpAddress != null : "fx:id=\"playerIpAddress\" was not injected: check your FXML file 'ConnectionInfoScene.fxml'.";
+        assert playerSocket != null : "fx:id=\"playerSocket\" was not injected: check your FXML file 'ConnectionInfoScene.fxml'.";
     }
 
     public String getPlayerIpAddress() {

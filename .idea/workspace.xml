@@ -4,19 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Removed GSON dependencies; fixed a view mistake on scoring tokens on the GUI">
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/ScoreBoardSceneController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/scoreBoardScene.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/arrow.png" afterDir="false" />
+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Implementation of the score board inside the GUI Game Scene">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/match.data" beforeDir="false" afterPath="$PROJECT_DIR$/match.data" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/exception/NoScoringTokenAvailableException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/exception/NoScoringTokenAvailableException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/exception/NotEnoughCellsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/exception/NotEnoughCellsException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/GuiGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/GuiGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GUIMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GUIMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/GuiGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/GameSceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/LobbyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/ConnectionInfoSceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/NumPlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/NumPlayerRequestSceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/PreGameLobbyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/NicknameRequestSceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/ScoreBoardSceneController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/WaitingRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/WaitingRoomSceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/tui/TUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/tui/TUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/GameScene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/lobby.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/ConnectionInfoScene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/numPlayer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/NumPlayerRequestScene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/preGameLobby.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/NicknameRequestScene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/scoreBoardScene.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/waitingRoom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/WaitingRoomScene.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +112,7 @@
       <recent name="C:\Desktop\Progetto\src\main\resources\assets" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ServerMain">
+  <component name="RunManager" selected="Application.ClientMain">
     <configuration name="ClientMain" type="Application" factoryName="Application" singleton="false" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="19" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -116,20 +122,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="it.polimi.ingsw.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GUIMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.view.gui.GUIMain" />
-      <module name="PSP18" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Java\javafx-sdk-20.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="it.polimi.ingsw.view.gui.scene.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -200,7 +192,6 @@
     </configuration>
     <list>
       <item itemvalue="Application.ClientMain" />
-      <item itemvalue="Application.GUIMain" />
       <item itemvalue="Application.ServerMain" />
       <item itemvalue="JUnit.ShelfTest" />
       <item itemvalue="JUnit.ShelfTest.pointsFromAdjacenciesTest2" />
@@ -212,7 +203,6 @@
         <item itemvalue="JUnit.ShelfTest" />
         <item itemvalue="JUnit.ShelfTest.pointsFromAdjacenciesTest2" />
         <item itemvalue="JUnit.TwoRowsGoalCardTest" />
-        <item itemvalue="Application.GUIMain" />
       </list>
     </recent_temporary>
   </component>
@@ -393,6 +383,9 @@
       <workItem from="1686495678493" duration="762000" />
       <workItem from="1686564217096" duration="893000" />
       <workItem from="1686584048644" duration="1346000" />
+      <workItem from="1686689028565" duration="501000" />
+      <workItem from="1686689705551" duration="539000" />
+      <workItem from="1686696893084" duration="1607000" />
     </task>
     <task id="LOCAL-00001" summary="Class Player layout">
       <created>1679754417366</created>
