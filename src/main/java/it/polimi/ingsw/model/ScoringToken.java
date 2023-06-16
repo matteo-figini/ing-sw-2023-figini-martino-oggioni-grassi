@@ -9,16 +9,13 @@ import java.io.Serializable;
 public record ScoringToken(int score) implements Serializable {
     /**
      * Initialize the token with its own score.
-     *
-     * @param score the score of the card.
+     * @param score The score of the card.
      */
     public ScoringToken {
     }
 
     /**
-     * Get the score of the card.
-     *
-     * @return the score of the card.
+     * @return The score of the card.
      */
     @Override
     public int score() {

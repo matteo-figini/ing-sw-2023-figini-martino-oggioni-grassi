@@ -73,6 +73,18 @@ public class Game implements Serializable {
     }
 
     /**
+     * Restore a game previously saved as the current game.
+     * @param previousGame Instance of the previously saved game.
+     */
+    public void restorePreviousGame (Game previousGame) {
+        this.board = previousGame.getBoard();
+        this.players = previousGame.getPlayers();
+        this.bagTiles = previousGame.getBagTiles();
+        this.numberOfPlayers = previousGame.getChosenPlayersNumber();
+        this.commonGoalCards = previousGame.getCommonGoalCards();
+    }
+
+    /**
      * Add the {@code CommonGoalCard} passed by parameter to the list of the common goal cards.
      * @param commonGoalCard The common goal card to add in the list.
      */
@@ -105,12 +117,12 @@ public class Game implements Serializable {
     }
 
     /**
-     * This method prepare the game components after the initialization of the players. In order to start the game,
+     * Prepare the game components after the initialization of the players. In order to start the game,
      * these operations are mandatory:
      * -) Create the board, depending on the number of the players.
      * -) Refill the board from the bag with item tiles.
-     * -) Draw & assign 2 common goal cards
-     * -) Draw & assign 1 personal goal card for each player.
+     * -) Draw and assign 2 common goal cards
+     * -) Draw and assign 1 personal goal card for each player.
      */
     public void startGame () {
         this.board = new Board(players.size());
@@ -120,27 +132,22 @@ public class Game implements Serializable {
     }
 
     /**
-     * This method refills the board from the bag. The number of the tiles to move is the minimum value between the number
+     * Refill the board from the bag. The number of the tiles to move is the minimum value between the number
      * of the free cells on the board and the number of the tiles in the bag.
-     * @return The number of the item tiles moved from the bag to the board. A return value of 0 means that a
-     * WrongNumberOfCardsException is raised.
      */
-    public int refillBoardFromBag () {
-        int tilesMoved = 0;
+    public void refillBoardFromBag () {
         this.bagTiles.shuffle();
         int tilesToMove = Math.min(board.getFreeCellsOnBoard(), bagTiles.availableTiles());
         try {
             List<ItemTile> tilesExtracted = this.bagTiles.drawTiles(tilesToMove);
-            tilesMoved = tilesExtracted.size();
             this.board.refillBoard(tilesExtracted);
         } catch (WrongNumberOfCardsException ex) {
             System.out.println(ex.getMessage());
         }
-        return tilesMoved;
     }
 
     /**
-     * This method choose randomly 2 common goal cards from the set of the cards and assigns them to the class attribute.
+     * Choose randomly 2 common goal cards from the set of the cards and assigns them to the class attribute.
      * It ensures that the cards generated are different from each other.
      */
     public void assignsCommonGoalCards () {
@@ -169,7 +176,7 @@ public class Game implements Serializable {
     }
 
     /**
-     * This method assigns all the personal goal cards to the players. It ensures that each player has got a different
+     * Assigns all the personal goal cards to the players. It ensures that each player has got a different
      * personal goal card as in the real game.
      */
     public void assignsPersonalGoalCards () {
@@ -198,7 +205,7 @@ public class Game implements Serializable {
     }
 
     /**
-     * This util method generates a list of "howMany" different random numbers in a range between "min" (inclusive)
+     * Generates a list of "howMany" different random numbers in a range between "min" (inclusive)
      * and "max" (inclusive). If "howMany" parameter is lower than the range specified, it returns null.
      * @param howMany The number of numbers to generate.
      * @param min The minimum value of numbers.
@@ -225,7 +232,6 @@ public class Game implements Serializable {
 
     /* ---------- GETTERS & SETTERS ---------- */
     /**
-     * This method returns the list of the players in the game.
      * @return The list of the players in the game.
      */
     public List<Player> getPlayers () {
@@ -233,7 +239,7 @@ public class Game implements Serializable {
     }
 
     /**
-     * This method creates a new player instance based on the nickname passed as parameter and add it to the players list.
+     * Create a new player instance based on the nickname passed as parameter and add it to the players list.
      * @param nickname The nickname of the player. Requires that is not null.
      */
     public void addPlayer (String nickname) {
@@ -242,7 +248,6 @@ public class Game implements Serializable {
     }
 
     /**
-     * This method returns the chosen number of players in the game.
      * @return The chosen number of players in the game.
      */
     public int getChosenPlayersNumber () {
@@ -250,7 +255,7 @@ public class Game implements Serializable {
     }
 
     /**
-     * This method sets the chosen number of players in the game.
+     * Set the chosen number of players in the game.
      * @param chosenPlayersNumber The desired number of players in the game.
      */
     public void setChosenPlayersNumber (int chosenPlayersNumber) {
@@ -258,7 +263,6 @@ public class Game implements Serializable {
     }
 
     /**
-     * This method returns the board in the game.
      * @return The board in the game.
      */
     public Board getBoard () {
@@ -266,7 +270,6 @@ public class Game implements Serializable {
     }
 
     /**
-     * This method returns the bag of the tiles in the game.
      * @return The bag of the tiles in the game.
      */
     public Bag getBagTiles () {
@@ -274,22 +277,16 @@ public class Game implements Serializable {
     }
 
     /**
-     * Returns the list of the common goal cards in the game.
      * @return The list of the common goal cards in the game.
      */
     public List<CommonGoalCard> getCommonGoalCards () {
         return this.commonGoalCards;
     }
 
+    /**
+     * @return The number of the online players.
+     */
     public Integer getOnlinePlayersNumber () {
         return Math.toIntExact(players.stream().filter(Player::isOnlinePlayer).count());
-    }
-
-    public void restorePreviousGame (Game previousGame) {
-        this.board = previousGame.getBoard();
-        this.players = previousGame.getPlayers();
-        this.bagTiles = previousGame.getBagTiles();
-        this.numberOfPlayers = previousGame.getChosenPlayersNumber();
-        this.commonGoalCards = previousGame.getCommonGoalCards();
     }
 }

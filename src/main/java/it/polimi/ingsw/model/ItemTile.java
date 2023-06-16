@@ -10,16 +10,16 @@ public class ItemTile implements Serializable {
     private final ItemTileType type;
 
     /**
-     * This constructor creates a new Item Tile based on the specified type passed as parameter.
-     * @param type the type of the item tile.
+     * Create a new Item Tile based on the specified type passed as parameter.
+     * @param type The type of the item tile.
      */
     public ItemTile (ItemTileType type){
         this.type = type;
     }
 
     /**
-     * Get the item tile type.
-     * @return a value of the ItemTileType enumeration.
+     * Return the type of the item tile.
+     * @return The {@code ItemTileType} of the current tile.
      */
     public ItemTileType getItemTileType() {
         return this.type;

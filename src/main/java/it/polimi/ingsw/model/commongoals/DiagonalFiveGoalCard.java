@@ -17,13 +17,20 @@ public class DiagonalFiveGoalCard extends CommonGoalCard {
                 startAscendingDiagonalFrom(shelf, Shelf.ROWS - 1) || startAscendingDiagonalFrom(shelf, Shelf.ROWS - 2);
     }
 
+    // TODO: add Javadoc for the method
     private boolean startDescendingDiagonalFrom (Shelf shelf, int i) {
+        if (shelf.getShelfContent()[i + 1][1].isFree() ||
+                shelf.getShelfContent()[i + 2][2].isFree() ||
+                shelf.getShelfContent()[i + 3][3].isFree() ||
+                shelf.getShelfContent()[i + 4][4].isFree())
+            return false;
         return !shelf.getShelfContent()[i + 1][1].isFree() && shelf.getShelfContent()[i + 1][1].getTile().getItemTileType() == shelf.getShelfContent()[i][0].getTile().getItemTileType() &&
                 !shelf.getShelfContent()[i + 2][2].isFree() && shelf.getShelfContent()[i + 2][2].getTile().getItemTileType() == shelf.getShelfContent()[i][0].getTile().getItemTileType() &&
                 !shelf.getShelfContent()[i + 3][3].isFree() && shelf.getShelfContent()[i + 3][3].getTile().getItemTileType() == shelf.getShelfContent()[i][0].getTile().getItemTileType() &&
                 !shelf.getShelfContent()[i + 4][4].isFree() && shelf.getShelfContent()[i + 4][4].getTile().getItemTileType() == shelf.getShelfContent()[i][0].getTile().getItemTileType();
     }
 
+    // TODO: add Javadoc for the method
     private boolean startAscendingDiagonalFrom (Shelf shelf, int i) {
         if (shelf.getShelfContent()[i - 1][1].isFree() ||
                 shelf.getShelfContent()[i - 2][2].isFree() ||

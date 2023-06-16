@@ -8,33 +8,28 @@ import java.io.Serializable;
  * This class represents the player and all his attributes.
  */
 public class Player implements Serializable {
-
-
-
     /** Player's personal shelf. */
     private final Shelf shelf;
-
     /** Player's personal goal card. */
     private PersonalGoalCard personalGoalCard;
-
     /** Player's nickname. */
     private final String nickname;
-
     /** Player's score. */
     private int score = 0;
-
+    /** {@code true} if the player is the first one, {@code false} otherwise. */
     private boolean firstPlayer = false;
-
+    /** Scoring token associated with the first common goal in the game. */
     private ScoringToken firstCommonGoal = null;
-
+    /** Scoring token associated with the second common goal in the game. */
     private ScoringToken secondCommonGoal = null;
-
+    /** {@code true} if the player has got the end game token, {@code false} otherwise. */
     private boolean endGameToken = false;
+    /** {@code true} if the player is currently online, {@code false} otherwise.*/
     private boolean onlinePlayer;
 
     /**
-     * This constructor initializes the nickname of the player and his shelf
-     * @param nickname nickname of the player
+     * Initialize the nickname of the player and his shelf.
+     * @param nickname Nickname of the player.
      */
     public Player (String nickname) {
         this.nickname = nickname;
@@ -43,15 +38,15 @@ public class Player implements Serializable {
     }
 
     /**
-     * This method indicates if the player is the first
-     * @return a boolean that is true if the player is the first
+     * Indicates if the current player is the first one.
+     * @return a boolean that is true if the player is the first.
      */
     public boolean isFirstPlayer() {
         return firstPlayer;
     }
 
     /**
-     * This method sets the player as the first
+     * This method sets the player as the first one.
      */
     public void setFirstPlayer () {
         this.firstPlayer = true;
@@ -102,7 +97,7 @@ public class Player implements Serializable {
     }
 
     /**
-     * This method says if the player owns the End Game Card
+     * This method says if the player owns the End Game tile.
      * @return a boolean indicating whether the player has it or not
      */
     public boolean hasEndGameToken() {
@@ -148,18 +143,31 @@ public class Player implements Serializable {
         this.personalGoalCard = card;
     }
 
+    /**
+     * @return The player's personal goal card.
+     */
     public PersonalGoalCard getPersonalGoalCard (){
         return personalGoalCard;
     }
 
+    /**
+     * @return The player's shelf.
+     */
     public Shelf getShelf () {
         return this.shelf;
     }
 
+    /**
+     * @return {@code true} if the player is online, {@code false} otherwise.
+     */
     public boolean isOnlinePlayer() {
         return onlinePlayer;
     }
 
+    /**
+     * Change the status of the player in online/offline.
+     * @param onlinePlayer The current status of the player.
+     */
     public void setOnlinePlayer(boolean onlinePlayer) {
         this.onlinePlayer = onlinePlayer;
     }

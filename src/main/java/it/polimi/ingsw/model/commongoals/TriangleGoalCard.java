@@ -18,6 +18,12 @@ public class TriangleGoalCard extends CommonGoalCard {
         return (checkAscending(shelf) || checkDescending(shelf));
     }
 
+    /**
+     * Returns {@code true} if each shelf in the {@code Shelf} parameter (except the last one) contains one less cell
+     * than the next one.
+     * @param shelf {@code Shelf} containing the shelf content.
+     * @return A boolean specified in the method description.
+     */
     private boolean checkAscending (Shelf shelf) {
         for (int j = 0; j < Shelf.COLUMNS - 1; j++) {
             if (shelf.freeCellsOnColumn(j) != shelf.freeCellsOnColumn(j+1) - 1) {
@@ -27,6 +33,12 @@ public class TriangleGoalCard extends CommonGoalCard {
         return true;
     }
 
+    /**
+     * Returns {@code true} if each shelf in the {@code Shelf} parameter (except the last one) contains one more cell
+     * than the next one.
+     * @param shelf {@code Shelf} containing the shelf content.
+     * @return A boolean specified in the method description.
+     */
     private boolean checkDescending (Shelf shelf) {
         for (int j = 0; j < Shelf.COLUMNS - 1; j++) {
             if (shelf.freeCellsOnColumn(j) != shelf.freeCellsOnColumn(j+1) + 1) {

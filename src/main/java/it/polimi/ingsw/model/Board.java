@@ -7,10 +7,20 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * This class represent a board game with his content.
+ */
 public class Board implements Serializable {
+    /** Matrix of {@code BoardCell} as the content of the board. */
     private BoardCell[][] boardContent;
+
+    /** Number of free cells on the board. */
     private int freeCellsOnBoard;
+
+    /** Maximum number of rows in the matrix of {@code BoardCell}. */
     final public static int MAX_ROWS = 9;
+
+    /** Maximum number of columns in the matrix of {@code BoardCell}. */
     final public static int MAX_COLUMNS = 9;
 
     /**
@@ -90,7 +100,9 @@ public class Board implements Serializable {
         return freeCellsOnBoard;
     }
 
-
+    /**
+     * @return A reference to the board content.
+     */
     public BoardCell[][] getBoardContent() {
         return boardContent;
     }
@@ -153,7 +165,7 @@ public class Board implements Serializable {
             throw new WrongPositionsException();
         }
         for (Position position : positions) {
-            cell = boardContent[position.getX()][position.getY()];
+            cell = boardContent[position.x()][position.y()];
             if (cell.isPlayable() && !cell.isFree()) {
                 tilesPickedUp.add(cell.getItemTile());
                 cell.removeItemTile();
@@ -173,9 +185,9 @@ public class Board implements Serializable {
      */
     private boolean correctPositionsOfTiles (List<Position> positions) {
         for (Position pos : positions) {
-            if (pos.getX() < 0 || pos.getX() >= MAX_ROWS || pos.getY() < 0 || pos.getY() >= MAX_COLUMNS ||
-                    boardContent[pos.getX()][pos.getY()].isFree() ||
-                    !boardContent[pos.getX()][pos.getY()].isPlayable()) {
+            if (pos.x() < 0 || pos.x() >= MAX_ROWS || pos.y() < 0 || pos.y() >= MAX_COLUMNS ||
+                    boardContent[pos.x()][pos.y()].isFree() ||
+                    !boardContent[pos.x()][pos.y()].isPlayable()) {
                 return false;
             }
         }
@@ -183,7 +195,7 @@ public class Board implements Serializable {
             return false;
         }
         for (Position pos : positions) {
-            if (pos.getX() > 0 && pos.getX() < MAX_ROWS-1 && pos.getY() > 0 && pos.getY() < MAX_COLUMNS-1 &&
+            if (pos.x() > 0 && pos.x() < MAX_ROWS-1 && pos.y() > 0 && pos.y() < MAX_COLUMNS-1 &&
                 playableSide(pos) == 4 && freeSides(pos) == 0)
                 return false;
         }
@@ -215,27 +227,27 @@ public class Board implements Serializable {
     private int freeSides (Position position) {
         int sides = 0;
         // Controllo della cella "in alto"
-        if (position.getX() > 0
-                && boardContent[position.getX() - 1][position.getY()].isPlayable()
-                && boardContent[position.getX() - 1][position.getY()].isFree()) {
+        if (position.x() > 0
+                && boardContent[position.x() - 1][position.y()].isPlayable()
+                && boardContent[position.x() - 1][position.y()].isFree()) {
             sides++;
         }
         // Controllo della cella "in basso"
-        if (position.getX() < MAX_ROWS-1
-                && boardContent[position.getX() + 1][position.getY()].isPlayable()
-                && boardContent[position.getX() + 1][position.getY()].isFree()) {
+        if (position.x() < MAX_ROWS-1
+                && boardContent[position.x() + 1][position.y()].isPlayable()
+                && boardContent[position.x() + 1][position.y()].isFree()) {
             sides++;
         }
         // Controllo della cella "a sinistra"
-        if (position.getY() > 0
-                && boardContent[position.getX()][position.getY() - 1].isPlayable()
-                && boardContent[position.getX()][position.getY() - 1].isFree()) {
+        if (position.y() > 0
+                && boardContent[position.x()][position.y() - 1].isPlayable()
+                && boardContent[position.x()][position.y() - 1].isFree()) {
             sides++;
         }
         // Controllo della cella "a destra"
-        if (position.getY() < MAX_COLUMNS-1
-                && boardContent[position.getX()][position.getY() + 1].isPlayable()
-                && boardContent[position.getX()][position.getY() + 1].isFree()) {
+        if (position.y() < MAX_COLUMNS-1
+                && boardContent[position.x()][position.y() + 1].isPlayable()
+                && boardContent[position.x()][position.y() + 1].isFree()) {
             sides++;
         }
         return sides;
@@ -249,23 +261,23 @@ public class Board implements Serializable {
     public int playableSide(Position position) {
         int playable = 0;
         // Controllo della cella "in alto"
-        if (position.getX() > 0
-                && boardContent[position.getX() - 1][position.getY()].isPlayable()) {
+        if (position.x() > 0
+                && boardContent[position.x() - 1][position.y()].isPlayable()) {
             playable++;
         }
         // Controllo della cella "in basso"
-        if (position.getX() < MAX_ROWS-1
-                && boardContent[position.getX() + 1][position.getY()].isPlayable()) {
+        if (position.x() < MAX_ROWS-1
+                && boardContent[position.x() + 1][position.y()].isPlayable()) {
             playable++;
         }
         // Controllo della cella "a sinistra"
-        if (position.getY() > 0
-                && boardContent[position.getX()][position.getY() - 1].isPlayable()) {
+        if (position.y() > 0
+                && boardContent[position.x()][position.y() - 1].isPlayable()) {
             playable++;
         }
         // Controllo della cella "a destra"
-        if (position.getY() < MAX_COLUMNS-1
-                && boardContent[position.getX()][position.getY() + 1].isPlayable()) {
+        if (position.y() < MAX_COLUMNS-1
+                && boardContent[position.x()][position.y() + 1].isPlayable()) {
             playable++;
         }
         return playable;
@@ -284,7 +296,7 @@ public class Board implements Serializable {
         boolean alignedTilesForCol = true;
 
         for (int i = 0; i < positions.size() - 1 && alignedTilesForRow; i++) {
-            if (positions.get(i).getX() != positions.get(i + 1).getX()) {
+            if (positions.get(i).x() != positions.get(i + 1).x()) {
                 alignedTilesForRow = false;
             }
         }
@@ -292,13 +304,13 @@ public class Board implements Serializable {
             // Ordinamento per colonna
             List<Position> positionsAlignedForCol = new ArrayList<>(positions);
             Collections.sort (positionsAlignedForCol, (p1, p2) -> {
-                if (p1.getY() < p2.getY()) return -1;
-                else if (p1.getY() > p2.getY()) return 1;
+                if (p1.y() < p2.y()) return -1;
+                else if (p1.y() > p2.y()) return 1;
                 else return 0;
             });
 
             for (int i = 0; i < positionsAlignedForCol.size() - 1 && alignedTilesForRow; i++) {
-                if (positionsAlignedForCol.get(i).getY() != positionsAlignedForCol.get(i + 1).getY() - 1) {
+                if (positionsAlignedForCol.get(i).y() != positionsAlignedForCol.get(i + 1).y() - 1) {
                     alignedTilesForRow = false;
                 }
             }
@@ -306,7 +318,7 @@ public class Board implements Serializable {
 
         if (!alignedTilesForRow) {
             for (int i = 0; i < positions.size() - 1 && alignedTilesForCol; i++) {
-                if (positions.get(i).getY() != positions.get(i + 1).getY()) {
+                if (positions.get(i).y() != positions.get(i + 1).y()) {
                     alignedTilesForCol = false;
                 }
             }
@@ -314,13 +326,13 @@ public class Board implements Serializable {
                 // Ordinamento per colonna
                 List<Position> positionsAlignedForCol = new ArrayList<>(positions);
                 Collections.sort (positionsAlignedForCol, (p1, p2) -> {
-                    if (p1.getX() < p2.getX()) return -1;
-                    else if (p1.getX() > p2.getX()) return 1;
+                    if (p1.x() < p2.x()) return -1;
+                    else if (p1.x() > p2.x()) return 1;
                     else return 0;
                 });
 
                 for (int i = 0; i < positionsAlignedForCol.size() - 1 && alignedTilesForCol; i++) {
-                    if (positionsAlignedForCol.get(i).getX() + 1 != positionsAlignedForCol.get(i + 1).getX()) {
+                    if (positionsAlignedForCol.get(i).x() + 1 != positionsAlignedForCol.get(i + 1).x()) {
                         alignedTilesForCol = false;
                     }
                 }

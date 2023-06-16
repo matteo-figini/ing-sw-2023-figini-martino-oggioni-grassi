@@ -32,9 +32,13 @@ public class GUI implements View {
 
     /** Reference to the {@code GUIMain} class. */
     private GUIMain guiMain;
+
+    /** List of player's nicknames. */
+    private List<String> nicknameList;
+
+    // ---------- SCENE'S REFERENCES ----------
     private NicknameRequestSceneController nicknameRequestSceneController;
     private GameSceneController gameSceneController;
-    private List<String> nicknameList;
 
     /**
      * This constructor takes in input the reference to the current {@code GUIMain} object.
@@ -56,15 +60,7 @@ public class GUI implements View {
 
         Scene scene = new Scene(root);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/lobbyStyle.css")).toExternalForm());
-        Platform.runLater(() -> {
-            Stage stage = guiMain.getPrimaryStage();
-            stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/Publisher material/Icon 50x50px.png"))));
-            stage.setTitle("My Shelfie");
-            stage.setScene(scene);
-            stage.setFullScreen(true);
-            stage.setFullScreenExitHint("");
-            stage.show();
-        });
+        changeScene(scene);
     }
 
     private void onNicknameConfirmed (String nickname) {
@@ -85,22 +81,14 @@ public class GUI implements View {
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("/css/lobbyStyle.css").toExternalForm());
 
-            Platform.runLater(() -> {
-                Stage stage = guiMain.getPrimaryStage();
-                stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/Publisher material/Icon 50x50px.png"))));
-                stage.setTitle("My Shelfie");
-                stage.setScene(scene);
-                stage.setFullScreen(true);
-                stage.setFullScreenExitHint("");
-                stage.show();
-            });
+            changeScene(scene);
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }
 
     @Override
-    public void waitingRoom() {
+    public void switchToWaitingRoom() {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/fxml/WaitingRoomScene.fxml"));
@@ -112,69 +100,25 @@ public class GUI implements View {
             Scene scene = new Scene(root);
             scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/lobbyStyle.css")).toExternalForm());
 
-            Platform.runLater(() -> {
-                Stage stage = guiMain.getPrimaryStage();
-                stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/Publisher material/Icon 50x50px.png"))));
-                stage.setTitle("My Shelfie");
-                stage.setScene(scene);
-                stage.setFullScreen(true);
-                stage.setFullScreenExitHint("");
-                stage.show();
-            });
-        } catch(IOException e) {
-            System.out.println("Error");
-        }
-    }
-
-    public void switchToWaitingRoom () {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/fxml/WaitingRoomScene.fxml"));
-            Parent root = loader.load();
-
-            WaitingRoomSceneController controller = loader.getController();
-            controller.setClientManager(clientManager);
-
-            Scene scene = new Scene(root);
-            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/lobbyStyle.css")).toExternalForm());
-
-            Platform.runLater(() -> {
-                Stage stage = guiMain.getPrimaryStage();
-                stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/Publisher material/Icon 50x50px.png"))));
-                stage.setTitle("My Shelfie");
-                stage.setScene(scene);
-                stage.setFullScreen(true);
-                stage.setFullScreenExitHint("");
-                stage.show();
-            });
+            changeScene(scene);
         } catch(IOException e) {
             System.out.println("Error");
         }
     }
 
     @Override
-    public void switchToGameRoom(){
+    public void switchToGameRoom (){
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/fxml/GameScene.fxml"));
             Parent root = loader.load();
 
-            this.gameSceneController = loader.getController();
-            this.gameSceneController.setClientManager(clientManager);
+            gameSceneController = loader.getController();
+            gameSceneController.setClientManager(clientManager);
 
             Scene scene = new Scene(root);
             scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/lobbyStyle.css")).toExternalForm());
-
-            Platform.runLater(() -> {
-                Stage stage = guiMain.getPrimaryStage();
-                stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/Publisher material/Icon 50x50px.png"))));
-                stage.setTitle("My Shelfie");
-                stage.setScene(scene);
-                stage.setFullScreen(true);
-                stage.setFullScreenExitHint("");
-                stage.show();
-            });
-
+            changeScene(scene);
         } catch(IOException e) {
             System.out.println("Error");
         }
@@ -199,10 +143,9 @@ public class GUI implements View {
 
     @Override
     public void showGenericMessage(String genericMessage) {
-        // TODO: modificare la stampa del messaggio
         System.out.println(genericMessage);
-        if(gameSceneController !=null) {
-            showUpdateChat(genericMessage);
+        if (gameSceneController != null) {
+            gameSceneController.updateMessageBox(genericMessage);
         }
     }
 
@@ -244,12 +187,27 @@ public class GUI implements View {
         }
     }
 
-    public void showUpdateChat(String message) {
-        gameSceneController.updateMessageBox(message);
+    /**
+     * Change the scene on the screen using the {@code Scene} specified as parameter.
+     * @param scene The new scene on the screen.
+     */
+    private void changeScene(Scene scene) {
+        Platform.runLater(() -> {
+            Stage stage = guiMain.getPrimaryStage();
+            stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/Publisher material/Icon 50x50px.png"))));
+            stage.setTitle("My Shelfie");
+            stage.setScene(scene);
+            stage.setFullScreen(true);
+            stage.setFullScreenExitHint("");
+            stage.show();
+        });
     }
 
+    /**
+     * Set the attribute of type {@code ClientManager}.
+     * @param clientManager Reference to the current {@code ClientManager}.
+     */
     public void setClientManager(ClientManager clientManager) {
         this.clientManager = clientManager;
     }
-
 }

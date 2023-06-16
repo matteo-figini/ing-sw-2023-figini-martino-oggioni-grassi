@@ -37,7 +37,7 @@ public class Bag implements Serializable {
     }
 
     /**
-     * This method shuffles the cards inside the bag.
+     * Shuffles the cards inside the bag.
      */
     public void shuffle() {
         Collections.shuffle(itemTileList);

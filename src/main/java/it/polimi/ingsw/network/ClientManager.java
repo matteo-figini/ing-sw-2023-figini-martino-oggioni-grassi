@@ -12,10 +12,10 @@ import java.util.regex.Pattern;
 
 /**
  * This class provides the feature for the client to communicate with the server. It's a "middleware" between the MVC
- * pattern and the network layer in the client.
+ * pattern (for the client MVC consists in the view) and the network layer in the client.
  */
 public class ClientManager {
-    /** Reference to the current {@code View} of the client. */
+    /** Reference to the current {@code View} interface of the client. */
     private View view;
 
     /** Reference to the current {@code Client} network interface. */
@@ -90,7 +90,7 @@ public class ClientManager {
                 view.askPlayersNumber();
             }
             case WAITING_ROOM_REQUEST -> {
-                view.waitingRoom();
+                view.switchToWaitingRoom();
             }
             case GAME_ROOM_REQUEST -> {
                 view.switchToGameRoom();
@@ -148,7 +148,7 @@ public class ClientManager {
 
     /* ---------- UTILITY METHODS ---------- */
     /**
-     * This method returns true if the IP address specified as parameter is a valid IP address, otherwise it returns false.
+     * Returns true if the IP address specified as parameter is a valid IP address, otherwise it returns false.
      * @param ipAddress The IP address required to be checked.
      * @return {@code true} if the IP address is valid, {@code false} otherwise.
      */
@@ -166,7 +166,7 @@ public class ClientManager {
     }
 
     /**
-     * This method returns true if the port specified as parameter is a valid port, otherwise it returns false.
+     * Returns true if the port specified as parameter is a valid port, otherwise it returns false.
      * Port must be included in the range [1024, 65536) to be valid.
      * @param port The port required to be checked.
      * @return {@code true} if the port is valid, {@code false} otherwise.

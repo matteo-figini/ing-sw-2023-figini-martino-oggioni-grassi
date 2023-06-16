@@ -1447,8 +1447,9 @@ public class GameSceneController {
         terminatePickingUp();
     }
 
-    public void updateMessageBox (String message){
-        if (message.equalsIgnoreCase("Connection lost with the server.")) {
+    public void updateMessageBox (String message) {
+        if (message.equalsIgnoreCase("Connection lost with the server.") ||
+                message.equalsIgnoreCase("Game finished! Thanks for playing with us.")) {
             messageBox.setText(messageBox.getText() + "\n" + message);
         } else {
             messageBox.setText(message);
@@ -1456,10 +1457,9 @@ public class GameSceneController {
     }
 
     public void updateFinalScoreBoard (Map<String, Integer> scoreBoardMap) {
-        StringBuilder scoreBoardMessage;
-        scoreBoardMessage = new StringBuilder("FINAL SCOREBOARD\n");
+        StringBuilder scoreBoardMessage = new StringBuilder("FINAL SCOREBOARD\n");
         for (Map.Entry<String, Integer> entry : scoreBoardMap.entrySet()) {
-            scoreBoardMessage.append(entry.getKey()).append(": ").append(entry.getValue()).append(" points");
+            scoreBoardMessage.append(entry.getKey()).append(": ").append(entry.getValue()).append(" points\n");
         }
         updateMessageBox(scoreBoardMessage.toString());
     }

@@ -88,13 +88,13 @@ public class TUI implements View {
     }
 
     @Override
-    public void waitingRoom() {
-
+    public void switchToWaitingRoom() {
+        System.out.println("Waiting for other players...");
     }
 
     @Override
     public void switchToGameRoom() {
-
+        System.out.println("Game started!");
     }
 
     @Override

@@ -17,7 +17,7 @@ public class ShelfCell implements Serializable {
 
     /**
      * This method tells if the cell is free or is busy (in case it contains a tile).
-     * @return a boolean that represents if the cell is free.
+     * @return {@code true} if the cell doesn't contain a tile, {@code false} otherwise.
      */
     public boolean isFree(){
         return (this.getTile() == null);
@@ -25,7 +25,7 @@ public class ShelfCell implements Serializable {
 
     /**
      * Get the tile inside the cell (return null if there isn't any tile inside).
-     * @return the tile contained in the cell.
+     * @return The tile contained in the cell, or {@code null} if there isn't any tile.
      */
     public ItemTile getTile () {
         return this.tile;
@@ -33,7 +33,7 @@ public class ShelfCell implements Serializable {
 
     /**
      * Set the tile attribute to the specified value.
-     * @param tile the specified tile.
+     * @param tile The {@code ItemTile} contained in the cell.
      */
     public void setTile(ItemTile tile) {
         this.tile = tile;

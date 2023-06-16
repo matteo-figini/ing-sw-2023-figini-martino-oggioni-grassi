@@ -43,19 +43,17 @@
                   </TextField>
                </children>
             </HBox>
-            <HBox prefHeight="40.0" prefWidth="851.0" styleClass="Pane">
+            <HBox alignment="TOP_CENTER" prefHeight="40.0" prefWidth="851.0" styleClass="Pane">
                <children>
-                  <BorderPane prefHeight="25.0" prefWidth="861.0">
-                     <left>
-                        <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-                     </left>
-                     <right>
-                        <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-                     </right>
-                     <center>
-                        <Label fx:id="infoLabel" prefHeight="18.0" prefWidth="123.0" BorderPane.alignment="CENTER" />
-                     </center>
-                  </BorderPane>
+                  <Pane prefHeight="25.0" prefWidth="247.0">
+                     <children>
+                        <Label fx:id="infoLabel" alignment="CENTER" layoutX="-1.0" prefHeight="24.0" prefWidth="247.0" text="Insert your nickname" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
                </children></HBox>
             <HBox alignment="CENTER" prefHeight="0.0" prefWidth="851.0" styleClass="Pane">
                <children>

@@ -29,7 +29,7 @@ public interface View {
     /**
      * Send a message to open waiting room scene
      */
-    void waitingRoom();
+    void switchToWaitingRoom();
 
     /**
      * Send a message to open game room scene

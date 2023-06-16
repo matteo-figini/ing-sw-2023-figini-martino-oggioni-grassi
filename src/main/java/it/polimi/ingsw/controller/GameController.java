@@ -264,7 +264,7 @@ public class GameController implements Serializable {
             // The player is not the first one. We suppose here that the nickname is already checked by the server.
             addVirtualView(nickname, virtualView);
             game.addPlayer(nickname);
-            virtualView.waitingRoom();
+            virtualView.switchToWaitingRoom();
             broadcastMessage("Players connected: " + virtualViewMap.size() + "/" + game.getChosenPlayersNumber());
             if (getOnlinePlayers().size() == game.getChosenPlayersNumber()) {
                 broadcastMessage("All the players are connected.");
@@ -428,7 +428,6 @@ public class GameController implements Serializable {
         System.out.println("Game starting with " + game.getPlayers().size() + " players.");
         showPlayersNicknames();
         showGameInformation();
-        broadcastMessage("Game Started");
 
         setActivePlayer(chooseRandomPlayer());                          // Choose the first player
         game.getPlayerByNickname(getActivePlayer()).setFirstPlayer();   // Set the active player as the first one.

@@ -11,9 +11,11 @@ import java.util.stream.Collectors;
  * This class represents the shelf of the player.
  */
 public class Shelf implements Serializable {
+    /** Matrix of {@code ShelfCell} representing the shelf content. */
     private ShelfCell[][] shelfContent;
-
+    /** Number of rows in the shelf. */
     final public static int ROWS = 6;
+    /** Number of columns in the shelf. */
     final public static int COLUMNS = 5;
 
     /**
@@ -122,7 +124,7 @@ public class Shelf implements Serializable {
     }
 
     /**
-     * This method calculates the score due to all the adjacences inside the shelf. At the end of the game, additional points are
+     * Calculates the score due to all the adjacences inside the shelf. At the end of the game, additional points are
      * given by how many "clusters" of same item tiles are in the shelf.
      * @return The total score due to adjacences.
      */
@@ -199,14 +201,14 @@ public class Shelf implements Serializable {
 
     /* METODI PRIVATI DI SUPPORTO AL CALCOLO DEI PUNTI PER LE ADIACENZE */
     /**
-     * This util method returns the list inside "bigList" in which the position specified by the elem parameter is contained.
+     * Returns the list inside "bigList" in which the position specified by the elem parameter is contained.
      * @param bigList The list of positions' lists.
      * @param elem The position to find.
      * @return The pointer to the correct positions' list.
      */
     private List<Position> findElement (List<List<Position>> bigList, Position elem) {
         for (List<Position> l : bigList) {
-            if (l.contains(new Position(elem.getX(), elem.getY()))) {
+            if (l.contains(new Position(elem.x(), elem.y()))) {
                 return l;
             }
         }
@@ -214,7 +216,7 @@ public class Shelf implements Serializable {
     }
 
     /**
-     * This util method takes in input a list of positions' list and returns a list containing the size of the lists
+     * Receives in input a list of positions' list and returns a list containing the size of the lists
      * which have a size greater or equal than 3.
      * @param bigList The list of positions' lists.
      * @return A list of the sizes greater or equal than 3.
@@ -228,7 +230,7 @@ public class Shelf implements Serializable {
     }
 
     /**
-     * This util method receives in input a list containing the sizes and returns the total score from the list of cluster's size.
+     * Receives in input a list containing the sizes and returns the total score from the list of cluster's size.
      * @param sizes The list of the cluster's size. Requires that each element in it is greater or equal than 3.
      * @return Total score calculated from the list.
      */

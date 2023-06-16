@@ -32,7 +32,7 @@ public class VirtualView implements View {
     }
 
     @Override
-    public void waitingRoom() {
+    public void switchToWaitingRoom() {
         clientHandler.sendMessage((new WaitingRoomRequest()));
     }
 

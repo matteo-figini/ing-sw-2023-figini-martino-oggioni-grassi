@@ -4,6 +4,7 @@ import it.polimi.ingsw.model.BoardCell;
 
 import java.util.Arrays;
 
+// TODO: add Javadoc for the method
 public class BoardContent extends Message {
     private BoardCell[][] boardContent;
 
@@ -17,6 +18,7 @@ public class BoardContent extends Message {
         this.boardContent = boardContent;
     }
 
+    // TODO: add Javadoc for the method
     public BoardCell[][] getBoardContent() {
         return boardContent;
     }
