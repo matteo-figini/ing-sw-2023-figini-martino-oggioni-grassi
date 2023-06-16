@@ -423,7 +423,7 @@
                            <children>
                               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <Button fx:id="ExitButton" mnemonicParsing="false" prefHeight="59.0" prefWidth="153.0" text="EXIT THE GAME" textAlignment="CENTER" textFill="RED" underline="true">
+                                    <Button fx:id="resetTurnButton" mnemonicParsing="false" onAction="#resetTurnButtonClicked" prefHeight="59.0" prefWidth="153.0" text="Reset Turn" textAlignment="CENTER" textFill="#007aff" underline="true" visible="false">
                                        <font>
                                           <Font name="Impact" size="21.0" />
                                        </font>

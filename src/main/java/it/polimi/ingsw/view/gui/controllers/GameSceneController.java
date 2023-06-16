@@ -759,6 +759,9 @@ public class GameSceneController {
     private StackPane stackPaneP4;
 
     @FXML
+    private Button resetTurnButton;
+
+    @FXML
     void initialize() {
         assert Board00 != null : "fx:id=\"Board00\" was not injected: check your FXML file 'GameScene.fxml'.";
         assert Board01 != null : "fx:id=\"Board01\" was not injected: check your FXML file 'GameScene.fxml'.";
@@ -1353,23 +1356,23 @@ public class GameSceneController {
     void pickUpFromBoard(MouseEvent event) {
         if (pickUpEnabled && numOfPositions < 3) {
             Node tile = (Node) event.getTarget();
-            int row = GridPane.getRowIndex(tile);
-            int column = GridPane.getColumnIndex(tile);
-            Position position = new Position(row, column);
-            if (!positions.contains(position)) {
-                positions.add(position);
-                tile.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, new Color(0.4, 1, 0.36, 1), 10, 0.9, -1, 0));
-                this.blurredNodes.add(tile);
-                Image image = getImageFromGrid(gridPane, row, column);
-                if (image != null) {
-                    tilesImages.add(image);
+            try {
+                int row = GridPane.getRowIndex(tile);
+                int column = GridPane.getColumnIndex(tile);
+                Position position = new Position(row, column);
+                if (!positions.contains(position)) {
+                    positions.add(position);
+                    tile.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, new Color(0.4, 1, 0.36, 1), 10, 0.9, -1, 0));
+                    this.blurredNodes.add(tile);
+                    Image image = getImageFromGrid(gridPane, row, column);
+                    if (image != null) {
+                        tilesImages.add(image);
+                    }
+                    numOfPositions++;
                 }
-                numOfPositions++;
-            } /*else {
-                positions.remove(position);
-                tile.setEffect(null);
-                this.blurredNodes.remove(tile);
-            }*/
+            } catch (NullPointerException e) {
+                updateMessageBox("Invalid position, please try again...");
+            }
         }
     }
 
@@ -1378,6 +1381,7 @@ public class GameSceneController {
         this.pickUpEnabled = true;
         this.numOfPositions = 0;
         this.blurredNodes = new ArrayList<>();
+        this.resetTurnButton.setVisible(true);
     }
 
     private Image getImageFromGrid(GridPane grid, int row, int column) {
@@ -1392,6 +1396,11 @@ public class GameSceneController {
             }
         }
         return null;
+    }
+
+    public void resetTurnButtonClicked () {
+        terminatePickingUp();
+        enablePickingUp();
     }
 
     public void hideShelf (int numPlayers) {
@@ -1415,6 +1424,7 @@ public class GameSceneController {
             tile.setEffect(null);
         }
         this.blurredNodes.clear();
+        this.resetTurnButton.setVisible(false);
     }
 
     @FXML
