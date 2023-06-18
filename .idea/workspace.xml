@@ -275,10 +275,8 @@
       <change afterPath="$PROJECT_DIR$/htmlReport/ns-f/sources/source-3.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/htmlReport/ns-f/sources/source-4.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/htmlReport/ns-f/sources/source-5.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/GameSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/GameSceneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/GameScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/GameScene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/controller/GameController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -349,7 +347,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;19&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mmaes/OneDrive/Desktop/rmi&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/matte/Desktop/RMITEST-ingsw-2023&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -632,14 +630,12 @@
       <workItem from="1686860002653" duration="7000" />
       <workItem from="1686860074503" duration="520000" />
       <workItem from="1686909478396" duration="3083000" />
-      <workItem from="1686920144110" duration="1709000" />
-    </task>
-    <task id="LOCAL-00002" summary="first project layout">
-      <created>1679761427232</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1679761427232</updated>
+      <workItem from="1686920144110" duration="2018000" />
+      <workItem from="1687110105457" duration="661000" />
+      <workItem from="1687111073361" duration="36000" />
+      <workItem from="1687111349210" duration="2000" />
+      <workItem from="1687115497955" duration="5000" />
+      <workItem from="1687115592584" duration="1144000" />
     </task>
     <task id="LOCAL-00003" summary="linked classes commit">
       <created>1679825167487</created>
@@ -977,7 +973,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686912577672</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Added new &quot;Reset Turn button in the GUI&quot;; catched exception on the board">
+      <created>1686921934836</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1686921934836</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

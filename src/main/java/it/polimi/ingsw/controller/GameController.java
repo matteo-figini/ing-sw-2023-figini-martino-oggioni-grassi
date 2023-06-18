@@ -273,8 +273,8 @@ public class GameController implements Serializable {
                 GameController savedGameController = persistence.restore();
 
                 if (savedGameController != null &&
-                        this.getNicknameOfAllPlayer().containsAll(savedGameController.getNicknameOfAllPlayer()) &&
-                        savedGameController.getNicknameOfAllPlayer().containsAll(this.getNicknameOfAllPlayer())) {
+                        new HashSet<>(this.getNicknameOfAllPlayer()).containsAll(savedGameController.getNicknameOfAllPlayer()) &&
+                        new HashSet<>(savedGameController.getNicknameOfAllPlayer()).containsAll(this.getNicknameOfAllPlayer())) {
                     for (Map.Entry<String, VirtualView> entry : virtualViewMap.entrySet()){
                         entry.getValue().switchToGameRoom();
                     }
@@ -320,9 +320,11 @@ public class GameController implements Serializable {
         addVirtualView(nickname, virtualView);
         game.getPlayerByNickname(nickname).setOnlinePlayer(true);
         broadcastMessage("Player reconnected: " + nickname);
+        virtualView.switchToGameRoom();         // Mandatory lines for the reconnection
+        showPlayersNicknames();
         showGameInformation();
         if (virtualViewMap.size() == 2) {
-            // Game can continue because there are two online players.
+            // The Game can continue because there are two online players.
             gameSuspended = false;
             newTurn();
         }
