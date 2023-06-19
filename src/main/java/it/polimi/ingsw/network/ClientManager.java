@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
 /**
  * This class provides the feature for the client to communicate with the server. It's a "middleware" between the MVC
  * pattern (for the client MVC consists in the view) and the network layer in the client.

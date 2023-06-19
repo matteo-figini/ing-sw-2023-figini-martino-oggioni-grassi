@@ -19,8 +19,13 @@ public class RemoteClientHandler implements ClientHandler, Runnable{
     @Override
     public void run() {
         System.out.println("Established new client connection.");
-                    //TODO ...
+                    //TODO: qua dentro chiama il metodo sendMessage per inoltrare il messaggio al client
     }
+
+    /**
+     * This method sends a message to the client.
+     * @param message The message to send to the client.
+     */
     @Override
     public void sendMessage(Message message) {
         try {

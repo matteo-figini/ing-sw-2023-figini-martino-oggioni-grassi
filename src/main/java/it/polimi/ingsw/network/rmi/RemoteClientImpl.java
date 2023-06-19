@@ -13,11 +13,16 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
+/**
+ * This class implements the remote interface for the client.
+ */
 public class RemoteClientImpl extends Client implements RemoteClient, Runnable{
 
     public RemoteClientImpl(ClientManager manager){
         setClientManager(manager);
     }
+
+
     @Override
     public void run() {
         try {
@@ -27,6 +32,12 @@ public class RemoteClientImpl extends Client implements RemoteClient, Runnable{
         }
     }
 
+    /**
+     * This method is used to get the reference from the RMI registry so that the method contained in the class RemoteServer can be used by the client.
+     *
+     * @return the reference to the RemoteServer class
+     * @throws Exception if a remote exception occurs
+     */
     public RemoteServer getReference() throws Exception{
         //Locate the Registry
         Registry registry = LocateRegistry.getRegistry("127.0.0.1", 1099);
@@ -34,6 +45,11 @@ public class RemoteClientImpl extends Client implements RemoteClient, Runnable{
         return (RemoteServer) registry.lookup("server");
     }
 
+    /**
+     * This method gets a reference to the Remote server so that the Client can use the methods contained in the
+     * RemoteServer interface.
+     * @param message The message to be sent.
+     */
     @Override
     public void sendMessage(Message message) {
         try {

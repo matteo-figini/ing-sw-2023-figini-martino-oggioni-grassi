@@ -60,6 +60,12 @@ public class RemoteServerImpl implements RemoteServer, Runnable {
         server.addClient(nickname, clientHandler);
     }
 
+
+    /**
+     * This method sends a message from the Client implementation to the server.
+     * @param message the message to be forwarded to the server.
+     * @throws RemoteException if an exception occurs.
+     */
     @Override
     public void msgToServer(Message message) throws RemoteException {
         server.onMessageReceived(message);
