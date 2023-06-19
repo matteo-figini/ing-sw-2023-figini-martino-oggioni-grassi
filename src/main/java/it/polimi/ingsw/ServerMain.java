@@ -28,10 +28,15 @@ public class ServerMain {
         Server server = new Server(gameController);
 
         if (rmiConnection) {
+            try {
+                RemoteServerImpl remoteServer = new RemoteServerImpl(server);
+                Thread thread = new Thread(remoteServer);
+                thread.start();
 
-            // remoteServer.startServerConnection(); //will be replaced by thread.run
-            //Thread thread = new Thread (remoteServer);
-            //thread.start();
+            } catch (RemoteException e) {
+                System.out.println("Cannot start Server.");
+            }
+
         } else {
             SocketServer socketServer = new SocketServer(server, SocketServer.SOCKET_SERVER_PORT);
             Thread thread = new Thread(socketServer);

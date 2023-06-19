@@ -20,7 +20,7 @@ public class TUI implements View {
         scanner = new Scanner(System.in);
     }
 
-    public void startView () {
+    public void startView (boolean connectionType) {
         System.out.println("""
 
                          ___                          ,-,--.  ,--.-,,-,--,    ,----.                _,---.   .=-.-.   ,----. \s
@@ -34,17 +34,22 @@ public class TUI implements View {
                  `--`./  `--`  `--`-`               `--`---' `--`-' `-`--`--`-----`` `--`-----'`--`---'    `--`-``--`-----`` \s
                 """);
         System.out.println("Welcome to MyShelfie Game!");
-        askServerInformation();
+        askServerInformation(connectionType);
     }
 
     /**
      * This method asks the user to insert the connection information about the server, such as IP address and port.
      * Then it delegates the connection to the {@code ClientManager}.
      */
-    public void askServerInformation () {
+    public void askServerInformation (boolean connectionType) {
         String ipAddress, defaultIpAddress = "127.0.0.1", input;      // Localhost address.
-        int port, defaultPort = 5000;
+        int port, defaultPort;
         boolean validInput = false;
+        if (connectionType){
+            defaultPort = 5000;
+        }else{
+            defaultPort = 1099;
+        }
 
         // Insert and verify the IP address and the port
         do {
@@ -68,6 +73,7 @@ public class TUI implements View {
         } while (!validInput);
 
         clientManager.onUpdateServerInformation(ipAddress, port);
+
     }
 
     @Override

@@ -2,6 +2,7 @@ package it.polimi.ingsw.network;
 
 import it.polimi.ingsw.model.Position;
 import it.polimi.ingsw.network.message.*;
+import it.polimi.ingsw.network.rmi.RemoteClientImpl;
 import it.polimi.ingsw.network.socket.client.SocketClient;
 import it.polimi.ingsw.view.View;
 
@@ -40,12 +41,21 @@ public class ClientManager {
      * @param port The server port.
      */
     public void onUpdateServerInformation (String ipAddress, int port) {
-        try {
-            this.client = new SocketClient(this, ipAddress, port);
-            client.readMessage();
-            view.askNickname();
-        } catch (IOException e) {
-            view.showGenericMessage("Unable to connect.");
+        if (port == 5000) {
+            try {
+                this.client = new SocketClient(this, ipAddress, port);
+                client.readMessage();
+                view.askNickname();
+            } catch (IOException e) {
+                view.showGenericMessage("Unable to connect.");
+            }
+        } else if (port == 1099){
+            try {
+                this.client = new RemoteClientImpl(this);
+                view.askNickname();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
