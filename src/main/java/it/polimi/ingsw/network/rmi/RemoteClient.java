@@ -13,6 +13,6 @@ public interface RemoteClient extends Remote {
      * This method receives messages from the Server and forwards them to the ClientManager
      * @throws RemoteException
      */
-    public void msgToClient(Message message) throws RemoteException;
+    public void messageToClient(Message message) throws RemoteException;
 
 }

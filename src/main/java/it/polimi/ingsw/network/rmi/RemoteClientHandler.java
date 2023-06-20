@@ -3,12 +3,11 @@ package it.polimi.ingsw.network.rmi;
 import it.polimi.ingsw.network.ClientHandler;
 import it.polimi.ingsw.network.message.Message;
 
-import java.rmi.Naming;
+import java.io.Serializable;
 import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
 
 
-public class RemoteClientHandler implements ClientHandler, Runnable {
+public class RemoteClientHandler implements ClientHandler, Runnable, Serializable {
 
     private RemoteClient remoteClient;
 
@@ -28,11 +27,11 @@ public class RemoteClientHandler implements ClientHandler, Runnable {
      */
     @Override
     public void sendMessage(Message message) {
-        try {
-            remoteClient.msgToClient(message);
+        /*try {
+            remoteClient.messageToClient(message);
         } catch (RemoteException e) {
             throw new RuntimeException(e);
-        }
+        }*/
     }
 
     @Override

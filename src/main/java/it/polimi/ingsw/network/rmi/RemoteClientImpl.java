@@ -4,8 +4,12 @@ import it.polimi.ingsw.network.Client;
 import it.polimi.ingsw.network.ClientHandler;
 import it.polimi.ingsw.network.ClientManager;
 import it.polimi.ingsw.network.Server;
+import it.polimi.ingsw.network.message.LoginRequestMessage;
 import it.polimi.ingsw.network.message.Message;
+import it.polimi.ingsw.network.message.MessageType;
 
+import java.rmi.NotBoundException;
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -15,8 +19,16 @@ import java.rmi.registry.Registry;
  */
 public class RemoteClientImpl extends Client implements RemoteClient, Runnable {
 
-    public RemoteClientImpl(ClientManager manager) throws RemoteException {
+    private RemoteServer remoteServer;
+
+    public RemoteClientImpl (ClientManager manager) throws RemoteException {
         setClientManager(manager);
+        Registry registry = LocateRegistry.getRegistry("127.0.0.1", 1099);
+        try {
+            this.remoteServer = (RemoteServer) registry.lookup(Server.SERVER_NAME);
+        } catch (NotBoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
@@ -50,24 +62,18 @@ public class RemoteClientImpl extends Client implements RemoteClient, Runnable {
     @Override
     public void sendMessage(Message message) {
         try {
-            RemoteServer server = getReference();
-            server.messageToServer(message);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public void connectClient (String nickname, ClientHandler clientHandler) throws RemoteException{
-        try {
-            RemoteServer server = getReference();
-            server.addClient(nickname, clientHandler);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+            if (message.getMessageType() == MessageType.LOGIN_REQUEST) {
+                this.remoteServer.addClient(message.getNickname(), null);
+            } else {
+                this.remoteServer.messageToServer(message);
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
         }
     }
 
     @Override
-    public void msgToClient(Message message) throws RemoteException {
+    public void messageToClient(Message message) throws RemoteException {
         clientManager.update(message);
     }
 
