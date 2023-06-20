@@ -195,11 +195,12 @@ public class GameController implements Serializable {
     }
 
     /**
-     * This method terminates the game: for each player total score is computed and after that sends a message
+     * This method terminates the game: for each player the total score is computed, and after that sends a message
      * to all the players containing the score board. After this, the game is resetted to the initial state, the
-     * file containing the stored match is deleted and a message is sent to all the clients.
+     * file containing the stored match is deleted, and a message is sent to all the clients.
      */
     private void terminateGame () {
+        showGameInformation();
         for (Player player : game.getPlayers()) {
             player.addScore(player.getShelf().pointsFromAdjacencies());     // Aggiungi i punti delle adiacenze
             player.addScore(player.getPersonalGoalCard().pointsFromGoals(player.getPersonalGoalCard().goalsSatisfied(player.getShelf())));  // Aggiungi gli obiettivi personali

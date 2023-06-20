@@ -20,7 +20,11 @@ public class TUI implements View {
         scanner = new Scanner(System.in);
     }
 
-    public void startView (boolean connectionType) {
+    /**
+     * Starts the view for the CLI interface.
+     * @param rmiConnection {@code true} if an RMI connection is required, {@code false} is a Socket connection is required.
+     */
+    public void startView (boolean rmiConnection) {
         System.out.println("""
 
                          ___                          ,-,--.  ,--.-,,-,--,    ,----.                _,---.   .=-.-.   ,----. \s
@@ -34,21 +38,21 @@ public class TUI implements View {
                  `--`./  `--`  `--`-`               `--`---' `--`-' `-`--`--`-----`` `--`-----'`--`---'    `--`-``--`-----`` \s
                 """);
         System.out.println("Welcome to MyShelfie Game!");
-        askServerInformation(connectionType);
+        askServerInformation(rmiConnection);
     }
 
     /**
      * This method asks the user to insert the connection information about the server, such as IP address and port.
      * Then it delegates the connection to the {@code ClientManager}.
      */
-    public void askServerInformation (boolean connectionType) {
+    public void askServerInformation (boolean rmiConnection) {
         String ipAddress, defaultIpAddress = "127.0.0.1", input;      // Localhost address.
         int port, defaultPort;
         boolean validInput = false;
-        if (connectionType){
-            defaultPort = 5000;
-        }else{
-            defaultPort = 1099;
+        if (rmiConnection) {
+            defaultPort = 1099; // Default port for RMI connection
+        } else {
+            defaultPort = 5000; // Default port for socket connection
         }
 
         // Insert and verify the IP address and the port
@@ -72,8 +76,7 @@ public class TUI implements View {
                 validInput = true;
         } while (!validInput);
 
-        clientManager.onUpdateServerInformation(ipAddress, port);
-
+        clientManager.onUpdateServerInformation(ipAddress, port, rmiConnection);
     }
 
     @Override

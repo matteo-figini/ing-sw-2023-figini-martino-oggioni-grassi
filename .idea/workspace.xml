@@ -8,275 +8,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Added new &quot;Reset Turn button in the GUI&quot;; catched exception on the board">
-      <change afterPath="$PROJECT_DIR$/htmlReport/css/coverage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/css/idea.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/img/arrowDown.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/img/arrowUp.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_LINE.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/js/highlight.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/js/highlightjs-line-numbers.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_LINE.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-10/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-10/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-10/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-10/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-10/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-10/index_SORT_BY_LINE.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-10/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-10/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-10/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-10/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-10/sources/source-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-10/sources/source-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-2/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-2/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-2/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-2/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-2/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-2/index_SORT_BY_LINE.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-2/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-2/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-2/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-2/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-2/sources/source-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-2/sources/source-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-2/sources/source-3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-3/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-3/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-3/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-3/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-3/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-3/index_SORT_BY_LINE.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-3/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-3/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-3/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-3/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-3/sources/source-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-3/sources/source-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-3/sources/source-3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-3/sources/source-4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-4/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-4/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-4/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-4/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-4/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-4/index_SORT_BY_LINE.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-4/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-4/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-4/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-4/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-4/sources/source-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-4/sources/source-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-4/sources/source-3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-4/sources/source-4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-4/sources/source-5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-4/sources/source-6.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-4/sources/source-7.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-4/sources/source-8.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-4/sources/source-9.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-4/sources/source-a.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-4/sources/source-b.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-4/sources/source-c.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-5/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-5/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-5/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-5/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-5/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-5/index_SORT_BY_LINE.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-5/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-5/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-5/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-5/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-5/sources/source-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-5/sources/source-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-5/sources/source-3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-5/sources/source-4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-5/sources/source-5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-5/sources/source-6.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-5/sources/source-7.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-5/sources/source-8.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-5/sources/source-9.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-5/sources/source-a.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-5/sources/source-b.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-5/sources/source-c.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-5/sources/source-d.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-6/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-6/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-6/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-6/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-6/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-6/index_SORT_BY_LINE.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-6/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-6/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-6/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-6/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-6/sources/source-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-6/sources/source-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-6/sources/source-3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-6/sources/source-4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-6/sources/source-5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-6/sources/source-6.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-6/sources/source-7.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-6/sources/source-8.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-6/sources/source-9.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-6/sources/source-a.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-6/sources/source-b.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-6/sources/source-c.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-6/sources/source-d.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-7/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-7/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-7/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-7/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-7/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-7/index_SORT_BY_LINE.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-7/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-7/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-7/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-7/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-7/sources/source-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-7/sources/source-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-7/sources/source-3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-7/sources/source-4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/index_SORT_BY_LINE.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/sources/source-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/sources/source-10.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/sources/source-11.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/sources/source-12.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/sources/source-13.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/sources/source-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/sources/source-3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/sources/source-4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/sources/source-5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/sources/source-6.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/sources/source-7.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/sources/source-8.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/sources/source-9.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/sources/source-a.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/sources/source-b.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/sources/source-c.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/sources/source-d.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/sources/source-e.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-8/sources/source-f.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-9/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-9/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-9/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-9/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-9/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-9/index_SORT_BY_LINE.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-9/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-9/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-9/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-9/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-9/sources/source-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-9/sources/source-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-9/sources/source-3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-9/sources/source-4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-9/sources/source-5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-a/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-a/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-a/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-a/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-a/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-a/index_SORT_BY_LINE.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-a/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-a/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-a/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-a/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-a/sources/source-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-b/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-b/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-b/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-b/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-b/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-b/index_SORT_BY_LINE.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-b/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-b/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-b/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-b/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-b/sources/source-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-b/sources/source-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-c/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-c/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-c/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-c/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-c/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-c/index_SORT_BY_LINE.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-c/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-c/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-c/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-c/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-c/sources/source-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-c/sources/source-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-d/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-d/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-d/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-d/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-d/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-d/index_SORT_BY_LINE.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-d/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-d/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-d/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-d/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-d/sources/source-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-d/sources/source-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-e/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-e/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-e/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-e/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-e/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-e/index_SORT_BY_LINE.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-e/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-e/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-e/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-e/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-e/sources/source-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-e/sources/source-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-f/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-f/index_SORT_BY_BLOCK.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-f/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-f/index_SORT_BY_CLASS.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-f/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-f/index_SORT_BY_LINE.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-f/index_SORT_BY_LINE_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-f/index_SORT_BY_METHOD.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-f/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-f/index_SORT_BY_NAME_DESC.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-f/sources/source-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-f/sources/source-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-f/sources/source-3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-f/sources/source-4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlReport/ns-f/sources/source-5.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/ClientMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/ClientMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/ClientManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/ClientManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteClientImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/ConnectionInfoSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/ConnectionInfoSceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/tui/TUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/tui/TUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -347,7 +86,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;19&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/matte/Desktop/RMITEST-ingsw-2023&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/matte/Desktop/BACKUP-ingsw&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -376,6 +115,7 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="it.polimi.ingsw.ClientMain" />
       <module name="PSP18" />
+      <option name="PROGRAM_PARAMETERS" value="--cli" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="it.polimi.ingsw.commongoaltests.*" />
@@ -636,6 +376,9 @@
       <workItem from="1687111349210" duration="2000" />
       <workItem from="1687115497955" duration="5000" />
       <workItem from="1687115592584" duration="1144000" />
+      <workItem from="1687257696109" duration="112000" />
+      <workItem from="1687257854109" duration="83000" />
+      <workItem from="1687282510828" duration="1319000" />
     </task>
     <task id="LOCAL-00003" summary="linked classes commit">
       <created>1679825167487</created>

@@ -73,7 +73,7 @@ public class ConnectionInfoSceneController {
         if (ClientManager.isValidIPAddress(ipAddress) && ClientManager.isValidPort(port)) {
             playerIpAddress.setStyle("-fx-text-fill: green");
             playerSocket.setStyle("-fx-text-fill: green;");
-            clientManager.onUpdateServerInformation(ipAddress, port);
+            clientManager.onUpdateServerInformation(ipAddress, port, false);    // TODO: remember to update rmi flag!
         } else {
             playerIpAddress.setText("");
             playerSocket.setText("");

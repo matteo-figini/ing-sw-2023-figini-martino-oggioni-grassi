@@ -41,8 +41,8 @@ public class ClientManager {
      * @param ipAddress The server IP address.
      * @param port The server port.
      */
-    public void onUpdateServerInformation (String ipAddress, int port) {
-        if (port == 5000) {
+    public void onUpdateServerInformation (String ipAddress, int port, boolean rmiConnection) {
+        if (!rmiConnection) {
             try {
                 this.client = new SocketClient(this, ipAddress, port);
                 client.readMessage();
@@ -50,7 +50,7 @@ public class ClientManager {
             } catch (IOException e) {
                 view.showGenericMessage("Unable to connect.");
             }
-        } else if (port == 1099){
+        } else {
             try {
                 this.client = new RemoteClientImpl(this);
                 view.askNickname();

@@ -5,10 +5,6 @@ import it.polimi.ingsw.network.ClientHandler;
 import it.polimi.ingsw.network.ClientManager;
 import it.polimi.ingsw.network.message.Message;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.rmi.Naming;
-import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -16,9 +12,9 @@ import java.rmi.registry.Registry;
 /**
  * This class implements the remote interface for the client.
  */
-public class RemoteClientImpl extends Client implements RemoteClient, Runnable{
+public class RemoteClientImpl extends Client implements RemoteClient, Runnable {
 
-    public RemoteClientImpl(ClientManager manager){
+    public RemoteClientImpl(ClientManager manager) throws RemoteException {
         setClientManager(manager);
     }
 

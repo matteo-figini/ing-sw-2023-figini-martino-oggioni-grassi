@@ -2,14 +2,23 @@ package it.polimi.ingsw.network;
 
 import it.polimi.ingsw.network.message.Message;
 
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+
 /**
  * This abstract class represents a general client. It will be extended by subclasses, depending on the technology
  * chosen for networking (e.g. Socket or RMI).
  */
-public abstract class Client {
+public abstract class Client extends UnicastRemoteObject {
 
     /** The {@code ClientManager} associated to the client. */
     protected ClientManager clientManager;
+
+    /**
+     * Default constructor used to launch {@code RemoteException} in case of an RMI error.
+     * @throws RemoteException Exception thrown in case of an exception with RMI connection.
+     */
+    protected Client() throws RemoteException {}
 
     /**
      * This method sends a message to the server.
