@@ -1,18 +1,13 @@
 package it.polimi.ingsw.network.rmi;
 
-import it.polimi.ingsw.network.ClientHandler;
 import it.polimi.ingsw.network.Server;
 import it.polimi.ingsw.network.message.Message;
-import jdk.jshell.spi.ExecutionControlProvider;
 
 import java.rmi.AlreadyBoundException;
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class RemoteServerImpl extends UnicastRemoteObject implements RemoteServer {
     /** Reference to the {@code Server} object. */
@@ -36,9 +31,9 @@ public class RemoteServerImpl extends UnicastRemoteObject implements RemoteServe
      * @throws RemoteException if an exception with the Remote object occurs.
      */
     @Override
-    public void addClient (String nickname, ClientHandler clientHandler) throws RemoteException {
-        clientHandler = new RemoteClientHandler (this);
-        server.addClient(nickname, clientHandler);
+    public void addClient (String nickname, RemoteClient remoteClient) throws RemoteException {
+        RemoteClientHandler clientHandler = new RemoteClientHandler(remoteClient);
+        this.server.addClient(nickname, clientHandler);
     }
 
 

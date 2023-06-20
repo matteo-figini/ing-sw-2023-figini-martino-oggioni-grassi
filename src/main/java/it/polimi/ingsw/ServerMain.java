@@ -14,7 +14,7 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
 public class ServerMain {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         boolean rmiConnection = false;
 
         for (String param : args) {

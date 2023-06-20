@@ -12,12 +12,12 @@ public interface RemoteServer extends Remote {
      * This method adds a new client connection.
      * @throws RemoteException
      */
-    public void addClient(String nickname, ClientHandler clientHandler) throws RemoteException;
+    void addClient (String nickname, RemoteClient remoteClient) throws RemoteException;
 
     /**
      * This method receives messages to be sent to the Server.
      * @throws RemoteException
      */
-    public void messageToServer(Message message) throws RemoteException;
+    void messageToServer(Message message) throws RemoteException;
 
 }

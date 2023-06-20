@@ -52,7 +52,7 @@ public class ClientManager {
             }
         } else {
             try {
-                this.client = new RemoteClientImpl(this);
+                this.client = new RemoteClientImpl(this, ipAddress, port);
                 view.askNickname();
             } catch (IOException e) {
                 view.showGenericMessage("Unable to connect with RMI connection.");

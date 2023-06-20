@@ -7,18 +7,13 @@ import java.io.Serializable;
 import java.rmi.RemoteException;
 
 
-public class RemoteClientHandler implements ClientHandler, Runnable, Serializable {
+public class RemoteClientHandler implements ClientHandler {
 
+    /** Reference to the {@code RemoteClient} associated with the {@code RemoteClientHandler}. */
     private RemoteClient remoteClient;
 
-    public RemoteClientHandler (RemoteServerImpl server) throws RemoteException {
-        super();
-    }
-
-    @Override
-    public void run() {
-        System.out.println("Established new client connection.");
-                    //TODO: qua dentro chiama il metodo sendMessage per inoltrare il messaggio al client
+    public RemoteClientHandler (RemoteClient clientReference) throws RemoteException {
+        this.remoteClient = clientReference;
     }
 
     /**
@@ -27,11 +22,12 @@ public class RemoteClientHandler implements ClientHandler, Runnable, Serializabl
      */
     @Override
     public void sendMessage(Message message) {
-        /*try {
+        try {
             remoteClient.messageToClient(message);
+            System.out.println("Message sent: " + message.toString());
         } catch (RemoteException e) {
-            throw new RuntimeException(e);
-        }*/
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -41,7 +37,7 @@ public class RemoteClientHandler implements ClientHandler, Runnable, Serializabl
 
     @Override
     public boolean isConnected() {
-        return false;
+        return true;
     }
 
 }

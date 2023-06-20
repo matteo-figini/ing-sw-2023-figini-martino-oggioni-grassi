@@ -21,13 +21,13 @@ public class RemoteClientImpl extends Client implements RemoteClient, Runnable {
 
     private RemoteServer remoteServer;
 
-    public RemoteClientImpl (ClientManager manager) throws RemoteException {
+    public RemoteClientImpl (ClientManager manager, String ipAddress, int port) throws RemoteException {
         setClientManager(manager);
-        Registry registry = LocateRegistry.getRegistry("127.0.0.1", 1099);
+        Registry registry = LocateRegistry.getRegistry(ipAddress, port);
         try {
             this.remoteServer = (RemoteServer) registry.lookup(Server.SERVER_NAME);
         } catch (NotBoundException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 
@@ -63,7 +63,7 @@ public class RemoteClientImpl extends Client implements RemoteClient, Runnable {
     public void sendMessage(Message message) {
         try {
             if (message.getMessageType() == MessageType.LOGIN_REQUEST) {
-                this.remoteServer.addClient(message.getNickname(), null);
+                this.remoteServer.addClient(message.getNickname(), this);
             } else {
                 this.remoteServer.messageToServer(message);
             }
