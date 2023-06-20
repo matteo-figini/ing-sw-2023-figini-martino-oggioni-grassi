@@ -48,14 +48,14 @@ public class ClientManager {
                 client.readMessage();
                 view.askNickname();
             } catch (IOException e) {
-                view.showGenericMessage("Unable to connect.");
+                view.showGenericMessage("Unable to connect with socket connection.");
             }
         } else {
             try {
                 this.client = new RemoteClientImpl(this);
                 view.askNickname();
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                view.showGenericMessage("Unable to connect with RMI connection.");
             }
         }
     }

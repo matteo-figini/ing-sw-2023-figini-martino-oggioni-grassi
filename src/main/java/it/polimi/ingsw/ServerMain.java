@@ -30,13 +30,9 @@ public class ServerMain {
         if (rmiConnection) {
             try {
                 RemoteServerImpl remoteServer = new RemoteServerImpl(server);
-                Thread thread = new Thread(remoteServer);
-                thread.start();
-
             } catch (RemoteException e) {
-                System.out.println("Cannot start Server.");
+                System.out.println("Cannot start RMI server.");
             }
-
         } else {
             SocketServer socketServer = new SocketServer(server, SocketServer.SOCKET_SERVER_PORT);
             Thread thread = new Thread(socketServer);

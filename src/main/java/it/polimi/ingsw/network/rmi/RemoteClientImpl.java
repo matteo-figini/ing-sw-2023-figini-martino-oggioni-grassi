@@ -3,6 +3,7 @@ package it.polimi.ingsw.network.rmi;
 import it.polimi.ingsw.network.Client;
 import it.polimi.ingsw.network.ClientHandler;
 import it.polimi.ingsw.network.ClientManager;
+import it.polimi.ingsw.network.Server;
 import it.polimi.ingsw.network.message.Message;
 
 import java.rmi.RemoteException;
@@ -34,11 +35,11 @@ public class RemoteClientImpl extends Client implements RemoteClient, Runnable {
      * @return the reference to the RemoteServer class
      * @throws Exception if a remote exception occurs
      */
-    public RemoteServer getReference() throws Exception{
+    public RemoteServer getReference() throws Exception {
         //Locate the Registry
         Registry registry = LocateRegistry.getRegistry("127.0.0.1", 1099);
         //Get and return the reference of the exported object from RMI registry
-        return (RemoteServer) registry.lookup("server");
+        return (RemoteServer) registry.lookup(Server.SERVER_NAME);
     }
 
     /**
@@ -50,13 +51,13 @@ public class RemoteClientImpl extends Client implements RemoteClient, Runnable {
     public void sendMessage(Message message) {
         try {
             RemoteServer server = getReference();
-            server.msgToServer(message);
+            server.messageToServer(message);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
-    public void connectClient(String nickname, ClientHandler clientHandler) throws RemoteException{
+    public void connectClient (String nickname, ClientHandler clientHandler) throws RemoteException{
         try {
             RemoteServer server = getReference();
             server.addClient(nickname, clientHandler);

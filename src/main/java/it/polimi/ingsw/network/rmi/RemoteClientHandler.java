@@ -8,7 +8,7 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 
-public class RemoteClientHandler implements ClientHandler, Runnable{
+public class RemoteClientHandler implements ClientHandler, Runnable {
 
     private RemoteClient remoteClient;
 

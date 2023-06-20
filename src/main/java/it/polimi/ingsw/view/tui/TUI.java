@@ -13,7 +13,7 @@ public class TUI implements View {
     /** The {@code ClientManager} associated to the client. */
     private ClientManager clientManager;
 
-    /** Class for reading inputs from terminal. */
+    /** Class for reading inputs from the terminal. */
     private final Scanner scanner;
 
     public TUI () {

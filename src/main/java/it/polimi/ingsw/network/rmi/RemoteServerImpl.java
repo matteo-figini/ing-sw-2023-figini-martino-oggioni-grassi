@@ -14,49 +14,30 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class RemoteServerImpl implements RemoteServer, Runnable {
+public class RemoteServerImpl extends UnicastRemoteObject implements RemoteServer {
+    /** Reference to the {@code Server} object. */
     private final Server server;
 
-    public RemoteServerImpl(Server server) throws RemoteException {
+    public static final int DEFAULT_RMI_PORT = 1099;
+
+    public RemoteServerImpl (Server server) throws RemoteException {
         this.server = server;
-    }
-
-    @Override
-    public void run() {
-        //Create the RemoteServer object
-        RemoteServerImpl remoteServer = null;
         try {
-            remoteServer = new RemoteServerImpl(server);
-            //Export the object using UnicastRemoteObject class
-            RemoteServer stub = (RemoteServer) UnicastRemoteObject.exportObject(remoteServer, 0);
-            //Get the registry to register the object
-            Registry registry = LocateRegistry.getRegistry("127.0.0.1", 1099);
-            registry.bind("server", stub);
+            Registry registry = LocateRegistry.createRegistry(DEFAULT_RMI_PORT);
+            registry.bind(Server.SERVER_NAME, this);
+            System.out.println("RMI server created on port " + DEFAULT_RMI_PORT + "...");
         } catch (RemoteException | AlreadyBoundException e) {
-            throw new RuntimeException(e);
+            System.out.println("Unable to instantiate RMI server.");
         }
-
-        while (!Thread.currentThread().isInterrupted()){
-            //Create and start a specific client handler
-            RemoteClientHandler clientHandler = null;
-            try {
-                clientHandler = new RemoteClientHandler(this);
-            } catch (RemoteException e) {
-                throw new RuntimeException(e);
-            }
-            Thread thread = new Thread(clientHandler);
-            thread.start();
-        }
-
     }
-
 
     /**
      * This method is used to add new clients, the Server will establish if it is a new connection or a reconnection.
      * @throws RemoteException if an exception with the Remote object occurs.
      */
     @Override
-    public void addClient(String nickname, ClientHandler clientHandler) throws RemoteException {
+    public void addClient (String nickname, ClientHandler clientHandler) throws RemoteException {
+        clientHandler = new RemoteClientHandler (this);
         server.addClient(nickname, clientHandler);
     }
 
@@ -67,7 +48,8 @@ public class RemoteServerImpl implements RemoteServer, Runnable {
      * @throws RemoteException if an exception occurs.
      */
     @Override
-    public void msgToServer(Message message) throws RemoteException {
+    public void messageToServer (Message message) throws RemoteException {
+        System.out.println("Message received: " + message.toString());
         server.onMessageReceived(message);
     }
 

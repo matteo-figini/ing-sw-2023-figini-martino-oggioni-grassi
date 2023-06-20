@@ -18,6 +18,6 @@ public interface RemoteServer extends Remote {
      * This method receives messages to be sent to the Server.
      * @throws RemoteException
      */
-    public void msgToServer(Message message) throws RemoteException;
+    public void messageToServer(Message message) throws RemoteException;
 
 }

@@ -20,6 +20,9 @@ public class Server{
     /** Map containing all the instances of the {@code ClientHandler} by their nickname. */
     private final Map<String, ClientHandler> clientHandlerMap;
 
+    /** Server name. */
+    public static final String SERVER_NAME = "MyShelfieServer";
+
     /**
      * Creates an instance of the server.
      * @param gameController The instance of {@code GameController}.
