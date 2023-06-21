@@ -9,6 +9,17 @@ import java.rmi.RemoteException;
 public interface RemoteServer extends Remote {
 
     /**
+     * This method is used to check that the connection with a client is working.
+     */
+    void ping() throws RemoteException;
+
+    /**
+     * This method returns the number of time a Client has been connected to the Server.
+     * @return the counter of the client's connections.
+     * @throws RemoteException
+     */
+    int getCounter() throws RemoteException;
+    /**
      * This method adds a new client connection.
      * @throws RemoteException
      */

@@ -20,6 +20,7 @@ import java.rmi.registry.Registry;
 public class RemoteClientImpl extends Client implements RemoteClient, Runnable {
 
     private RemoteServer remoteServer;
+    private int lastPingCounter;
 
     public RemoteClientImpl (ClientManager manager, String ipAddress, int port) throws RemoteException {
         setClientManager(manager);
@@ -52,6 +53,27 @@ public class RemoteClientImpl extends Client implements RemoteClient, Runnable {
         Registry registry = LocateRegistry.getRegistry("127.0.0.1", 1099);
         //Get and return the reference of the exported object from RMI registry
         return (RemoteServer) registry.lookup(Server.SERVER_NAME);
+    }
+
+    /**
+     *This method checks if the ping counter of a Client has been incremented. If it is not updated, it means that the client
+     * has been disconnected.
+     */
+    public void checkPing(){
+        try {
+            remoteServer = this.getReference();
+            remoteServer.ping();
+            System.out.println("Ping sent to Server. Counter: " + lastPingCounter);
+
+            if (lastPingCounter == remoteServer.getCounter()){
+                System.out.println("Connection lost.");
+            } else {
+                lastPingCounter = remoteServer.getCounter();
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     /**

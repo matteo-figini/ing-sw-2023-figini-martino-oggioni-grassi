@@ -13,11 +13,13 @@ import java.rmi.server.UnicastRemoteObject;
 public class RemoteServerImpl extends UnicastRemoteObject implements RemoteServer {
     /** Reference to the {@code Server} object. */
     private final Server server;
+    private int pingCounter;
 
     public static final int DEFAULT_RMI_PORT = 1099;
 
     public RemoteServerImpl (Server server) throws RemoteException {
         this.server = server;
+        this.pingCounter = 0;
         try {
             Registry registry = LocateRegistry.createRegistry(DEFAULT_RMI_PORT);
             registry.bind(Server.SERVER_NAME, this);
@@ -25,6 +27,18 @@ public class RemoteServerImpl extends UnicastRemoteObject implements RemoteServe
         } catch (RemoteException | AlreadyBoundException e) {
             System.out.println("Unable to instantiate RMI server.");
         }
+    }
+
+
+    @Override
+    public void ping() throws RemoteException {
+        pingCounter++;
+        System.out.println("Received ping from client. Counter: " + pingCounter);
+    }
+
+    @Override
+    public int getCounter() throws RemoteException {
+        return pingCounter;
     }
 
     /**
