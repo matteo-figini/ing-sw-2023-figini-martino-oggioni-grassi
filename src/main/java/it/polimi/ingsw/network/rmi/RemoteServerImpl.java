@@ -1,5 +1,6 @@
 package it.polimi.ingsw.network.rmi;
 
+import it.polimi.ingsw.network.ClientHandler;
 import it.polimi.ingsw.network.Server;
 import it.polimi.ingsw.network.message.Message;
 
@@ -32,10 +33,9 @@ public class RemoteServerImpl extends UnicastRemoteObject implements RemoteServe
      */
     @Override
     public void addClient (String nickname, RemoteClient remoteClient) throws RemoteException {
-        RemoteClientHandler clientHandler = new RemoteClientHandler(remoteClient);
+        RemoteClientHandler clientHandler = new RemoteClientHandler(remoteClient, this);
         this.server.addClient(nickname, clientHandler);
     }
-
 
     /**
      * This method sends a message from the Client implementation to the server.
@@ -46,6 +46,14 @@ public class RemoteServerImpl extends UnicastRemoteObject implements RemoteServe
     public void messageToServer (Message message) throws RemoteException {
         System.out.println("Message received: " + message.toString());
         server.onMessageReceived(message);
+    }
+
+    /**
+     * Handles the disconnection of a client, passing the request to the {@code Server}.
+     * @param clientHandler The {@code ClientHandler} disconnected.
+     */
+    public void onClientDisconnection (ClientHandler clientHandler) {
+        server.onClientDisconnection(clientHandler);
     }
 
 }

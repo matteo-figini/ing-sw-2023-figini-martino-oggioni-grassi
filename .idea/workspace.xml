@@ -7,14 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="First implementation of RMI connection">
+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="First working implementation of RMI connection">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/ServerMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/ServerMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/ClientManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/ClientManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteClientImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteServerImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,7 +104,7 @@
       <recent name="C:\Desktop\Progetto\src\main\resources\assets" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ClientMain">
+  <component name="RunManager" selected="Application.ServerMain">
     <configuration name="ClientMain" type="Application" factoryName="Application" singleton="false" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="19" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -383,14 +378,8 @@
       <workItem from="1687286695255" duration="572000" />
       <workItem from="1687287951683" duration="319000" />
       <workItem from="1687289314650" duration="1543000" />
-      <workItem from="1687292874816" duration="1054000" />
-    </task>
-    <task id="LOCAL-00006" summary="BoardTest: refillBoardTest commit">
-      <created>1681204431948</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1681204431948</updated>
+      <workItem from="1687292874816" duration="1079000" />
+      <workItem from="1687379352914" duration="428000" />
     </task>
     <task id="LOCAL-00007" summary="Added very very basic skeleton for client and server">
       <created>1681382916956</created>
@@ -728,7 +717,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687290855506</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="First working implementation of RMI connection">
+      <created>1687293939554</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1687293939554</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -762,7 +758,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Invalid nickname case handled. This should fix #2" />
     <MESSAGE value="Minor fixes" />
     <MESSAGE value="Updated &quot;resilienza alle disconnessioni&quot; feature. Minor fixes on GameController.java" />
     <MESSAGE value="First GUI setup commit" />
@@ -787,7 +782,8 @@
     <MESSAGE value="Added new &quot;Reset Turn button in the GUI&quot;; catched exception on the board" />
     <MESSAGE value="Improved RMI connection and flexibility with socket" />
     <MESSAGE value="First implementation of RMI connection" />
-    <option name="LAST_COMMIT_MESSAGE" value="First implementation of RMI connection" />
+    <MESSAGE value="First working implementation of RMI connection" />
+    <option name="LAST_COMMIT_MESSAGE" value="First working implementation of RMI connection" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
