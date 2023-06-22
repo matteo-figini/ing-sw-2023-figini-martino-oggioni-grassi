@@ -64,7 +64,6 @@ public class Bag implements Serializable {
     }
 
     /**
-     * Returns the number of available tiles inside the bag.
      * @return the number of available tiles inside the bag.
      */
     public int availableTiles(){

@@ -9,7 +9,7 @@ public class ShelfCell implements Serializable {
     private ItemTile tile;      // Tile contained in the cell
 
     /**
-     * When the single cell is initialized, it doesn't have any tile inside.
+     * When a single cell is initialized, it doesn't have any tile inside.
      */
     public ShelfCell(){
         this.tile = null;

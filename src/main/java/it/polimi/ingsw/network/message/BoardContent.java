@@ -4,9 +4,13 @@ import it.polimi.ingsw.model.BoardCell;
 
 import java.util.Arrays;
 
-// TODO: add Javadoc for the method
+/**
+ * This class represents a message that contains a copy of the game board.
+ * This message is sent from the server to one or more clients.
+ */
 public class BoardContent extends Message {
-    private BoardCell[][] boardContent;
+    /** Matrix of {@code BoardCell} that represents a copy of the board content. */
+    private final BoardCell[][] boardContent;
 
     /**
      * This constructor receives in input a reference to a matrix containing the board cells.
@@ -18,7 +22,9 @@ public class BoardContent extends Message {
         this.boardContent = boardContent;
     }
 
-    // TODO: add Javadoc for the method
+    /**
+     * @return The board content contained in the message.
+     */
     public BoardCell[][] getBoardContent() {
         return boardContent;
     }

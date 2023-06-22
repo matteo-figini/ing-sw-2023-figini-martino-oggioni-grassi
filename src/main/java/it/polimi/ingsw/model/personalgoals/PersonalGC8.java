@@ -6,7 +6,7 @@ import it.polimi.ingsw.model.Position;
 public class PersonalGC8 extends PersonalGoalCard {
 
     /**
-     * Construct the schema for the first {@code PersonalGoalCard}.
+     * Construct the schema for the 8th {@code PersonalGoalCard}.
      */
     public PersonalGC8 () {
         super(8);

@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * This class represent a board game with his content.
+ * This class represents the game board with his content.
  */
 public class Board implements Serializable {
     /** Matrix of {@code BoardCell} as the content of the board. */

@@ -195,7 +195,7 @@ public class GameController implements Serializable {
     }
 
     /**
-     * This method terminates the game: for each player the total score is computed, and after that sends a message
+     * Terminates the game: for each player the total score is computed, and after that sends a message
      * to all the players containing the score board. After this, the game is resetted to the initial state, the
      * file containing the stored match is deleted, and a message is sent to all the clients.
      */
@@ -236,13 +236,6 @@ public class GameController implements Serializable {
 
         broadcastMessage("Game finished! Thanks for playing with us.");
         System.exit(0);
-        // sendExitMessage();
-    }
-
-    private void sendExitMessage () {
-        for (Map.Entry<String, VirtualView> entry : virtualViewMap.entrySet()) {
-
-        }
     }
 
     /* ---------- LOGIN HANDLER ---------- */
@@ -262,7 +255,7 @@ public class GameController implements Serializable {
             virtualView.askPlayersNumber();
             virtualView.showGenericMessage("Waiting for other players...");
         } else if (virtualViewMap.size() < game.getChosenPlayersNumber()) {
-            // The player is not the first one. We suppose here that the nickname is already checked by the server.
+            // The player is not the first one. We suppose here that the server already checks the nickname.
             addVirtualView(nickname, virtualView);
             game.addPlayer(nickname);
             virtualView.switchToWaitingRoom();
@@ -296,6 +289,10 @@ public class GameController implements Serializable {
         }
     }
 
+    /**
+     * Restore a previous version of the {@code GameController} saved on a binary file.
+     * @param previousGame {@code GameController} representing a previously-saved version of the game.
+     */
     private void restorePreviousGame (GameController previousGame) {
         // Ripristino:
         // [OK] In GameController: gameState, activePlayer, gameSuspended
@@ -333,7 +330,7 @@ public class GameController implements Serializable {
 
 
     /**
-     * This method checks if the nickname passed as parameter is a valid nickname.
+     * Checks if the nickname passed as parameter is a valid nickname.
      * @param nickname The nickname that will be checked.
      * @param virtualView The virtual view of the client (useful for notifying the result).
      * @return {@code true} if "nickname" is a valid nickname, {@code false} otherwise.
@@ -352,7 +349,7 @@ public class GameController implements Serializable {
 
     /* ---------- TURN HANDLING ---------- */
     /**
-     * This method returns the next active player (without changing it in the game).
+     * Returns the next active player (without changing it in the game).
      * @return The name of the next active player.
      */
     private String getNextPlayer () {
@@ -367,7 +364,7 @@ public class GameController implements Serializable {
     }
 
     /**
-     * This method returns the nickname of a player, chosen randomly inside the list of the players.
+     * Returns the nickname of a player, chosen randomly inside the list of the players.
      * @return The nickname of the randomly chosen player.
      */
     private String chooseRandomPlayer () {
@@ -377,7 +374,7 @@ public class GameController implements Serializable {
     }
 
     /**
-     * This method evolves the turn of the player, passing on the next one and notifying the players.
+     * Evolves the turn of the player, passing on the next one and notifying the players.
      */
     private void newTurn () {
         if (!isGameSuspended()) {
@@ -393,7 +390,6 @@ public class GameController implements Serializable {
 
     /* ---------- VIRTUAL VIEW METHODS ---------- */
     /**
-     * This method returns the virtual view map.
      * @return The virtual view map.
      */
     public Map<String, VirtualView> getVirtualViewMap() {
@@ -401,7 +397,7 @@ public class GameController implements Serializable {
     }
 
     /**
-     * This method associates the {@code nickname} (key) with the {@code virtualView} (value).
+     * Associates the {@code nickname} (key) with the {@code virtualView} (value).
      * @param nickname The nickname of the player.
      * @param virtualView The virtual view of the player.
      */
@@ -410,7 +406,7 @@ public class GameController implements Serializable {
     }
 
     /**
-     * This method removes the virtual view of the client with {@code nickname} specified, only if it is correctly mapped
+     * Removes the virtual view of the client with {@code nickname} specified, only if it is correctly mapped
      * on the virtual view map.
      * @param nickname The nickname of the client that will be removed.
      * @param virtualView The virtual view of the client that will be removed.
@@ -421,7 +417,7 @@ public class GameController implements Serializable {
 
     /* ---------- UTILITY METHODS ---------- */
     /**
-     * This method starts the game.
+     * Starts the game.
      */
     private void startGame () {
         for (Map.Entry<String, VirtualView> entry : virtualViewMap.entrySet()){
@@ -441,6 +437,9 @@ public class GameController implements Serializable {
         askActivePlayerColumnAndPosition();
     }
 
+    /**
+     * Sends a message to each client containing the list of the players.
+     */
     private void showPlayersNicknames () {
         for (Player player : game.getPlayers()) {
             VirtualView virtualView = virtualViewMap.get(player.getNickname());
@@ -450,6 +449,9 @@ public class GameController implements Serializable {
         }
     }
 
+    /**
+     * @return A {@code List} of {@code String} containing all the player's nicknames.
+     */
     private List<String> getNicknameOfAllPlayer () {
         return game.getPlayers().stream()
                 .map(Player::getNickname)
@@ -457,7 +459,7 @@ public class GameController implements Serializable {
     }
 
     /**
-     * This method is used to show to each player:
+     * Shows to each player:
      * - The game board
      * - The shelf of each player
      * - The common goal cards
@@ -470,6 +472,13 @@ public class GameController implements Serializable {
         showPersonalGoalCards();
     }
 
+    /**
+     * Shows to the player with the nickname passed by parameter:
+     * - The game board
+     * - The shelf of each player
+     * - The common goal cards
+     * - The player's personal goal card
+     */
     private void showGameInformation (String nickname) {
         VirtualView virtualView = virtualViewMap.get(nickname);
         showBoard(virtualView);
@@ -479,7 +488,7 @@ public class GameController implements Serializable {
     }
 
     /**
-     * This method shows to each player the updated board content.
+     * Shows to each player the updated board content.
      */
     private void showBoard () {
         for (Player player : game.getPlayers()) {
@@ -491,8 +500,8 @@ public class GameController implements Serializable {
     }
 
     /**
-     * Show to the player with the specified {@code VirtualView} passed as parameter the Board
-     * @param virtualView
+     * Show to the player with the specified {@code VirtualView} passed as parameter the updated board content.
+     * @param virtualView {@code VirtualView} of the desired player.
      */
     private void showBoard (VirtualView virtualView) {
         if (virtualView != null) {
@@ -501,7 +510,7 @@ public class GameController implements Serializable {
     }
 
     /**
-     * This method shows to each player the shelf content of every player.
+     * Shows to each player the shelf content of every player.
      */
     private void showShelfOfEachPlayer () {
         for (Player player : game.getPlayers()) {
@@ -520,8 +529,8 @@ public class GameController implements Serializable {
     }
 
     /**
-     *
-     * @param virtualView
+     * Shows to the player with the specified {@code VirtualView} passed as parameter the shelf content of every player.
+     * @param virtualView {@code VirtualView} of the desired player.
      */
     private void showShelfOfEachPlayer (VirtualView virtualView) {
         if (virtualView != null) {
@@ -551,8 +560,8 @@ public class GameController implements Serializable {
     }
 
     /**
-     *
-     * @param virtualView
+     * Sends to the player with the specified {@code VirtualView} passed as parameter player a copy of each {@code CommonGoalCard}.
+     * @param virtualView {@code VirtualView} of the desired player.
      */
     private void showCommonGoalCards (VirtualView virtualView) {
         if (virtualView != null) {
@@ -574,6 +583,10 @@ public class GameController implements Serializable {
         }
     }
 
+    /**
+     * Sends to the player with the nickname passed as parameter a message with his own personal goal card.
+     * @param nickname Name of the desired player.
+     */
     private void showPersonalGoalCards (String nickname) {
         Player player = game.getPlayerByNickname(nickname);
         VirtualView virtualView = virtualViewMap.get(nickname);
@@ -596,7 +609,7 @@ public class GameController implements Serializable {
     }
 
     /**
-     * This method sends a text message to each client.
+     * Sends a text message to each client.
      * @param messageString The text message to be sent.
      */
     public void broadcastMessage (String messageString) {
@@ -606,7 +619,7 @@ public class GameController implements Serializable {
     }
 
     /**
-     * This method sends a request to the active player to choose the item tiles it wants to pick up from the board
+     * Sends a request to the active player to choose the item tiles it wants to pick up from the board
      * and the column it wants to insert them.
      */
     private void askActivePlayerColumnAndPosition () {
@@ -616,7 +629,7 @@ public class GameController implements Serializable {
     }
 
     /**
-     * This method extracts the tiles from the board and insert them in the column.
+     * Extracts the tiles from the board and insert them in the column.
      * @param positions Positions of tiles to extract from the board.
      * @return A boolean indicating if the insertion was successful or not.
      */
@@ -634,9 +647,10 @@ public class GameController implements Serializable {
     }
 
     /**
-     * This method checks if the active player completed a new common goal.
+     * Checks if the active player completed a new common goal.
      * For each of the two common goal cards, the condition is that the player didn't reach the common goal before,
-     * and it reach it now; then the score of the player is updated and the related points are associated to the player.
+     * and it reaches it now;
+     * then the score of the player is updated and the related points are associated with the player.
      */
     private void checkCommonGoalsCompleted () {
         Player activePlayerModel = game.getPlayerByNickname(getActivePlayer());
@@ -672,7 +686,7 @@ public class GameController implements Serializable {
     }
 
     /**
-     * This method checks if a board refill is requested. If it is, proceeds with board refilling.
+     * Checks if a board refill is requested. If it is, proceeds with board refilling.
      */
     private void checkBoardRefillRequested () {
         if (game.getBoard().fillingRequired()) {
@@ -726,7 +740,7 @@ public class GameController implements Serializable {
     }
 
     /**
-     * This method sets the name of the current active player with the value passed as parameter if it exists.
+     * Sets the name of the current active player with the value passed as parameter if it exists.
      * @param nickname The name of the current active player.
      */
     public void setActivePlayer (String nickname) {

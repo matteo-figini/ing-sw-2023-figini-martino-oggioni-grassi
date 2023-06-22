@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * This immutable class represents a couple of 2D coordinates, useful eg. in the shelf or on the board.
+ * This immutable class represents a couple of 2D coordinates, useful e.g., in the shelf or on the board.
  */
 public record Position(int x, int y) implements Serializable {
     /**
