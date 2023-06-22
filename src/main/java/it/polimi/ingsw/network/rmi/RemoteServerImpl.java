@@ -3,6 +3,7 @@ package it.polimi.ingsw.network.rmi;
 import it.polimi.ingsw.network.ClientHandler;
 import it.polimi.ingsw.network.Server;
 import it.polimi.ingsw.network.message.Message;
+import it.polimi.ingsw.network.message.MessageType;
 
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
@@ -58,8 +59,10 @@ public class RemoteServerImpl extends UnicastRemoteObject implements RemoteServe
      */
     @Override
     public void messageToServer (Message message) throws RemoteException {
-        System.out.println("Message received: " + message.toString());
-        server.onMessageReceived(message);
+        System.out.println("Received message: " + message.toString());
+        if (message.getMessageType() != MessageType.PING_MESSAGE) {
+            server.onMessageReceived(message);
+        }
     }
 
     /**
@@ -69,5 +72,4 @@ public class RemoteServerImpl extends UnicastRemoteObject implements RemoteServe
     public void onClientDisconnection (ClientHandler clientHandler) {
         server.onClientDisconnection(clientHandler);
     }
-
 }

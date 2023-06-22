@@ -7,12 +7,16 @@ import it.polimi.ingsw.network.Server;
 import it.polimi.ingsw.network.message.LoginRequestMessage;
 import it.polimi.ingsw.network.message.Message;
 import it.polimi.ingsw.network.message.MessageType;
+import it.polimi.ingsw.network.message.PingMessage;
 
 import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * This class implements the remote interface for the client.
@@ -22,11 +26,16 @@ public class RemoteClientImpl extends Client implements RemoteClient, Runnable {
     private RemoteServer remoteServer;
     private int lastPingCounter;
 
+    private final ScheduledExecutorService pingSchedule = Executors.newSingleThreadScheduledExecutor();
+
+    public static final int RMI_TIMEOUT = 20000;
+
     public RemoteClientImpl (ClientManager manager, String ipAddress, int port) throws RemoteException {
         setClientManager(manager);
         Registry registry = LocateRegistry.getRegistry(ipAddress, port);
         try {
             this.remoteServer = (RemoteServer) registry.lookup(Server.SERVER_NAME);
+            enablePing();
         } catch (NotBoundException e) {
             e.printStackTrace();
         }
@@ -85,18 +94,20 @@ public class RemoteClientImpl extends Client implements RemoteClient, Runnable {
     public void sendMessage(Message message) {
         try {
             if (message.getMessageType() == MessageType.LOGIN_REQUEST) {
-                this.remoteServer.addClient(message.getNickname(), this);
+                remoteServer.addClient(message.getNickname(), this);
             } else {
-                this.remoteServer.messageToServer(message);
+                remoteServer.messageToServer(message);
             }
         } catch (RemoteException e) {
-            e.printStackTrace();
+            disconnect();
         }
     }
 
     @Override
     public void messageToClient(Message message) throws RemoteException {
-        clientManager.update(message);
+        if (message.getMessageType() != MessageType.PING_MESSAGE) {
+            clientManager.update(message);
+        }
     }
 
     @Override
@@ -106,17 +117,25 @@ public class RemoteClientImpl extends Client implements RemoteClient, Runnable {
 
     @Override
     public void disconnect() {
-
+        if (remoteServer != null) {
+            System.out.println("Disconnecting from the server due to an internal server error.");
+            remoteServer = null;
+            disablePing();
+            System.exit(0);
+        }
     }
 
     @Override
     public void enablePing() {
-
+        pingSchedule.scheduleAtFixedRate(
+                () -> sendMessage(new PingMessage(clientManager.getNickname())),
+                0,
+                RMI_TIMEOUT/2,
+                TimeUnit.MILLISECONDS);
     }
 
     @Override
     public void disablePing() {
-
+        pingSchedule.shutdownNow();
     }
-
 }

@@ -380,13 +380,15 @@ public class GameController implements Serializable {
      * This method evolves the turn of the player, passing on the next one and notifying the players.
      */
     private void newTurn () {
-        setActivePlayer(getNextPlayer());
-        broadcastMessage("Turn of " + getActivePlayer());
+        if (!isGameSuspended()) {
+            setActivePlayer(getNextPlayer());
+            broadcastMessage("Turn of " + getActivePlayer());
 
-        Persistence persistence = new Persistence(this);
-        persistence.store();
+            Persistence persistence = new Persistence(this);
+            persistence.store();
 
-        askActivePlayerColumnAndPosition();
+            askActivePlayerColumnAndPosition();
+        }
     }
 
     /* ---------- VIRTUAL VIEW METHODS ---------- */
@@ -680,6 +682,10 @@ public class GameController implements Serializable {
         }
     }
 
+    /**
+     * Set the player with the nickname specified as parameter to offline, so it can be reconnected later.
+     * @param nickname The nickname of the offline player.
+     */
     public void setPlayerOffline (String nickname) {
         virtualViewMap.remove(nickname);
         if (game.getPlayerByNickname(nickname) != null) {

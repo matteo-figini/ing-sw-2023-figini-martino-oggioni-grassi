@@ -44,7 +44,6 @@ public class SocketClientHandler implements ClientHandler, Runnable {
         }
     }
 
-
     @Override
     public void run () {
         try {
