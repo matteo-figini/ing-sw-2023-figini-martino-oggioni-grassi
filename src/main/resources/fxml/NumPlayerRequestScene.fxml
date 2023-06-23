@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="559.0" prefWidth="851.0" styleClass="BackGround" stylesheets="@../css/lobbyStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polimi.ingsw.view.gui.controllers.NumPlayerRequestSceneController">
+<BorderPane prefHeight="870.0" prefWidth="1547.0" styleClass="BackGround" stylesheets="@../css/lobbyStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polimi.ingsw.view.gui.controllers.NumPlayerRequestSceneController">
     <top>
         <HBox prefHeight="193.0" prefWidth="851.0" styleClass="Title" BorderPane.alignment="CENTER">
             <BorderPane.margin>
@@ -45,9 +45,12 @@
                 </HBox>
                 <HBox prefHeight="40.0" prefWidth="851.0" styleClass="Pane">
                <children>
-                  <Pane>
+                  <Pane prefHeight="40.0" prefWidth="1562.0">
                      <children>
-                        <Label alignment="CENTER" layoutX="298.0" layoutY="4.0" prefHeight="17.0" prefWidth="237.0" text="Insert player's number" textAlignment="CENTER" textFill="WHITE" />
+                        <Label alignment="CENTER" layoutX="576.0" layoutY="4.0" prefHeight="21.0" prefWidth="396.0" text="Insert player's number" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Label>
                      </children>
                   </Pane>
                </children></HBox>
