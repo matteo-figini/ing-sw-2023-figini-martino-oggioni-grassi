@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="559.0" prefWidth="851.0" styleClass="BackGround" stylesheets="@../css/lobbyStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polimi.ingsw.view.gui.controllers.ConnectionInfoSceneController">
+<BorderPane prefHeight="870.0" prefWidth="1547.0" styleClass="BackGround" stylesheets="@../css/lobbyStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polimi.ingsw.view.gui.controllers.ConnectionInfoSceneController">
    <top>
       <HBox prefHeight="183.0" prefWidth="851.0" styleClass="Title" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -26,7 +26,7 @@
             <HBox prefHeight="40.0" prefWidth="851.0" styleClass="Pane" />
             <HBox alignment="CENTER" prefHeight="74.0" prefWidth="851.0" styleClass="Pane">
                <children>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="IP Address:   " textAlignment="RIGHT" wrappingWidth="286.03515625">
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="IP Address:   " textAlignment="CENTER" wrappingWidth="286.03515625">
                      <font>
                         <Font name="System Bold Italic" size="40.0" />
                      </font>
@@ -40,10 +40,9 @@
                      </HBox.margin></TextField>
                </children>
             </HBox>
-            <HBox prefHeight="40.0" prefWidth="851.0" styleClass="Pane" />
             <HBox alignment="CENTER" prefHeight="89.0" prefWidth="851.0" styleClass="Pane">
                <children>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Socket:         " textAlignment="RIGHT" wrappingWidth="286.03515625">
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Port:" textAlignment="CENTER" wrappingWidth="267.63519287109375">
                      <font>
                         <Font name="System Bold Italic" size="40.0" />
                      </font>
@@ -60,9 +59,9 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="70.0" prefWidth="851.0" styleClass="Pane">
                <children>
-                  <HBox alignment="CENTER" prefHeight="89.0" prefWidth="851.0" styleClass="Pane">
+                  <HBox alignment="CENTER" prefHeight="70.0" prefWidth="1550.0" styleClass="Pane">
                      <children>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Connection type:           " textAlignment="RIGHT" wrappingWidth="286.0351212024689">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Connection type:     " textAlignment="RIGHT" wrappingWidth="514.0351793766022">
                            <font>
                               <Font name="System Bold Italic" size="40.0" />
                            </font>
@@ -72,8 +71,12 @@
                         </Text>
                         <ComboBox fx:id="connectionTypeBox" prefWidth="150.0" />
                      </children>
+                     <HBox.margin>
+                        <Insets right="100.0" />
+                     </HBox.margin>
                   </HBox>
                </children></HBox>
+            <HBox prefHeight="40.0" prefWidth="851.0" styleClass="Pane" />
             <HBox alignment="CENTER" prefHeight="0.0" prefWidth="851.0" styleClass="Pane">
                <children>
                   <Button fx:id="button1" mnemonicParsing="false" onAction="#askServerInformation" prefHeight="39.0" prefWidth="245.0" text="CONNECT TO THE GAME" textAlignment="CENTER">
