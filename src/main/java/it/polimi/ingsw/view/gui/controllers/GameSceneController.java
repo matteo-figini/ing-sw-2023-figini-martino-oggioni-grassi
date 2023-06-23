@@ -1356,9 +1356,18 @@ public class GameSceneController {
     void pickUpFromBoard(MouseEvent event) {
         if (pickUpEnabled && numOfPositions < 3) {
             Node tile = (Node) event.getTarget();
+            int row, column;
             try {
-                int row = GridPane.getRowIndex(tile);
-                int column = GridPane.getColumnIndex(tile);
+                row = GridPane.getRowIndex(tile);
+            } catch (NullPointerException e) {
+                row = 0;
+            }
+            try {
+                column = GridPane.getColumnIndex(tile);
+            } catch (NullPointerException e) {
+                column = 0;
+            }
+            try {
                 Position position = new Position(row, column);
                 if (!positions.contains(position)) {
                     positions.add(position);

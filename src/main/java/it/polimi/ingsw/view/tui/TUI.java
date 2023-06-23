@@ -22,9 +22,8 @@ public class TUI implements View {
 
     /**
      * Starts the view for the CLI interface.
-     * @param rmiConnection {@code true} if an RMI connection is required, {@code false} is a Socket connection is required.
      */
-    public void startView (boolean rmiConnection) {
+    public void startView () {
         System.out.println("""
 
                          ___                          ,-,--.  ,--.-,,-,--,    ,----.                _,---.   .=-.-.   ,----. \s
@@ -38,24 +37,56 @@ public class TUI implements View {
                  `--`./  `--`  `--`-`               `--`---' `--`-' `-`--`--`-----`` `--`-----'`--`---'    `--`-``--`-----`` \s
                 """);
         System.out.println("Welcome to MyShelfie Game!");
-        askServerInformation(rmiConnection);
+        askServerInformation();
     }
 
     /**
      * This method asks the user to insert the connection information about the server, such as IP address and port.
      * Then it delegates the connection to the {@code ClientManager}.
      */
-    public void askServerInformation (boolean rmiConnection) {
+    public void askServerInformation () {
         String ipAddress, defaultIpAddress = "127.0.0.1", input;      // Localhost address.
-        int port, defaultPort;
-        boolean validInput = false;
-        if (rmiConnection) {
-            defaultPort = 1099; // Default port for RMI connection
-        } else {
-            defaultPort = 5000; // Default port for socket connection
-        }
+        int port, defaultPort = 5000;
+        boolean validInput = false, rmiConnection = false;
+
+        // Choose the connection type between Socket or RMI
+        do {
+            System.out.println("Please select the preferred connection type: ");
+            System.out.println("1) Socket connection (default)");
+            System.out.println("2) RMI connection");
+            int choose;
+            try {
+                input = scanner.nextLine();
+                if (input.equals(""))
+                    choose = 1;
+                else
+                    choose = Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                choose = 1;
+            }
+            switch (choose) {
+                case 1 -> {
+                    rmiConnection = false;
+                    validInput = true;
+                    System.out.println("You selected socket connection.");
+                }
+                case 2 -> {
+                    rmiConnection = true;
+                    validInput = true;
+                    System.out.println("You selected RMI connection.");
+                }
+                default -> {
+                    System.out.println("Incorrect choose.");
+                    validInput = false;
+                }
+            }
+        } while (!validInput);
+
+        if (rmiConnection)
+            defaultPort = 1099;
 
         // Insert and verify the IP address and the port
+        validInput = false;
         do {
             System.out.print("Please insert the IP address of the server (default: " + defaultIpAddress + "): ");
             ipAddress = scanner.nextLine();

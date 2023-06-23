@@ -2,8 +2,11 @@ package it.polimi.ingsw.view.gui.controllers;
 
 import it.polimi.ingsw.network.ClientManager;
 import it.polimi.ingsw.network.socket.server.SocketServer;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
@@ -12,7 +15,7 @@ import java.util.ResourceBundle;
 /**
  * This class represents the first login scene, where the user inserts the IP address of the server and the port.
  */
-public class ConnectionInfoSceneController {
+public class ConnectionInfoSceneController implements Initializable {
     /** Reference to the {@code ClientManager}. */
     private ClientManager clientManager;
 
@@ -32,10 +35,14 @@ public class ConnectionInfoSceneController {
     private TextField playerSocket;
 
     @FXML
-    void initialize() {
+    private ComboBox<String> connectionTypeBox;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resources) {
         assert button1 != null : "fx:id=\"button1\" was not injected: check your FXML file 'ConnectionInfoScene.fxml'.";
         assert playerIpAddress != null : "fx:id=\"playerIpAddress\" was not injected: check your FXML file 'ConnectionInfoScene.fxml'.";
         assert playerSocket != null : "fx:id=\"playerSocket\" was not injected: check your FXML file 'ConnectionInfoScene.fxml'.";
+        connectionTypeBox.setItems(FXCollections.observableArrayList("Socket", "RMI"));
     }
 
     public String getPlayerIpAddress() {
@@ -55,6 +62,7 @@ public class ConnectionInfoSceneController {
     public void askServerInformation(javafx.event.ActionEvent event) {
         String ipAddress, defaultIpAddress = "127.0.0.1";
         int port, defaultPort = SocketServer.SOCKET_SERVER_PORT;
+        boolean rmiConnection = false;
 
         // Insert and verify the IP address and the port
         playerIpAddress.setStyle("-fx-text-fill: red;");
@@ -70,10 +78,12 @@ public class ConnectionInfoSceneController {
         else
             port = Integer.parseInt(getPlayerSocket());
 
+        rmiConnection = !connectionTypeBox.getValue().equals("Socket");
+
         if (ClientManager.isValidIPAddress(ipAddress) && ClientManager.isValidPort(port)) {
             playerIpAddress.setStyle("-fx-text-fill: green");
             playerSocket.setStyle("-fx-text-fill: green;");
-            clientManager.onUpdateServerInformation(ipAddress, port, false);    // TODO: remember to update rmi flag!
+            clientManager.onUpdateServerInformation(ipAddress, port, rmiConnection);
         } else {
             playerIpAddress.setText("");
             playerSocket.setText("");
