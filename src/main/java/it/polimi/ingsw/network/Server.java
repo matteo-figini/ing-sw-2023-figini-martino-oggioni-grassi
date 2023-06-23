@@ -23,6 +23,8 @@ public class Server {
     /** Server name. */
     public static final String SERVER_NAME = "MyShelfieServer";
 
+    private Object lockObject = new Object();
+
     /**
      * Creates an instance of the server.
      * @param gameController The instance of {@code GameController}.
@@ -41,13 +43,14 @@ public class Server {
      */
     public void addClient (String nickname, ClientHandler clientHandler) {
         VirtualView virtualView = new VirtualView(clientHandler);
-        synchronized (this) {
+        System.out.println("DEBUG: " + nickname + ", " + clientHandler + ", " + virtualView);
+        // synchronized (lockObject) {
             if (gameController.getGameState() == GameState.LOBBY_STATE) {
                 addNewClientConnection(nickname, clientHandler, virtualView);
             } else {
                 addClientReconnection(nickname, clientHandler, virtualView);
             }
-        }
+        // }
     }
 
     /**

@@ -26,17 +26,13 @@ public class ServerMain {
 
         GameController gameController = new GameController();
         Server server = new Server(gameController);
-
-        if (rmiConnection) {
-            try {
-                RemoteServerImpl remoteServer = new RemoteServerImpl(server);
-            } catch (RemoteException e) {
-                System.out.println("Cannot start RMI server.");
-            }
-        } else {
-            SocketServer socketServer = new SocketServer(server, SocketServer.SOCKET_SERVER_PORT);
-            Thread thread = new Thread(socketServer);
-            thread.start();
+        SocketServer socketServer = new SocketServer(server, SocketServer.SOCKET_SERVER_PORT);
+        Thread thread = new Thread(socketServer);
+        thread.start();
+        try {
+            RemoteServerImpl remoteServer = new RemoteServerImpl(server);
+        } catch (RemoteException e) {
+            System.out.println("Cannot start RMI server.");
         }
     }
 }
