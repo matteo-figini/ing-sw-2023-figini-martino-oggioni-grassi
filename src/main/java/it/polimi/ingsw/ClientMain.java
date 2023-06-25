@@ -5,6 +5,9 @@ import it.polimi.ingsw.view.tui.ColoredTUI;
 import it.polimi.ingsw.view.tui.TUI;
 import javafx.application.Application;
 
+/**
+ * Entry point for the Client application. It asks to choose the preferred user interface (TUI or GUI).
+ */
 public class  ClientMain {
     public static void main(String[] args) {
         boolean cliRequested = false;

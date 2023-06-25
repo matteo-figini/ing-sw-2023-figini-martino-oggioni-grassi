@@ -14,10 +14,16 @@ public class LoginResponseMessage extends Message {
         this.connectionEstablished = connectionEstablished;
     }
 
+    /**
+     * @return {@code true} if the suggested nickname is valid and unique, {@code false} otherwise.
+     */
     public boolean isNicknameAccepted() {
         return nicknameAccepted;
     }
 
+    /**
+     * @return {@code true} if a stable connection is established, {@code false} otherwise.
+     */
     public boolean isConnectionEstablished() {
         return connectionEstablished;
     }

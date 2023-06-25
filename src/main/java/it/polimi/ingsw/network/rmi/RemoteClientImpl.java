@@ -28,7 +28,7 @@ public class RemoteClientImpl extends Client implements RemoteClient, Runnable {
 
     private final ScheduledExecutorService pingSchedule = Executors.newSingleThreadScheduledExecutor();
 
-    public static final int RMI_TIMEOUT = 20000;
+    public static final int RMI_TIMEOUT = 10000;
 
     public RemoteClientImpl (ClientManager manager, String ipAddress, int port) throws RemoteException {
         setClientManager(manager);
@@ -118,10 +118,10 @@ public class RemoteClientImpl extends Client implements RemoteClient, Runnable {
     @Override
     public void disconnect() {
         if (remoteServer != null) {
-            System.out.println("Disconnecting from the server due to an internal server error.");
+            System.out.println("Disconnecting from the server. You can close safely the program.");
             remoteServer = null;
             disablePing();
-            System.exit(0);
+            // System.exit(0);
         }
     }
 

@@ -26,7 +26,7 @@
             <HBox prefHeight="40.0" prefWidth="851.0" styleClass="Pane" />
             <HBox alignment="CENTER" prefHeight="74.0" prefWidth="851.0" styleClass="Pane">
                <children>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="IP Address:   " textAlignment="CENTER" wrappingWidth="286.03515625">
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="IP Address:" textAlignment="CENTER" wrappingWidth="286.03515625">
                      <font>
                         <Font name="System Bold Italic" size="40.0" />
                      </font>
@@ -34,13 +34,13 @@
                         <Insets />
                      </HBox.margin>
                   </Text>
-                  <TextField fx:id="playerIpAddress" alignment="CENTER" prefHeight="30.0" prefWidth="310.0" styleClass="Field">
+                  <TextField fx:id="playerIpAddress" alignment="CENTER" prefHeight="30.0" prefWidth="294.0" styleClass="Field">
                      <HBox.margin>
                         <Insets top="5.0" />
                      </HBox.margin></TextField>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="89.0" prefWidth="851.0" styleClass="Pane">
+            <HBox alignment="CENTER" styleClass="Pane">
                <children>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Port:" textAlignment="CENTER" wrappingWidth="267.63519287109375">
                      <font>
@@ -50,7 +50,7 @@
                         <Insets />
                      </HBox.margin>
                   </Text>
-                  <TextField fx:id="playerSocket" alignment="CENTER" prefHeight="30.0" prefWidth="310.0" styleClass="Field">
+                  <TextField fx:id="playerSocket" alignment="CENTER" prefHeight="30.0" prefWidth="277.0" styleClass="Field">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -61,7 +61,7 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="70.0" prefWidth="1550.0" styleClass="Pane">
                      <children>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Connection type:     " textAlignment="RIGHT" wrappingWidth="514.0351793766022">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Connection type:     " textAlignment="RIGHT" wrappingWidth="528.4352037906647">
                            <font>
                               <Font name="System Bold Italic" size="40.0" />
                            </font>
@@ -69,7 +69,7 @@
                               <Insets />
                            </HBox.margin>
                         </Text>
-                        <ComboBox fx:id="connectionTypeBox" prefWidth="150.0" />
+                        <ComboBox fx:id="connectionTypeBox" prefHeight="26.0" prefWidth="146.0" />
                      </children>
                      <HBox.margin>
                         <Insets right="100.0" />

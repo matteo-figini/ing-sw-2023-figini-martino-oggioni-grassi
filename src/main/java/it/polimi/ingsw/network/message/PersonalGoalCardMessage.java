@@ -2,6 +2,9 @@ package it.polimi.ingsw.network.message;
 
 import it.polimi.ingsw.model.personalgoals.PersonalGoalCard;
 
+/**
+ *
+ */
 public class PersonalGoalCardMessage extends Message {
 
     /** */

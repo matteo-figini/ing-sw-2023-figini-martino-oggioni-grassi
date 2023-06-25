@@ -3,7 +3,7 @@ package it.polimi.ingsw.network.message;
 import java.util.Map;
 
 /**
- * This message is used to the send the final score board containing the score of each player.
+ * This message is used to send the final score board containing the score of each player.
  */
 public class ScoreBoardMessage extends Message {
     /** Reference to the {@code Map} containing the score board. */
@@ -15,7 +15,6 @@ public class ScoreBoardMessage extends Message {
     }
 
     /**
-     * Returns the {@code Map} representing the score board.
      * @return The {@code Map} representing the score board.
      */
     public Map<String, Integer> getScoreBoardMap() {

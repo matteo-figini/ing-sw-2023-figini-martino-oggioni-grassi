@@ -31,10 +31,10 @@ public class GameSceneController {
     @FXML
     private URL location;
 
-    int numOfPositions;
+    int numOfPositions = 0;
     boolean pickUpEnabled = false;
 
-    List<Position> positions;
+    List<Position> positions = new ArrayList<>();
     List<Image> tilesImages = new ArrayList<>();
 
     List<Node> blurredNodes = new ArrayList<>();
@@ -1353,7 +1353,7 @@ public class GameSceneController {
     }
 
     @FXML
-    void pickUpFromBoard(MouseEvent event) {
+    void pickUpFromBoard (MouseEvent event) {
         if (pickUpEnabled && numOfPositions < 3) {
             Node tile = (Node) event.getTarget();
             int row, column;
@@ -1369,15 +1369,18 @@ public class GameSceneController {
             }
             try {
                 Position position = new Position(row, column);
-                if (!positions.contains(position)) {
-                    positions.add(position);
-                    tile.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, new Color(0.4, 1, 0.36, 1), 10, 0.9, -1, 0));
-                    this.blurredNodes.add(tile);
-                    Image image = getImageFromGrid(gridPane, row, column);
-                    if (image != null) {
-                        tilesImages.add(image);
+                System.out.println("Selected position " + position);
+                if (!position.equals(new Position(0, 0))) {
+                    if (!positions.contains(position)) {
+                        positions.add(position);
+                        tile.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, new Color(0.4, 1, 0.36, 1), 10, 0.9, -1, 0));
+                        this.blurredNodes.add(tile);
+                        Image image = getImageFromGrid(gridPane, row, column);
+                        if (image != null) {
+                            tilesImages.add(image);
+                        }
+                        numOfPositions++;
                     }
-                    numOfPositions++;
                 }
             } catch (NullPointerException e) {
                 updateMessageBox("Invalid position, please try again...");
@@ -1386,10 +1389,10 @@ public class GameSceneController {
     }
 
     public void enablePickingUp () {
-        this.positions = new ArrayList<>();
+        positions.clear();
         this.pickUpEnabled = true;
         this.numOfPositions = 0;
-        this.blurredNodes = new ArrayList<>();
+        blurredNodes.clear();
         this.resetTurnButton.setVisible(true);
     }
 
@@ -1428,40 +1431,40 @@ public class GameSceneController {
     }
 
     private void terminatePickingUp() {
-        this.pickUpEnabled = false;
-        for (Node tile : this.blurredNodes) {
+        pickUpEnabled = false;
+        for (Node tile : blurredNodes) {
             tile.setEffect(null);
         }
-        this.blurredNodes.clear();
-        this.resetTurnButton.setVisible(false);
+        blurredNodes.clear();
+        resetTurnButton.setVisible(false);
     }
 
     @FXML
-    void SendTiles1(ActionEvent event) {
+    void sendTilesToColumn0 (ActionEvent event) {
         clientManager.onUpdateColumnAndPosition(positions, 0);
         terminatePickingUp();
     }
 
     @FXML
-    void SendTiles2(ActionEvent event) {
+    void sendTilesToColumn1 (ActionEvent event) {
         clientManager.onUpdateColumnAndPosition(positions, 1);
         terminatePickingUp();
     }
 
     @FXML
-    void SendTiles3(ActionEvent event) {
+    void sendTilesToColumn2 (ActionEvent event) {
         clientManager.onUpdateColumnAndPosition(positions, 2);
         terminatePickingUp();
     }
 
     @FXML
-    void SendTiles4(ActionEvent event) {
+    void sendTilesToColumn3 (ActionEvent event) {
         clientManager.onUpdateColumnAndPosition(positions, 3);
         terminatePickingUp();
     }
 
     @FXML
-    void SendTiles5(ActionEvent event) {
+    void sendTilesToColumn4 (ActionEvent event) {
         clientManager.onUpdateColumnAndPosition(positions, 4);
         terminatePickingUp();
     }
@@ -1482,5 +1485,4 @@ public class GameSceneController {
         }
         updateMessageBox(scoreBoardMessage.toString());
     }
-
 }

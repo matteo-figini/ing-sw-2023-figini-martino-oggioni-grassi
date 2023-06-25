@@ -67,12 +67,12 @@ public interface View {
     void showBoardContent (BoardCell[][] boardContent);
 
     /**
-     *
-     * @param player
-     * @param shelfContent
-     * @param firstCommonGoal
-     * @param secondCommonGoal
-     * @param hasEndGameToken
+     * Show the public player information regarding all the player status.
+     * @param player {@code String} containing the nickname of the player.
+     * @param shelfContent Content of the player's shelf.
+     * @param firstCommonGoal The token corresponding to the first common goal (if obtained, otherwise it is null).
+     * @param secondCommonGoal The token corresponding to the second common goal (if obtained, otherwise it is null).
+     * @param hasEndGameToken {@code Boolean} indicating if the player has got the end game token.
      */
     void showPlayerInformation(String player, ShelfCell[][] shelfContent, ScoringToken firstCommonGoal, ScoringToken secondCommonGoal, boolean hasEndGameToken);
 

@@ -104,6 +104,4 @@ public class SocketClient extends Client {
     public void disablePing () {
         pingSchedule.shutdownNow();
     }
-
-
 }

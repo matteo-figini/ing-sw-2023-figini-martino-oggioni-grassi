@@ -310,7 +310,7 @@
                                     </GridPane>
                                     <HBox prefHeight="63.0" prefWidth="381.0">
                                        <children>
-                                          <Button fx:id="button1" mnemonicParsing="false" onAction="#SendTiles1" prefHeight="26.0" prefWidth="51.0">
+                                          <Button fx:id="button1" mnemonicParsing="false" onAction="#sendTilesToColumn0" prefHeight="26.0" prefWidth="51.0">
                                              <HBox.margin>
                                                 <Insets right="8.0" top="5.0" />
                                              </HBox.margin>
@@ -322,7 +322,7 @@
                                                 </ImageView>
                                              </graphic>
                                           </Button>
-                                          <Button fx:id="button2" mnemonicParsing="false" onAction="#SendTiles2" prefHeight="34.0" prefWidth="52.0">
+                                          <Button fx:id="button2" mnemonicParsing="false" onAction="#sendTilesToColumn1" prefHeight="34.0" prefWidth="52.0">
                                              <HBox.margin>
                                                 <Insets right="8.0" top="5.0" />
                                              </HBox.margin>
@@ -334,7 +334,7 @@
                                                 </ImageView>
                                              </graphic>
                                           </Button>
-                                          <Button fx:id="button3" mnemonicParsing="false" onAction="#SendTiles3" prefHeight="34.0" prefWidth="50.0">
+                                          <Button fx:id="button3" mnemonicParsing="false" onAction="#sendTilesToColumn2" prefHeight="34.0" prefWidth="50.0">
                                              <HBox.margin>
                                                 <Insets right="8.0" top="5.0" />
                                              </HBox.margin>
@@ -346,7 +346,7 @@
                                                 </ImageView>
                                              </graphic>
                                           </Button>
-                                          <Button fx:id="button4" mnemonicParsing="false" onAction="#SendTiles4" prefHeight="34.0" prefWidth="48.0">
+                                          <Button fx:id="button4" mnemonicParsing="false" onAction="#sendTilesToColumn3" prefHeight="34.0" prefWidth="48.0">
                                              <HBox.margin>
                                                 <Insets right="8.0" top="5.0" />
                                              </HBox.margin>
@@ -358,7 +358,7 @@
                                                 </ImageView>
                                              </graphic>
                                           </Button>
-                                          <Button fx:id="button5" mnemonicParsing="false" onAction="#SendTiles5" prefHeight="34.0" prefWidth="51.0">
+                                          <Button fx:id="button5" mnemonicParsing="false" onAction="#sendTilesToColumn4" prefHeight="34.0" prefWidth="51.0">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
                                              </HBox.margin>

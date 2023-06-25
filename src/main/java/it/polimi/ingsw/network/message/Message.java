@@ -7,8 +7,7 @@ import java.io.Serializable;
  * Every message contains the nickname of the sender/receiver and a type determined by the enumeration {@code MessageType}.
  */
 public abstract class Message implements Serializable {
-    protected String nickname;         // Nickname of the sender/receiver
-
+    protected String nickname;         // Nickname of the sender
     protected MessageType messageType; // Type of the message
 
     /**
@@ -22,7 +21,6 @@ public abstract class Message implements Serializable {
     }
 
     /**
-     * Returns the nickname of the client.
      * @return The nickname of the client.
      */
     public String getNickname() {
@@ -30,7 +28,6 @@ public abstract class Message implements Serializable {
     }
 
     /**
-     * Returns the type of the message.
      * @return The type of the message.
      */
     public MessageType getMessageType() {
@@ -38,7 +35,6 @@ public abstract class Message implements Serializable {
     }
 
     /**
-     * Creates a string representation of the message.
      * @return A string representation of the message.
      */
     @Override

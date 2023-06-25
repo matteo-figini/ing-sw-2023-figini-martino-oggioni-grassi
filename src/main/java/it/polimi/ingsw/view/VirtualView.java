@@ -12,11 +12,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * This class offer a mirror of a single client view for the server.
+ * This class offers a mirror of a single client view for the server.
  * It implements the View interface (basically, every method is an invocation to the specific client handler).
  */
 public class VirtualView implements View {
-
+    /** Reference to the corresponding {@code ClientHandler}. */
     private final ClientHandler clientHandler;
 
     public VirtualView(ClientHandler clientHandler) {

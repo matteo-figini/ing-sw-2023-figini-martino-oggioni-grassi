@@ -13,6 +13,9 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
+/**
+ * Entry point for the server application. It creates two instances of connection (Socket and RMI).
+ */
 public class ServerMain {
     public static void main(String[] args) {
         boolean rmiConnection = false;

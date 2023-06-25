@@ -258,6 +258,12 @@ public class TUI implements View {
         showTokensInformation(firstCommonGoal, secondCommonGoal, hasEndGameToken);
     }
 
+    /**
+     * Shows the information regarding the tokens of a player.
+     * @param firstCommonGoal The token corresponding to the first common goal (if obtained, otherwise it is null).
+     * @param secondCommonGoal The token corresponding to the second common goal (if obtained, otherwise it is null).
+     * @param hasEndGameToken {@code Boolean} indicating if the player has got the end game token.
+     */
     protected void showTokensInformation(ScoringToken firstCommonGoal, ScoringToken secondCommonGoal, boolean hasEndGameToken) {
         System.out.print("Points from scoring token obtained: ");
         if (firstCommonGoal != null)

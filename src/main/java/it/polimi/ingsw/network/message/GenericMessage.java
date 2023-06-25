@@ -5,7 +5,7 @@ package it.polimi.ingsw.network.message;
  * It inherits from {@code Message} class and contains a string for the message.
  */
 public class GenericMessage extends Message {
-    private String genericMessage;
+    private final String genericMessage;
 
     public GenericMessage (String genericMessage) {
         super ("SERVER", MessageType.GENERIC_MESSAGE);
@@ -13,7 +13,6 @@ public class GenericMessage extends Message {
     }
 
     /**
-     * This method returns the generic message.
      * @return The generic message.
      */
     public String getGenericMessage () {
