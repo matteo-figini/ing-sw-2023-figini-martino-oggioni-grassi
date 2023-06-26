@@ -15,7 +15,7 @@ public class RemoteServerImpl extends UnicastRemoteObject implements RemoteServe
     /** Reference to the {@code Server} object. */
     private final Server server;
     private int pingCounter;
-
+    /** Default server port for RMI connection. */
     public static final int DEFAULT_RMI_PORT = 1099;
 
     public RemoteServerImpl (Server server) throws RemoteException {
@@ -30,14 +30,18 @@ public class RemoteServerImpl extends UnicastRemoteObject implements RemoteServe
         }
     }
 
-
-    @Override
+    /**
+     * This method is used to check that the connection with a client is working.
+     */
     public void ping() throws RemoteException {
         pingCounter++;
         System.out.println("Received ping from client. Counter: " + pingCounter);
     }
 
-    @Override
+    /**
+     * This method returns the amount of time a Client has been connected to the Server.
+     * @throws RemoteException Exception raised if a connection error occurs.
+     */
     public int getCounter() throws RemoteException {
         return pingCounter;
     }

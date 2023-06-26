@@ -1,16 +1,13 @@
 package it.polimi.ingsw.network.rmi;
 
 import it.polimi.ingsw.network.Client;
-import it.polimi.ingsw.network.ClientHandler;
 import it.polimi.ingsw.network.ClientManager;
 import it.polimi.ingsw.network.Server;
-import it.polimi.ingsw.network.message.LoginRequestMessage;
 import it.polimi.ingsw.network.message.Message;
 import it.polimi.ingsw.network.message.MessageType;
 import it.polimi.ingsw.network.message.PingMessage;
 
 import java.rmi.NotBoundException;
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -23,19 +20,31 @@ import java.util.concurrent.TimeUnit;
  * This class implements the remote interface for the client.
  */
 public class RemoteClientImpl extends Client implements RemoteClient, Runnable {
-
+    /** Instance of the connected {@code RemoteServer}. */
     private RemoteServer remoteServer;
     private int lastPingCounter;
-
+    /** Read service. */
     private final ExecutorService readService = Executors.newSingleThreadExecutor();
-
+    /** Ping service. */
     private final ScheduledExecutorService pingSchedule = Executors.newSingleThreadScheduledExecutor();
-
+    /** Standard timeout for RMI connection. */
     public static final int RMI_TIMEOUT = 10000;
+    /** Server IP address. */
+    private String ipAddress;
+    /** Server port. */
+    private int port;
 
+    /**
+     * @param manager Reference to the {@code ClientManager} of the client.
+     * @param ipAddress Server IP address.
+     * @param port Server RMI port (default: 1099)
+     * @throws RemoteException Exception raised if a connection error occurs.
+     */
     public RemoteClientImpl (ClientManager manager, String ipAddress, int port) throws RemoteException {
         setClientManager(manager);
-        Registry registry = LocateRegistry.getRegistry(ipAddress, port);
+        this.ipAddress = ipAddress;
+        this.port = port;
+        Registry registry = LocateRegistry.getRegistry(this.ipAddress, this.port);
         try {
             this.remoteServer = (RemoteServer) registry.lookup(Server.SERVER_NAME);
             enablePing();
@@ -44,8 +53,8 @@ public class RemoteClientImpl extends Client implements RemoteClient, Runnable {
         }
     }
 
-
     @Override
+    @Deprecated
     public void run() {
         try {
             //...
@@ -55,23 +64,24 @@ public class RemoteClientImpl extends Client implements RemoteClient, Runnable {
     }
 
     /**
-     * This method is used to get the reference from the RMI registry so that the method contained in the class RemoteServer can be used by the client.
-     *
+     * This method is used to get the reference from the RMI registry so that the method contained in the class RemoteServer
+     * can be used by the client.
      * @return the reference to the RemoteServer class
-     * @throws Exception if a remote exception occurs
+     * @throws Exception Exception raised if a connection error occurs.
      */
     public RemoteServer getReference() throws Exception {
         //Locate the Registry
-        Registry registry = LocateRegistry.getRegistry("127.0.0.1", 1099);
+        Registry registry = LocateRegistry.getRegistry(this.ipAddress, this.port);
         //Get and return the reference of the exported object from RMI registry
         return (RemoteServer) registry.lookup(Server.SERVER_NAME);
     }
 
     /**
-     *This method checks if the ping counter of a Client has been incremented. If it is not updated, it means that the client
-     * has been disconnected.
+     * This method checks if the ping counter of a Client has been incremented. If it is not updated, it means that the
+     * client has been disconnected.
      */
-    public void checkPing(){
+    /*@Deprecated
+    public void checkPing() {
         try {
             remoteServer = this.getReference();
             remoteServer.ping();
@@ -85,14 +95,8 @@ public class RemoteClientImpl extends Client implements RemoteClient, Runnable {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }*/
 
-    }
-
-    /**
-     * This method gets a reference to the Remote server so that the Client can use the methods contained in the
-     * RemoteServer interface.
-     * @param message The message to be sent.
-     */
     @Override
     public void sendMessage(Message message) {
         try {

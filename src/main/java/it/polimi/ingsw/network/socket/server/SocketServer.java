@@ -33,7 +33,7 @@ public class SocketServer implements Runnable {
     }
 
     /**
-     * Creates a thread that constantly listen on the {@code ServerSocket}.
+     * Creates a thread that constantly listens to on the {@code ServerSocket}.
      * When a new client asks for the connection, a new {@code SocketClientHandler} is created.
      */
     @Override

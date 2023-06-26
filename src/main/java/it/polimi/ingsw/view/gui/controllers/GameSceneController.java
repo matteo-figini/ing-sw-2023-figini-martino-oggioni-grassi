@@ -32,7 +32,7 @@ public class GameSceneController {
     private URL location;
 
     int numOfPositions = 0;
-    boolean pickUpEnabled = false;
+    boolean pickUpEnabled = true;
 
     List<Position> positions = new ArrayList<>();
     List<Image> tilesImages = new ArrayList<>();
@@ -1354,7 +1354,7 @@ public class GameSceneController {
 
     @FXML
     void pickUpFromBoard (MouseEvent event) {
-        System.out.println("DEBUG: Called method pickUpFromBoard.");
+        System.out.println("pickupenabled: " + pickUpEnabled + ", numofpos = " + numOfPositions);
         if (pickUpEnabled && numOfPositions < 3) {
             Node tile = (Node) event.getTarget();
             int row, column;

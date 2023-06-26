@@ -24,7 +24,6 @@ public class SocketClient extends Client {
     private final ObjectInputStream inputStream;  // Input stream for socket
     private final ObjectOutputStream outputStream;    // Output stream for socket
     public static final int SOCKET_TIMEOUT = 10000;
-
     private final ExecutorService readService = Executors.newSingleThreadExecutor();
     private final ScheduledExecutorService pingSchedule = Executors.newSingleThreadScheduledExecutor();
 
