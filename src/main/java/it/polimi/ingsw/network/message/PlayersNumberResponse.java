@@ -6,11 +6,18 @@ package it.polimi.ingsw.network.message;
 public class PlayersNumberResponse extends Message {
     private final int playersNumber;        // Number of the players in the game.
 
+    /**
+     * @param nickname Client sender of the information about the number of the players.
+     * @param playersNumber Number of the players in the game.
+     */
     public PlayersNumberResponse(String nickname, int playersNumber) {
         super(nickname, MessageType.PLAYERSNUMBER_REPLY);
         this.playersNumber = playersNumber;
     }
 
+    /**
+     * @return Number of the players in the game.
+     */
     public int getPlayersNumber() {
         return playersNumber;
     }

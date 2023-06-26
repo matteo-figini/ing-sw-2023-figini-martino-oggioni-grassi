@@ -332,7 +332,7 @@ public class TUI implements View {
     }
 
     private int readIntegerNumber () {
-        int number = 0;
+        int number;
         try {
             number = Integer.parseInt(scanner.nextLine());
         } catch (NumberFormatException ignored) {

@@ -1,6 +1,7 @@
 package it.polimi.ingsw.network.message;
 
 import it.polimi.ingsw.model.BoardCell;
+import it.polimi.ingsw.network.Server;
 
 import java.util.Arrays;
 
@@ -18,7 +19,7 @@ public class BoardContent extends Message {
      * @param boardContent A reference to a matrix representing the board.
      */
     public BoardContent (BoardCell[][] boardContent) {
-        super("SERVER", MessageType.BOARD_CONTENT);
+        super(Server.SERVER_NAME, MessageType.BOARD_CONTENT);
         this.boardContent = boardContent;
     }
 

@@ -5,6 +5,7 @@ import it.polimi.ingsw.exception.NotEnoughCellsException;
 import it.polimi.ingsw.exception.WrongPositionsException;
 import it.polimi.ingsw.model.*;
 import it.polimi.ingsw.model.commongoals.CommonGoalCard;
+import it.polimi.ingsw.network.Server;
 import it.polimi.ingsw.network.message.Message;
 import it.polimi.ingsw.network.message.MessageType;
 import it.polimi.ingsw.network.message.PickTilesResponse;
@@ -336,7 +337,7 @@ public class GameController implements Serializable {
      * @return {@code true} if "nickname" is a valid nickname, {@code false} otherwise.
      */
     public boolean checkNicknameAvailability (String nickname, VirtualView virtualView) {
-        if (nickname == null || nickname.isEmpty() || nickname.equalsIgnoreCase("SERVER")) {
+        if (nickname == null || nickname.isEmpty() || nickname.equalsIgnoreCase(Server.SERVER_NAME)) {
             virtualView.showGenericMessage("Forbidden name.");
             return false;
         }

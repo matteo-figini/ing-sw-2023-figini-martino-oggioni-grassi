@@ -8,11 +8,9 @@ import java.rmi.RemoteException;
  * This interface defines the methods that will be used by the Client on remote objects.
  */
 public interface RemoteClient extends Remote {
-
     /**
      * This method receives messages from the Server and forwards them to the ClientManager
-     * @throws RemoteException
+     * @throws RemoteException Exception raised if a connection error occurs.
      */
-    public void messageToClient(Message message) throws RemoteException;
-
+    void messageToClient(Message message) throws RemoteException;
 }

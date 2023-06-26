@@ -38,18 +38,18 @@ public class ConnectionInfoSceneController implements Initializable {
     private ComboBox<String> connectionTypeBox;
 
     @Override
-    public void initialize(URL url, ResourceBundle resources) {
+    public void initialize (URL url, ResourceBundle resources) {
         assert button1 != null : "fx:id=\"button1\" was not injected: check your FXML file 'ConnectionInfoScene.fxml'.";
         assert playerIpAddress != null : "fx:id=\"playerIpAddress\" was not injected: check your FXML file 'ConnectionInfoScene.fxml'.";
         assert playerSocket != null : "fx:id=\"playerSocket\" was not injected: check your FXML file 'ConnectionInfoScene.fxml'.";
         connectionTypeBox.setItems(FXCollections.observableArrayList("Socket", "RMI"));
     }
 
-    public String getPlayerIpAddress() {
+    private String getPlayerIpAddress() {
         return playerIpAddress.getText();
     }
 
-    public String getPlayerSocket() {
+    private String getPlayerSocket() {
         return playerSocket.getText();
     }
 
@@ -61,7 +61,7 @@ public class ConnectionInfoSceneController implements Initializable {
     @FXML
     public void askServerInformation(javafx.event.ActionEvent event) {
         String ipAddress, defaultIpAddress = "127.0.0.1";
-        int port, defaultPort = SocketServer.SOCKET_SERVER_PORT;
+        int port;
         boolean rmiConnection = false;
 
         // Insert and verify the IP address and the port
@@ -74,9 +74,14 @@ public class ConnectionInfoSceneController implements Initializable {
             ipAddress = getPlayerIpAddress();
 
         if (getPlayerSocket().equals(""))
-            port = defaultPort;
-        else
-            port = Integer.parseInt(getPlayerSocket());
+            port = SocketServer.SOCKET_SERVER_PORT;
+        else {
+            try {
+                port = Integer.parseInt(getPlayerSocket());
+            } catch (NumberFormatException e) {
+                port = SocketServer.SOCKET_SERVER_PORT;
+            }
+        }
 
         rmiConnection = !connectionTypeBox.getValue().equals("Socket");
 

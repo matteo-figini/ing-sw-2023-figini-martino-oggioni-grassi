@@ -5,6 +5,10 @@ package it.polimi.ingsw.network.message;
  */
 public class LoginRequestMessage extends Message {
 
+    /**
+     * The Constructor of the message sends information about the nickname of the client.
+     * @param nickname Nickname suggested from the client.
+     */
     public LoginRequestMessage(String nickname) {
         super(nickname, MessageType.LOGIN_REQUEST);
     }

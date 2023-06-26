@@ -1,6 +1,7 @@
 package it.polimi.ingsw.network.rmi;
 
 import it.polimi.ingsw.network.ClientHandler;
+import it.polimi.ingsw.network.Server;
 import it.polimi.ingsw.network.message.Message;
 import it.polimi.ingsw.network.message.PingMessage;
 
@@ -67,7 +68,7 @@ public class RemoteClientHandler implements ClientHandler {
 
     public void enablePing() {
         pingSchedule.scheduleAtFixedRate(
-                () -> sendMessage(new PingMessage("SERVER")),
+                () -> sendMessage(new PingMessage(Server.SERVER_NAME)),
                 0,
                 RMI_TIMEOUT/2,
                 TimeUnit.MILLISECONDS);

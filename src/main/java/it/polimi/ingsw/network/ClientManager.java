@@ -124,7 +124,7 @@ public class ClientManager {
                         shelfMessage.getShelfContent(),
                         shelfMessage.getFirstCommonGoal(),
                         shelfMessage.getSecondCommonGoal(),
-                        shelfMessage.isHasEndGameToken());
+                        shelfMessage.hasEndGameToken());
             }
             case COMMON_GOAL_CARD -> {
                 CommonGoalCardMessage commonGoalCardMessage = (CommonGoalCardMessage) message;

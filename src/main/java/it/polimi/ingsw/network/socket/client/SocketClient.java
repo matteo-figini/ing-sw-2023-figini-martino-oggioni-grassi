@@ -23,13 +23,13 @@ public class SocketClient extends Client {
     private final Socket socket;        // Client socket
     private final ObjectInputStream inputStream;  // Input stream for socket
     private final ObjectOutputStream outputStream;    // Output stream for socket
-    public static final int SOCKET_TIMEOUT = 20000;
+    public static final int SOCKET_TIMEOUT = 10000;
 
     private final ExecutorService readService = Executors.newSingleThreadExecutor();
     private final ScheduledExecutorService pingSchedule = Executors.newSingleThreadScheduledExecutor();
 
     /**
-     * Default constructor sets the connection to the server.
+     * The default constructor sets the connection to the server.
      * @param ipAddress IP address of the server.
      * @param port Port of the server.
      */
@@ -66,7 +66,7 @@ public class SocketClient extends Client {
                 try {
                     message = (Message) inputStream.readObject();
                 } catch (IOException | ClassNotFoundException e) {
-                    message = new ErrorMessage(null, "Connection lost with the server.");
+                    message = new ErrorMessage(null, "Disconnecting from the server. You can close safely the program.");
                     disconnect();
                     readService.shutdownNow();
                 }

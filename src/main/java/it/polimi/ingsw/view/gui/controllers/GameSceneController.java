@@ -1354,6 +1354,7 @@ public class GameSceneController {
 
     @FXML
     void pickUpFromBoard (MouseEvent event) {
+        System.out.println("DEBUG: Called method pickUpFromBoard.");
         if (pickUpEnabled && numOfPositions < 3) {
             Node tile = (Node) event.getTarget();
             int row, column;
@@ -1374,7 +1375,7 @@ public class GameSceneController {
                     if (!positions.contains(position)) {
                         positions.add(position);
                         tile.setEffect(new InnerShadow(BlurType.THREE_PASS_BOX, new Color(0.4, 1, 0.36, 1), 10, 0.9, -1, 0));
-                        this.blurredNodes.add(tile);
+                        blurredNodes.add(tile);
                         Image image = getImageFromGrid(gridPane, row, column);
                         if (image != null) {
                             tilesImages.add(image);

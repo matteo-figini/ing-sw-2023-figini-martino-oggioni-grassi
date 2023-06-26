@@ -1,5 +1,7 @@
 package it.polimi.ingsw.network.message;
 
+import it.polimi.ingsw.network.Server;
+
 import java.util.Map;
 
 /**
@@ -9,8 +11,11 @@ public class ScoreBoardMessage extends Message {
     /** Reference to the {@code Map} containing the score board. */
     private final Map<String, Integer> scoreBoardMap;
 
+    /**
+     * @param scoreBoardMap {@code Map} containing the score board.
+     */
     public ScoreBoardMessage (Map<String, Integer> scoreBoardMap) {
-        super("SERVER", MessageType.SCORE_BOARD);
+        super(Server.SERVER_NAME, MessageType.SCORE_BOARD);
         this.scoreBoardMap = scoreBoardMap;
     }
 

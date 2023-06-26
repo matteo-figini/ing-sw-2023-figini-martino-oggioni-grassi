@@ -14,6 +14,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -25,6 +26,8 @@ public class RemoteClientImpl extends Client implements RemoteClient, Runnable {
 
     private RemoteServer remoteServer;
     private int lastPingCounter;
+
+    private final ExecutorService readService = Executors.newSingleThreadExecutor();
 
     private final ScheduledExecutorService pingSchedule = Executors.newSingleThreadScheduledExecutor();
 
@@ -105,9 +108,11 @@ public class RemoteClientImpl extends Client implements RemoteClient, Runnable {
 
     @Override
     public void messageToClient(Message message) throws RemoteException {
-        if (message.getMessageType() != MessageType.PING_MESSAGE) {
-            clientManager.update(message);
-        }
+        readService.execute(() -> {
+            if (message.getMessageType() != MessageType.PING_MESSAGE) {
+                clientManager.update(message);
+            }
+        });
     }
 
     @Override

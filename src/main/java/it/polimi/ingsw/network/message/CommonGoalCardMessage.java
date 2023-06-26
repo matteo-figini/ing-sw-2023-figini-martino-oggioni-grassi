@@ -1,6 +1,7 @@
 package it.polimi.ingsw.network.message;
 
 import it.polimi.ingsw.model.commongoals.CommonGoalCard;
+import it.polimi.ingsw.network.Server;
 
 /**
  * This class represents a message that contains a common goal card.
@@ -15,7 +16,7 @@ public class CommonGoalCardMessage extends Message {
     private final Integer progressiveCard;
 
     public CommonGoalCardMessage (CommonGoalCard commonGoalCard, Integer progressiveCard) {
-        super("SERVER", MessageType.COMMON_GOAL_CARD);
+        super(Server.SERVER_NAME, MessageType.COMMON_GOAL_CARD);
         this.commonGoalCard = commonGoalCard;
         this.progressiveCard = progressiveCard;
     }
