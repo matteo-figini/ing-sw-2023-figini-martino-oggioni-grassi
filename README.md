@@ -34,7 +34,6 @@ Al seguente link è possibile consultare il report della coverage dei test effet
 ## Funzionalità
 ### Funzionalità Sviluppate
 - Regole Complete
-- TUI
 - CLI
 - GUI
 - Socket
@@ -45,7 +44,7 @@ che l'esecuzione possa riprendere da dove si è interrotta anche a seguito del c
 Per riprendere una partita, i giocatori si dovrenno ricollegare al server utilizzando gli stessi nickname
 una volta che questo sia tornato attivo. Si assume che il disco costituisca una memoria totalmente
 affidabile.
-    - __Resilienza:__ Resilienza alle disconnessioni: I giocatori disconnessi a seguito della caduta della rete o del crash
+    - __Resilienza alle disconnessioni:__ I giocatori disconnessi a seguito della caduta della rete o del crash
 del client, possono ricollegarsi e continuare la partita. Mentre un giocatore non è collegato, il gioco
 continua saltando i turni di quel giocatore. Se rimane attivo un solo giocatore, il gioco viene sospeso
 fino a che non si ricollega almeno un altro giocatore oppure scade un timeout che decreta la vittoria
