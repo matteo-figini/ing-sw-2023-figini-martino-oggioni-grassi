@@ -15,7 +15,6 @@ import java.util.Map;
  * virtual views on the server...) must implement this interface.
  */
 public interface View {
-
     /**
      * Asks the user to set a nickname.
      */
@@ -27,12 +26,12 @@ public interface View {
     void askPlayersNumber ();
 
     /**
-     * Send a message to open waiting room scene
+     * Send a message to open a waiting room scene
      */
     void switchToWaitingRoom();
 
     /**
-     * Send a message to open game room scene
+     * Send a message to open a game room scene
      */
     void switchToGameRoom();
 

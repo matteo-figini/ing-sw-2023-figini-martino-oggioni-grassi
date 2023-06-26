@@ -20,11 +20,17 @@ import java.util.concurrent.TimeUnit;
  * This class extends the {@code Client} class using socket technology.
  */
 public class SocketClient extends Client {
-    private final Socket socket;        // Client socket
-    private final ObjectInputStream inputStream;  // Input stream for socket
-    private final ObjectOutputStream outputStream;    // Output stream for socket
+    /** Client socket. */
+    private final Socket socket;
+    /** {@code ObjectInputStream} of the socket. */
+    private final ObjectInputStream inputStream;
+    /** {@code ObjectOutputStream} of the socket. */
+    private final ObjectOutputStream outputStream;
+    /** Default timeout for socket connection. */
     public static final int SOCKET_TIMEOUT = 10000;
+    /** Read service. */
     private final ExecutorService readService = Executors.newSingleThreadExecutor();
+    /** Ping service. */
     private final ScheduledExecutorService pingSchedule = Executors.newSingleThreadScheduledExecutor();
 
     /**

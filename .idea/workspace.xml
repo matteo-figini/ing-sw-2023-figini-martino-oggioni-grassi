@@ -7,16 +7,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Added javadoc to message classes">
+    <list default="true" id="44ab7de7-5728-4d99-b73e-3b9c99b09f47" name="Changes" comment="Added javadoc to remote classes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteClientImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/rmi/RemoteServerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/socket/client/SocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/socket/client/SocketClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/socket/server/SocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/network/socket/server/SocketServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/View.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/ConnectionInfoSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/ConnectionInfoSceneController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/GameSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/GameSceneController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -397,7 +393,7 @@
       <workItem from="1687702071565" duration="998000" />
       <workItem from="1687703472810" duration="1780000" />
       <workItem from="1687774541311" duration="1911000" />
-      <workItem from="1687784028607" duration="1945000" />
+      <workItem from="1687784028607" duration="4655000" />
     </task>
     <task id="LOCAL-00008" summary="updated pom.xml">
       <created>1681479618152</created>
@@ -742,7 +738,7 @@
       <option name="project" value="LOCAL" />
       <updated>1687452560826</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -776,7 +772,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="refactor of javadoc" />
     <MESSAGE value="Moved JavaFX launcher from GUIMain to ClientMain" />
     <MESSAGE value="Added waitingRoom GUI" />
     <MESSAGE value="Added scoring token from the common goal cards to the player." />
@@ -801,7 +796,8 @@
     <MESSAGE value="Added bidirectional ping service with RMI connection" />
     <MESSAGE value="Completed javadoc for controller, exception &amp; model packages" />
     <MESSAGE value="Added javadoc to message classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added javadoc to message classes" />
+    <MESSAGE value="Added javadoc to remote classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added javadoc to remote classes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -810,11 +806,6 @@
           <properties class="java.net.SocketTimeoutException" package="java.net" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/it/polimi/ingsw/view/gui/controllers/GameSceneController.java</url>
-          <line>1357</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

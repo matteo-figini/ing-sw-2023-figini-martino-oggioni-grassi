@@ -21,22 +21,25 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
+/**
+ * This class is the controller class for the {@code GameScene}. It contains all the methods to update the board representation,
+ * all the player's shelf, the goal cards and other elements. Indeed, it ensures to choose the tiles to pick up from the board
+ * when it's the active player turn.
+ */
 public class GameSceneController {
-    /** Reference to the {@code ClientManager} instance of the client. */
-    private ClientManager clientManager;
-
     @FXML
     private ResourceBundle resources;
-
     @FXML
     private URL location;
-
-    int numOfPositions = 0;
-    boolean pickUpEnabled = true;
-
+    /** Reference to the {@code ClientManager} instance of the client. */
+    private ClientManager clientManager;
+    /** {@code true} if it is the turn of the current player, {@code false otherwise}. */
+    private boolean pickUpEnabled = true;
+    /** {@code List} of the chosen positions on the board. */
     List<Position> positions = new ArrayList<>();
+    /** {@code List} of the images on the chosen positions on the board. */
     List<Image> tilesImages = new ArrayList<>();
-
+    /** {@code List} of the selected nodes on the chosen positions on the board. */
     List<Node> blurredNodes = new ArrayList<>();
 
     @FXML
@@ -62,8 +65,10 @@ public class GameSceneController {
 
     @FXML
     private ImageView Common2Token4;
+
     @FXML
     private ImageView CompleteShelfToken;
+
     @FXML
     private ImageView P1Common1Token;
 
@@ -72,6 +77,7 @@ public class GameSceneController {
 
     @FXML
     private ImageView P1CompleteShelfToken;
+
     @FXML
     private ImageView P2Common1Token;
 
@@ -80,6 +86,7 @@ public class GameSceneController {
 
     @FXML
     private ImageView P2CompleteShelfToken;
+
     @FXML
     private ImageView P3Common1Token;
 
@@ -88,6 +95,7 @@ public class GameSceneController {
 
     @FXML
     private ImageView P3CompleteShelfToken;
+
     @FXML
     private ImageView P4Common1Token;
 
@@ -96,6 +104,7 @@ public class GameSceneController {
 
     @FXML
     private ImageView P4CompleteShelfToken;
+
     @FXML
     private Button button1;
 
@@ -448,6 +457,7 @@ public class GameSceneController {
 
     @FXML
     private GridPane P2Shelf;
+
     @FXML
     private ImageView P2shelf00;
 
@@ -537,6 +547,7 @@ public class GameSceneController {
 
     @FXML
     private ImageView P2shelf54;
+
     @FXML
     private GridPane P3Shelf;
 
@@ -629,6 +640,7 @@ public class GameSceneController {
 
     @FXML
     private ImageView P3shelf54;
+
     @FXML
     private GridPane P4Shelf;
 
@@ -1354,8 +1366,7 @@ public class GameSceneController {
 
     @FXML
     void pickUpFromBoard (MouseEvent event) {
-        System.out.println("pickupenabled: " + pickUpEnabled + ", numofpos = " + numOfPositions);
-        if (pickUpEnabled && numOfPositions < 3) {
+        if (pickUpEnabled && positions.size() < 3) {
             Node tile = (Node) event.getTarget();
             int row, column;
             try {
@@ -1370,7 +1381,6 @@ public class GameSceneController {
             }
             try {
                 Position position = new Position(row, column);
-                System.out.println("Selected position " + position);
                 if (!position.equals(new Position(0, 0))) {
                     if (!positions.contains(position)) {
                         positions.add(position);
@@ -1380,7 +1390,6 @@ public class GameSceneController {
                         if (image != null) {
                             tilesImages.add(image);
                         }
-                        numOfPositions++;
                     }
                 }
             } catch (NullPointerException e) {
@@ -1392,7 +1401,6 @@ public class GameSceneController {
     public void enablePickingUp () {
         positions.clear();
         this.pickUpEnabled = true;
-        this.numOfPositions = 0;
         blurredNodes.clear();
         this.resetTurnButton.setVisible(true);
     }
@@ -1412,8 +1420,13 @@ public class GameSceneController {
     }
 
     public void resetTurnButtonClicked () {
-        terminatePickingUp();
-        enablePickingUp();
+        for (Node tile : blurredNodes) {
+            tile.setEffect(null);
+        }
+        blurredNodes.clear();
+        positions.clear();
+        pickUpEnabled = true;
+        resetTurnButton.setVisible(true);
     }
 
     public void hideShelf (int numPlayers) {

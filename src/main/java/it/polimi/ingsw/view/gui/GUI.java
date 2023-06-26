@@ -31,7 +31,7 @@ public class GUI implements View {
     private ClientManager clientManager;
 
     /** Reference to the {@code GUIMain} class. */
-    private GUIMain guiMain;
+    private final GUIMain guiMain;
 
     /** List of player's nicknames. */
     private List<String> nicknameList;
@@ -127,7 +127,9 @@ public class GUI implements View {
     @Override
     public void askColumnAndPositions() {
         if (gameSceneController != null) {
-            gameSceneController.enablePickingUp();
+            Platform.runLater(() -> {
+                gameSceneController.enablePickingUp();
+            });
         }
     }
 
@@ -135,7 +137,7 @@ public class GUI implements View {
     public void showLoginResponse (boolean validNickname, boolean connectionEstablished) {
         if (nicknameRequestSceneController != null && !validNickname) {
             Platform.runLater(() -> {
-                nicknameRequestSceneController.setInformationMessage("Invalid nickname, please try again");
+                nicknameRequestSceneController.setInformationMessage("Invalid nickname, please try another name!");
                 nicknameRequestSceneController.resetPlayerNickname();
             });
         }
@@ -161,14 +163,18 @@ public class GUI implements View {
 
     @Override
     public void showPlayerInformation(String player, ShelfCell[][] shelfContent, ScoringToken firstCommonGoal, ScoringToken secondCommonGoal, boolean hasEndGameToken) {
-        Platform.runLater(() -> gameSceneController.updateShelfContent(player, shelfContent, firstCommonGoal, secondCommonGoal, hasEndGameToken));
+        if (gameSceneController != null) {
+            Platform.runLater(() -> gameSceneController.updateShelfContent(player, shelfContent, firstCommonGoal, secondCommonGoal, hasEndGameToken));
+        }
     }
 
     @Override
     public void showCommonGoalCard(CommonGoalCard commonGoalCard, Integer progressiveCard) {
-        Platform.runLater(() -> {
-            gameSceneController.updateCommonGoalCard(commonGoalCard, progressiveCard);
-        });
+        if (gameSceneController != null) {
+            Platform.runLater(() -> {
+                gameSceneController.updateCommonGoalCard(commonGoalCard, progressiveCard);
+            });
+        }
     }
 
     @Override

@@ -62,7 +62,7 @@ public class ConnectionInfoSceneController implements Initializable {
     public void askServerInformation(javafx.event.ActionEvent event) {
         String ipAddress, defaultIpAddress = "127.0.0.1";
         int port;
-        boolean rmiConnection = false;
+        boolean rmiConnection;
 
         // Insert and verify the IP address and the port
         playerIpAddress.setStyle("-fx-text-fill: red;");
@@ -83,7 +83,7 @@ public class ConnectionInfoSceneController implements Initializable {
             }
         }
 
-        rmiConnection = !connectionTypeBox.getValue().equals("Socket");
+        rmiConnection = !connectionTypeBox.getValue().equalsIgnoreCase("Socket");
 
         if (ClientManager.isValidIPAddress(ipAddress) && ClientManager.isValidPort(port)) {
             playerIpAddress.setStyle("-fx-text-fill: green");
@@ -95,6 +95,10 @@ public class ConnectionInfoSceneController implements Initializable {
         }
     }
 
+    /**
+     * Set the client manager for the scene.
+     * @param clientManager {@code ClientManager} of the client.
+     */
     public void setClientManager (ClientManager clientManager) {
         this.clientManager = clientManager;
     }
