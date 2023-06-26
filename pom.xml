@@ -54,13 +54,13 @@
                 <version>3.2.4</version>
                 <executions>
                     <execution>
-                        <id>${project.artifactId}-server</id>
+                        <id>${project.name}-server</id>
                         <phase>package</phase>
                         <goals>
                             <goal>shade</goal>
                         </goals>
                         <configuration>
-                            <finalName>${project.artifactId}-server</finalName>
+                            <finalName>${project.name}-server</finalName>
                             <transformers>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
@@ -83,13 +83,13 @@
                         </configuration>
                     </execution>
                     <execution>
-                        <id>${project.artifactId}-client</id>
+                        <id>${project.name}-client</id>
                         <phase>package</phase>
                         <goals>
                             <goal>shade</goal>
                         </goals>
                         <configuration>
-                            <finalName>${project.artifactId}-client</finalName>
+                            <finalName>${project.name}-client</finalName>
                             <transformers>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">

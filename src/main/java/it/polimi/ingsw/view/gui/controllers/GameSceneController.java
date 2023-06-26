@@ -1485,7 +1485,8 @@ public class GameSceneController {
 
     public void updateMessageBox (String message) {
         if (message.equalsIgnoreCase("Connection lost with the server.") ||
-                message.equalsIgnoreCase("Game finished! Thanks for playing with us.")) {
+                message.equalsIgnoreCase("Game finished! Thanks for playing with us.") ||
+                message.equalsIgnoreCase("Disconnecting from the server. You can close safely the program.")) {
             messageBox.setText(messageBox.getText() + "\n" + message);
         } else {
             messageBox.setText(message);
