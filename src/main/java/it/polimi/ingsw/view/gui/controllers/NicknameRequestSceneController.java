@@ -34,20 +34,31 @@ public class NicknameRequestSceneController {
     void initialize() {
         assert button2 != null : "fx:id=\"button2\" was not injected: check your FXML file 'NicknameRequestScene.fxml'.";
         assert playerNickname != null : "fx:id=\"playerNickname\" was not injected: check your FXML file 'NicknameRequestScene.fxml'.";
+        assert infoLabel != null : "fx:id=\"infoLabel\" was not injected: check your FXML file 'NicknameRequestScene.fxml'.";
     }
 
     public void setOnNicknameConfirmedListener(Consumer<String> listener) {
         this.onNicknameConfirmedListener = listener;
     }
 
+    /**
+     * @return The chosen nickname for the player.
+     */
     public String getPlayerNickname() {
         return playerNickname.getText();
     }
 
+    /**
+     * Fills the player nickname text field with an empty string.
+     */
     public void resetPlayerNickname () {
         playerNickname.setText("");
     }
 
+    /**
+     * Sends the chosen nickname to the listener of the text field.
+     * @param event Event associated to the method.
+     */
     @FXML
     public void askNicknameInformation(javafx.event.ActionEvent event) {
         String nickname = getPlayerNickname();
@@ -56,6 +67,10 @@ public class NicknameRequestSceneController {
         }
     }
 
+    /**
+     * Set the text in the label.
+     * @param message Message to show.
+     */
     public void setInformationMessage (String message) {
         infoLabel.setText(message);
     }

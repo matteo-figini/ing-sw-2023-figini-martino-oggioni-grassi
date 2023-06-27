@@ -990,6 +990,10 @@ public class GameSceneController {
         assert P4CompleteShelfToken != null : "fx:id=\"P4CompleteShelfToken\" was not injected: check your FXML file 'GameScene.fxml'.";
     }
 
+    /**
+     * Update the board content.
+     * @param boardContent Matrix of {@code BoardCell} representing the board content.
+     */
     public void updateBoardContent(BoardCell[][] boardContent) {
         ImageView[][] cellImageViews = new ImageView[Board.MAX_ROWS][Board.MAX_COLUMNS];
         for (int i = 0; i < Board.MAX_ROWS; i++) {
@@ -1064,6 +1068,10 @@ public class GameSceneController {
         Board85.setImage(cellImageViews[8][5].getImage());
     }
 
+    /**
+     * Show the nickname of each shelf.
+     * @param nicknameList List of the game's players' nicknames.
+     */
     public void showShelfNicknames (List<String> nicknameList) {
         String firstPlayerName = clientManager.getNickname();
         Player1Name.setText(firstPlayerName);
@@ -1113,6 +1121,15 @@ public class GameSceneController {
         }
     }
 
+    /**
+     * Shows the information of each player in terms of nickname, shelf content, scoring token achieved and end game token.
+     * The current player is shown on the right side of the board, while other players are shown under the board.
+     * @param nickname The nickname of the player.
+     * @param shelfContent Matrix of {@code ShelfCell} representing the shelf of the player.
+     * @param cgc1 {@code ScoringToken} associated to the first {@code CommonGoalCard}.
+     * @param cgc2 {@code ScoringToken} associated to the second {@code CommonGoalCard}.
+     * @param egt Boolean representing if the player achieved the end game token.
+     */
     public void updateShelfContent(String nickname, ShelfCell[][] shelfContent, ScoringToken cgc1, ScoringToken cgc2, boolean egt) {
         ImageView[][] cellImageViews = new ImageView[Shelf.ROWS][Shelf.COLUMNS];
         for (int i = 0; i < Shelf.ROWS; i++) {
@@ -1276,6 +1293,7 @@ public class GameSceneController {
         P3shelf53.setImage(cellImageViews[5][3].getImage());
         P3shelf54.setImage(cellImageViews[5][4].getImage());
     }
+
     private void updateP4ShelfImages(ImageView[][] cellImageViews) {
         P4shelf00.setImage(cellImageViews[0][0].getImage());
         P4shelf01.setImage(cellImageViews[0][1].getImage());
@@ -1309,6 +1327,10 @@ public class GameSceneController {
         P4shelf54.setImage(cellImageViews[5][4].getImage());
     }
 
+    /**
+     * Shows the correct {@code PersonalGoalCard} based on its serial number.
+     * @param personalGoalCard The {@code PersonalGoalCard} to be shown.
+     */
     public void updatePersonalGoalCard(PersonalGoalCard personalGoalCard) {
         Image image;
         if (personalGoalCard.getSerialNumber() == 1)
@@ -1318,6 +1340,11 @@ public class GameSceneController {
         PersonalGoalCard.setImage(image);
     }
 
+    /**
+     * Shows the correct {@code CommonGoalCard} based on its serial number and the stack of {@code ScoringToken} contained.
+     * @param commonGoalCard The {@code CommonGoalCard} to be shown.
+     * @param progressiveCard A number representing the order of the {@code CommonGoalCard} in the game.
+     */
     public void updateCommonGoalCard(CommonGoalCard commonGoalCard, Integer progressiveCard) {
         Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/common goal cards/" + commonGoalCard.getSerialNumber() + ".jpg")));
         List<ScoringToken> tokens = commonGoalCard.getScoringTokens();
@@ -1356,10 +1383,17 @@ public class GameSceneController {
         return new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/scoring tokens/scoring_" + token.score() + ".jpg")));
     }
 
+    /**
+     * @return The {@code ClientManager} associated with the client.
+     */
     public ClientManager getClientManager() {
         return clientManager;
     }
 
+    /**
+     * Sets the current manager to the current {@code ClientManager}.
+     * @param clientManager The {@code ClientManager} associated with the client.
+     */
     public void setClientManager(ClientManager clientManager) {
         this.clientManager = clientManager;
     }
@@ -1398,6 +1432,9 @@ public class GameSceneController {
         }
     }
 
+    /**
+     * Enables the picking-up procedure of the tiles from the board.
+     */
     public void enablePickingUp () {
         positions.clear();
         this.pickUpEnabled = true;
@@ -1419,6 +1456,10 @@ public class GameSceneController {
         return null;
     }
 
+    /**
+     * Restarts the turn of the current player when the "Reset Turn" button is clicked.
+     * It clears the position's list so new positions can be chosen.
+     */
     public void resetTurnButtonClicked () {
         for (Node tile : blurredNodes) {
             tile.setEffect(null);
@@ -1429,6 +1470,10 @@ public class GameSceneController {
         resetTurnButton.setVisible(true);
     }
 
+    /**
+     * Hides the unused shelf when the number of the player is lower than {@code Game.MAX_PLAYERS}.
+     * @param numPlayers The number of the players in the game.
+     */
     public void hideShelf (int numPlayers) {
         switch (numPlayers) {
             case 2 -> {
@@ -1444,6 +1489,9 @@ public class GameSceneController {
         }
     }
 
+    /**
+     * Terminates the procedure of picking up tiles.
+     */
     private void terminatePickingUp() {
         pickUpEnabled = false;
         for (Node tile : blurredNodes) {
@@ -1483,6 +1531,10 @@ public class GameSceneController {
         terminatePickingUp();
     }
 
+    /**
+     * Updates the message box with the message passed as parameter.
+     * @param message The message to show on the message box.
+     */
     public void updateMessageBox (String message) {
         if (message.equalsIgnoreCase("Connection lost with the server.") ||
                 message.equalsIgnoreCase("Game finished! Thanks for playing with us.") ||
@@ -1493,6 +1545,10 @@ public class GameSceneController {
         }
     }
 
+    /**
+     * Shows the final score board on the text area.
+     * @param scoreBoardMap {@code Map} containing the final score board.
+     */
     public void updateFinalScoreBoard (Map<String, Integer> scoreBoardMap) {
         StringBuilder scoreBoardMessage = new StringBuilder("FINAL SCOREBOARD\n");
         for (Map.Entry<String, Integer> entry : scoreBoardMap.entrySet()) {

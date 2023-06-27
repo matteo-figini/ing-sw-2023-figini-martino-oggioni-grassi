@@ -47,7 +47,7 @@
                <children>
                   <Pane prefHeight="40.0" prefWidth="1562.0">
                      <children>
-                        <Label alignment="CENTER" layoutX="576.0" layoutY="4.0" prefHeight="21.0" prefWidth="396.0" text="Insert player's number" textAlignment="CENTER" textFill="WHITE">
+                        <Label fx:id="messageLabel" alignment="CENTER" layoutX="576.0" layoutY="4.0" prefHeight="21.0" prefWidth="396.0" text="Insert player's number" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font></Label>

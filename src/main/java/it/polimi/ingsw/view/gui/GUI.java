@@ -37,7 +37,9 @@ public class GUI implements View {
     private List<String> nicknameList;
 
     // ---------- SCENE'S REFERENCES ----------
+    /** Nickname request's scene. */
     private NicknameRequestSceneController nicknameRequestSceneController;
+    /** Game's scene. */
     private GameSceneController gameSceneController;
 
     /**
