@@ -12,7 +12,7 @@ Interazione e gameplay: linea di comando (CLI) e grafica (GUI).
 ### UML
 I seguenti diagrammi delle classi rappresentano rispettivamente il modello iniziale sviluppato durante la fase di progettazione e i diagrammi del prodotto finale nelle parti critiche riscontrate.
 - [UML Iniziale](https://github.com/matteo-figini/ing-sw-2023-figini-martino-oggioni-grassi/blob/main/deliverables/initial/uml_model_initial.png)
-- [UML Finali](https://github.com/matteo-figini/ing-sw-2023-figini-martino-oggioni-grassi/blob/main/deliverables/final/uml/Class%20Diagram/final_uml.png)
+- [UML Finali](https://github.com/matteo-figini/ing-sw-2023-figini-martino-oggioni-grassi/blob/main/deliverables/final/uml/Class%20Diagram/)
 - [Sequence Diagrams](https://github.com/matteo-figini/ing-sw-2023-figini-martino-oggioni-grassi/blob/main/deliverables/final/uml/Sequence%20Diagrams/)
 
 ### JavaDoc
@@ -20,7 +20,7 @@ La seguente documentazione include una descrizione per la maggior parte delle cl
 [Javadoc]() DA AGGIUNGERE
 
 ### Coverage report
-Al seguente link è possibile consultare il report della coverage dei test effettuati con Junit: 
+Al seguente link è possibile consultare il report della coverage dei test effettuati con JUnit: 
 [Report]() DA AGGIUNGERE
 
 ### Librerie e Plugins
