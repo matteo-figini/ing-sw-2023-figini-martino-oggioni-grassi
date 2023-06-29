@@ -38,8 +38,8 @@ public class Server {
      * Add a new client with the nickname specified as parameter and the {@code ClientHandler} created by the
      * {@code ClientHandler} class. Based on the current state of the {@code GameController}, the connection can
      * be a new client connection or a client reconnection.
-     * @param nickname
-     * @param clientHandler
+     * @param nickname The nickname of the client.
+     * @param clientHandler {@code ClientHandler} of the client.
      */
     public void addClient (String nickname, ClientHandler clientHandler) {
         VirtualView virtualView = new VirtualView(clientHandler);

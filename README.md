@@ -3,25 +3,17 @@
 Implementazione del gioco da tavolo [MyShelfie](http://www.craniocreations.it/prodotto/my-shelfie/).
 
 Il progetto consiste nell’implementazione di un sistema distribuito composto da un singolo server in grado di gestire una partita alla volta e multipli client (uno per giocatore) che possono partecipare ad una sola partita alla volta utilizzando il pattern MVC (Model-View-Controller).
-La rete è stata gestita con l'utilizzo delle socket o RMI.
+La rete è stata gestita con l'utilizzo delle socket e di RMI.
 
 Interazione e gameplay: linea di comando (CLI) e grafica (GUI).
 
 ## Documentazione
 
 ### UML
-I seguenti diagrammi delle classi rappresentano rispettivamente il modello iniziale sviluppato durante la fase di progettazione e i diagrammi del prodotto finale nelle parti critiche riscontrate.
+I seguenti diagrammi delle classi rappresentano rispettivamente il modello iniziale sviluppato durante la fase di progettazione e i diagrammi del prodotto finale.
 - [UML Iniziale](https://github.com/matteo-figini/ing-sw-2023-figini-martino-oggioni-grassi/blob/main/deliverables/initial/uml_model_initial.png)
 - [UML Finali](https://github.com/matteo-figini/ing-sw-2023-figini-martino-oggioni-grassi/blob/main/deliverables/final/uml/Class%20Diagram/)
 - [Sequence Diagrams](https://github.com/matteo-figini/ing-sw-2023-figini-martino-oggioni-grassi/blob/main/deliverables/final/uml/Sequence%20Diagrams/)
-
-### JavaDoc
-La seguente documentazione include una descrizione per la maggior parte delle classi e dei metodi utilizzati, segue le tecniche di documentazione di Java e può essere consultata al seguente indirizzo:
-[Javadoc]() DA AGGIUNGERE
-
-### Coverage report
-Al seguente link è possibile consultare il report della coverage dei test effettuati con JUnit: 
-[Report]() DA AGGIUNGERE
 
 ### Librerie e Plugins
 |Libreria/Plugin|Descrizione|
@@ -81,8 +73,7 @@ può essere ripreso al riavvio del server combinando l'implementazione della res
 l'implementazione della persistenza.
 
 ### Requisiti di sistema
-È necessario essere in possesso di una versione di JRE (_Java Runtime Environment_) che supporti la versione numero 20 di
-Java.
+È necessario essere in possesso di una versione di JRE (_Java Runtime Environment_) che supporti Java 20.
 
 ## Componenti del gruppo
 - [__Matteo Figini__](https://github.com/matteofigini)
