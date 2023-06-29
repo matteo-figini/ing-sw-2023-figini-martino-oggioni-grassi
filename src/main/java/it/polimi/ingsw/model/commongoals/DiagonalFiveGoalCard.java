@@ -18,7 +18,8 @@ public class DiagonalFiveGoalCard extends CommonGoalCard {
     }
 
     private boolean startDescendingDiagonalFrom (Shelf shelf, int i) {
-        if (shelf.getShelfContent()[i + 1][1].isFree() ||
+        if (shelf.getShelfContent()[i][0].isFree() ||
+                shelf.getShelfContent()[i + 1][1].isFree() ||
                 shelf.getShelfContent()[i + 2][2].isFree() ||
                 shelf.getShelfContent()[i + 3][3].isFree() ||
                 shelf.getShelfContent()[i + 4][4].isFree())
@@ -30,7 +31,8 @@ public class DiagonalFiveGoalCard extends CommonGoalCard {
     }
 
     private boolean startAscendingDiagonalFrom (Shelf shelf, int i) {
-        if (shelf.getShelfContent()[i - 1][1].isFree() ||
+        if (shelf.getShelfContent()[i][0].isFree() ||
+                shelf.getShelfContent()[i - 1][1].isFree() ||
                 shelf.getShelfContent()[i - 2][2].isFree() ||
                 shelf.getShelfContent()[i - 3][3].isFree() ||
                 shelf.getShelfContent()[i - 4][4].isFree())

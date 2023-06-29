@@ -191,7 +191,10 @@ public class GUI implements View {
     @Override
     public void showScoreBoard(Map<String, Integer> scoreBoardMap) {
         if (gameSceneController != null) {
-            gameSceneController.updateFinalScoreBoard(scoreBoardMap);
+            Platform.runLater(() -> {
+                System.out.println(scoreBoardMap);
+                gameSceneController.updateFinalScoreBoard(scoreBoardMap);
+            });
         }
     }
 
