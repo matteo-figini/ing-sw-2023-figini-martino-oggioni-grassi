@@ -30,7 +30,7 @@ I seguenti diagrammi delle classi rappresentano rispettivamente il modello inizi
 - 2 FA (Funzionalità Avanzate):
     - __Persistenza:__ Fare in modo che il server salvi periodicamente lo stato della partita su disco, in modo
 che l'esecuzione possa riprendere da dove si è interrotta anche a seguito del crash del server stesso.
-Per riprendere una partita, i giocatori si dovrenno ricollegare al server utilizzando gli stessi nickname
+Per riprendere una partita, i giocatori si dovranno ricollegare al server utilizzando gli stessi nickname
 una volta che questo sia tornato attivo. Si assume che il disco costituisca una memoria totalmente
 affidabile.
     - __Resilienza alle disconnessioni:__ I giocatori disconnessi a seguito della caduta della rete o del crash
@@ -64,7 +64,7 @@ correttamente la porta inserita alla connessione scelta.
 Nella cartella in cui è presente il file "My Shelfie-server.jar" viene periodicamente creato e aggiornato un file di nome
 "match.data" contenente le informazioni di gioco necessarie per l'implementazione della persistenza; informazioni che poi
 vengono cancellate assieme al file al termine della partita. All'avvio del gioco, qualora il file non venga trovato o 
-venga spostato, il server ne interpreta l'assenza come assenza di informazioni salvate e inizia comunque una nuova partita.
+venga spostato, il server ne interpreta l'assenza come assenza di informazioni salvate e inizia una nuova partita.
 
 Per quanto riguarda l'implementazione della resilienza alle disconnessioni, qualora rimanga solamente un giocatore 
 connesso alla partita il gioco viene sospeso indefinitamente fino al momento in cui uno dei giocatori già presenti (ovvero
@@ -73,7 +73,8 @@ può essere ripreso al riavvio del server combinando l'implementazione della res
 l'implementazione della persistenza.
 
 ### Requisiti di sistema
-È necessario essere in possesso di una versione di JRE (_Java Runtime Environment_) che supporti Java 20.
+È necessario essere in possesso di una versione di JRE (_Java Runtime Environment_) che supporti Java 19. Nello specifico,
+i programmi sono stati eseguiti con computer aventi _Java(TM) SE Runtime Environment (build 19.0.2+7-44)_.
 
 ## Componenti del gruppo
 - [__Matteo Figini__](https://github.com/matteofigini)
